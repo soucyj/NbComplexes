@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, decorations.markings}
+\begin{document}
+	\begin{tikzpicture}
+		% Axes
+		\draw[->] (-4,0) -- (4,0) node[right] {$\textrm{Re}$};
+		\draw[->] (0,-4) -- (0,4) node[above] {$\textrm{Im}$};
+		
+		% Droite y = x
+		\draw[red,thick,opacity=0.5](0,0)--(4,0) node[below left]{Axe réel positif};
+		\draw[red,fill=red,opacity=0.5,fill opacity=0.5] (0,0) circle (1pt);
+	\end{tikzpicture}
+\end{document}

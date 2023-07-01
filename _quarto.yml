@@ -1,0 +1,66 @@
+project: 
+  type: website
+  output-dir: docs
+  
+website: 
+  page-navigation: true
+  title: "Nombres complexes et polynômes" 
+  site-url: "https://openscapes.github.io/quarto-website-tutorial" 
+  repo-url: https://github.com/openscapes/quarto-website-tutorial 
+  
+  page-footer:
+    right: ""
+    left: "&copy; CC BY-NC-SA Jérôme Soucy, 2023"
+    
+  sidebar:
+    logo: "images/logo.svg"
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://openscapes.org
+        text: "Openscapes.org"
+      - icon: youtube
+        href: https://github.com/openscapes/quarto-website-tutorial
+        text: "Quarto website tutorial"
+      - icon: twitter
+        href: https://twitter.com/openscapes
+        text: "Openscapes Twitter"         
+
+    style: "docked"
+    search: true
+    collapse-level: 0
+    contents:
+      - section: "Introduction aux nombres complexes"
+        contents:
+          - intro.qmd
+          - exercices01.qmd
+      - section: "Formes polaire et exponentielle"
+        contents:
+          - formepolaireexpo.qmd
+          - exercices02.qmd
+          - exercices02-sol.qmd
+      - section: "Polynômes"
+        contents:
+          - polynomes.qmd
+          - exercices03.qmd
+          - exercices03-sol.qmd
+
+
+format:
+  html:
+    theme: zephyr
+    mainfont: Georgia
+    fontsize: 12pt
+    toc: true
+    number-sections: false
+    reference-location: margin
+    citation-location: margin
+    bibliography: references.bib
+    lang: fr
+    code-tools:
+      source: false
+      toggle: false
+      caption: none
+
+  

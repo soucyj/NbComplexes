@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.310">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Nombres complexes et polynômes – intro</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./exercices01.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Introduction aux nombres complexes</a></li><li class="breadcrumb-item"><a href="./intro.html">Présentation</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://openscapes.org" title="Openscapes.org" class="quarto-navigation-tool px-1" aria-label="Openscapes.org"><i class="bi bi-globe"></i></a>
+    <a href="https://github.com/openscapes/quarto-website-tutorial" title="Quarto website tutorial" class="quarto-navigation-tool px-1" aria-label="Quarto website tutorial"><i class="bi bi-youtube"></i></a>
+    <a href="https://twitter.com/openscapes" title="Openscapes Twitter" class="quarto-navigation-tool px-1" aria-label="Openscapes Twitter"><i class="bi bi-twitter"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Introduction aux nombres complexes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Présentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercices01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Série 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Formes polaire et exponentielle</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">formepolaireexpo.qmd</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercices02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Série 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">exercices02-sol.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Polynômes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">polynomes.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">exercices03.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">exercices03-sol.qmd</span>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation">Présentation</a>
+  <ul class="collapse">
+  <li><a href="#arithmétique-élémentaire" id="toc-arithmétique-élémentaire" class="nav-link" data-scroll-target="#arithmétique-élémentaire">Arithmétique élémentaire</a>
+  <ul class="collapse">
+  <li><a href="#les-nombres-en-général" id="toc-les-nombres-en-général" class="nav-link" data-scroll-target="#les-nombres-en-général">Les nombres en général</a></li>
+  <li><a href="#deux-opérations-fondamentales" id="toc-deux-opérations-fondamentales" class="nav-link" data-scroll-target="#deux-opérations-fondamentales">Deux opérations fondamentales</a></li>
+  <li><a href="#associativité" id="toc-associativité" class="nav-link" data-scroll-target="#associativité">Associativité</a></li>
+  <li><a href="#commutativité" id="toc-commutativité" class="nav-link" data-scroll-target="#commutativité">Commutativité</a></li>
+  <li><a href="#distributivité-de-la-multiplication-par-rapport-à-laddition" id="toc-distributivité-de-la-multiplication-par-rapport-à-laddition" class="nav-link" data-scroll-target="#distributivité-de-la-multiplication-par-rapport-à-laddition">Distributivité de la multiplication par rapport à l’addition</a></li>
+  <li><a href="#stabilité-dun-ensemble-par-rapport-à-une-opération" id="toc-stabilité-dun-ensemble-par-rapport-à-une-opération" class="nav-link" data-scroll-target="#stabilité-dun-ensemble-par-rapport-à-une-opération">Stabilité d’un ensemble par rapport à une opération</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+
+<section id="présentation" class="level1 page-columns page-full">
+<h1>Présentation</h1>
+<section id="arithmétique-élémentaire" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="arithmétique-élémentaire">Arithmétique élémentaire</h2>
+<p>Avant d’introduire les nombres complexes, il serait pertinent de revoir quelques propriétés de ce que nous avons coutume d’appeler nombre, et de faire l’inventaire des objets mathématiques qui appartiennent à cette catégorie.</p>
+<section id="les-nombres-en-général" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="les-nombres-en-général">Les nombres en général</h3>
+<p>Les nombres — qu’on les qualifie de naturels, entiers, rationnels, réels ou complexes — sont des objets mathématiques qui une fois déshabillés des attributs que nous leur prêtons, se réduisent à n’être que des ensembles. Au moyen d’efforts considérables dans certains cas, tout nombre <span class="math inline">\(x\)</span> peut s’écrire de manière à ce que <span class="math inline">\(x=\{\ldots\}\)</span>, où les trois points sont eux-mêmes des ensembles, des ensembles d’ensembles, etc. Si ces définitions — qu’on pourrait qualifier d’ensemblistes — des nombres sont d’une importance capitale, tous conviendront que nos raisonnements quotidiens qui les font intervenir portent davantage sur leurs caractéristiques que sur leur définition. Ainsi, en pensant au nombre <span class="math inline">\(2\)</span>, l’image de deux points, semblables à ceux qu’on retrouve sur un dé à 6 faces, se présentera à notre esprit plus rapidement que la définition du nombre 2 donnée par John von Neumann (voir <span class="citation" data-cites="art:Neumann1923">Neumann (<a href="#ref-art:Neumann1923" role="doc-biblioref">1923</a>)</span>) voulant que <span class="math inline">\(2=\{\emptyset,\{\emptyset\}\}\)</span>, où <span class="math inline">\(\emptyset\)</span> désigne l’ensemble ne comportant aucun élément (l’ensemble vide).</p>
+<div class="no-row-height column-margin column-container"><div id="ref-art:Neumann1923" class="csl-entry" role="listitem">
+Neumann, John von. 1923. <span>«&nbsp;<span>Zur Einführung der transfiniten Zahlen</span>&nbsp;»</span>. <em>Acta Scientiarum Mathematicarum (Szeged)</em> 1 (4): 199‑208.
+</div></div></section>
+<section id="deux-opérations-fondamentales" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="deux-opérations-fondamentales">Deux opérations fondamentales</h3>
+<div class="page-columns page-full"><p>Dès le début du primaire, on apprend à additionner et à multiplier des nombres. Ils sont d’abord naturels, puis lorsque l’élève termine ses études primaires, il est réputé en mesure d’effectuer ces opérations avec des nombres appartenant à des ensembles plus vastes, comme le sont les entiers et les nombres fractionnaires<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Dans tous les cas, certaines propriétés, qu’on pourrait qualifier de «&nbsp;lois de l’arithmétique&nbsp;», sont vérifiées. En voici quelques-unes :</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Éventuellement appelés nombres rationnels.</p></li></div></div>
+<ol type="1">
+<li>L’addition et la multiplication sont des opérations associatives&nbsp;;</li>
+<li>L’addition et la multiplication sont des opérations commutatives&nbsp;;</li>
+<li>La multiplication est distributive sur l’addition&nbsp;;</li>
+<li>Un ensemble de nombres <span class="math inline">\(E\)</span> est stable pour l’addition et la multiplication.</li>
+</ol>
+<p>Voici ce qu’on entend par ces lois.</p>
+</section>
+<section id="associativité" class="level3">
+<h3 class="anchored" data-anchor-id="associativité">Associativité</h3>
+<p>Le fait qu’écrire <span class="math inline">\(1+2+5\)</span> ne pose aucune ambiguïté découle du fait que l’opération d’addition soit associative. Qu’on calcule <span class="math inline">\((1+2)+5\)</span> ou <span class="math inline">\(1+(2+5)\)</span>, le résultat sera le même. De la même manière, <span class="math display">\[3\times 4\times 5=3\times (4\times 5)=(3\times 4)\times 5.\]</span> L’associativité c’est la possibilité de déplacer une paire de parenthèses sans modifier le résultat. Bien que l’addition et la multiplication soient des opérations associatives, le déplacement de parenthèses n’est pas forcément valable si ces deux opérations sont présentes dans un même calcul. Par exemple, pour calculer <span class="math inline">\(1+2\times 5\)</span>, on ne peut pas calculer n’importe quelle des deux expressions <span class="math inline">\((1+2)\times 5\)</span> et <span class="math inline">\(1+(2\times 5)\)</span>. On <em>convient</em> que l’expression <span class="math inline">\(1+2\times 5\)</span> correspond à <span class="math inline">\(1+(2\times 5)\)</span>. Il s’agit ainsi d’une convention d’écriture plutôt que d’un résultat mathématique. On réfère souvent à cette convention en invoquant la priorité des opérations. Encore une fois, ce sont des expressions qui ne font que traduire l’économie de parenthèses qu’il nous est possible de réaliser ; plutôt que d’écrire <span class="math display">\[1+((2\times 7)+(3\times 3-(8\times 2))),\]</span> on convient d’écrire simplement <span class="math inline">\(1+2\times 7+3\times 3-8\times 2\)</span>. Notons que ce ne sont pas toutes les opérations qui sont associatives. Par exemple, <span class="math display">\[(3\div 4)\div 5\neq 3\div(4\div 5).\]</span> Le membre de gauche est la fraction <span class="math inline">\(\frac{3}{20}\)</span> alors que le membre de droite est <span class="math inline">\(\frac{15}{4}\)</span>.</p>
+<p>L’idée d’associativité s’applique au-delà des opérations sur les nombres. Par exemple, si <span class="math inline">\(f,g\)</span> et <span class="math inline">\(h\)</span> sont des fonctions, alors <span class="math inline">\((f\circ g)\circ h=f\circ (g\circ h)\)</span>. À titre d’exemple, posons <span class="math inline">\(f(x)=x^2, g(x)=\sin(x)\)</span> et <span class="math inline">\(h(x)=x+1\)</span>. Nous avons que <span class="math inline">\((f\circ g)(x)=\sin^2(x)\)</span>, d’où <span class="math display">\[\left((f\circ g)\circ h\right)(x)=\sin^2(h(x))=\sin^2(x+1).\]</span> De même, <span class="math inline">\((g\circ h)(x)=\sin(x+1)\)</span>, d’où <span class="math display">\[\left(f\circ (g\circ h)\right)(x)=f(\sin(x+1))=(\sin(x+1))^2=\sin^2(x+1).\]</span> Encore une fois, l’égalité <span class="math inline">\((\sin (x+1))^2=\sin^2(x+1)\)</span> est vraie puisqu’il s’agit d’une convention d’écriture.</p>
+</section>
+<section id="commutativité" class="level3">
+<h3 class="anchored" data-anchor-id="commutativité">Commutativité</h3>
+<p>Si l’associativité est la possibilité de déplacer des parenthèses, la commutativité est pour sa part la possibilité de déplacer les objets du calcul à l’intérieur d’une même paire de parenthèses. Par exemple, l’équation <span class="math display">\[1+3=3+1\]</span> est vraie, puisque l’addition est une opération commutative. La multiplication de nombres est aussi une opération commutative. Il en va autrement de la multiplication matricielle. Par exemple, si <span class="math display">\[A=\begin{pmatrix} 0 &amp;1 \\ 2 &amp; 3\\ \end{pmatrix}\qquad\text{et}\qquad B=\begin{pmatrix} 1 &amp;-1 \\ 0 &amp; 2\\\end{pmatrix},\]</span> alors <span class="math display">\[AB=\begin{pmatrix} 0 &amp;2 \\ 2 &amp; 4\\ \end{pmatrix}\qquad\text{et}\qquad BA=\begin{pmatrix} -2 &amp;-2 \\ 4 &amp; 6\\\end{pmatrix}.\]</span> Un énoncé du type «&nbsp;la multiplication est commutative&nbsp;» doit donc être mis en contexte&nbsp;; il faut bien comprendre de quelle multiplication il s’agit. En principe, on doit toujours préciser l’ensemble sur lequel l’opération est définie. Il serait plus juste de dire que «&nbsp;la multiplication définie sur l’ensemble des nombres réels est une opération commutative&nbsp;» alors que « la multiplication définie sur l’ensemble des matrices <span class="math inline">\(2\times 2\)</span> n’est pas une opération commutative». L’algèbre moderne s’efforce de clarifier ces notions en introduisant ce qu’on appelle des <em>structures algébriques</em>.</p>
+</section>
+<section id="distributivité-de-la-multiplication-par-rapport-à-laddition" class="level3">
+<h3 class="anchored" data-anchor-id="distributivité-de-la-multiplication-par-rapport-à-laddition">Distributivité de la multiplication par rapport à l’addition</h3>
+<p>On l’a vu, dans une même expression, il est possible d’y voir deux opérations de nature différente. Un cas important est celui d’une expression où sont présentes l’addition et la multiplication. C’est ce qu’on constate dans l’expression <span class="math inline">\(5\times(1+3)\)</span>. Pour l’évaluer, on peut bien sûr évaluer la somme entre parenthèses, puis multiplier <span class="math inline">\(5\)</span> par <span class="math inline">\(4\)</span>. Une autre avenue possible est de «distribuer» la multiplication par rapport à l’addition, ce qui signifie calculer <span class="math inline">\((5\times 1)+(5\times 3)\)</span>. Lorsqu’on affirme que la multiplication est distributive par rapport à l’addition, cela signifie que pour tous nombres <span class="math inline">\(a,b\)</span> et <span class="math inline">\(c\)</span>, on a <span class="math display">\[a\times (b+c)=a\times b+a\times c.\]</span></p>
+</section>
+<section id="stabilité-dun-ensemble-par-rapport-à-une-opération" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="stabilité-dun-ensemble-par-rapport-à-une-opération">Stabilité d’un ensemble par rapport à une opération</h3>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le symbole <span class="math inline">\(\mathbb{Z}\)</span>, utilisé pour représenter l’ensemble des entiers, est la première lettre du mot allemand zahl qui signifie «nombre».</p>
+</div>
+</div>
+</div></div><p>Étant donnés des nombres <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> appartenant à un ensemble de nombres <span class="math inline">\(E\)</span>, leur somme et leur produit appartiennent toujours à l’ensemble <span class="math inline">\(E\)</span>. Ce n’est pas toujours le cas pour le résultat d’une opération. À titre d’exemple, l’ensemble des nombres naturels n’est pas stable pour la soustraction. En effet, ce ne sont pas tous les problèmes de soustraction qui admettent une solution; c’est notamment le cas du problème <span class="math inline">\(5+\square=3\)</span>. L’ensemble des entiers règle le problème de la stabilité pour l’opération de la soustraction de nombres naturels, mais cela n’améliore guère les choses pour les problèmes de division.</p>
+<p>Prenons deux nombres naturels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>, tels que <span class="math inline">\(b\)</span> soit non nul, et considérons l’équation <span class="math inline">\(b\times \square= a\)</span>. Il arrive que cette équation possède une solution qui est dans <span class="math inline">\(\mathbb{N}\)</span>, mais ce n’est généralement pas le cas. Par exemple, <span class="math inline">\(3\times \square= 12\)</span> possède une solution —&nbsp;le nombre 4&nbsp;—, mais l’équation <span class="math inline">\(3\times \square= 13\)</span> n’en possède pas.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’ensemble des fractions, aussi appelé ensemble des nombres rationnels, est représenté par le symbole <span class="math inline">\(\mathbb{Q}\)</span>.</p>
+<p>L’ensemble des nombres réels est représenté par le symbole <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+</div>
+</div></div><p>L’ajout des nombres fractionnaires permet non seulement de résoudre ce problème dans le cas où <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des nombres naturels, <em>mais aussi de le faire dans le cas où <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des nombres fractionnaires</em>. C’est cette propriété qu’on évoque lorsqu’on mentionne que les nombres fractionnaires sont stables pour l’opération de division.</p>
+<p>Vers le 5ᵉ siècle avant notre ère, les mathématiciens grecs ont tenté de mesurer la longueur de l’hypoténuse d’un triangle rectangle dont les côtés adjacents à l’angle droit sont de longueur <span class="math inline">\(1\)</span>. En utilisant le théorème de Pythagore, ils ont ramené le problème à celui de trouver un nombre <span class="math inline">\(x\)</span> tel que <span class="math inline">\(2=x^2\)</span>. Ils en sont venus à la conclusion que <span class="math inline">\(x\)</span> ne pouvait être le quotient de deux nombres entiers. Bien sûr, le langage utilisé pour exprimer cette constatation était fort différent. On parlait plutôt d’une quantité <em>incommensurable</em>, ou encore <em>inexprimable</em>. Le tout rédigé en grec ancien! On ignore toujours si le problème du calcul de la mesure de l’hypoténuse d’un triangle rectangle est le premier qui a amené les Grecs à considérer des nombres irrationnels. Cette découverte suggère néanmoins de définir un ensemble de nombres plus vaste, comprenant le nombre <span class="math inline">\(\sqrt{2}\)</span>, mais aussi tous les «&nbsp;trous&nbsp;» sur la droite numérique entre les nombres rationnels. Pour plus d’information sur le nombre <span class="math inline">\(\sqrt{2}\)</span> et l’extraction des racines carrées, voir <span class="citation" data-cites="book:Rittaud2006">Rittaud (<a href="#ref-book:Rittaud2006" role="doc-biblioref">2006</a>)</span>. L’existence de tels nombres signifiait que les fractions ne remplissaient pas complètement la droite numérique, qu’on associe à l’ensemble des nombres réels.</p>
+
+
+<div class="no-row-height column-margin column-container"><div id="ref-book:Rittaud2006" class="csl-entry" role="listitem">
+Rittaud, Benoît. 2006. <em>Le fabuleux destin de racine de <span class="math inline">\(\sqrt{2}\)</span></em>. Éditions le Pommier.
+</div></div>
+</section>
+</section>
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./exercices01.html" class="pagination-link">
+        <span class="nav-page-text">Série 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© CC BY-NC-SA Jérôme Soucy, 2023</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

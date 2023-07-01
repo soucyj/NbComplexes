@@ -1,0 +1,293 @@
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\text{Re}\,}
+\newcommand{\IM}{\text{Im}\,}
+\newcommand{\iu}{\textrm{i}}
+\newcommand{\boitevide}{\square}
+
+# Série 1
+
+::: {#exr-calculs2}
+\n
+Soit $z_1=2+\iu$ et $z_2=3-4\iu$. Écrivez, sous forme cartésienne, chacun des nombres ci-dessous.
+
+a. $z_1+z_2$
+b. $|z_1+z_2|$
+c. $\frac{z_1}{z_2}$
+d. $\frac{z_1}{z_1-z_2}$
+e. $z_1^2+z_2^2$
+f. $\left(z_1+\overline{z_1}\right)\left(z_2+\overline{z_2}\right)$
+g. $\frac{z_2^2-z_1^2}{z_1\overline{z_1}z_2\overline{z_2}}$
+h. $(z_1-2)^{10}$
+i. $\frac{(2z_2-3z_1)^8}{(z_2+4z_1)^5}$
+j. $\left|\frac{z_1^2+z_2^3}{2z_2+8z_1}\right|$
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+a. $5-3\iu$
+b. $\sqrt{34}$
+c. $10-5\iu$
+d. $\frac{3}{26}-\frac{11}{26}\iu$
+e. $-4-20\iu$
+f. $24$
+g. $-\frac{2}{25}-\frac{28}{125}\iu$
+h. $-1$
+i. $1331$
+j. $\frac{\sqrt{3649}}{11}$
+:::
+
+
+::: {#exr-trouverz}
+\n
+Pour chacune des équations ci-dessous, trouvez les nombres complexes $z$ qui la satisfont.
+
+a. $\frac{z}{2-\iu}=7+5\iu$
+b. $z=(1+\iu)^{10}$
+c. $(2z+3)(5z-5+5\iu)=0$
+d. $|z|=2\iu$
+e. $\frac{z}{2+\iu-z}=3+2\iu$
+f. $\overline{z}z=4$
+g. $1+\iu+\iu^2+\iu^3+\ldots+\iu^{999}$
+h. $-\frac{2\iu}{z}=\frac{z}{32\iu}$
+i. $\left|z^2-1\right|=z^2-1$
+j. $(3z+4\iu z)(z-5\iu)=0$
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+a. $z=19+3\iu$
+b. $z=32\iu$
+c. $z=-\frac{3}{2}$ ou $z=1-\iu$
+d. Aucune valeur de $z$ ne satisfait cette équation.
+e. $z=\frac{3}{2}+\iu$
+f. Tous les nombres complexes de module $2$, soit tous ceux sur le cercle de rayon $2$ centré à l'origine dans le plan complexe.
+g. $z=0$
+h. $z=\pm 8$
+i. On pose $z=x+y\,\iu$ où $x,y\in\R$. En remplaçant dans l'équation, on montre qu'on ne peut avoir $y\neq 0$. Le nombre $z$ doit être un réel $x$. L'équation devient alors $|x^2-1|=x^2-1$. Un nombre réel est égal à sa valeur absolue uniquement lorsqu'il s'agit d'un nombre réel positif. On doit donc avoir que $x^2-1\in [0,\infty[$. Cela signifie que $x^2\in [1,\infty[$, d'où $x\in\R\,\backslash\,]-1,1[~=~]-\infty,-1]\cup[1,\infty[$.
+j. $z=0$ ou $z=5\iu$
+:::
+
+::: {#exr-repsensembles}
+\n
+Représentez chacun des ensembles suivants dans le plan complexe.
+
+a. $\{z\in\C:z=x+x\iu , x\in\R\}$
+b. $\{z\in\C:\RE(z)+\IM(z)=0\}$
+c. $\{z\in\C:\RE(z+\zbar)\in\R\}$
+d. $\{z\in\C:\IM(z+\zbar)\in\R\}$
+e. $\{z\in\C:2z=\RE(z+\zbar)\}$
+f. $\{z\in\C:\IM(z)+\RE(z)\notin\R\}$
+g. $\{z\in\C:|z|=|\zbar|\}$
+h. $\{z\in\C:|z|+2=z+2\}$
+i. $\{z\in\C:|z+w|=|w|\,\forall w\in\C\}$
+j. $\{z\in\C:|z|=\IM(z)\}$
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## Solution
+Soit $z=x+\iu\, y$ un nombre complexe exprimé sous sa forme cartésienne, ce qui sous-entend que $x$ et $y$ sont des nombres réels. Pour chacune des sous-questions, nous devons trouver des conditions à imposer aux nombres $x$ et $y$ qui caractérisent l'appartenance du nombre complexe $z=x+\iu\,y$ à l'ensemble de nombres précisé. Ces conditions doivent pouvoir nous permettre de facilement identifier les solutions.
+
+a. Puisque $z=x+\iu\,y$, il faut et il suffit que $x=y$. Ainsi, il s'agit des points du plan complexe appartenant à la droite d'équation $y=x$.<br>
+![](images/droiteyegalx/droiteyegalx.svg){width=300px}
+b. Nous avons que $\RE(z)+\IM(z)=x+y$. La condition revient donc à exiger que $x+y=0$, c'est-à-dire que $y=-x$. Les nombres appartenant à l'ensemble sont donc ceux situés sur la droite d'équation $y=-x$.<br>
+![](images/droiteyegalmoinsx/droiteyegalmoinsx.svg){width=300px}
+c. On a que $z+\zbar = 2x$. Comme $x\in\R$, il en est de même de $2x$. Nous avons donc que $z+\zbar\in\R\,\forall z\in\C$, c'est-à-dire que $\RE(z+\zbar)\in\R\,\forall z\in\C$. Ainsi, tous les points du plan complexe appartiennent à l'ensemble. Plus simplement, il suffit d'observer que par définition, la partie réelle d'un nombre complexe --- comme la partie imaginaire --- est toujours un nombre réel.<br>
+![](images/plancomplet/plancomplet.svg){width=300px}
+d. Par définition, la partie imaginaire d'un nombre complexe est un nombre réel. Par conséquent, tous les points du plan complexe appartiennent à cet ensemble.<br>
+![](images/plancomplet/plancomplet.svg){width=300px}
+e. En posant $z=x+\iu\, y$, l'équation devient $2x+2y\,\iu =2x$. Cette équation se simplifie pour donner $2y\,\iu =0$. Ainsi, les nombres appartenant à cet ensemble sont ceux dont la partie imaginaire est nulle. L'ensemble cherché est donc celui des nombres complexes situés sur l'axe réel.<br>
+![](images/axehorizontal/axehorizontal.svg){width=300px}
+f. Par définition, $\RE(z)$ et $\IM(z)$ sont des nombres réels. Leur somme est donc un nombre réel, quel que soit le nombre complexe $z$. Par conséquent, aucun nombre du plan complexe n'appartiennent à l'ensemble.<br>
+![](images/aucunpoint/aucunpoint.svg){width=300px}
+g. Si $z=x+\iu\,y$, alors $\zbar=x-\iu\, y$. Ainsi, nous avons que $$|\zbar|=\sqrt{x^2+(-y)^2}=\sqrt{x^2+y^2}=|z|.$$ Donc tous les nombres du plan complexe appartiennent à l'ensemble.<br>
+![](images/plancomplet/plancomplet.svg){width=300px}
+h. D'abord, l'équation se simplifie pour donner $|z|=z$. Le membre de gauche étant un nombre réel positif, les seuls nombres complexes à pouvoir vérifier cette équation sont donc les nombres réels dans l'intervalle $[0,\infty[$. Comme tous les nombres réels positifs sont égaux à leur module, on peut affirmer qu'un nombre appartient à l'ensemble si et seulement si c'est un nombre dans l'intervalle $[0,\infty[$.<br>
+![](images/axereelpos/axereelpos.svg){width=300px}
+i. Si $|z+w|=|w|$ pour tout $w\in\C$, alors en particulier $|z+w|=|w|$ lorsque $w=0$. Cela signifie que $|z+0|=|0|=0$, d'où $z=0$. Nous venons donc de montrer que si un nombre complexe $z$ appartient à l'ensemble, alors il est forcément égal à $0$. Cela ne montre pas que 0 appartient à l'ensemble. Pour compléter, on vérifie que si $z=0$, la condition s'écrit $|0+w|=|w|$ pour tout $w\in\C$. Comme cette condition est vérifiée, le seul nombre complexe qui appartient à l'ensemble est $0$.<br>
+![](images/origine/origine.svg){width=300px}
+j. L'équation entraîne que $\sqrt{x^2+y^2}=y$. Comme le membre de gauche de l'équation est une nombre réel positif, il doit en être de même du membre de droite. En élevant au carré de chaque côté, on obtient que $x^2+y^2=y^2$, d'où $x=0$. Les seuls candidats possibles sont donc les nombres complexes ayant une partie réelle nulle et une partie imaginaire positive. On vérifie que si $z=y\,\iu$ où $y\in[0,\infty[$, alors l'équation est satisfaite. Ainsi, les nombres situés sur l'axe imaginaire au-dessus de l'axe réel (y compris l'origine) sont les seuls à appartenir à l'ensemble.<br>
+![](images/axeimpos/axeimpos.svg){width=300px}
+:::
+
+::: {#exr-preuvesprop}
+\n
+Montrez chacune des propriétés ci-dessous. Dans tous les cas, $z,z_1$ et $z_2$ sont des nombres complexes et $n\in\N^{\star}.$
+
+a. $\RE(z)\leq|z|$
+b. $\IM(z)\leq|z|$
+c. $|z_1\cdot z_2|=|z_1|\cdot |z_2|$
+d. $|z^n|=|z|^n$
+e. $\left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}\qquad(\,z_2\neq 0)$
+f. $\overline{z_1+z_2}=\overline{z_1}+\overline{z_2}$
+g. $\overline{z_1\cdot z_2}=\overline{z_1}\cdot \overline{z_2}$
+h. $\overline{z^n}=\overline{z}^{\,n}$
+i. $\overline{\left(\dfrac{z_1}{z_2}\right)}=\dfrac{\overline{z_1}}{\overline{z_2}}\qquad(\,z_2\neq 0)$
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+Dans ce qui suit, nous supposerons que $z=x+\iu y,z_1=x_1+\iu\,y_1$ et $z_2=x_2+\iu\, y_2$, où $x,x_1,x_2,y,y_1$ et $y_2$ sont des nombres réels.
+
+a. Nous avons que $|z|=\sqrt{x^2+y^2}\geq \sqrt{x^2}=|x|\geq x=\RE(z)$.\
+b. Nous avons que $|z|=\sqrt{x^2+y^2}\geq \sqrt{y^2}=|y|\geq y=\IM(z)$.\
+c. Nous avons que 
+		\begin{align*}|z_1\cdot z_2|&=&|(x_1+\iu\, y_1)\cdot (x_2+\iu\, y_2)|\\
+			&=&|x_1x_2-y_1y_2+\iu \,(x_1y_2+y_1x_2)|\\
+			&=&\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2}.
+		\end{align*}
+		De même, $$|z_1|\cdot |z_2|=\sqrt{x_1^2+y_1^2}\cdot\sqrt{x_2^2+y_2^2}=\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2}.$$ La propriété est donc établie.
+d. Il suffit d'appliquer la propriété (c) plusieurs fois :
+		\begin{align*}
+		\left|z^{n}\right|&=\left|z^{n-1}\cdot z\right|\\
+		&=\left|z^{n-1}\right|\cdot |z| \qquad \text{d'après la propriété (c)}\\
+		&=\left|z^{n-2}\cdot z\right|\cdot |z|\\
+		&=\left|z^{n-2}\right|\cdot |z|\cdot |z| \qquad \text{d'après la propriété (c)}\\
+		&=\ldots\\
+		&=\underbrace{|z|\cdot|z|\cdots|z|}_{n\text{~fois}}\qquad \text{après avoir appliqué (c) suffisament de fois}\\
+		&=|z|^n.
+		\end{align*}
+<!---
+		Cette démonstration s'appuie sur le principe d'induction. On montre que le résultat est vrai pour $n=1$. Ensuite, on suppose que le résultat est vrai pour $n$ et on montre que cela entraîne qu'il est aussi vrai pour $n+1$. Dans le problème actuel, on observerait d'abord que le résultat est vrai pour $n=1$. Supposons le résultat vrai pour $n$, c'est-à-dire que $\left|z^n\right|=|z|^{\,n}$, puis montrons que cela implique que le résultat est vrai pour $n+1$.
+		\begin{align*}
+		\left|z^{n+1}\right|&=\left|z^{n}\cdot z\right|\\
+		&=\left|z^{n}\right|\cdot |z|\qquad \text{d'après la propriété (c)}\\
+		&=|z|^{\,n}\cdot |z| \qquad \text{d'après l'hypothèse d'induction}\\
+		&=|z|^{\,n+1}\,.
+		\end{align*}
+		Le principe d'induction nous permettra alors de conclure que la propriété est vraie.
+--->
+e. Pour $z_2\neq 0$, nous avons que
+		\begin{align*}
+		|z_1|&=\left|z_2\cdot\frac{z_1}{z_2}\right|\\
+		&=|z_2|\cdot\left|\,\frac{z_1}{z_2}\,\right|\qquad\text{d'après la propriété (c).}
+		\end{align*}
+		En divisant chaque membre de l'équation par $|z_2|$ --- ce qu'on peut faire, puisque $z_2\neq 0$ --- on complète la démonstration.\
+f. Nous avons que
+		\begin{align*}
+		\overline{z_1+z_2}&=\overline{x_1+x_2+\iu \,(y_1+y_2)}\\
+		&=x_1+x_2-\iu \,(y_1+y_2)\\
+		&=x_1-\iu \,y_1+x_2-\iu \,y_2\\
+		&=\overline{z_1}+\overline{z_2}.
+		\end{align*}
+		
+g. Nous avons que
+		\begin{align*}
+		\overline{z_1\cdot z_2}&=\overline{(x_1+\iu \,y_1)\cdot(x_2+\iu \,y_2)}\\
+		&=\overline{x_1x_2-y_1y_2+\iu \,(x_1y_2+x_2y_1)}\\
+		&=x_1x_2-y_1y_2-\iu \,(x_1y_2+x_2y_1).
+		\end{align*}
+		De même,
+		\begin{align*}
+		\overline{z_1}\cdot\overline{z_2}&=(x_1-\iu \,y_1)\cdot(x_2-\iu \,y_2)\\
+		&=x_1x_2-y_1y_2-\iu \,(x_1y_2+x_2y_1).
+		\end{align*}
+		La propriété est donc démontrée.
+		
+h. Nous avons que
+		\begin{align*}
+		\overline{z^{n}}&=\overline{z^{n-1}\cdot z}\\
+		&=\overline{z^{n-1}}\cdot \overline{z}\qquad \text{d'après la propriété (g)}\\
+		&=\overline{z^{n-2}\cdot z}\cdot \overline{z}\qquad \text{d'après la propriété (g)}\\
+		&=\overline{z^{n-2}}\cdot\overline{z}\cdot \overline{z}\qquad \text{d'après la propriété (g)}\\
+		&=\ldots\\
+		&=\underbrace{\overline{z}\cdot \overline{z}\cdot\ldots\cdot\overline{z}}_{n\text{~fois}} \qquad \text{en appliquant (g) suffisament de fois}\\
+		&=\overline{z}^{\,n}\,.
+		\end{align*}
+		
+i. Pour $z_2\neq 0$, nous avons que
+		\begin{align*}
+		\overline{z_1}&=\overline{z_2\cdot\frac{z_1}{z_2}}\\
+		&=\overline{z_2}\cdot\overline{\left(\frac{z_1}{z_2}\right)}\qquad\text{d'après la propriété (g).}
+		\end{align*}
+		En divisant chaque membre de l'équation par $\overline{z_2}$ --- ce qu'on peut faire, puisque $z_2\neq 0$ --- on complète la démonstration.
+:::
+
+::: {#exr-aligne}
+\n
+Soit les nombres complexes $z_1=-4+\iu$, $z_2=3+8\,\iu$ et $z_3=20+24\,\iu$.
+
+a. Trouvez l'équation de la droite passant par les points $z_1$ et $z_2$.
+b. Est-ce que les nombres complexes $z_1, z_2$ et $z_3$ sont alignés? Justifiez.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+a. Il suffit de trouver l'équation d'une droite passant par les points de coordonnées $(-4,1)$ et $(3,8)$. Dans un premier temps, on trouve que la pente de la droite est de $1$. Puis, en posant $y=x+b$, on trouve que $b=5$, d'où $y=x+5$.
+		
+b. Pour que les trois points soient alignés, il faut et il suffit que $z_3$ appartienne à la droite passant par les points $z_1$ et $z_2$. Ainsi, l'équation $y=x+5$ doit être satisfaite lorsque $x=20$ et $y=24$. Comme ce n'est pas le cas, les trois points ne sont pas alignés.
+:::
+
+::: {#exr-deuxconditions}
+\n
+Trouvez les nombres complexes $z$ qui satisfont simultanément les deux conditions suivantes:
+\begin{align}
+  |z-3-3\iu|&=2,\\
+  z(1-\iu)&=\overline{z}(1+\iu).
+\end{align}
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+bla bla
+:::
+
+::: {#exr-autreslieux}
+\n
+Pour chacune des équations ci-dessous, représentez, dans le plan complexe, les nombres complexes $z$ qui la satisfont.
+
+a. $(2\iu +1)z+(2\iu -1)\overline{z}=20\iu$
+b. $|z|=z$
+c. $|z-1|+|z+1|=4$
+d. $|z-1|+|z+1|=2$
+e. $|z-1-\iu|+|z+1+\iu|=10$
+f. $|z-3|-|z+5|=\pm 2$
+g. $|z-3|-|z+5|=2$
+h. $|z-3|-|z+5|= 8$
+i. $|z-2|-|z+2|=0$
+j. $|z-2|z\overline{z}=0$
+k. $z+3\overline{z}+8-4\iu=7+12\iu$
+l. $4\left(z-\overline{z}\right)=2\iu\left(z^2+2|z|^2+\overline{z}^2\right)$
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+a. On pose $z=x+\iu\,y$. En égalant les parties réelle et imaginaire pour chacun des deux membres de l'équation, on trouve que $y=10-2x$.
+b. Il s'agit des nombres réels positifs.
+c. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
+    title="Ellipse dans le plan complexe"
+    start="116"
+    aspect-ratio="16x9" 
+>}}
+d. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
+    title="Ellipse dans le plan complexe"
+    start="116"
+    aspect-ratio="16x9" 
+>}}
+e. Une ellipse de foyers $1+\iu$ et $-1-\iu$ centrée à l'origine de grand axe $10$ et de petit axe $\sqrt{23}$.
+f. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
+    title="Ellipse dans le plan complexe"
+    start="116"
+    aspect-ratio="16x9" 
+>}}
+g. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
+    title="Ellipse dans le plan complexe"
+    start="116"
+    aspect-ratio="16x9" 
+>}}
+h. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
+    title="Ellipse dans le plan complexe"
+    start="116"
+    aspect-ratio="16x9" 
+>}}
+i. L'équation est équivalente à $|z-2|=|z+2|$. Les points doivent être à une même distance de $2$ et de $-2$. Ce sont les points situés sur la droite perpendiculaire au segment qui les joint et qui passe par le milieu de celui-ci (la médiatrice du segment). Dans ce cas particulier, cela correspond à l'axe imaginaire.
+j. Pour que le produit $|z-2|z\overline{z}$ soit nul, il faut qu'au moins un des facteurs soit nul. Le facteur $|z-2|$ s'annule si et seulement si $z=2$. De même, $\overline{z}=0\iff z=0$. Ainsi, les seules solutions sont $0$ et $2$.
+k. En posant $z=x+\iu\,y, x,y\in\R$, on trouve que $z=-\frac{1}{4}-8\iu$.
+l. En posant $z=x+\iu\,y, x,y\in\R$, on trouve que $y=x^2$. Ainsi, l'ensemble solution est composé de tous les $z\in\C$ pour lesquels ont peut trouver un $x\in\R$ tel que $z=x+x^2\,\iu$.
+:::
+

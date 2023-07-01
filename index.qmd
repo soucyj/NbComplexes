@@ -1,0 +1,11 @@
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\usepackage{tikz}
+\newcommand{\boitevide}{\square}
+
+---
+title: "Nombres complexes et polynômes"
+---
+
+Ce site est destiné aux personnes intéressées par les nombres complexes et les polynômes. La section présentation a pour objectif de rappeler différents contextes où l'introduction de nouveaux types de nombres s'est avérée nécessaire. On en profite aussi pour rappeler certaines propriétés des opérations élémentaires que sont l'addition et la multiplication.

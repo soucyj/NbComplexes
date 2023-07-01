@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+	\begin{tikzpicture}
+		% Axes
+		\draw[->] (-4,0) -- (4,0) node[right] {$\textrm{Re}$};
+		\draw[->] (0,-4) -- (0,4) node[above] {$\textrm{Im}$};
+		
+		% Droite y = x
+		\draw[color=red,fill=red,fill opacity=0.2,opacity=0.2] (-4,-4)--(4,-4) -- (4,4) -- (-4,4) -- cycle;
+	\end{tikzpicture}
+\end{document}

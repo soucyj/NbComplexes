@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+	\begin{tikzpicture}
+		% Axes
+		\draw[->] (-4,0) -- (4,0) node[right] {$\textrm{Re}$};
+		\draw[->] (0,-4) -- (0,4) node[above] {$\textrm{Im}$};
+		
+		% Droite y = x
+		\draw[color=red,opacity=0.5,thick] (-4,0)--(4,0) node[below left]{L'axe r\'eel};
+	\end{tikzpicture}
+\end{document}

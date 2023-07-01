@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+	\begin{tikzpicture}
+		% Axes
+		\draw[->] (-4,0) -- (4,0) node[right] {$\textrm{Re}$};
+		\draw[->] (0,-4) -- (0,4) node[above] {$\textrm{Im}$};
+		
+		% Droite y = x
+		\draw[red] (-3.5,-3.5) -- (3.5,3.5) node[right] {$y = x$};
+	\end{tikzpicture}
+\end{document}
