@@ -1,0 +1,22 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}
+		\begin{axis}[
+		title={$\left|z\right|$},
+		xlabel=$\RE(z)$, ylabel=$\IM(z)$,
+		small,
+		]
+	\addplot3[
+	surf,
+	%shader=faceted,
+	%samples=50,
+	domain=0:3,y domain=0:2*pi
+	%z buffer=sort
+	]
+	({x*cos(deg(y))},{x*sin(deg(y))}, {x});
+		\end{axis}
+		\end{tikzpicture}
+\end{document}

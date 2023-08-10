@@ -1,0 +1,109 @@
+{{< include _macros.qmd >}}
+
+## La fonction exponentielle complexe
+
+Dès la fin du secondaire, la fonction exponentielle est présentée comme une fonction incontournable en mathématique. Elle apparaît dans plusieurs contextes, et vérifie des propriétés remarquables. On la présente comme l'unique fonction égale à sa dérivée en tout point de son domaine, qui prend la valeur $1$ en $0$. Si on décide de la noter par $\exp(x)$, elle vérifie notamment les propriétés suivantes&nbsp;:
+
+- $\exp(x)$ est définie pour tout $x\in\R$&nbsp;;
+- $\exp(x+y)=\exp(x)\cdot\exp(y)$ pour tout $x,y\in\R$&nbsp;;
+- $\exp(x)^y=\exp(xy)$ pour tout $x,y\in\R$&nbsp;;
+- $\exp(0)=1$.
+
+L'analogie entre ces propriétés et la manière d'écrire certaines opérations de l'arithmétique élémentaire suggère de noter la fonction exponentielle $\eu^x$. Les propriétés énoncées plus haut se traduisent alors par&nbsp;:
+
+- $\eu^x$ est définie pour tout $x\in\R$&nbsp;;
+- $\eu^{x+y}=\eu^{x}\cdot\eu^{y}$ pour tout $x,y\in\R$&nbsp;;
+- $\left(\eu^{x}\right)^y=\eu^{xy}$ pour tout $x,y\in\R$&nbsp;;
+- $\eu^0=1$.
+
+Il est aussi possible de définir la fonction exponentielle par le biais d'une série. Rappelons d'abord quelques faits concernant ce sujet.
+
+Au niveau collégial, une partie du cours de calcul intégral est consacrée à l'étude des séries de nombres réels. On y apprend entre autres qu'en augmentant la valeur de $n$ dans l'expression
+$$1+\frac{1}{2}+\frac{1}{3}+\ldots \frac{1}{n},$$
+on peut obtenir un nombre aussi grand qu'on le désire. En utilisant la notation sigma, cela se traduit par l'affirmation que
+$$\sum_{k=1}^{\infty}\frac{1}{k}=\infty.$$
+Il est aussi démontré qu'en augmentant la valeur de $n$ dans l'expression
+$$1+\frac{1}{2^1}+\frac{1}{2^2}+\ldots \frac{1}{2^n},$$
+on peut obtenir un nombre aussi près qu'on le souhaite du nombre $2$. Cela se traduit par l'égalité $$\sum_{k=0}^{\infty}\left(\frac{1}{2}\right)^k=2.$$
+Dans le premier exemple, la série diverge (vers l'infini), dans le second cas elle converge vers le nombre $2$. Si nous remplaçons le $\frac{1}{2}$ par $3$ dans la dernière série, on se retrouve alors à additionner les puissances de $3$&nbsp;: $$\sum_{k=0}^{\infty} 3^k=\infty.$$ C'est donc dire que la série $\sum_{k=0}^{\infty}x^k$ converge pour certaines valeurs de $x$, et diverge pour d'autres. Cette constatation nous pousse à étudier ce que nous convenons d'appeler les *séries de puissances*. La question fondamentale est alors la suivante : étant donnée une suite de nombres réels $(a_0,a_1,\ldots)$, pour quelles valeurs de $x\in\R$ la série $\sum_{k=0}^{\infty}a_kx^k$ converge-t-elle? À l'aide de certains critères de convergence, on peut montrer que la série $\sum_{k=0}^{\infty} x^k$ converge pour toutes les valeurs de $x$ dans l'intervalle $]-1\,,1[$, et diverge à l'extérieur de ce même intervalle. Il est aussi possible qu'une série de puissances ne converge que pour $x=0$. C'est le cas de la série $\sum_{k=0}^{\infty}k!x^k$. En revanche, il est aussi possible qu'une série converge quelle que soit la valeur de $x$. C'est précisément ce qui se produit pour la série de puissances $\sum_{k=0}^{\infty}\frac{1}{k!}x^k$.
+
+En analyse complexe, on peut considérer la situation analogue suivante : étant donnée une suite de nombres complexes $(a_0,a_1,\ldots)$, pour quelles valeurs de $z\in\C$ la série de puissances (aussi appelée série entière) $\sum_{k=0}^{\infty}a_kz^k$ converge-t-elle? Encore une fois, il est possible de montrer que la série $\sum_{k=0}^{\infty}\frac{1}{k!}z^k$ converge pour tout $z\in\C$. Cette démonstration est basée sur le critère de d'Alembert. Cette série entière est fondamentale en mathématiques : c'est la fonction exponentielle.
+
+::: Def
+# Fonction exponentielle {#fctexpo}
+La **fonction exponentielle** est définie pour tout $z\in\C$ en posant
+	$$\eu^z=\sum_{k=0}^{\infty}\frac{z^k}{k!}.$$
+:::
+
+Considérons $x$, un nombre réel quelconque. En remplaçant $z$ par $\iu x$ dans l'expression précédente, nous obtenons que
+\begin{align*}
+  \eu^{\iu x}=& 1+\iu x+\frac{(\iu x)^2}{2!}+\frac{(\iu x)^3}{3!}+\frac{(\iu x)^4}{4!}+\frac{(\iu x)^5}{5!}+\frac{(\iu x)^6}{6!}+\ldots\\
+  &=1+\iu x- \frac{x^2}{2!}-\iu \frac{x^3}{3!}+\frac{x^4}{4!}+\iu \frac{x^5}{5!}-\frac{x^6}{6!}-\iu \frac{x^7}{7!}+\ldots\\
+  &=1- \frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\ldots +\iu \left(x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\ldots\right)\\
+  &=\cos x+\iu \sin x
+\end{align*}
+
+Le passage de la première ligne à seconde se justifie en observant que
+$$
+\iu^k=\begin{cases}
+1&\text{si}~k=0,4,8,\ldots\\
+\iu&\text{si}~k=1,5,9,\ldots\\
+-1&\text{si}~k=2,6,10,\ldots\\
+-\iu&\text{si}~k=3,7,11,\ldots.
+\end{cases}
+$$
+
+Le passage de la deuxième ligne à la troisième est valable, car il est possible, pour cette série, de changer l'ordre des termes additionnés sans modifier le résultat. Ce n'est pas le cas de toutes les séries. Finalement, le passage entre les deux dernières lignes est justifié par le fait que le développement en série de puissances des fonctions $\sin x$ et $\cos x$ correspond aux séries de puissances suivantes&nbsp;:
+\begin{align*}
+	\sin x =&\sum _{{k=0}}^{{\infty }}{\frac  {(-1)^{k}}{(2k+1)!}}x^{{2k+1}}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\ldots,\\
+	\cos x =&\sum _{{k=0}}^{{\infty }}{\frac  {(-1)^{k}}{(2k)!}}x^{{2k}}=1- \frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\ldots.
+\end{align*}
+Les fonctions $\sin x$ et $\cos x$ étant égales à leur série de puissances respective sur $\R$, on en déduit la proposition suivante:
+
+::: Thm
+# Théorème d'Euler {#thmEuler}
+
+Soit $x\in\R$. Alors
+$$e^{\iu x}=\cos x+\iu \sin x.$$
+:::
+
+Supposons maintenant que $z$ soit un nombre complexe de module $r$ et d'argument principal $x$. En multipliant chaque membre de l'équation $\eu^{\iu x}=\cos x+\iu \sin x$ par $r$, on en déduit que $z$ est aussi égal à $r\eu^{\iu x}$.
+
+::: Def
+# Forme exponentielle {#formeexpo}
+Soit $z$ un nombre complexe non nul de module $r$ et d'argument principal $\theta$. La **forme exponentielle** de $z$ est donnée par $$z=r\eu^{\iu \theta}.$$
+:::
+
+Le travail que nous venons d'effectuer, basé sur une définition de l'exponentielle à l'aide d'une série, nous permet d'évaluer facilement cette fonction pour les nombres complexes purement imaginaires, c'est-à-dire ceux de la forme $\iu x$ avec $x\in\R$. Dans le cas d'un nombre complexe dont la partie réelle et la partie imaginaire sont toutes les deux non nulles, on peut bien sûr utiliser la définition, ce qui revient à évaluer la série présentée à la définition \ref{fctexpo}. Cette tâche semble laborieuse. Moyennant certains effort, il est possible de montrer que la fonction $\eu^z$ définie par de la série présentée à la définition \ref{fctexpo} vérifie $\eu^{w+z}=\eu^{w}\cdot \eu^{z}$ pour tout $w,z\in\C$. En particulier, si $w$ est égal au nombre réel $x$, et si $z$ est égal au nombre imaginaire pur $\iu y$, on a que $\eu^{x+\iu y}=\eu^{x}\cdot \eu^{\iu y}$. Ainsi, quel que soit le nombre complexe $z$ écrit sous la forme $x+\iu y$ avec $x,y\in\R$, il suffit de calculer $\eu^x\cdot\eu^{\iu y}$.
+
+::: Prop
+# Exponentielle d'un nombre complexe {#propexpo}
+Soit $z$ un nombre complexe dont la forme cartésienne est donnée par $x+\iu y$. Alors
+$$\eu^z=\eu^{x}\cdot\eu^{\iu y}=\eu^x\left(\cos y+\iu \sin y\right).$$
+:::
+
+De la proposition précédente, nous pouvons déduire facilement les propriétés suivantes :
+
+::: Prop
+
+Soit $z$ un nombre complexe de forme cartésienne $x+\iu y$. Alors
+
+1. $\left|\eu^z\right|=\eu^x$&nbsp;;
+2. $\overline{\eu^z}=\eu^{\overline{z}}$&nbsp;;
+3. $\eu^{z+2k\pi\iu}=\eu^{z}$ pour tout $k\in\Z$.
+
+:::
+
+::: Ex
+# Calcul de l'exponentielle {#exexpo}
+
+Calculez l'exponentielle de $2-\frac{\iu\pi}{2}$.
+
+***
+
+Nous avons que
+$$\eu^{2-\frac{\iu\pi}{2}}=\eu^2\left(\cos\left(-\frac{\pi}{2}\right)+\iu\sin\left(-\frac{\pi}{2}\right)\right)=-\eu^2.$$
+
+:::
+
+L'exemple \ref{exexpo} illustre que l'exponentielle d'un nombre imaginaire peut être un nombre réel.

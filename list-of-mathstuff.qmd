@@ -1,0 +1,116 @@
+\providecommand{\Pageref}[1]{\hfill p.\pageref{#1}}
+ [**Définition 3.1**](Operations.qmd#unite): Unité imaginaire\Pageref{unite}
+
+ [**Définition 3.2**](Operations.qmd#nbcomplexe): Nombre complexe\Pageref{nbcomplexe}
+
+ [**Définition 3.3**](Operations.qmd#defegalite): Égalité de deux nombres complexe\Pageref{defegalite}
+
+ [**Définition 3.4**](Operations.qmd#sommecomplexe): Somme de deux nombres complexes\Pageref{sommecomplexe}
+
+ [**Exemple 3.1**](Operations.qmd#Ex-3.1)\Pageref{Ex-3.1}
+
+ [**Exemple 3.2**](Operations.qmd#Ex-3.2)\Pageref{Ex-3.2}
+
+ [**Définition 3.5**](Operations.qmd#partiereelle): Partie réelle\Pageref{partiereelle}
+
+ [**Remarques 3.1**](Operations.qmd#Rems-3.1)\Pageref{Rems-3.1}
+
+ [**Définition 3.6**](Operations.qmd#produit): Produit\Pageref{produit}
+
+ [**Exemple 3.3**](Operations.qmd#Ex-3.3)\Pageref{Ex-3.3}
+
+ [**Proposition 3.1**](Operations.qmd#Prop-3.1)\Pageref{Prop-3.1}
+
+ [**Exemple 3.4**](Operations.qmd#exinverse): Inverse d’un nombre complexe\Pageref{exinverse}
+
+ [**Exemple 3.5**](Operations.qmd#Ex-3.5)\Pageref{Ex-3.5}
+
+ [**Définition 4.1**](ModuleConjugue.qmd#def:conjugue): Conjugué d’un nombre complexe\Pageref{def:conjugue}
+
+ [**Proposition 4.1**](ModuleConjugue.qmd#Prop-4.1)\Pageref{Prop-4.1}
+
+ [**Définition 4.2**](ModuleConjugue.qmd#fonction-valeur-absolue): Fonction valeur absolue\Pageref{fonction-valeur-absolue}
+
+ [**Définition 4.3**](ModuleConjugue.qmd#fctracine2): Fonction racine carrée\Pageref{fctracine2}
+
+ [**Proposition 4.2**](ModuleConjugue.qmd#racineabs): Racine carrée et valeur absolue\Pageref{racineabs}
+
+ [**Remarques 4.1**](ModuleConjugue.qmd#Rems-4.1)\Pageref{Rems-4.1}
+
+ [**Définition 4.4**](ModuleConjugue.qmd#module-1): Module\Pageref{module-1}
+
+ [**Proposition 4.3**](ModuleConjugue.qmd#Prop-4.3)\Pageref{Prop-4.3}
+
+ [**Proposition 4.4**](ModuleConjugue.qmd#Prop-4.4)\Pageref{Prop-4.4}
+
+ [**Proposition 4.5**](ModuleConjugue.qmd#Prop-4.5)\Pageref{Prop-4.5}
+
+ [**Proposition 4.6**](ModuleConjugue.qmd#Prop-4.6)\Pageref{Prop-4.6}
+
+ [**Proposition 4.7**](ModuleConjugue.qmd#conjconj): Conjugué du conjugué d’un nombre complexe\Pageref{conjconj}
+
+ [**Proposition 4.8**](ModuleConjugue.qmd#conjsomme): Conjugué d’une somme\Pageref{conjsomme}
+
+ [**Proposition 4.9**](ModuleConjugue.qmd#conjproduit): Conjugué d’un produit\Pageref{conjproduit}
+
+ [**Proposition 4.10**](ModuleConjugue.qmd#conjpuissance): Conjugué d’une puissance\Pageref{conjpuissance}
+
+ [**Proposition 4.11**](ModuleConjugue.qmd#conjquotient): Conjugué d’un quotient\Pageref{conjquotient}
+
+ [**Proposition 4.12**](ModuleConjugue.qmd#reellemodule): Partie réelle et module\Pageref{reellemodule}
+
+ [**Proposition 4.13**](ModuleConjugue.qmd#imaginairemodule): Partie imaginaire et module\Pageref{imaginairemodule}
+
+ [**Proposition 4.14**](ModuleConjugue.qmd#moduleproduit): Module d’un produit\Pageref{moduleproduit}
+
+ [**Proposition 4.15**](ModuleConjugue.qmd#modulepuissance): Module d’une puissance\Pageref{modulepuissance}
+
+ [**Proposition 4.16**](ModuleConjugue.qmd#modulequotient): Module d’un quotient\Pageref{modulequotient}
+
+ [**Proposition 4.17**](ModuleConjugue.qmd#inegalitetriangulaire): Inégalité triangulaire\Pageref{inegalitetriangulaire}
+
+ [**Définition 5.1**](Lieux.qmd#lieu-géométrique): Lieu géométrique\Pageref{lieu-géométrique}
+
+ [**Proposition 5.1**](Lieux.qmd#cerclecomplexe): Caractérisation d’un cercle\Pageref{cerclecomplexe}
+
+ [**Exemple 5.1**](Lieux.qmd#exlieu): Un exemple de lieu géométrique\Pageref{exlieu}
+
+ [**Proposition 5.2**](Lieux.qmd#ellipse): Caractérisation d’une ellipse\Pageref{ellipse}
+
+ [**Proposition 5.3**](Lieux.qmd#hyperbole): Caractérisation d’une hyperbole\Pageref{hyperbole}
+
+ [**Définition 7.1**](polaire.qmd#dargprinc): Argument principal\Pageref{dargprinc}
+
+ [**Définition 7.2**](polaire.qmd#formepolaire): Forme polaire\Pageref{formepolaire}
+
+ [**Remarques 7.1**](polaire.qmd#Rems-7.1)\Pageref{Rems-7.1}
+
+ [**Proposition 7.1**](polaire.qmd#argprincprop): Argument principal\Pageref{argprincprop}
+
+ [**Exemple 7.1**](polaire.qmd#expolaire): Exemple d’un calcul de la forme polaire\Pageref{expolaire}
+
+ [**Définition 8.1**](exponentielle.qmd#fctexpo): Fonction exponentielle\Pageref{fctexpo}
+
+ [**Théorème 8.1**](exponentielle.qmd#thmEuler): Théorème d’Euler\Pageref{thmEuler}
+
+ [**Définition 8.2**](exponentielle.qmd#formeexpo): Forme exponentielle\Pageref{formeexpo}
+
+ [**Proposition 8.2**](exponentielle.qmd#propexpo): Exponentielle d’un nombre complexe\Pageref{propexpo}
+
+ [**Proposition 8.3**](exponentielle.qmd#Prop-8.3)\Pageref{Prop-8.3}
+
+ [**Exemple 8.1**](exponentielle.qmd#exexpo): Calcul de l’exponentielle\Pageref{exexpo}
+
+ [**Proposition 9.1**](demoivre.qmd#eulerf): Formules d’Euler\Pageref{eulerf}
+
+ [**Proposition 9.2**](demoivre.qmd#DeMoivre): Formule de De Moivre\Pageref{DeMoivre}
+
+ [**Exemple 9.1**](demoivre.qmd#exDeMoivre): Applications de la formule de De Moivre\Pageref{exDeMoivre}
+
+ [**Proposition 10.1**](racinesnieme.qmd#racine2complexe): Racines carrées d’un nombre complexe\Pageref{racine2complexe}
+
+ [**Définition 10.1**](racinesnieme.qmd#nieme): Racines $n$-ièmes\Pageref{nieme}
+
+ [**Théorème 10.2**](racinesnieme.qmd#thmniemes): Valeurs des racines $n$-ièmes\Pageref{thmniemes}
+
+ [**Exemple 10.1**](racinesnieme.qmd#racines-quatrièmes-de-16): Racines quatrièmes de $16$\Pageref{racines-quatrièmes-de-16}

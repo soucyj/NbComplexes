@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction aux nombres complexes et polynômes - 6&nbsp; Série 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./polaire.html" rel="next">
+<link href="./Lieux.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<style>
+.Conjecture {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Thm {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Prop {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Corollary {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Props {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Ex {
+  --color1: #b8cace;
+  --color2: #134f5c;
+}
+.Rem {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
+.Def {
+  --color1: #e1f1fd;
+  --color2: #4663ac;
+}
+.Rems {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
+</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./exercices01.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Série 1</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction aux nombres complexes et polynômes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Arithmetique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Définition des nombres complexes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ModuleConjugue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module et conjugué</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lieux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lieux géométriques dans le plan complexe</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercices01.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Série 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./polaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forme polaire</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exponentielle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La fonction exponentielle complexe</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demoivre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Les formules d’Euler et celle de De Moivre</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./racinesnieme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Racines <span class="math inline">\(n\)</span>-ièmes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercices02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Série 2</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Série 1</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div id="exr-calculs2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6.1 </strong></span>&nbsp;</p>
+<p>Soit <span class="math inline">\(z_1=2+\textrm{i}\)</span> et <span class="math inline">\(z_2=3-4\textrm{i}\)</span>. Écrivez, sous forme cartésienne, chacun des nombres ci-dessous.</p>
+<ol type="a">
+<li><span class="math inline">\(z_1+z_2\)</span></li>
+<li><span class="math inline">\(|z_1+z_2|\)</span></li>
+<li><span class="math inline">\(\frac{z_1}{z_2}\)</span></li>
+<li><span class="math inline">\(\frac{z_1}{z_1-z_2}\)</span></li>
+<li><span class="math inline">\(z_1^2+z_2^2\)</span></li>
+<li><span class="math inline">\(\left(z_1+\overline{z_1}\right)\left(z_2+\overline{z_2}\right)\)</span></li>
+<li><span class="math inline">\(\frac{z_2^2-z_1^2}{z_1\overline{z_1}z_2\overline{z_2}}\)</span></li>
+<li><span class="math inline">\((z_1-2)^{10}\)</span></li>
+<li><span class="math inline">\(\frac{(2z_2-3z_1)^8}{(z_2+4z_1)^5}\)</span></li>
+<li><span class="math inline">\(\left|\frac{z_1^2+z_2^3}{2z_2+8z_1}\right|\)</span></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math inline">\(5-3\textrm{i}\)</span></li>
+<li><span class="math inline">\(\sqrt{34}\)</span></li>
+<li><span class="math inline">\(10-5\textrm{i}\)</span></li>
+<li><span class="math inline">\(\frac{3}{26}-\frac{11}{26}\textrm{i}\)</span></li>
+<li><span class="math inline">\(-4-20\textrm{i}\)</span></li>
+<li><span class="math inline">\(24\)</span></li>
+<li><span class="math inline">\(-\frac{2}{25}-\frac{28}{125}\textrm{i}\)</span></li>
+<li><span class="math inline">\(-1\)</span></li>
+<li><span class="math inline">\(1331\)</span></li>
+<li><span class="math inline">\(\frac{\sqrt{3649}}{11}\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-trouverz" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6.2 </strong></span>&nbsp;</p>
+<p>Pour chacune des équations ci-dessous, trouvez les nombres complexes <span class="math inline">\(z\)</span> qui la satisfont.</p>
+<ol type="a">
+<li><span class="math inline">\(\frac{z}{2-\textrm{i}}=7+5\textrm{i}\)</span></li>
+<li><span class="math inline">\(z=(1+\textrm{i})^{10}\)</span></li>
+<li><span class="math inline">\((2z+3)(5z-5+5\textrm{i})=0\)</span></li>
+<li><span class="math inline">\(|z|=2\textrm{i}\)</span></li>
+<li><span class="math inline">\(\frac{z}{2+\textrm{i}-z}=3+2\textrm{i}\)</span></li>
+<li><span class="math inline">\(\overline{z}z=4\)</span></li>
+<li><span class="math inline">\(1+\textrm{i}+\textrm{i}^2+\textrm{i}^3+\ldots+\textrm{i}^{999}\)</span></li>
+<li><span class="math inline">\(-\frac{2\textrm{i}}{z}=\frac{z}{32\textrm{i}}\)</span></li>
+<li><span class="math inline">\(\left|z^2-1\right|=z^2-1\)</span></li>
+<li><span class="math inline">\((3z+4\textrm{i}z)(z-5\textrm{i})=0\)</span></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math inline">\(z=19+3\textrm{i}\)</span></li>
+<li><span class="math inline">\(z=32\textrm{i}\)</span></li>
+<li><span class="math inline">\(z=-\frac{3}{2}\)</span> ou <span class="math inline">\(z=1-\textrm{i}\)</span></li>
+<li>Aucune valeur de <span class="math inline">\(z\)</span> ne satisfait cette équation.</li>
+<li><span class="math inline">\(z=\frac{3}{2}+\textrm{i}\)</span></li>
+<li>Tous les nombres complexes de module <span class="math inline">\(2\)</span>, soit tous ceux sur le cercle de rayon <span class="math inline">\(2\)</span> centré à l’origine dans le plan complexe.</li>
+<li><span class="math inline">\(z=0\)</span></li>
+<li><span class="math inline">\(z=\pm 8\)</span></li>
+<li>On pose <span class="math inline">\(z=x+y\,\textrm{i}\)</span> où <span class="math inline">\(x,y\in\mathbb{R}\)</span>. En remplaçant dans l’équation, on montre qu’on ne peut avoir <span class="math inline">\(y\neq 0\)</span>. Le nombre <span class="math inline">\(z\)</span> doit être un réel <span class="math inline">\(x\)</span>. L’équation devient alors <span class="math inline">\(|x^2-1|=x^2-1\)</span>. Un nombre réel est égal à sa valeur absolue uniquement lorsqu’il s’agit d’un nombre réel positif. On doit donc avoir que <span class="math inline">\(x^2-1\in [0,\infty[\)</span>. Cela signifie que <span class="math inline">\(x^2\in [1,\infty[\)</span>, d’où <span class="math inline">\(x\in\mathbb{R}\,\backslash\,]-1,1[~=~]-\infty,-1]\cup[1,\infty[\)</span>.</li>
+<li><span class="math inline">\(z=0\)</span> ou <span class="math inline">\(z=5\textrm{i}\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-repsensembles" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6.3 </strong></span>&nbsp;</p>
+<p>Représentez chacun des ensembles suivants dans le plan complexe.</p>
+<ol type="a">
+<li><span class="math inline">\(\{z\in\mathbb{C}:z=x+x\textrm{i}, x\in\mathbb{R}\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:\text{Re}\,(z)+\text{Im}\,(z)=0\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:\text{Re}\,(z+\overline{z})\in\mathbb{R}\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:\text{Im}\,(z+\overline{z})\in\mathbb{R}\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:2z=\text{Re}\,(z+\overline{z})\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:\text{Im}\,(z)+\text{Re}\,(z)\notin\mathbb{R}\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:|z|=|\overline{z}|\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:|z|+2=z+2\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:|z+w|=|w|\,\forall w\in\mathbb{C}\}\)</span></li>
+<li><span class="math inline">\(\{z\in\mathbb{C}:|z|=\text{Im}\,(z)\}\)</span></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(z=x+\textrm{i}\, y\)</span> un nombre complexe exprimé sous sa forme cartésienne, ce qui sous-entend que <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> sont des nombres réels. Pour chacune des sous-questions, nous devons trouver des conditions à imposer aux nombres <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> qui caractérisent l’appartenance du nombre complexe <span class="math inline">\(z=x+\textrm{i}\,y\)</span> à l’ensemble de nombres précisé. Ces conditions doivent pouvoir nous permettre de facilement identifier les solutions.</p>
+<ol type="a">
+<li>Puisque <span class="math inline">\(z=x+\textrm{i}\,y\)</span>, il faut et il suffit que <span class="math inline">\(x=y\)</span>. Ainsi, il s’agit des points du plan complexe appartenant à la droite d’équation <span class="math inline">\(y=x\)</span>.<br> <img src="images/droiteyegalx/droiteyegalx.svg" class="img-fluid" width="300"></li>
+<li>Nous avons que <span class="math inline">\(\text{Re}\,(z)+\text{Im}\,(z)=x+y\)</span>. La condition revient donc à exiger que <span class="math inline">\(x+y=0\)</span>, c’est-à-dire que <span class="math inline">\(y=-x\)</span>. Les nombres appartenant à l’ensemble sont donc ceux situés sur la droite d’équation <span class="math inline">\(y=-x\)</span>.<br> <img src="images/droiteyegalmoinsx/droiteyegalmoinsx.svg" class="img-fluid" width="300"></li>
+<li>On a que <span class="math inline">\(z+\overline{z}= 2x\)</span>. Comme <span class="math inline">\(x\in\mathbb{R}\)</span>, il en est de même de <span class="math inline">\(2x\)</span>. Nous avons donc que <span class="math inline">\(z+\overline{z}\in\mathbb{R}\,\forall z\in\mathbb{C}\)</span>, c’est-à-dire que <span class="math inline">\(\text{Re}\,(z+\overline{z})\in\mathbb{R}\,\forall z\in\mathbb{C}\)</span>. Ainsi, tous les points du plan complexe appartiennent à l’ensemble. Plus simplement, il suffit d’observer que par définition, la partie réelle d’un nombre complexe — comme la partie imaginaire — est toujours un nombre réel.<br> <img src="images/plancomplet/plancomplet.svg" class="img-fluid" width="300"></li>
+<li>Par définition, la partie imaginaire d’un nombre complexe est un nombre réel. Par conséquent, tous les points du plan complexe appartiennent à cet ensemble.<br> <img src="images/plancomplet/plancomplet.svg" class="img-fluid" width="300"></li>
+<li>En posant <span class="math inline">\(z=x+\textrm{i}\, y\)</span>, l’équation devient <span class="math inline">\(2x+2y\,\textrm{i}=2x\)</span>. Cette équation se simplifie pour donner <span class="math inline">\(2y\,\textrm{i}=0\)</span>. Ainsi, les nombres appartenant à cet ensemble sont ceux dont la partie imaginaire est nulle. L’ensemble cherché est donc celui des nombres complexes situés sur l’axe réel.<br> <img src="images/axehorizontal/axehorizontal.svg" class="img-fluid" width="300"></li>
+<li>Par définition, <span class="math inline">\(\text{Re}\,(z)\)</span> et <span class="math inline">\(\text{Im}\,(z)\)</span> sont des nombres réels. Leur somme est donc un nombre réel, quel que soit le nombre complexe <span class="math inline">\(z\)</span>. Par conséquent, aucun nombre du plan complexe n’appartiennent à l’ensemble.<br> <img src="images/aucunpoint/aucunpoint.svg" class="img-fluid" width="300"></li>
+<li>Si <span class="math inline">\(z=x+\textrm{i}\,y\)</span>, alors <span class="math inline">\(\overline{z}=x-\textrm{i}\, y\)</span>. Ainsi, nous avons que <span class="math display">\[|\overline{z}|=\sqrt{x^2+(-y)^2}=\sqrt{x^2+y^2}=|z|.\]</span> Donc tous les nombres du plan complexe appartiennent à l’ensemble.<br> <img src="images/plancomplet/plancomplet.svg" class="img-fluid" width="300"></li>
+<li>D’abord, l’équation se simplifie pour donner <span class="math inline">\(|z|=z\)</span>. Le membre de gauche étant un nombre réel positif, les seuls nombres complexes à pouvoir vérifier cette équation sont donc les nombres réels dans l’intervalle <span class="math inline">\([0,\infty[\)</span>. Comme tous les nombres réels positifs sont égaux à leur module, on peut affirmer qu’un nombre appartient à l’ensemble si et seulement si c’est un nombre dans l’intervalle <span class="math inline">\([0,\infty[\)</span>.<br> <img src="images/axereelpos/axereelpos.svg" class="img-fluid" width="300"></li>
+<li>Si <span class="math inline">\(|z+w|=|w|\)</span> pour tout <span class="math inline">\(w\in\mathbb{C}\)</span>, alors en particulier <span class="math inline">\(|z+w|=|w|\)</span> lorsque <span class="math inline">\(w=0\)</span>. Cela signifie que <span class="math inline">\(|z+0|=|0|=0\)</span>, d’où <span class="math inline">\(z=0\)</span>. Nous venons donc de montrer que si un nombre complexe <span class="math inline">\(z\)</span> appartient à l’ensemble, alors il est forcément égal à <span class="math inline">\(0\)</span>. Cela ne montre pas que 0 appartient à l’ensemble. Pour compléter, on vérifie que si <span class="math inline">\(z=0\)</span>, la condition s’écrit <span class="math inline">\(|0+w|=|w|\)</span> pour tout <span class="math inline">\(w\in\mathbb{C}\)</span>. Comme cette condition est vérifiée, le seul nombre complexe qui appartient à l’ensemble est <span class="math inline">\(0\)</span>.<br> <img src="images/origine/origine.svg" class="img-fluid" width="300"></li>
+<li>L’équation entraîne que <span class="math inline">\(\sqrt{x^2+y^2}=y\)</span>. Comme le membre de gauche de l’équation est une nombre réel positif, il doit en être de même du membre de droite. En élevant au carré de chaque côté, on obtient que <span class="math inline">\(x^2+y^2=y^2\)</span>, d’où <span class="math inline">\(x=0\)</span>. Les seuls candidats possibles sont donc les nombres complexes ayant une partie réelle nulle et une partie imaginaire positive. On vérifie que si <span class="math inline">\(z=y\,\textrm{i}\)</span> où <span class="math inline">\(y\in[0,\infty[\)</span>, alors l’équation est satisfaite. Ainsi, les nombres situés sur l’axe imaginaire au-dessus de l’axe réel (y compris l’origine) sont les seuls à appartenir à l’ensemble.<br> <img src="images/axeimpos/axeimpos.svg" class="img-fluid" width="300"></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-preuvesprop" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6.4 </strong></span>&nbsp;</p>
+<p>Montrez chacune des propriétés ci-dessous. Dans tous les cas, <span class="math inline">\(z,z_1\)</span> et <span class="math inline">\(z_2\)</span> sont des nombres complexes et <span class="math inline">\(n\in\mathbb{N}^{\star}.\)</span></p>
+<ol type="a">
+<li><span class="math inline">\(\text{Re}\,(z)\leq|z|\)</span></li>
+<li><span class="math inline">\(\text{Im}\,(z)\leq|z|\)</span></li>
+<li><span class="math inline">\(|z_1\cdot z_2|=|z_1|\cdot |z_2|\)</span></li>
+<li><span class="math inline">\(|z^n|=|z|^n\)</span></li>
+<li><span class="math inline">\(\left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}\qquad(\,z_2\neq 0)\)</span></li>
+<li><span class="math inline">\(\overline{z_1+z_2}=\overline{z_1}+\overline{z_2}\)</span></li>
+<li><span class="math inline">\(\overline{z_1\cdot z_2}=\overline{z_1}\cdot \overline{z_2}\)</span></li>
+<li><span class="math inline">\(\overline{z^n}=\overline{z}^{\,n}\)</span></li>
+<li><span class="math inline">\(\overline{\left(\dfrac{z_1}{z_2}\right)}=\dfrac{\overline{z_1}}{\overline{z_2}}\qquad(\,z_2\neq 0)\)</span></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dans ce qui suit, nous supposerons que <span class="math inline">\(z=x+\textrm{i}y,z_1=x_1+\textrm{i}\,y_1\)</span> et <span class="math inline">\(z_2=x_2+\textrm{i}\, y_2\)</span>, où <span class="math inline">\(x,x_1,x_2,y,y_1\)</span> et <span class="math inline">\(y_2\)</span> sont des nombres réels.</p>
+<ol type="a">
+<li><p>Nous avons que <span class="math inline">\(|z|=\sqrt{x^2+y^2}\geq \sqrt{x^2}=|x|\geq x=\text{Re}\,(z)\)</span>.<br>
+</p></li>
+<li><p>Nous avons que <span class="math inline">\(|z|=\sqrt{x^2+y^2}\geq \sqrt{y^2}=|y|\geq y=\text{Im}\,(z)\)</span>.<br>
+</p></li>
+<li><p>Nous avons que <span class="math display">\[\begin{align*}|z_1\cdot z_2|&amp;=&amp;|(x_1+\textrm{i}\, y_1)\cdot (x_2+\textrm{i}\, y_2)|\\
+         &amp;=&amp;|x_1x_2-y_1y_2+\textrm{i}\,(x_1y_2+y_1x_2)|\\
+         &amp;=&amp;\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2}.
+     \end{align*}\]</span> De même, <span class="math display">\[|z_1|\cdot |z_2|=\sqrt{x_1^2+y_1^2}\cdot\sqrt{x_2^2+y_2^2}=\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2}.\]</span> La propriété est donc établie.</p></li>
+<li><p>Il suffit d’appliquer la propriété (c) plusieurs fois : <span class="math display">\[\begin{align*}
+     \left|z^{n}\right|&amp;=\left|z^{n-1}\cdot z\right|\\
+     &amp;=\left|z^{n-1}\right|\cdot |z| \qquad \text{d'après la propriété (c)}\\
+     &amp;=\left|z^{n-2}\cdot z\right|\cdot |z|\\
+     &amp;=\left|z^{n-2}\right|\cdot |z|\cdot |z| \qquad \text{d'après la propriété (c)}\\
+     &amp;=\ldots\\
+     &amp;=\underbrace{|z|\cdot|z|\cdots|z|}_{n\text{~fois}}\qquad \text{après avoir appliqué (c) suffisament de fois}\\
+     &amp;=|z|^n.
+     \end{align*}\]</span> <!---
+        Cette démonstration s'appuie sur le principe d'induction. On montre que le résultat est vrai pour $n=1$. Ensuite, on suppose que le résultat est vrai pour $n$ et on montre que cela entraîne qu'il est aussi vrai pour $n+1$. Dans le problème actuel, on observerait d'abord que le résultat est vrai pour $n=1$. Supposons le résultat vrai pour $n$, c'est-à-dire que $\left|z^n\right|=|z|^{\,n}$, puis montrons que cela implique que le résultat est vrai pour $n+1$.
+        \begin{align*}
+        \left|z^{n+1}\right|&=\left|z^{n}\cdot z\right|\\
+        &=\left|z^{n}\right|\cdot |z|\qquad \text{d'après la propriété (c)}\\
+        &=|z|^{\,n}\cdot |z| \qquad \text{d'après l'hypothèse d'induction}\\
+        &=|z|^{\,n+1}\,.
+        \end{align*}
+        Le principe d'induction nous permettra alors de conclure que la propriété est vraie.
+---></p></li>
+<li><p>Pour <span class="math inline">\(z_2\neq 0\)</span>, nous avons que <span class="math display">\[\begin{align*}
+     |z_1|&amp;=\left|z_2\cdot\frac{z_1}{z_2}\right|\\
+     &amp;=|z_2|\cdot\left|\,\frac{z_1}{z_2}\,\right|\qquad\text{d'après la propriété (c).}
+     \end{align*}\]</span> En divisant chaque membre de l’équation par <span class="math inline">\(|z_2|\)</span> — ce qu’on peut faire, puisque <span class="math inline">\(z_2\neq 0\)</span> — on complète la démonstration.<br>
+</p></li>
+<li><p>Nous avons que <span class="math display">\[\begin{align*}
+     \overline{z_1+z_2}&amp;=\overline{x_1+x_2+\textrm{i}\,(y_1+y_2)}\\
+     &amp;=x_1+x_2-\textrm{i}\,(y_1+y_2)\\
+     &amp;=x_1-\textrm{i}\,y_1+x_2-\textrm{i}\,y_2\\
+     &amp;=\overline{z_1}+\overline{z_2}.
+     \end{align*}\]</span></p></li>
+<li><p>Nous avons que <span class="math display">\[\begin{align*}
+     \overline{z_1\cdot z_2}&amp;=\overline{(x_1+\textrm{i}\,y_1)\cdot(x_2+\textrm{i}\,y_2)}\\
+     &amp;=\overline{x_1x_2-y_1y_2+\textrm{i}\,(x_1y_2+x_2y_1)}\\
+     &amp;=x_1x_2-y_1y_2-\textrm{i}\,(x_1y_2+x_2y_1).
+     \end{align*}\]</span> De même, <span class="math display">\[\begin{align*}
+     \overline{z_1}\cdot\overline{z_2}&amp;=(x_1-\textrm{i}\,y_1)\cdot(x_2-\textrm{i}\,y_2)\\
+     &amp;=x_1x_2-y_1y_2-\textrm{i}\,(x_1y_2+x_2y_1).
+     \end{align*}\]</span> La propriété est donc démontrée.</p></li>
+<li><p>Nous avons que <span class="math display">\[\begin{align*}
+     \overline{z^{n}}&amp;=\overline{z^{n-1}\cdot z}\\
+     &amp;=\overline{z^{n-1}}\cdot \overline{z}\qquad \text{d'après la propriété (g)}\\
+     &amp;=\overline{z^{n-2}\cdot z}\cdot \overline{z}\qquad \text{d'après la propriété (g)}\\
+     &amp;=\overline{z^{n-2}}\cdot\overline{z}\cdot \overline{z}\qquad \text{d'après la propriété (g)}\\
+     &amp;=\ldots\\
+     &amp;=\underbrace{\overline{z}\cdot \overline{z}\cdot\ldots\cdot\overline{z}}_{n\text{~fois}} \qquad \text{en appliquant (g) suffisament de fois}\\
+     &amp;=\overline{z}^{\,n}\,.
+     \end{align*}\]</span></p></li>
+<li><p>Pour <span class="math inline">\(z_2\neq 0\)</span>, nous avons que <span class="math display">\[\begin{align*}
+     \overline{z_1}&amp;=\overline{z_2\cdot\frac{z_1}{z_2}}\\
+     &amp;=\overline{z_2}\cdot\overline{\left(\frac{z_1}{z_2}\right)}\qquad\text{d'après la propriété (g).}
+     \end{align*}\]</span> En divisant chaque membre de l’équation par <span class="math inline">\(\overline{z_2}\)</span> — ce qu’on peut faire, puisque <span class="math inline">\(z_2\neq 0\)</span> — on complète la démonstration.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-aligne" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6.5 </strong></span>&nbsp;</p>
+<p>Soit les nombres complexes <span class="math inline">\(z_1=-4+\textrm{i}\)</span>, <span class="math inline">\(z_2=3+8\,\textrm{i}\)</span> et <span class="math inline">\(z_3=20+24\,\textrm{i}\)</span>.</p>
+<ol type="a">
+<li>Trouvez l’équation de la droite passant par les points <span class="math inline">\(z_1\)</span> et <span class="math inline">\(z_2\)</span>.</li>
+<li>Est-ce que les nombres complexes <span class="math inline">\(z_1, z_2\)</span> et <span class="math inline">\(z_3\)</span> sont alignés? Justifiez.</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Il suffit de trouver l’équation d’une droite passant par les points de coordonnées <span class="math inline">\((-4,1)\)</span> et <span class="math inline">\((3,8)\)</span>. Dans un premier temps, on trouve que la pente de la droite est de <span class="math inline">\(1\)</span>. Puis, en posant <span class="math inline">\(y=x+b\)</span>, on trouve que <span class="math inline">\(b=5\)</span>, d’où <span class="math inline">\(y=x+5\)</span>.</p></li>
+<li><p>Pour que les trois points soient alignés, il faut et il suffit que <span class="math inline">\(z_3\)</span> appartienne à la droite passant par les points <span class="math inline">\(z_1\)</span> et <span class="math inline">\(z_2\)</span>. Ainsi, l’équation <span class="math inline">\(y=x+5\)</span> doit être satisfaite lorsque <span class="math inline">\(x=20\)</span> et <span class="math inline">\(y=24\)</span>. Comme ce n’est pas le cas, les trois points ne sont pas alignés.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="exr-deuxconditions" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6.6 </strong></span>&nbsp;</p>
+<p>Trouvez les nombres complexes <span class="math inline">\(z\)</span> qui satisfont simultanément les deux conditions suivantes: <span class="math display">\[\begin{align}
+  |z-3-3\textrm{i}|&amp;=2,\\
+  z(1-\textrm{i})&amp;=\overline{z}(1+\textrm{i}).
+\end{align}\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/jKG5ZMWFK0o?start=0" title="Nombres complexes : un lieu et deux équations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+</div>
+</div>
+<div id="exr-autreslieux" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercice 6.7 </strong></span>&nbsp;</p>
+<p>Pour chacune des équations ci-dessous, représentez, dans le plan complexe, les nombres complexes <span class="math inline">\(z\)</span> qui la satisfont.</p>
+<ol type="a">
+<li><span class="math inline">\((2\textrm{i}+1)z+(2\textrm{i}-1)\overline{z}=20\textrm{i}\)</span></li>
+<li><span class="math inline">\(|z|=z\)</span></li>
+<li><span class="math inline">\(|z-1|+|z+1|=4\)</span></li>
+<li><span class="math inline">\(|z-1|+|z+1|=2\)</span></li>
+<li><span class="math inline">\(|z-1-\textrm{i}|+|z+1+\textrm{i}|=10\)</span></li>
+<li><span class="math inline">\(|z-3|-|z+5|=\pm 2\)</span></li>
+<li><span class="math inline">\(|z-3|-|z+5|=2\)</span></li>
+<li><span class="math inline">\(|z-3|-|z+5|= \pm 8\)</span></li>
+<li><span class="math inline">\(|z-2|-|z+2|=0\)</span></li>
+<li><span class="math inline">\(|z-2|z\overline{z}=0\)</span></li>
+<li><span class="math inline">\(z+3\overline{z}+8-4\textrm{i}=7+12\textrm{i}\)</span></li>
+<li><span class="math inline">\(4\left(z-\overline{z}\right)=2\textrm{i}\left(z^2+2|z|^2+\overline{z}^2\right)\)</span></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>On pose <span class="math inline">\(z=x+\textrm{i}\,y\)</span>. En égalant les parties réelle et imaginaire pour chacun des deux membres de l’équation, on trouve que <span class="math inline">\(y=10-2x\)</span>.</li>
+<li>Il s’agit des nombres réels positifs.</li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/uBvoTGKXmjU?start=0" title="Ellipse dans le plan complexe : cas habituel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/TXJLDIuuebM?start=0" title="Ellipse dans le plan complexe : cas limite" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+<li>Une ellipse de foyers <span class="math inline">\(1+\textrm{i}\)</span> et <span class="math inline">\(-1-\textrm{i}\)</span> centrée à l’origine de grand axe <span class="math inline">\(10\)</span> et de petit axe <span class="math inline">\(\sqrt{23}\)</span>.</li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Cu0PG-x2UvI?start=0" title="Hyperbole dans le plan complexe : cas habituel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xssUMKCSvB4?start=0" title="Hyperbole dans le plan complexe : une seule branche" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+<li><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/t0RrHFNA2yU?start=0" title="Hyperbole dans le plan complexe : cas limite" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></li>
+<li>L’équation est équivalente à <span class="math inline">\(|z-2|=|z+2|\)</span>. Les points doivent être à une même distance de <span class="math inline">\(2\)</span> et de <span class="math inline">\(-2\)</span>. Ce sont les points situés sur la droite perpendiculaire au segment qui les joint et qui passe par le milieu de celui-ci (la médiatrice du segment). Dans ce cas particulier, cela correspond à l’axe imaginaire.</li>
+<li>Pour que le produit <span class="math inline">\(|z-2|z\overline{z}\)</span> soit nul, il faut qu’au moins un des facteurs soit nul. Le facteur <span class="math inline">\(|z-2|\)</span> s’annule si et seulement si <span class="math inline">\(z=2\)</span>. De même, <span class="math inline">\(\overline{z}=0\iff z=0\)</span>. Ainsi, les seules solutions sont <span class="math inline">\(0\)</span> et <span class="math inline">\(2\)</span>.</li>
+<li>En posant <span class="math inline">\(z=x+\textrm{i}\,y, x,y\in\mathbb{R}\)</span>, on trouve que <span class="math inline">\(z=-\frac{1}{4}-8\textrm{i}\)</span>.</li>
+<li>En posant <span class="math inline">\(z=x+\textrm{i}\,y, x,y\in\mathbb{R}\)</span>, on trouve que <span class="math inline">\(y=x^2\)</span>. Ainsi, l’ensemble solution est composé de tous les <span class="math inline">\(z\in\mathbb{C}\)</span> pour lesquels ont peut trouver un <span class="math inline">\(x\in\mathbb{R}\)</span> tel que <span class="math inline">\(z=x+x^2\,\textrm{i}\)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Lieux.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lieux géométriques dans le plan complexe</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./polaire.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forme polaire</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,33 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tkz-euclide}
+\usepackage{newtxmath}
+\usetkzobj{all}
+\usetikzlibrary{fadings}
+\tkzSetUpPoint[fill=black]
+\definecolor{fill1}{RGB}{183,183,183}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}[scale=5.5/4]
+				\draw[->,color=black] (-1,0) -- (3,0);
+				\foreach \x in {2}
+				\draw[shift={(\x,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below] {\footnotesize $\x$};
+				\draw[->,color=black] (0,-1) -- (0,3);
+				\foreach \y in {2}
+				\draw[shift={(0,\y)},color=black] (-1pt,0pt) -- (1pt,0pt) node[left] {\footnotesize $\y\iu$};
+				\draw[color=black] (0,0) -- (2,2);
+				\tkzDefPoint(0,0){O}
+				\tkzDefPoint(2,0){A}
+				\tkzDefPoint(0,2){B}
+				\tkzDefPoint(2,2){P}
+				\tkzMarkAngle[fill=fill1,size=5mm,arrows=->](A,O,P)
+				\tkzMarkAngle[size=5mm,arrows=->](A,O,P)
+				\tkzLabelAngle[pos=.75](A,O,P){$\frac{\piup}{4}$}
+				\tkzLabelSegment[anchor=south, rotate=45, pos=0.5](O,P){\footnotesize$2\sqrt{2}$}
+				%\tkzDrawSegments(O,P A,B C,D)
+				\tkzDrawPoints(P,O)
+				\draw[color=black] node[above] (U) at (2,2) {\small $2+2\iu$};
+				\draw[color=black] node[below left] (V) at (0,0) {\small $0$};
+				\draw[color=black] node[below] (A) at (3,0) {\small $\RE$};
+				\draw[color=black] node[left] (B) at (0,3) {\small $\IM$};
+				\end{tikzpicture}
+\end{document}

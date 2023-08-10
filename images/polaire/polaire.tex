@@ -1,0 +1,32 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{fadings}
+\tkzSetUpPoint[fill=black]
+\definecolor{fill1}{RGB}{183,183,183}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}[scale=5.5/3]
+			\tkzDefPoint(0,0){O}
+			\tkzDefPoint(-1,0){A}
+			\tkzDefPoint(1,0){B}
+			\tkzDefPoint(0,-1){C}
+			\tkzDefPoint(0,2){D}
+			\tkzDefPoint(2,0){E}
+			\tkzDefPoint(0.7071,0.7071){P}
+			%\tkzDrawLine(A,B)
+			%\tkzDrawLine(C,D)
+			
+			\tkzLabelPoints[above](P)
+			\tkzLabelPoints[below left](O)
+			\tkzMarkAngle[fill=fill1,size=3mm,arrows=->](E,O,P)
+			\tkzMarkAngle[size=3mm,arrows=->](E,O,P)
+			\tkzLabelAngle[pos=.5](B,O,P){$\theta$}
+			\tkzLabelSegment[anchor=south, rotate=45, pos=0.5](O,P){$r$}
+			\draw[->,color=black] (A) -- (E) node[below] {\small $\RE$};
+			\draw[->,color=black] (C) -- (D) node[left] {\small $\IM$};
+			\tkzDrawSegments(O,P)
+			\tkzDrawPoints(P,O)
+			\end{tikzpicture}
+\end{document}

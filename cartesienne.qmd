@@ -1,0 +1,952 @@
+---
+title: "Présentation"
+number-sections: true
+filters:
+  - custom-numbered-blocks
+
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    todos: default  
+  classes:
+    Theorem:
+      group: thmlike
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Definition:
+      group: thmlike
+      colors: [d999d3, a01793]
+    Feature: default
+    TODO:
+      label: "To do"
+      colors: [e7b1b4, 8c3236]
+      group: todos
+      listin: [stilltodo]
+    DONE:
+      label: "Done"
+      colors: [cce7b1, 86b754]  
+      group: todos
+---
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\textrm{Re}\,}
+\newcommand{\IM}{\textrm{Im}\,}
+\newcommand{\Arg}{\textrm{Arg}\,}
+\newcommand{\iu}{\textrm{i}}
+\usepackage{tikz}
+\usepackage{amsthm}
+\newtheorem{defn}{Définition}[section]
+\newcommand{\boitevide}{\square}
+
+
+## Arithmétique élémentaire
+
+Avant d'introduire les nombres complexes, il serait pertinent de revoir quelques propriétés de ce que nous avons coutume d'appeler nombre, et de faire l'inventaire des objets mathématiques qui appartiennent à cette catégorie.
+
+### Les nombres en général
+Les nombres --- qu'on les qualifie de naturels, entiers, rationnels, réels ou complexes --- sont des objets mathématiques qui une fois déshabillés des attributs que nous leur prêtons, se réduisent à n'être que des ensembles. Au moyen d'efforts considérables dans certains cas, tout nombre $x$ peut s'écrire de manière à ce que $x=\{\ldots\}$, où les trois points sont eux-mêmes des ensembles, des ensembles d'ensembles, etc. Si ces définitions --- qu'on pourrait qualifier d'ensemblistes --- des nombres sont d'une importance capitale, tous conviendront que nos raisonnements quotidiens qui les font intervenir portent davantage sur leurs caractéristiques que sur leur définition. Ainsi, en pensant au nombre $2$, l'image de deux points, semblables à ceux qu'on retrouve sur un dé à 6 faces, se présentera à notre esprit plus rapidement que la définition du nombre $2$ donnée par John von Neumann (voir @art:Neumann1923) voulant que $2=\{\emptyset,\{\emptyset\}\}$, où $\emptyset$ désigne l'ensemble ne comportant aucun élément (l'ensemble vide).
+
+### Deux opérations fondamentales
+Dès le début du primaire, on apprend à additionner et à multiplier des nombres. Ils sont d'abord naturels, puis lorsque l'élève termine ses études primaires, il est réputé en mesure d'effectuer ces opérations avec des nombres appartenant à des ensembles plus vastes, comme le sont les entiers et les nombres fractionnaires[^1]. Dans tous les cas, certaines propriétés, qu'on pourrait qualifier de «&nbsp;lois de l'arithmétique&nbsp;», sont vérifiées. En voici quelques-unes :
+
+[^1]: Éventuellement appelés nombres rationnels.
+
+1. L'addition et la multiplication sont des opérations associatives&nbsp;;
+2. L'addition et la multiplication sont des opérations commutatives&nbsp;;
+3. La multiplication est distributive sur l'addition&nbsp;;
+4. Un ensemble de nombres $E$ est stable pour l'addition et la multiplication.
+
+Voici ce qu'on entend par ces lois.
+
+### Associativité
+Le fait qu'écrire $1+2+5$ ne pose aucune ambiguïté découle du fait que l'opération d'addition soit associative. Qu'on calcule $(1+2)+5$ ou $1+(2+5)$, le résultat sera le même. De la même manière, $$3\times 4\times 5=3\times (4\times 5)=(3\times 4)\times 5.$$
+L'associativité c'est la possibilité de déplacer une paire de parenthèses sans modifier le résultat. Bien que l'addition et la multiplication soient des opérations associatives, le déplacement de parenthèses n'est pas forcément valable si ces deux opérations sont présentes dans un même calcul. Par exemple, pour calculer $1+2\times 5$, on ne peut pas calculer n'importe quelle des deux expressions $(1+2)\times 5$ et $1+(2\times 5)$. On *convient* que l'expression $1+2\times 5$ correspond à $1+(2\times 5)$. Il s'agit ainsi d'une convention d'écriture plutôt que d'un résultat mathématique. On réfère souvent à cette convention en invoquant la priorité des opérations. Encore une fois, ce sont des expressions qui ne font que traduire l'économie de parenthèses qu'il nous est possible de réaliser ; plutôt que d'écrire
+$$1+((2\times 7)+(3\times 3-(8\times 2))),$$ on convient d'écrire simplement $1+2\times 7+3\times 3-8\times 2$. Notons que ce ne sont pas toutes les opérations qui sont associatives. Par exemple,
+$$(3\div 4)\div 5\neq 3\div(4\div 5).$$
+Le membre de gauche correspond à la fraction $\frac{3}{20}$ alors que le membre de droite à $\frac{15}{4}$. Il s'agit là de deux fractions qui ne sont pas équivalentes.
+
+L'idée d'associativité s'étend au-delà des opérations sur les nombres. Par exemple, si $f,g$ et $h$ sont des fonctions, alors $(f\circ g)\circ h=f\circ (g\circ h)$. À titre d'exemple, posons $f(x)=x^2, g(x)=\sin(x)$ et $h(x)=x+1$. Nous avons que $(f\circ g)(x)=\sin^2(x)$, d'où
+$$\left((f\circ g)\circ h\right)(x)=\sin^2(h(x))=\sin^2(x+1).$$
+De même, $(g\circ h)(x)=\sin(x+1)$, d'où
+$$\left(f\circ (g\circ h)\right)(x)=f(\sin(x+1))=(\sin(x+1))^2=\sin^2(x+1).$$
+Encore une fois, l'égalité $(\sin (x+1))^2=\sin^2(x+1)$ est vraie puisqu'il s'agit d'une convention d'écriture.
+
+### Commutativité
+Si l'associativité est la possibilité de déplacer des parenthèses, la commutativité est, pour sa part, la possibilité d'inverser l'ordre des deux arguments intervenant dans l'opération. Par exemple, l'équation $$1+3=3+1$$
+est vraie, puisque l'addition est une opération commutative. La multiplication de nombres est aussi une opération commutative[^2]. Il en va autrement de la multiplication matricielle. Par exemple, si
+$$A=\begin{pmatrix} 0 &1 \\ 2 & 3\\ \end{pmatrix}\qquad\text{et}\qquad B=\begin{pmatrix} 1 &-1 \\ 0 & 2\\\end{pmatrix},$$
+alors
+$$AB=\begin{pmatrix} 0 &2 \\ 2 & 4\\ \end{pmatrix}\qquad\text{et}\qquad BA=\begin{pmatrix} -2 &-2 \\ 4 & 6\\\end{pmatrix}.$$
+
+[^2]: Il est possible de définir une opération de multiplication sur certains ensembles de nombres, de telle sorte que la multiplication ne soit pas commutative. C'est notamment le cas avec l'ensemble des quaternions. Comme ces nombres sont l'apanage des mathématiques avancées et de la physique théorique, nous ne nous étendrons pas plus loin sur le sujet.
+
+Un énoncé du type «&nbsp;la multiplication est commutative&nbsp;» doit donc être mis en contexte&nbsp;; il faut bien comprendre de quelle multiplication il s'agit. En principe, on doit toujours préciser l'ensemble sur lequel l'opération est définie. Il serait plus juste de dire que «&nbsp;la multiplication définie sur l'ensemble des nombres réels est une opération commutative&nbsp;» alors que «&nbsp;la multiplication définie sur l'ensemble des matrices $2\times 2$ n'est pas une opération commutative&nbsp;». L'algèbre moderne s'efforce de clarifier ces notions en introduisant ce qu'on appelle des *structures algébriques*.
+
+### Distributivité de la multiplication par rapport à l'addition
+On l'a vu, dans une même expression, il est possible d'y voir deux opérations de nature différente. Un cas important est celui d'une expression où sont présentes l'addition et la multiplication. C'est ce qu'on constate dans l'expression $5\times(1+3)$. Pour l'évaluer, on peut bien sûr évaluer la somme entre parenthèses, puis multiplier $5$ par $4$. Une autre avenue possible est de «&nbsp;distribuer&nbsp;» la multiplication par rapport à l'addition, ce qui signifie calculer $(5\times 1)+(5\times 3)$. Lorsqu'on affirme que la multiplication est distributive par rapport à l'addition, cela signifie que pour tous nombres $a,b$ et $c$, on a
+$$a\times (b+c)=a\times b+a\times c.$$
+
+### Stabilité d'un ensemble par rapport à une opération
+::: {.column-margin}
+
+::: {.callout-note}
+Le symbole $\Z$, utilisé pour représenter l'ensemble des entiers, est la première lettre du mot allemand zahl qui signifie «&nbsp;nombre&nbsp;».
+:::
+
+:::
+
+Étant donnés des nombres $a$ et $b$ appartenant à un ensemble de nombres $E$, leur somme et leur produit appartiennent toujours à l'ensemble $E$. Ce n'est pas toujours le cas pour le résultat d'une opération. À titre d'exemple, l'ensemble des nombres naturels n'est pas stable pour la soustraction. En effet, ce ne sont pas tous les problèmes de soustraction[^3] qui admettent une solution; c'est notamment le cas du problème $5+\boitevide=3$. L'ensemble des entiers règle le problème de la stabilité pour l'opération de la soustraction de nombres naturels, mais cela n'améliore guère les choses pour les problèmes de division.
+
+[^3]: Un problème de soustraction consiste à trouver une solution à une équation de type $a+\boitevide=b$.
+
+Prenons deux nombres naturels $a$ et $b$, tels que $b$ soit non nul, et considérons l'équation $b\times \boitevide = a$. Il arrive que cette équation possède une solution qui est dans $\N$, mais ce n'est généralement pas le cas. Par exemple, $3\times \boitevide = 12$ possède une solution ---&nbsp;le nombre $4$&nbsp;---, mais l'équation $3\times \boitevide = 13$ n'en possède pas.
+
+::: {.column-margin}
+
+::: {.callout-note}
+L'ensemble des fractions, aussi appelé ensemble des nombres rationnels, est représenté par le symbole $\mathbb{Q}$.
+
+L'ensemble des nombres réels est représenté par le symbole $\R$.
+:::
+
+:::
+
+
+L'ajout des nombres fractionnaires permet non seulement de résoudre ce problème dans le cas où $a$ et $b$ sont des nombres naturels, *mais aussi de le faire dans le cas où $a$ et $b$ sont des nombres fractionnaires*. C'est cette propriété qu'on évoque lorsqu'on mentionne que les nombres fractionnaires sont stables pour l'opération de division.
+
+Vers le 5ᵉ siècle avant notre ère, les mathématiciens grecs ont tenté de mesurer la longueur de l'hypoténuse d'un triangle rectangle dont les côtés adjacents à l'angle droit sont de longueur $1$. En utilisant le théorème de Pythagore, ils ont ramené le problème à celui de trouver un nombre $x$ tel que $2=x^2$. Ils en sont venus à la conclusion que $x$ ne pouvait être le quotient de deux nombres entiers. Bien sûr, le langage utilisé pour exprimer cette constatation était fort différent. On parlait plutôt d'une quantité *incommensurable*, ou encore *inexprimable*. Le tout rédigé en grec ancien! On ignore toujours si le problème du calcul de la mesure de l'hypoténuse d'un triangle rectangle est le premier qui a amené les Grecs à considérer des nombres irrationnels. Cette découverte suggère néanmoins de définir un ensemble de nombres plus vaste, comprenant le nombre $\sqrt{2}$, mais aussi tous les «&nbsp;trous&nbsp;» sur la droite numérique entre les nombres rationnels. Pour plus d'information sur le nombre $\sqrt{2}$ et l'extraction des racines carrées, voir @book:Rittaud2006. L'existence de tels nombres signifiait que les fractions ne remplissaient pas complètement la droite numérique, qu'on associe à l'ensemble des nombres réels.
+
+## Définition des nombres complexes
+
+::: {#def-unite}
+On appelle **unité imaginaire** un nombre qui, multiplié par lui-même, vaut $-1$. On le notera $\iu$.
+:::
+
+
+::: {.column-margin}
+
+::: {.callout-note}
+En sciences physiques, plus particulièrement dans le domaine du génie électrique, le symbole $\textrm{j}$ est utilisé pour représenter l'unité imaginaire. Cela est pour éviter toute confusion possible avec l'intensité d'un courant électrique, qui est souvent représentée par la lettre $\iu$.
+:::
+:::
+
+Plusieurs commentaires s'imposent après une telle définition. D'abord, elle se place en opposition avec un fait relayé depuis le secondaire : un nombre, multiplié par lui-même, ne peut donner une quantité strictement inférieure à $0$. Cela s'observe notamment en regardant le graphe de la fonction $f(x)=x^2$. Votre étonnement face à cette nouvelle définition est légitime ; on pourrait le comparer à celui vécu par les Grecs lorsqu'ils ont été obligés d'admettre que la longueur de l'hypoténuse d'un triangle rectangle dont les deux cathètes mesurent une unité n'était pas un nombre, en vertu du sens attribué à ce concept.
+
+L'arrivée de cet objet mathématique dans le cercle des nombres ne doit pas perturber les lois de l'arithmétique ; sommes et produits faisant intervenir ce nouvel arrivant doivent être bien définis. Si $a$ et $b$ sont des nombres réels, alors $b\iu$ doit être un nombre (le produit de deux nombres est un nombre), tout comme $a+b\iu$ (la somme de deux nombres est un nombre). Cela nous conduit à la  @def-nbcomplexe.
+
+::: {#def-nbcomplexe}
+On appelle **nombre complexe** un nombre de la forme $a+b\,\iu$, où $a,b\in\R,$ et $\iu^2=-1$. On notera $\C$ l'ensemble des nombres complexes.
+:::
+
+Il n'y a plus de place sur la droite numérique pour ces nombres, contrairement aux éléments des ensembles $\N,\Z,\Q$ et $\R$. Puisque deux nombres réels sont nécessaires pour définir un nombre complexe, il est naturel d'associer à chaque nombre complexe un couple de nombres réels, et de les représenter dans un plan. Il convient alors de définir l'égalité de deux nombres complexes de la manière suivante :
+
+::: {#def-egalite}
+Deux nombres complexes $z=a+b\,\iu$ et $w=c+d\,\iu$ (où $a,b,c,d\in\R$) \defi{sont égaux} si $a=c$ et $b=d$.
+:::
+
+::: {.column-margin}
+
+![PlanComplexe](images/plancomplexe/plancomplexe.svg){#fig-PlanComplexe width=300px}\n
+Plan complexe, aussi appelé plan de Gauss ou encore plan d'Argand. Quelques points du plan complexe ont été identifiés, et on a précisé pour chacun de ces points le nombre complexe qui lui est associé.
+:::
+
+### Somme de deux nombres complexes
+Un nombre complexe est défini à partir de deux nombres réels et de l'unité imaginaire. Lorsqu'on veut faire référence à un nombre complexe, il n'est pas nécessaire de le nommer à partir des éléments qui le définissent. Par exemple, on peut dire: *Soit $z$ un nombre complexe*. De cela il faut comprendre qu'on peut trouver deux nombres réels $a$ et $b$ tels que $z=a+b\,\iu$. Cela étant dit, étant donné deux nombres complexes, comment la somme de ceux-ci peut-elle être définie afin que les lois de l'arithmétique soient valides? En s'inspirant de l'opération d'addition des vecteurs, nous pouvons *définir* l'addition de nombres complexes.
+
+::: {#def-somme}
+Soient $z_1$ et $z_2$ deux nombres complexes tels que $z_1=x_1+\iu y_1$ et $z_2=x_2+\iu y_2$, où $x_1,x_2,y_1$ et $y_2$ sont des nombres réels. La **somme** de $z_1$ et $z_2$, notée $z_1+z_2$, est le nombre complexe défini par
+	$$z_1+z_2=x_1+x_2+(y_1+y_2)\iu.$$
+:::
+
+::: {.callout-note icon=false}
+## Exemple
+La somme des nombres $1+5\iu$ et $2-3\iu$ sera $3+2\iu$.
+:::
+
+De la même manière, la **différence** entre $z_1$ et $z_2$, notée $z_1-z_2$, est le nombre complexe défini par
+$$z_1-z_2=x_1-x_2+(y_1-y_2)\iu.$$
+
+::: {.callout-note icon=false}
+## Exemple
+Si $z_1=1+5\iu$ et $z_2=2-3\iu$, alors $z_1-z_2=-1+8\iu$.
+:::
+
+On constate que l'opération d'addition est commutative. En effet, cela est une conséquence de la commutativité de l'opération d'addition définie sur les nombres réels&nbsp;: on a bien que $x_1+x_2=x_2+x_1$, quels que soient les nombres réels $x_1$ et $x_2$. De la même manière, l'associativité de l'addition des nombres réels implique l'associativité de l'addition des nombres complexes. Ainsi,
+$$z_1+(z_2+z_3)=(z_1+z_2)+z_3\quad\forall z_1,z_2,z_3\in\C.$$
+On peut donc parler de la somme de trois nombres complexes en toute impunité et la noter $z_1+z_2+z_3$. Comme c'est aussi le cas dans l'ensemble des nombres réels, l'opération de soustraction n'est ni associative ni commutative. On ne doit pas s'étonner de ça&nbsp; l'ensemble des nombres complexes contient l'ensemble des nombres réels.
+
+
+### Parties réelle et imaginaire
+Un nombre complexe est entièrement déterminé par un couple de nombres réels.  Réciproquement, un couple de nombre réels détermine un unique nombre complexe.  Il y a donc une bijection entre les éléments de $\R^2$ et ceux de $\C$.
+
+::: {#def-reelleimg}
+Soit $a,b\in\R$ et soit $z=a+b\,\iu$ un nombre complexe. On dit alors que $a+b\,\iu$ est la forme cartésienne de $z$. De plus, le nombre réel $a$ s'appelle la **partie réelle** de $z$, et le nombre réel $b$ s'appelle la **partie imaginaire** de $z$. On les note $\RE(z)$ et $\IM(z)$ respectivement.
+:::
+
+::: Theorem
+### TODO
+here is some exemplary text
+:::
+
+::: {.callout-warning icon=false}
+## Remarques
+- Étant donné un point $(x,y)$ dans le plan, le nombre complexe $x+y\iu$ s'appelle **l'affixe** du point $(x,y)$.
+- Si un nombre complexe peut s'écrire comme $b\iu$, où $b\in\R$, on dit qu'il est un nombre complexe **imaginaire pur**, ou encore **purement imaginaire**.
+- Lorsqu'on dit d'un nombre qu'il est **imaginaire**, cela sous-entend que l'on considère un nombre complexe dont la partie imaginaire est non nulle.
+- Au lieu d'écrire $1\iu$ et $-1\iu$, on écrit $\iu$ et $-\iu$ respectivement.
+:::
+
+::: {.column-margin}
+
+::: {.callout-warning}
+La partie imaginaire d'un nombre complexe est toujours un nombre réel.
+:::
+:::
+
+### Produit de deux nombres complexes
+Considérons deux nombres complexes $a+b\iu$ et $c+d\iu$. Le produit de ces deux nombres reste à définir. Contrairement à l'addition de vecteurs, qui permet de définir la somme de nombres complexes de manière analogue, l'algèbre linéaire élémentaire ne nous fournie pas de multiplication vectorielle qui associe un vecteur du plan à deux vecteurs du plan. En effet, le produit scalaire de deux vecteurs a pour résultat un nombre réel, alors que le produit vectoriel de deux vecteurs donne un vecteur qui est perpendiculaire au plan engendré par les deux vecteurs dont on calcule le produit. Pour définir l'opération de multiplication de deux nombres complexes, nous allons appliquer certaines propriétés que nous aimerions voir vérifiées lorsqu'une multiplication est effectuée:
+\begin{align*}
+ (a+b\iu)(c+d\iu)&=(a+b\iu)c+(a+b\iu)d\iu&\text{(Distributivité)}\\
+ &=ac+(b\iu)c+a(d\iu)+b\iu(d\iu)&\text{(Distributivité)}\\
+ &=ac+(b\iu)c+(ad)\iu+b(\iu d)\iu&\text{(Associativité de la $\times$)}\\
+ &=ac+c(b\iu)+ad\iu+b(d\iu)\iu&\text{(Commutativité de la $\times$)}\\
+  &=ac+(cb)\iu+ad\iu+(bd)\iu\iu&\text{(Associativité de la $\times$)}\\
+ &=ac+(bc)\iu+ad\iu+(bd)\iu\iu&\text{(Commutativité de la $\times$)}\\
+ &=ac+bc\iu+ad\iu+bd\iu^2&\text{(Convention d'écriture)}\\
+ &=ac+bc\iu+ad\iu+bd(-1)&\text{(Définition de $\iu^2$)}\\
+ &=ac+bc\iu+ad\iu+(-1)bd&\text{(Commutativité de la $\times$)}\\
+ &=ac+(-1)bd+bc\iu+ad\iu&\text{(Commutativité de l'$+$)}\\
+ &=ac-bd+(bc+ad)\iu&\text{(Distributivité)}\\
+ &=ac-bd+(ad+bc)\iu.&\text{(Commutativité de l'$+$)}
+ \end{align*}
+Ce calcul motive la définition ci-dessous :
+
+::: {#def-produit}
+Soit $a,b,c$ et $d$ des nombres réels. Le **produit des nombres complexes** $a+b\iu$ et $c+d\iu$ est défini comme étant le nombre $ac-bd +(ad+bc)\iu$.
+:::
+
+Si on avait fait cette définition *a priori*, elle aurait pu sembler artificielle. Cependant, le travail effectué précédemment nous suggère que c'est la manière la plus convenable de définir le produit, si on souhaite que les lois de l'arithmétique soient vérifiées. On peut bien sûr le faire *a posteriori*: on montre que l'opération définie à la @def-produit est commutative, associative et distributive par rapport à l'addition.
+
+::: {.column-margin}
+
+::: {.callout-note}
+Pour multiplier deux nombres complexes, disons $a+b\iu$ et $c+d\iu$, il suffit de retenir que les propriétés d'associativité, de commutativité et de distributivité sont applicables. En utilisant bien sûr le fait que $\iu^2=-1$, on peut facilement calculer leur produit.
+:::
+:::
+
+On peut interpréter géométriquement le produit de deux nombres complexes, mais cela sera grandement facilité par l'introduction de l'argument d'un nombre complexe que nous aborderons sous peu.
+
+Pour effectuer des calculs faisant intervenir les nombres complexes, il n'est pas nécessaire de retenir cette définition, mais seulement de savoir qu'on peut appliquer les propriétés d'associativité, de commutativité et de distributivité telles que présentées précédemment. Bien sûr, tôt ou tard, il faudra utiliser le fait que $\iu^2=-1$ pour ramener notre expression sous la forme $a+b\iu$, avec $a,b\in\R$.
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez la forme cartésienne du nombre $(1-2\iu)\cdot(-3+4\iu)$.
+
+Nous avons que
+\begin{align*}
+  (1-2\iu)\cdot(-3+4\iu)&=1\cdot(-3+4\iu)-2\iu\cdot(-3+4\iu)\\
+  &=-3+4\iu-2\iu\cdot(-3)-2\iu\cdot 4\iu\\
+  &=-3+4\iu+6\iu-8\iu^2\\
+  &=-3+10\iu-8(-1)\\
+  &=-3+10\iu+8\\
+  &=5+10\iu.
+\end{align*}
+:::
+
+::: {#prp-reelsomme}
+Soit $z,w\in\C$, et soient $\lambda,\mu\in\R$. Alors
+	$$\RE(\lambda z+\mu w)=\lambda\RE(z)+\mu\RE(w)\quad\text{et}\quad\IM(\lambda z+\mu w)=\lambda\IM(z)+\mu\IM(w).$$
+:::
+
+::: {.proof}
+Supposons que $z=a+b\iu$ et $w=c+d\iu$, où $a,b,c$ et $d\in\R$. Nous avons que
+	$$\lambda z+\mu w=\lambda(a+b\iu)+\mu(c+d\iu)=\lambda a+\mu c+(\lambda b+\mu d)\iu.$$
+	Ainsi,
+	\begin{align*}
+	\RE(\lambda z+\mu w)&=\lambda a+\mu c=\lambda\RE(z)+\mu\RE(w),\\
+	\IM(\lambda z+\mu w)&=\lambda b+\mu d=\lambda\IM(z)+\mu\IM(w).
+	\end{align*}
+:::
+
+::: {.column-margin}
+
+::: {.callout-note}
+La partie réelle d'une somme de nombres complexes et la somme des parties réelles des nombres complexes additionnés.
+:::
+:::
+
+Un cas particulier de la proposition précédente est que la partie réelle d'une somme de nombres complexes est la somme des parties réelles des nombres complexes additionnés. On peut tirer le même constat dans le cas de la partie imaginaire. Cependant, la partie réelle du produit de deux nombres complexes n'est pas le produit des parties réelles des nombres complexes multipliés.
+
+::: {.column-margin}
+
+::: {.callout-warning}
+Il est faux de dire que que la partie réelle du produit de deux nombres complexes est égale au produit des parties réelles des deux nombres multipliés. De même, $$\IM(zw)\neq\IM(z)\IM(w)$$ en général.
+:::
+:::
+
+### Inverse
+La définition du produit de deux nombres complexes nous permet de se questionner sur l'existence de l'inverse (multiplicatif) d'un nombre complexe. D'abord, l'inverse d'un nombre complexe $z$ est un nombre complexe $w$ tel que $z\times w=1$. L'inverse de $z$ est noté $\frac{1}{z}$ ou $z^{-1}$. Cette définition n'a de sens que si $z\neq 0$, car dans le cas contraire, il nous faudrait trouver un $w\in\C$ tel que $0\times w=1$, ce qui est bien sûr impossible. On peut donc supposer que $z=a+b\iu$, avec $a,b\in\R$, pas tous les deux nuls, puis partir à la recherche d'un nombre complexe $w$ de la forme $x+y\iu$, où $x,y\in\R$. En utilisant la formule donnant le produit de deux nombres complexes, on doit avoir que $$\underbrace{ax-by +(ay+bx)\iu}_{zw}=1.$$ En égalant parties réelles et imaginaires (c'est ce qu'on doit faire en vertu de la définition d'égalité de deux nombres complexes présentée à la @def-egalite), nous obtenons les équations
+\begin{align}
+ax-by&=1,\\
+ay+bx&=0.
+\end{align}
+
+En multipliant la première équation par $a$ et la seconde par $b$, nous obtenons les équations
+\begin{align}
+a^2x-aby&=a,\label{eqn:reelle2}\\
+aby+b^2x&=0.\label{eqn:imaginaire2}
+\end{align}
+En additionnant ces équations, on obtient l'équation $a^2x+b^2x=a$. Puisque $a^2+b^2\neq 0,$ (conséquence du fait que $a$ et $b$ ne sont pas tous les deux nuls, qui à son tour découle de l'observation que $z\neq 0$), on est en droit de diviser par $a^2+b^2$, et on trouve que $x=\frac{a}{a^2+b^2}$. En procédant d'une manière semblable, on trouve que $y=-\frac{b}{a^2+b^2}$. Ainsi, l'inverse multiplicatif du nombre complexe $z=a+b\iu$ est le nombre complexe 
+$$\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\iu.$$
+Il n'est pas nécessaire de mémoriser cette formule pour obtenir l'inverse d'un nombre complexe. Il suffit de multiplier le numérateur et le dénominateur par une quantité bien choisie. Avant de dévoiler cette quantité, rappelons d'abord ce qu'on peut faire pour rationaliser le dénominateur du nombre $\frac{1}{3+\sqrt{2}}$. On voit au secondaire qu'il suffit de multiplier le numérateur et le dénominateur par $3-\sqrt{2}$. Cela a pour conséquence de «faire disparaître» la racine du dénominateur. En effet,
+$$\frac{1}{3+\sqrt{2}}=\frac{1}{3+\sqrt{2}}\times\underbrace{\frac{3-\sqrt{2}}{3-\sqrt{2}}}_{=1}=\frac{3-\sqrt{2}}{9-3\sqrt{2}+3\sqrt{2}-2}=\frac{3}{5}-\frac{\sqrt{2}}{5}.$$
+De la même manière, on peut faire disparaître le $\iu$ au dénominateur dans l'expression $\frac{1}{a+b\iu}$ en multipliant le numérateur et le dénominateur par l'expression $a-b\iu$. Cela est illustré à l'exemple suivant.
+
+::: {.column-margin}
+
+::: {.callout-note}
+Pour trouver l'inverse du nombre complexe $\frac{1}{a+b\iu}$, il suffit de multiplier le numérateur et le dénominateur par $a-b\iu$.
+:::
+:::
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez l'inverse de $3-2\iu$ sous forme cartésienne.
+
+Nous avons que
+		$$\frac{1}{3-2\iu}=\frac{1}{3-2\iu}\cdot\frac{3+2\iu}{3+2\iu}=\frac{3+2\iu}{9+6\iu-6\iu-4\iu^2}=\frac{3+2\iu}{13}=\frac{3}{13}-\frac{2}{13}\iu.$$
+:::
+
+### Quotient
+
+Qu'est-ce que le nombre $\frac{2}{3}$? On peut voir ce dernier comme étant un nombre, qui, lorsque multiplié par $3$, donne $2$. On peut aussi le définir comme étant deux fois l'inverse multiplicatif de trois, c'est-à-dire le nombre $2\times \frac{1}{3}$. En utilisant les propriétés régissant la structure des nombres, on peut constater que ces définitions sont équivalentes. Regardons ce qui se passe lorsqu'on s'intéresse à un quotient de nombres complexes.\
+Soient $z$ et $w$ deux nombres complexes tels que $w\neq 0$. Regardons le quotient $\frac{z}{w}$ comme étant le nombre complexe, qui, lorsque multiplié par $w$, donne $z$. Nous avons alors que $\frac{z}{w}\times w=z$. En multipliant chaque membre par l'inverse de $w$ (ce nombre existe puisque $w\neq 0$), on obtient que
+\begin{align*}
+\left(\frac{z}{w}\times w\right)&\times \frac{1}{w}=z\times\frac{1}{w}&\\
+&\Rightarrow\frac{z}{w}\times \left(w\times \frac{1}{w}\right)=z\times\frac{1}{w}&\text{(Associativité de la $\times$)}\\
+&\Rightarrow\frac{z}{w}\times 1=z\times\frac{1}{w}&\text{(Définition de l'inverse de $w$)}\\
+&\Rightarrow\frac{z}{w}=z\times\frac{1}{w}.&\text{($1$ est l'élément neutre multiplicatif)}
+\end{align*}
+
+Comme nous savons comment obtenir la forme cartésienne de $\frac{1}{w}$, il nous suffit de la trouver et de la multiplier par $z$ pour obtenir le résultat. Si la forme cartésienne de $w$ est $a+b\iu$, cela revient à multiplier le numérateur et le dénominateur par $a-b\iu$. L'exemple suivant illustre un tel calcul.
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez la forme cartésienne du nombre complexe $\frac{1+\iu}{3-2\iu}$.
+
+Nous avons que
+$$\frac{1+\iu}{3-2\iu}=\frac{1+\iu}{3-2\iu}\cdot\frac{3+2\iu}{3+2\iu}=\frac{1+5\iu}{13}=\frac{1}{13}+\frac{5}{13}\iu.$$
+:::
+
+::: {.column-margin}
+
+::: {.callout-note}
+Pour trouver la forme cartésienne de $\frac{a+b\iu}{c+d\iu}$, il suffit de le multiplier par $\frac{c-d\iu}{c-d\iu}$.
+:::
+:::
+
+\section{Module et conjugué}
+\subsection{Le conjugué}
+Dans la section précédente, nous avons vu que le nombre $a-b\iu$ était utile pour calculer l'inverse de $a+b\iu$ ou encore un quotient de nombre complexe présentant le nombre $a+b\iu$ au dénominateur. Ce nombre apparaît dans d'autres contextes, et mérite d'être nommé convenablement.
+
+<!--
+En utilisant le résultat voulant que l'inverse de $w$ soit le nombre $\frac{\overline{w}}{|w|^2}$, on en déduit que
+$$\frac{z}{w}=z\frac{1}{w}=z\frac{\overline{w}}{|w|^2}=\frac{z\overline{w}}{|w|^2}.$$
+-->
+
+::: {#def-conjugue}
+Soit $a$ et $b$ des nombres réels, et soit $z$ le nombre complexe $a+b\iu$. Le nombre complexe $a-b\iu$ s'appelle le **conjugué** de $z$, et on le note $\zbar$.
+:::
+
+::: {.column-margin}
+![PlanComplexe](images/conjugue/conjugue.svg){#fig-conjugue width=300px}\n
+Plan complexe, aussi appelé plan de Gauss ou encore plan d'Argand. Quelques points du plan complexe ont été identifiés, et on a précisé pour chacun de ces points le nombre complexe qui lui est associé.
+:::
+\marge{images/conjugue/conjugue}{1}{Pour trouver le conjugué d'un nombre complexe, il suffit de trouver son image par la réflexion dont l'axe est l'axe réel dans le plan complexe. Les nombres réels sont caractérisés par le fait qu'ils sont égaux à leur conjugué.}{conjugue}
+
+Trouver la forme cartésienne d'un nombre complexe exprimé sous la forme d'un quotient $\frac{z}{w}$ revient donc à multiplier le numérateur et le dénominateur par le conjugué de $w$.
+
+Sur le plan géométrique, trouver le conjugué d'un nombre complexe consiste à en obtenir l'image par une réflexion dont l'axe est l'axe réel. Ainsi, les points appartenant à l'axe réel demeurent fixes, ce qui signifie que le conjugué d'un nombre réel est le nombre lui-même. Cette propriété est en fait une caractérisation des nombres réels; si un nombre complexe est égal à son conjugué, alors le nombre est réel. Cela peut aussi être obtenu facilement sur le plan algébrique au moyen de la suite d'équivalences ci-dessous : 
+\begin{align*}
+\zbar=z&\iff a+b\iu=a-b\iu,\\
+&\iff \begin{cases}
+a=a\\
+b=-b,
+\end{cases}\\
+&\iff b=-b,\\
+&\iff b=0,\\
+&\iff \IM z=0,\\
+&\iff z\in\R.
+\end{align*}
+
+::: {#prp-partieREIM}
+Soit $z\in\C$. Alors $\RE(z)=\frac{z+\overline{z}}{2}$ et $\IM (z)=\frac{z-\overline{z}}{2\iu}$.
+:::
+
+::: {.proof}
+Soit $x,y\in\R$ tels que $z=x+\iu y$. Un calcul direct nous montre que
+$$\frac{z+\overline{z}}{2}=x\qquad\frac{z-\overline{z}}{2\iu}=y.$$
+Comme $x=\RE(z)$ et $y=\IM(z)$, cela démontre la proposition.
+:::
+
+### Fonctions valeur absolue et racine carrée
+
+::: {#def-vabs}
+La **fonction valeur absolue** est définie par :
+
+$$|x|=\begin{cases}
+x&\text{si $x\geq 0$,}\\
+-x&\text{si $x< 0$.}
+\end{cases}$$
+:::
+
+::: {.column-margin}
+![valabs](images/valabs/valabs.svg){#fig-valabs width=300px}\n
+La fonction valeur absolue prend la valeur $x$ si $x\geq 0$ et la valeur $-x$ si $x<0$.
+![reel](images/reel/reel.svg){#fig-reel width=300px}\n
+D'un point de vue géométrique, la valeur absolue d'un nombre réel correspond à la distance qui le sépare du nombre $0$.
+:::
+
+::: {#def-recinecarree}
+La **fonction racine carrée** associe à un nombre réel positif $x$ l'unique nombre réel positif, noté $\sqrt{x}$, dont le carré vaut $x$. Ainsi,
+	$$y=\sqrt{x}\iff y^2=x~\text{et}~y\geq 0.$$
+:::
+
+::: {.column-margin}
+
+![racine](images/racine/racine.svg){#fig-racine width=300px}\n
+La fonction racine carrée associe à un nombre réel positif $x$ l'unique nombre réel positif, noté $\sqrt{x}$, dont le carré vaut $x$.
+:::
+
+::: {#prp-abssqrt}
+Pour tout $x\in\R$, nous avons que $|x|=\sqrt{x^2}$.
+:::
+
+::: {.proof}
+Si $x\geq 0$, alors $\sqrt{x^2}$ est l'unique nombre positif dont le carré est $x^2$. Ce nombre est bien sûr $x$ lui-même. Par conséquent, dans le cas où $x\geq 0$, on a que $\sqrt{x^2}=x$. Dans le cas ou $x<0$, il suffit d'observer que $-x>0$. Ainsi, comme $(-x)^2=x^2$, le nombre $-x$ est alors un nombre positif dont le carré est $x^2$. Par définition de $\sqrt{x^2}$, on conclut que $\sqrt{x^2}=-x$ si $x<0$. En résumant ce que nous venons de faire, on constate que
+	$$\sqrt{x^2}=\begin{cases}
+	x&\text{si $x\geq 0$,}\\
+	-x&\text{si $x< 0$.}
+	\end{cases}$$
+	Comme la fonction valeur absolue de $x$ est définie de cette manière, on a forcément que $\sqrt{x^2}=|x|$ pour tout $x\in\R$. 
+:::
+
+La fonction racine carrée est largement étudiée, que ce soit au secondaire, au collégial et à l'université. Voici quelques remarques à son sujet :
+
+::: {.remark}
+- Une convention d'écriture nous permet de l'écrire $x^{1/2}$ ;
+- Elle est (strictement) croissante sur $[0,\,\infty[$;
+- Elle est (infiniment) dérivable sur l'intervalle $]0,\,\infty[$ ;
+- $\sqrt{ab}=\sqrt{a}\sqrt{b}$ pour tout $a,b\in [0,\,\infty[$ ;
+- $\sqrt{\frac{a}{b}}=\frac{\sqrt{a}}{\sqrt{b}}$ pour tout $a\in [0,\,\infty[$ et pour tout $b\in ]0,\,\infty[$ ;
+- $\sqrt{a+b}\neq\sqrt{a}+\sqrt{b}$, sauf dans le cas où $a$ ou $b$ est égal à zéro ;
+- La fonction $\sqrt{x}$ tend vers l'infini lorsque $x$ tend vers l'infini.
+:::
+
+### Module
+ Il est possible de définir une fonction sur $\C$ qui prolonge[^4] la fonction valeur absolue de manière continue. La notion de module d'un nombre complexe vient généraliser cette notion.
+
+[^4]: Cela signifie qu'on peut trouver une fonction qui est continue sur $\C$, et qui est égale à la fonction valeur absolue sur la partie de $\C$ correspondant à $\R$.
+
+::: {#def-module}
+Soit $a$ et $b$ des nombres réels, et soit $z$ le nombre complexe $a+b\iu$. Le **module** de $z$, noté $|z|$, est défini par
+	$$|z|=\sqrt{a^2+b^2}.$$
+:::
+
+::: {#prp-module}
+Voici quelques résultats faciles à démontrer concernant le module d'un nombre complexe:
+
+- Pour tout $z\in\C, |z|\in [0, \infty[$ ;
+- Le seul nombre complexe $z$ vérifiant $|z|=0$ est $z=0$ ;
+- Nous avons que $|\zbar|=|z|$ pour tout $z\in\C$ ;
+- Pour tout $z\in\C$, on a que $|z|^2=z\overline{z}$.
+:::
+
+::: {.column-margin}
+![moduleDisque](images/moduleDisque/moduleDisque.svg){#fig-PlanComplexe width=300px}\n
+Module d'un nombre complexe. Plus un nombre complexe est loin de l'origine, plus son module est grand. Le graphe de la fonction associant un nombre complexe à son module prend la forme d'un cône. Ici, on peut voir son allure au-dessus du disque de rayon $3$ centré à l'origine.
+:::
+ 
+Les nombres complexes ne forment pas un ensemble totalement ordonné, c'est-à-dire qu'on ne peut pas définir une relation d'ordre compatible avec l'addition. Ainsi, si $w$ est un nombre complexe quelconque, on ne peut pas définir une relation $<$ telle que $z_1<z_2\Rightarrow z_1+w< z_2+w$ pour des nombres complexes $z_1$ et $z_2$ arbitraires. C'est une différence importante par rapport aux ensembles $\N,\Z,\Q$ et $\R$. Par contre, puisque le module d'un nombre complexe est toujours un nombre réel, on peut écrire que $|z_1|<|z_2|$, et interpréter cela en disant que $z_1$ est plus près de l'origine que $z_2$ dans le plan complexe.
+
+\subsection{Propriétés du module du conjugué}
+Voici une liste de propriétés relatives au conjugué d'un ou de plusieurs nombres complexes, ainsi que leur démonstration.
+
+::: {#prp-conjugue}
+Soit $z,z_1$ et $z_2\in\C$. Alors
+
+a. $\overline{\overline{z}}=z$;
+b. $\overline{z_1+z_2}=\overline{z_1}+\overline{z_2}$;\
+c. $\overline{z_1\cdot z_2}=\overline{z_1}\cdot \overline{z_2}$;\
+d. pour tout $n\in\N,\overline{z^n}=\overline{z}^{\,n}$;\
+e. si $z_2\neq 0$, alors $\overline{\left(\dfrac{z_1}{z_2}\right)}=\dfrac{\overline{z_1}}{\overline{z_2}}$.
+:::
+
+Dans les démonstrations ci-dessous, on supposera que $z=x+\iu y$,\newline $z_1=x_1+\iu y_1$ et que $z_2=x_2+\iu y_2$, où $x,x_1,x_2,y,y_1$ et $y_2$ sont des nombres réels.
+
+*Preuve de (a).*
+\begin{align*}
+	\overline{\overline{z}}&=\overline{x-\iu y}&&\text{par définition de $z$ et du conjugué,}\\
+	&=x+\iu y &&\text{par définition du conjugué,}\\
+	&=z &&\text{par définition de $z$.}
+\end{align*}
+
+*Preuve de (b).*
+Nous avons que
+\begin{align*}
+	\overline{z_1+ z_2}&=\overline{(x_1+\iu y_1)+ (x_2+\iu y_2)}&& \text{par définition de $z_1$ et $z_2$,}\\
+	&=\overline{x_1+x_2 +\iu(y_1+y_2)}&&\text{par définition de la somme (voir @def-somme),}\\
+	&=x_1+x_2 -\iu(y_1+y_2) &&\text{par définition du conjugué,}\\
+	&=x_1-\iu y_1 +x_2-\iu y_2 &&\\
+	&=\overline{z_1}+\overline{z_2} &&\text{par définition du conjugué.}
+\end{align*}
+
+*Preuve de (c).*
+Nous avons que
+	\begin{align}
+	\overline{z_1\cdot z_2}&=\overline{(x_1+\iu y_1)\cdot (x_2+\iu y_2)}&& \text{par définition de $z_1$ et $z_2$,}\\
+	&=\overline{x_1x_2-y_1y_2+\iu(x_1y_2+y_1x_2)}&&\text{par définition du produit (voir @def-produit),}\\
+	&=x_1x_2-y_1y_2-\iu(x_1y_2+y_1x_2)&&\text{par définition du conjugué.}
+\end{align}
+Aussi,
+\begin{align}
+	\overline{z_1}\cdot \overline{z_2}&=\overline{x_1+\iu y_1}\cdot \overline{x_2+\iu y_2}&&\text{par définition de $z_1$ et $z_2$,}\\
+	&=(x_1-\iu y_1)\cdot (x_2-\iu y_2)&&\text{par définition du conjugué,}\\
+	&=x_1x_2-y_1y_2-\iu(x_1y_2+y_1x_2)&&\text{par définition du produit.}
+\end{align}
+Puisque le membre de droite de l'équation \ref{conj1} correspond au membre de droite de l'équation \ref{conj2}, la propriété est établie.
+
+*Preuve de (d).*
+Il suffit d'appliquer la propriété \ref{prop:conjugue} \ref{propProdConj} du conjugué. En effet, en posant $z_1=z_2=z$, nous obtenons que $$\overline{z^2}=\overline{z\cdot z}=\overline{z}\cdot \overline{z}=\overline{z}^2.$$ Il suffit ensuite de répéter l'application de cette propriété. Par exemple, $$\overline{z^3}=\overline{z\cdot z^2}=\overline{z}\cdot \overline{z^2}=\overline{z}\cdot \overline{z}^2=\overline{z}^3.$$ On peut continuer ainsi pour toute valeur de $n\in\N$.
+
+*Preuve de (e).*
+Pour $z_2\neq 0$, nous avons que
+\begin{align*}
+	\overline{z_1}&=\overline{z_2\cdot\frac{z_1}{z_2}}&&\\
+	&=\overline{z_2}\cdot\overline{\left(\frac{z_1}{z_2}\right)}&&\text{d'après la propriété \ref{prop:conjugue} \ref{propProdConj} du conjugué}.
+\end{align*}
+En divisant chaque membre de l'équation par $\overline{z_2}$\,(on a le droit de faire, car $z_2\neq 0$, d'où $\overline{z_2}\neq 0$), on complète la démonstration.
+
+Voici une liste de propriétés relatives au module d'un ou de plusieurs nombres complexes, ainsi que leur démonstration.
+
+::: {#prp-module2}
+Soit $z,z_1$ et $z_2\in\C$. Alors
+
+a. $\RE(z) \leq|z|$;\
+b. $\IM(z)\leq|z|$;\
+c. $|z_1\cdot z_2|=|z_1|\cdot |z_2|$;\
+d. Pour tout $n\in\N, |z^n|=|z|^n$;\
+e. Si $z_2\neq 0$, alors $\left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}$;
+f. $|z_1+z_2|\leq |z_1|+|z_2|$ (inégalité triangulaire).
+
+:::
+
+Dans les démonstrations ci-dessous, on supposera que $z=x+\iu y$, $z_1=x_1+\iu y_1$ et que $z_2=x_2+\iu y_2$, où $x,x_1,x_2,y,y_1$ et $y_2$ sont des nombres réels.
+
+::: {.proof}
+Nous avons que
+\begin{align*}
+	|z|&=\sqrt{x^2+y^2}&&\text{par définition de $|z|$,}\\
+	&\geq \sqrt{x^2}&&\text{car $\sqrt{t}$ est croissante sur $[0,\infty[$,}\\
+	&=|x|&& \text{d'après la proposition \ref{prop:abssqrt},}\\
+	&\geq x&&\text{(propriété de la valeur absolue)}\\
+	&=\RE(z)&&\text{par définition de $\RE(z)$.}
+\end{align*}
+:::
+
+::: {.proof}
+\begin{align*}
+	|z|&=\sqrt{x^2+y^2}&&\text{par définition de $|z|$,}\\
+	&\geq \sqrt{y^2}&&\text{car $\sqrt{t}$ est croissante sur $\interval[open right]{0}{\infty}$,}\\
+	&=|y|&& \text{d'après la proposition \ref{prop:abssqrt},}\\
+	&\geq y&&\text{(propriété de la valeur absolue)}\\
+	&=\IM(z)&&\text{par définition de $\IM(z)$.}
+\end{align*}
+:::
+
+::: {.proof}
+Nous avons que
+\begin{align}
+	|z_1\cdot z_2|&=|(x_1+\iu y_1)\cdot (x_2+\iu y_2)|&& \text{par définition de $z_1$ et $z_2$,}\nonumber \\
+	&=|x_1x_2-y_1y_2+\iu(x_1y_2+y_1x_2)|&& \nonumber \\
+	&=\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2}\label{prod1} &&\text{par définition du module.}
+\end{align}
+Aussi,
+\begin{align}
+	|z_1|\cdot |z_2|&=\sqrt{x_1^2+y_1^2}\cdot\sqrt{x_2^2+y_2^2}&&\text{par définition du module,} \nonumber \\
+	&=\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2}.&&\label{prod2}
+\end{align}
+Puisque le membre de droite de l'équation \ref{prod1} correspond au membre de droite de l'équation \ref{prod2}, les membres de gauche de ces équations doivent être égaux, ce qui établit la propriété.
+:::
+
+::: {.proof}
+Il suffit d'appliquer la propriété \ref{prop:module} partie \ref{propprod}. En effet, en posant $z_1=z_2=z$, nous obtenons que $$\left|z^2\right|=|z\cdot z|=|z|\cdot |z|=|z|^2.$$ Il suffit ensuite de répéter l'application de cette propriété. Par exemple,$$\left|z^3\right|=\left|z\cdot z^2\right|=|z|\cdot \left|z^2\right|=|z|\cdot |z|^2=|z|^3.$$ On peut continuer ainsi pour toute valeur de $n\in\N$.
+:::
+	
+::: {.proof}
+Pour $z_2\neq 0$, nous avons que
+\begin{align*}
+	|z_1|&=\left|z_2\cdot\frac{z_1}{z_2}\right|\\
+	&=|z_2|\cdot\left|\frac{z_1}{z_2}\right|\qquad\text{d'après la proposition \ref{prop:module} partie \ref{propprod}}.
+\end{align*}
+En divisant chaque membre de l'équation par $|z_2|$\;(on a le droit de faire, car $z_2\neq 0$, d'où $|z_2|\neq 0$), on complète la démonstration.
+:::
+
+::: {.proof}
+Dans un premier temps, on observe que si $a$ et $b$ sont des nombres réels positifs, alors $a^2\leq b^2\Rightarrow a\leq b$ (ce n'est pas forcément le cas si $a$ et $b$ peuvent être négatifs). Ainsi, puisque $|z_1+z_2|$ et $|z_1|+|z_2|$ sont des nombres réels positifs, il suffit de montrer que
+$$|z_1+z_2|^2\leq \left(|z_1|+|z_2|\right)^2.$$
+Nous avons que
+\begin{align*}
+	|z_1+z_2|^2&=(z_1+z_2)(\overline{z_1+z_2})&&\text{d'après la proposition \ref{rem:module}  \ref{rem:modzdeux}},\\
+	&=(z_1+z_2)(\overline{z_1}+\overline{z_2})&&\text{d'après la proposition \ref{prop:conjugue} \ref{propSommeConj}},\\
+	&=z_1\overline{z_1}+z_2\overline{z_2}+z_1\overline{z_2}+z_2\overline{z_1}&&\\
+	&=|z_1|^2+|z_2|^2+\overline{\overline{z_1}}\cdot\overline{z_2}+z_2\overline{z_1}&&\text{d'après les propositions \ref{rem:module} \ref{prop:conjconj} et \ref{rem:modzdeux}},\\
+	&=|z_1|^2+|z_2|^2+\overline{\overline{z_1}z_2}+z_2\overline{z_1}&&\text{d'après la proposition \ref{prop:conjugue} \ref{propProdConj}},\\
+	&=|z_1|^2+|z_2|^2+2\cdot\frac{\overline{\overline{z_1}z_2}+z_2\overline{z_1}}{2}&&\\
+	&=|z_1|^2+|z_2|^2+2\RE(z_2\overline{z_1})&&\text{d'après la proposition \ref{prop:partieREIM}},\\
+	&\leq |z_1|^2+|z_2|^2+2|z_2\overline{z_1}|&&\text{d'après la proposition \ref{prop:module} \ref{propRE}},\\
+	&=|z_1|^2+|z_2|^2+2|z_2|\cdot|\overline{z_1}|&&\text{d'après la proposition \ref{prop:module} \ref{propprod}},\\
+	&=|z_1|^2+|z_2|^2+2|z_2|\cdot|z_1|&&\text{d'après la proposition \ref{rem:module} \ref{rem:modconj}},\\
+	&=\left(|z_1|+|z_2|\right)^2.&&
+\end{align*}
+:::
+
+\section{Lieux géométriques dans le plan complexe}
+
+::: {#def-lieugeom}
+Un **lieu géométrique** dans le plan complexe est un sous-ensemble de $\C$.
+:::
+
+Généralement, on veut connaître l'ensemble des éléments de $\C$ qui vérifient une équation donnée. Parfois, il faut aussi interpréter le lieu qui est décrit sous forme d'équation au moyen d'objets géométriques (points, droites, paraboles, etc).
+
+::: {#prp-cercle}
+Soit $w\in\C$, et soit $r>0$. Le lieu des nombres complexes $z$ satisfaisant $|z-w|=r$ est un cercle de rayon $r$ centré en $w$.
+:::
+
+::: {.proof}
+Soit $a,b\in\R$ tels que $w=a+b\iu$, et soit $z$ un nombre complexe de forme cartésienne $x+y\iu$. Nous avons que
+\begin{align*}
+	|z-w|=r&\iff |x+y\iu-(a+b\iu)|=r\\
+	&\iff |(x-a)+(y-b)\iu|=r\\
+	&\iff \sqrt{(x-a)^2+(y-b)^2}=r\\
+	&\iff (x-a)^2+(y-b)^2=r^2.
+\end{align*}
+On reconnaît que la dernière équation est celle d'un cercle de rayon $r$ centré en $(a,b)$. Traduit dans le langage des nombres complexes, cela signifie deux choses: d'une part les nombres complexes $z$ satisfaisant $|z-w|=r$ sont sur le cercle de rayon $r$ centré en $w$, d'autre part les nombres complexes sur le cercle de rayon $r$ centré en $w$ satisfont $|z-w|=r$. L'équation $|z-w|=r$ est une \textit{caractérisation} du lieu géométrique correspondant au cercle de rayon $r$ centré en $w$. La valeur de $|z-w|$ correspond ainsi à la distance (euclidienne[^5]) entre les points du plan complexe associé aux nombres $z$ et $w$.
+:::
+
+[^5]: En mathématiques, il existe plusieurs manières de mesurer la distance entre des objets. Par exemple, pour mesurer la distance entre Québec et Paris (qu'on pourrait modéliser comme étant deux points dans l'espace), il pourrait être approprié de mesurer la longueur de l'arc du grand cercle centré au centre de la Terre reliant ces deux villes plutôt que d'utiliser la longueur du segment qui les relie.
+
+::: {.column-margin}
+
+::: {.callout-note}
+Si $z$ et $w$ sont des nombres complexes, alors $|z-w|$ correspond à la distance entre les points associés à ces nombres.
+:::
+:::
+
+	On pourrait distinguer deux approches pour déterminer la nature d'un lieu géométrique caractérisé au moyen d'une équation. D'une part, dans la mesure où les concepts relatifs aux nombres complexes sont connus, de même que certains résultats élémentaires, ces derniers peuvent servir à représenter le lieu associé à une équation donnée. Par exemple, l'équation $|2z-4\iu|=2$ caractérise les nombres complexes situés sur le cercle de rayon $1$ centré en $2\iu$. Cela s'explique au moyen de la proposition \ref{prop:cercle} et des propriétés du module. Nous avons que
+	\begin{align*}
+	|2z-4\iu|=2\iff&|2(z-2\iu)|=2\\
+	\iff& 2|z-2\iu|=2\\
+	\iff& |z-2\iu|=1.
+	\end{align*}
+	D'autre part, on peut aussi choisir d'exprimer $z$ comme étant un nombre de la forme $x+\iu y$, où $x$ et $y$ sont des nombres réels. Ensuite, en utilisant nos connaissances des concepts relatifs aux nombres complexes, et celles que nous avons des lieux géométriques formés de couples $(x,y)\in\R^2$, l'interprétation est souvent possible. Si on reprend le même exemple, nous avons que
+	\begin{align*}
+	|2z-4\iu|=2\iff&|2(x+\iu y)-4\iu|=2\\
+	\iff& |2x+(2y-4)\iu|=2\\
+	\iff& \sqrt{4x^2+(2y-4)^2}=2\\
+	\iff& 4x^2+4(y-2)^2=4\\
+	\iff& x^2+(y-2)^2=1.
+	\end{align*}
+	Dans la mesure où on sait qu'un cercle de rayon $r$ centré au point $(h,k)$ a pour équation $(x-h)^2+(y-k)^2=r^2$, il devient facile de se représenter le lieu. À l'exemple \ref{ex:lieu}, on présente deux approches pour déterminer la nature d'un lieu géométrique caractérisé au moyen des nombres complexes.
+
+::: {.callout-note icon=false}
+## Exemple
+
+Représentez dans le plan complexe l'ensemble des nombres $z$ tels que $$z^2+2|z|^2+{\overline{z}}^2=16.$$
+En posant $z=x+\iu y$, puis en remplaçant dans l'équation, on obtient :
+\begin{align*}
+	z^2+2|z|^2&+{\overline{z}}^2=16\iff(x+\iu y)^2+2(x^2+y^2)+(x-\iu y)^2=16\\
+	\iff& \small x^2+2xy\iu -y^2+2x^2+2y^2+x^2-2xy\iu -y^2=16\\
+	\iff& 4x^2=16\\
+	\iff& x=\pm 2.
+\end{align*}
+	
+Il est aussi possible de raisonner uniquement avec le vocabulaire des nombres complexes. En observant que $|z|^2=z\overline{z}$, nous avons que
+\begin{align*}
+	z^2+2|z|^2+{\overline{z}}^2=16\iff&z^2+2z\overline{z}+{\overline{z}}^2=16\\
+	\iff& (z+\overline{z})^2=16\\
+	\iff& z+\overline{z}=\pm 4\\
+	\iff& \frac{z+\overline{z}}{2}=\pm 2\\
+	\iff&\RE(z)=\pm 2.
+\end{align*}
+Ce lieu géométrique est représenté à la @fig-reelle.
+:::
+
+::: {.column-margin}
+![reelle2](images/reelle2/reelle2.svg){#fig-reelle2 width=300px}\n
+L'ensemble des nombres complexes satisfaisant l'équation $z^2+2|z|^2+{\overline{z}}^2=16$ est formé de deux droites verticales dans le plan complexe. Les points appartenant à ce lieu sont ceux dont la partie réelle vaut $2$ ou $-2$.
+:::
+
+::: {#prp-ellipse}
+Soit $a>0$ et soit $w_1,w_2\in\C$ tels que $|w_1-w_2|<2a$. Le lieu des nombres complexes $z$ satisfaisant \[|z-w_1|+|z-w_2|=2a\] est une ellipse de foyers $w_1, w_2$ et de grand axe $2a$.
+:::
+
+La condition $|w_1-w_2|>2a$ est présente pour éviter d'appeler ellipse l'ensemble vide. En effet, dans le cas où les points $w_1$ et $w_2$ sont éloignés d'un distance supérieure à $2a$, l'inégalité triangulaire exclue la possibilité que $$|z-w_1|+|z-w_2|=2a \text{~pour un certain} z\in \C.$$ Pour une raison similaire, la condition $|w_1-w_2|>2a$ est nécessaire pour que le lieu défini à la proposition \ref{prop:hyperbole} soit non vide.
+
+::: {#prp-hyperbole}
+Soit $a>0$ et soit $w_1,w_2\in\C$ tels que $|w_1-w_2|>2a$. Le lieu des nombres complexes $z$ satisfaisant \[|z-w_1|-|z-w_2|=\pm 2a\] est une hyperbole de foyers $w_1, w_2$ et de grand axe $2a$.
+:::
+
+Les propositions \ref{prop:ellipse} et \ref{prop:hyperbole} sont des conséquences immédiates des définitions de l'ellipse et de l'hyperbole. En effet, l'ellipse de foyers $F_1$ et $F_2$ et de grand axe $2a$ est le lieu des points $P$ tels que $PF_1+PF_2=2a$, tandis que l'hyperbole de foyers $F_1$ et $F_2$ et de grand axe $2a$ est le lieu des points $P$ tels que $|PF_1-PF_2|=2a$.
+
+
+# Les polynômes
+
+## Définitions
+
+::: {#def-polynome}
+On dit que $p$ est une **fonction polynomiale** s'il existe un nombre naturel $n$ et des nombres complexes $a_0,a_1,\ldots,a_n$, tels que
+	$$p(z)=a_nz^n+a_{n-1}z^{n-1}+a_1z+a_0.$$
+:::
+
+On utilisera les expressions \textit{polynôme} et \textit{fonction polynomiale} sans distinction même si ce sont des objets différents sur le plan algébrique. L'introduction de cette notion importante génère plusieurs définitions, dont en voici quelques-unes.
+
+::: {#def-caracpoly}
+Soit $p(z)=a_nz^n+a_{n-1}z^{n-1}+a_1z+a_0$, un polynôme tel que $a_n\neq 0$.
+- Le nombre $n$ correspond au **degré** du polynôme;
+- Le nombre $a_n$ s'appelle le **coefficient directeur** du polynôme;
+- L'ensemble $\R_n[X]$ (respectivement $\C_n[X]$) correspond à l'ensemble des polynômes de degré $n$ à coefficients réels (respectivement complexes);
+- L'ensemble $\R[X]$ (respectivement $\C[X]$) correspond à l'ensemble des polynômes à coefficients réels (respectivement complexes);
+- Si un nombre complexe $w$ satisfait $p(w)=0$, on dira que $w$ est une **racine** de $p$, ou encore un **zéro** de $p$.
+:::
+
+\section{Les polynômes de degré 2}
+
+Un polynôme de degré $2$ peut s'écrire comme $ax^2+bx+c$, avec $a\neq 0$. Si on cherche à résoudre l'équation $ax^2+bx+c=0$, on peut ramener ce problème à celui de trouver les racines carrées d'un nombre complexe. En effet,
+\begin{align}
+ax^2+bx+c=0&\iff 4a^2x^2+4abx+4ac=0,\label{eq:completion1}\\
+&\iff (2ax+b)^2-b^2+4ac=0,\label{eq:completion2}\\
+&\iff (2ax+b)^2=b^2-4ac.
+\end{align}
+L'équivalence de la ligne \ref{eq:completion1} est justifiée par le fait que $4a\neq 0$, et à la ligne \ref{eq:completion2}, nous complétons le carré. Pour la suite des choses, nous poserons $\Delta=b^2-4ac$, et appellerons ce nombre le \defi{discriminant} du polynôme $ax^2+bx+c$. L'équation qu'il nous faut résoudre est donc
+\begin{equation}\label{eq:fond}
+(2ax+b)^2=\Delta.
+\end{equation}
+Le nombre $\Delta$ aura deux racines carrées, sauf si $\Delta=0$. Dans ce cas, la seule racine de $\Delta$ est 0, et la seule solution à l'équation $2ab+b=0$\,(qui est la seule solution de l'équation \ref{eq:fond}) est $x=-\frac{b}{2a}$. Supposons maintenant que $\Delta$ possède deux racines distinctes, disons $\delta_1$ et $\delta_2$. Dans ce cas, les racines de $ax^2+bx+c$, qu'on peut nommer $x_1$ et $x_2$, seront données par
+\begin{equation}
+x_1=\frac{-b+\delta_1}{2a}\qquad\text{et}\qquad x_2=\frac{-b+\delta_2}{2a}.\label{eq:res}
+\end{equation}
+Le problème revient donc à trouver les racines carrées de $\Delta$. Ce travail a été effectué à la sous-section \ref{subsec:racinecarrees} de la section \ref{sec:racinesn}.
+%\begin{prop}
+%	Soit $ax^2+bx+c$ un polynôme de degré 2 dont le discriminant noté $\Delta$.
+%	\begin{enumerate}
+%		\item Si $\Delta>0$, alors il y a deux solutions à l'équation $ax^2+bx+c=0$, à savoir
+%		\[x=\frac{-b\pm\sqrt{\Delta}}{2a}.\]
+%		\item Si $\Delta=0$, alors il y a une unique solution à l'équation $ax^2+bx+c=0$, à savoir
+%		\[x=-\frac{b}{2a}.\]
+%		\item Si $\Delta<0$, alors il y a deux solutions à l'équation $ax^2+bx+c=0$, à savoir
+%		\[x=\frac{-b\pm\iu\sqrt{-\Delta}}{2a}.\]
+%	\end{enumerate}
+%\end{prop}
+
+% Dans un premier temps, nous allons étudier la situation où $\Delta\in\R$. Cela est toujours le cas si le polynôme est réel, c'est-à-dire que que tous ses coefficients sont dans $\R$. Le cas où $\Delta=0$ a été mentionné plus haut. Dans le cas où $\Delta>0$, les deux racines de $\Delta$ sont $\sqrt{\Delta}$~et $-\sqrt{\Delta}$.
+%Nous avons donc que
+%\[\sqrt{\Delta}=2ax+b\qquad\text{ou}\qquad -\sqrt{\Delta}=2ax+b.\]
+%On trouve ainsi que
+%\[x=\frac{-b+\sqrt{\Delta}}{2a}\qquad\text{ou}\qquad x=\frac{-b-\sqrt{\Delta}}{2a}.\]
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez les racines du polynôme $3x^2+9x-30$.
+
+D'abord, on trouve que le discriminant de ce polynôme, noté $\Delta$, est égal à \[\Delta=9^2-4\cdot 3\cdot(-30)=441.\] Comme il s'agit d'un nombre réel strictement positif, le polynôme admet deux racines réelles distinctes, $x_1$ et $x_2$, qui sont données par
+\begin{align*}
+	x_1&=\frac{-9+\sqrt{441}}{2\cdot 3}=2,\\
+	x_2&=\frac{-9-\sqrt{441}}{2\cdot 3}=-5.
+\end{align*}
+:::
+
+Dans le cas où $\Delta<0$, les solutions ne seront pas dans $\R$. Comme nous l'avons vu à la sous-section \ref{subsec:racinecarrees} de la section \ref{sec:racinesn}, les racines carrées de $\Delta$ sont alors $\iu\sqrt{-\Delta}$ et $-\iu\sqrt{-\Delta}$.
+% car le carré d'un nombre réel ne peut pas être un nombre réel strictement négatif. Observons maintenant que si $\Delta<0$, alors $-\Delta>0$, et donc $\sqrt{-\Delta}$ est un nombre réel positif bien défini. Observons ensuite que \[\left(\iu\sqrt{-\Delta}\right)^2=\iu^2\left(\sqrt{-\Delta}\right)^2=(-1)(-\Delta)=\Delta.\]
+%De même,
+%\[\left(-\iu\sqrt{-\Delta}\right)^2=(-\iu)^2\left(\sqrt{-\Delta}\right)^2=(-1)(-\Delta)=\Delta.\]
+%Nous avons donc que $r_1=\iu\sqrt{-\Delta}$ et $r_2=-\iu\sqrt{-\Delta}$, ce qui implique, d'après \mbox{l'équation \ref{eq:res},} que
+%\[x_1=\frac{-b+\iu\sqrt{-\Delta}}{2a}\qquad\text{et}\qquad x_2=\frac{-b-\iu\sqrt{-\Delta}}{2a}.\]
+% \[\iu\sqrt{-\Delta}=2ax+b\qquad\text{ou}\qquad -\iu\sqrt{-\Delta}=2ax+b.\]
+% On trouve ainsi que
+% \[x=\frac{-b+\iu\sqrt{-\Delta}}{2a}\qquad\text{ou}\qquad x=\frac{-b-\iu\sqrt{-\Delta}}{2a}.\]
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez les racines du polynôme $x^2-2x+5$.
+
+D'abord, on trouve que \[\Delta=(-2)^2-4\cdot 1\cdot 5=-16.\] Comme il s'agit d'un nombre réel strictement négatif, le polynôme admet deux racines non réelles distinctes, $x_1$ et $x_2$, qui sont données par
+\begin{align*}
+	x_1=\frac{-(-2)+\iu\sqrt{-(-16)}}{2\cdot 1}=2+2\iu,\\
+	x_2=\frac{-(-2)-\iu\sqrt{-(-16)}}{2\cdot 1}=2-2\iu.
+\end{align*}
+:::
+
+Si vous avez à trouver les racines d'un polynôme de degré 2 dont certains coefficients ont une partie imaginaire non nulle, le discriminant sera bien souvent lui-même un nombre complexe de partie imaginaire non nulle. Suposons donc que $\Delta=u+ v\iu$, où $u\in\C$ et $v\in\C^{\star}$. Dans le cas où l'argument de $\Delta$, disons $\theta$, est tel que son cosinus et par le fait même son sinus se calculent aisément, nous pouvons exprimer les racines au moyen de la proposition \ref{prop:racinesniemes}. On trouve alors que les racines sont
+\[\sqrt{|\Delta|}\left(\cos\left(\frac{\theta}{2}\right)+\iu\sin\left(\frac{\theta}{2}\right)\right)\quad\text{et}\quad\sqrt{|\Delta|}\left(\cos\left(\frac{\theta}{2}+\pi\right)+\iu\sin\left(\frac{\theta}{2}+\pi\right)\right).\]
+Pour calculer $\cos\left(\frac{\theta}{2}\right)$ et $\sin\left(\frac{\theta}{2}\right)$, nous pouvons faire usage des identités trigonométriques
+\[\cos^2\left(\frac{\theta}{2}\right)=\frac{1+\cos\theta}{2}\qquad\text{et}\qquad\sin^2\left(\frac{\theta}{2}\right)=\frac{1-\cos\theta}{2},\]
+identités qui peuvent d'ailleurs être démontrées au moyen des formules d'Euler (voir proposition \ref{prop:eulerF}). Les quantités $\cos\left(\frac{\theta}{2}+\pi\right)$ et $\sin\left(\frac{\theta}{2}+\pi\right)$ peuvent aussi être évaluées facilement, en observant que
+\begin{align}
+  \cos\left(\frac{\theta}{2}+\pi\right)&=-\cos\left(\frac{\theta}{2}\right),\label{eq:cospi1}\\
+  \sin\left(\frac{\theta}{2}+\pi\right)&=-\sin\left(\frac{\theta}{2}\right).\label{eq:cospi2}
+\end{align}
+ Les équations \ref{eq:cospi1} et \ref{eq:cospi2} nous permettent de confirmer que si $r$ est une racine carrée d'un nombre, alors $-r$ en est aussi une. En effet, elles illustrent que si on connaît une racine carrée, alors l'autre racine peut être obtenue en changeant le signe des parties réelle et imaginaire.\
+ Si l'argument de $\Delta$ n'est pas un angle remarquable, ce qui est généralement le cas, on peut trouver les racines carrées de $\Delta$ autrement, en posant $z=r+s\iu$ et en résolvant $(r+s\iu )^2=u+ v\iu$. À ce sujet, vous pouvez regarder l'exemple \ref{ex:racinecarrecart}.
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez les racines du polynôme $4x^2+2\sqrt{2}(1+\iu)x+1$.
+
+*Première méthode : À partir de l'argument de $\Delta$}*
+
+D'abord, on trouve que \[\Delta=\left(2\sqrt{2}(1+\iu)\right)^2-4\cdot 4\cdot 1=-16+16\iu.\] Comme il s'agit d'un nombre complexe dont la forme exponentielle est $\sqrt{512}\eu^{\frac{3\pi\iu}{4}}$, nous savons que les racines carrées de $\Delta$, $r_1$ et $r_2$, sont
+\begin{align*}
+	 r_1&=\sqrt[4]{512}\eu^{\frac{3\pi\iu}{8}}\\
+	 &=\sqrt[4]{512}\left(\cos\frac{3\pi}{8}+\iu\sin\frac{3\pi}{8}\right)\\
+	 &=\frac{\sqrt[4]{512}}{2}\left(\sqrt{2-\sqrt{2}}+\iu\sqrt{2+\sqrt{2}}\right),\\
+	 &=2\sqrt[4]{2}\left(\sqrt{2-\sqrt{2}}+\iu\sqrt{2+\sqrt{2}}\right),\\
+	 &=2\sqrt{2}\left(\sqrt{-1+\sqrt{2}}+\iu\sqrt{1+\sqrt{2}}\right),\\
+	 &\approx 1,820+4,394\iu,\\
+	 r_2&=-r_1 =-2\sqrt{2}\left(\sqrt{-1+\sqrt{2}}+\iu\sqrt{1+\sqrt{2}}\right),\\
+	 &\approx -1,820-4,394\iu.
+\end{align*}
+En remplaçant dans l'équation \ref{eq:res}, on trouve que
+\begin{align*}
+	x_1&=\frac{\sqrt{2}}{4}\left(-1+\sqrt{-1+\sqrt{2}} +\left(-1+\sqrt{1+\sqrt{2}}\right)\iu\right),\\
+%	x_1=&\frac{-2\sqrt{2}(1+\iu)+r_1}{8}=\sqrt{2}\left(-2+\sqrt{2-\sqrt{2}}+\left(\sqrt{2+\sqrt{2}}-2\right)\iu\right),\\
+	&\approx -0,126+0,196\iu,\\
+	x_2&=\frac{\sqrt{2}}{4}\left(-1-\sqrt{-1+\sqrt{2}} +\left(-1-\sqrt{1+\sqrt{2}}\right)\iu\right),\\
+	&\approx -0,581+0,903\iu.
+%		x_2&=-\frac{\sqrt{2}}{4}-\frac{1}{4}\sqrt{2\left(1+\sqrt{2}\right)} -\left(\frac{\sqrt{2}}{4}-\frac{1}{4}\sqrt{2\left(-1+\sqrt{2}\right)}\right)\iu,\\
+%	x_2=&\frac{-2\sqrt{2}(1+\iu)+r_2}{8}=\sqrt{2}\left(-2-\sqrt{2-\sqrt{2}}-\left(\sqrt{2+\sqrt{2}}+2\right)\iu\right),\\
+%	\approx& -3,911+5,442\iu.\\
+	%x_2&=\frac{-2\sqrt{2}(1+\iu)+r_2}{8}&=\sqrt{2}\left(-2-\sqrt{2-\sqrt{2}}\right)+\sqrt{2}\left(-2-\sqrt{2+\sqrt{2}}\right)\iu&\approx -3,911+5,442\iu.\\
+\end{align*}
+
+*Deuxième méthode : en posant $(r+s\iu)^2=\Delta$*
+
+En posant $(r+s\iu)^2=\Delta$, nous obtenons que $r^2-s^2+2rs\iu=-16+16\iu$. Cela donne lieu au système d'équations
+\begin{align*}
+	r^2-s^2&=-16,\\
+	2rs&=16.
+\end{align*}
+Comme $s\neq 0$, on peut diviser par $s$, et observer que $r=\frac{8}{s}$. En remplaçant $r$ dans l'équation $r^2-s^2=-16$, nous obtenons que $0=s^4-16s^2-64$. Pour résoudre cette équation, on pose $t=s^2$, ce qui nous amène à résoudre $0=t^2-16t-64$. Le discriminant de cette équation étant 512, un nombre réel positif, nous trouvons que
+	\[t=8\left(1\pm \sqrt{2}\right).\]
+	De ces solutions, on doit rejeter $8- 8\sqrt{2}$, car elle est négative. En effet, puisque $t=s^2$, le nombre $t$ ne peut pas être négatif, car $s$ est un nombre réel et le carré d'un nombre réel ne peut pas être négatif. Ainsi, $s=2\sqrt{2\left(1+ \sqrt{2}\right)}$ ou $s=-2\sqrt{2\left(1+ \sqrt{2}\right)}$. En remplaçant ces valeurs de $s$ successivement dans l'équation $r=\frac{8}{s}$, nous obtenons les valeurs de $r$ correspondantes. Après quelques manipulations algébriques laborieuses, nous trouvons que si $s=2\sqrt{2\left(1+ \sqrt{2}\right)}$, alors $r=2\sqrt{2\left(\sqrt{2}-1\right)}$, et si \mbox{$s=-2\sqrt{2\left(1+ \sqrt{2}\right)}$,} alors $r=-2\sqrt{2\left(\sqrt{2}-1\right)}$. Ainsi, les deux racines du polynôme $4x^2+2\sqrt{2}(1+\iu)x+1$ sont
+\begin{align*}
+	x_1&=2\sqrt{2\left(\sqrt{2}-1\right)}+2\iu \sqrt{2\left(1+ \sqrt{2}\right)}&&\approx 1,820+4,395\iu,\\
+	x_2&=-2\sqrt{2\left(\sqrt{2}-1\right)}-2\iu \sqrt{2\left(1+ \sqrt{2}\right)}&&\approx -1,820-4,395\iu.\\
+\end{align*}
+:::
+
+## Factorisation et multiplicité
+
+Lorsqu'un polynôme $p(z)$ est de degré $n$ avec $n>2$, il est généralement difficile de trouver ses racines. Dans quelques scénarios, il est cependant possible d'y arriver, en faisant certaines observations. Ce sera notamment le cas si:
+\begin{enumerate}
+	\item\label{item:facteur} Un facteur, disons $z-a$, peut être mis en évidence. Le polynôme $p(z)$ s'écrit alors comme le produit de $z-a$ avec un polynôme $q(z)$ de degré $n-1$. Il ne reste plus qu'à factoriser $q(z)$. Il se peut qu'on ait encore un polynôme difficile à factoriser.
+	\item\label{item:racineconnue} Si on sait que $a$ est une racine de $p$, alors $z-a$ est un facteur de $p$. On peut donc employer la méthode décrite à l'item \ref{item:facteur}.
+	\item\label{item:racineCV} En effectuant un changement de variable de type $r=f(z)$, c'est-à-dire en exprimant l'équation $p(z)=0$ comme une équation polynomiale en fonction de la nouvelle variable $r$, il est parfois possible de trouver les racines de $p(z)$. En effet, il suffit alors de trouver les racines du polynôme faisant intervenir la variable $r$, puis d'exprimer les valeurs de $z$ correspondant à ces racines.
+	\item\label{item:racineNieme} Dans certains cas, soit directement, ou soit par changement de variable, un équation de type $p(z)=0$ peut s'écrire sous la forme $z^n=w$, où $n\in\{2,3,\ldots\}$ et $w\in\C$. Le problème est alors ramené à celui de trouver les racines $n$-ièmes d'un nombre complexe, problème qui a déjà été résolu.
+\end{enumerate}
+Voici quelques exemples qui illustrent ces techniques de factorisation.
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez les racines du polynôme $p(z)=z^4+5z^2-36$.
+
+En posant $r=z^2$, on est amenés à résoudre l'équation $r^2+5r-36=0.$ On trouve que $r_1=4$ et $r_2=-9$ sont les seules solutions. On doit ensuite trouver les valeurs de $z$ telles que $4=z^2$ ou $-9=z^2$. Les solutions de l'équation $4=z^2$ sont $z_1=2$ et $z_2=-2$, tandis que les solutions de l'équation $-9=z^2$ sont $z_3=3\iu$ et $z_4=-3\iu$. Les nombres $z_1,z_2,z_3$ et $z_4$ sont par conséquent les seules racines de $p(z)$.
+:::
+
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez les racines du polynôme $p(z)=z^4+2z^3-z-2$.
+
+Nous avons que
+\begin{align*}
+	p(z)=0\iff&z^3(z+2)-(z+2)=0,\\
+	\iff&(z+2)(z^3-1)=0,\\
+	\iff&z+2=0\text{~ou~}z^3-1=0,\\
+	\iff&z=-2\quad\text{ou}\quad z^3=1.
+\end{align*}
+Résoudre l'équation $z^3=1$ consiste à trouver les racines troisièmes de $1$. En utilisant la proposition \ref{prop:racinesniemes}, on trouve que les trois racines troisièmes de $1$ ont toutes un module de $1$, et leur argument principal sont respectivement $0,2\pi/3$ et $-2\pi/3$. Comme les fonctions $\sin$ et $\cos$ s'évaluent facilement en ces valeurs, on trouve que la forme cartésienne des racines troisième de $1$ sont:
+		$$\zeta_1=1,\zeta_2=-\frac{1}{2}+\iu\frac{\sqrt{3}}{2}\quad\text{et}\quad\zeta_3=-\frac{1}{2}-\iu\frac{\sqrt{3}}{2}.$$
+Les racines de $p(z)$ sont donc $-2,\zeta_1,\zeta_2$ et $\zeta_3$.
+:::
+::: {.callout-note icon=false}
+## Exemple
+
+Trouvez les racines du polynôme $p(z)=z^3 - z^2 - 14 z + 24$, sachant que $p(2)=0$.
+Puisque $p(2)=0$, cela signifie que $2$ est une des racines de $p$, qui peut alors s'écrire $p(z)=(z-2)q(z)$, où $q$ est un polynôme de degré 2. Pour trouver ce polynôme, on effectue une division polynomiale:
+		\[
+		\begin{array}{r|l}
+		\dropsign{-} z^3 - \phantom{2}z^2 - 14z + 24 & z-2 \\ \cline{2-2}
+		z^3 -2z^2\phantom{ - 14z + 24~.}& z^2+z-12 \\ \cline{1-1} \\[\dimexpr-\normalbaselineskip+\jot]
+		\dropsign{-} z^2-14z+24 \\
+		z^2\phantom{2}-2z\phantom{1} \phantom{+24} \\ \cline{1-1} \\[\dimexpr-\normalbaselineskip+\jot]
+		\dropsign{-} 12z+24 \\
+		12z+24 \\\cline{1-1}\\[\dimexpr-\normalbaselineskip+\jot]
+		0\\
+		\end{array}
+		\]
+		 Ainsi, $q(z)=z^2+z-12$. On factorise ensuite $q(z)$ pour obtenir le polynôme $(z-3)(z+4)$. De là on conclut que
+		$$p(z)=(z-2)(z-3)(z+4).$$
+		Par conséquent, les racines de $z$ sont $2,3$ et $-4$.
+:::
+
+\section{Polynômes réels}
+Dans la plupart des applications, les polynômes rencontrés ont des coefficients réels\,(ce qui n'empêche pas leurs racines d'être des nombres complexes).
+
+::: {#def-polyreel}
+Un \defi{polynôme réel} est un polynôme dont tous les coefficients sont des nombres réels.
+:::
+
+\begin{prop}
+	Soit $p$ un polynôme réel, et soit $w$ une racine de $w$. Alors $\overline{w}$ est aussi une racine de $p$.
+\end{prop}
+\begin{proof}\label{prop:polreel}
+	Soit $n\in\N$, le degré de $p$, et soient $a_0,a_1,a_2,\ldots, a_n$ des nombres réels correspondant aux coefficients de $p$. Ainsi, $p$ peut s'écrire $p(z)=\sum_{k=0}^na_kz^n.$ Puisque $w$ est racine de $p$, $p(w)=0$. De cela on conclut que $\sum_{k=0}^na_kw^n=0$. En prenant le conjugué de chaque membre de cette équation, et en observant que $\overline{0}=0$, on déduit que
+	$$\overline{\sum_{k=0}^na_kw^n}=0.$$
+	En utilisant la propriété \ref{prop:conjugue} \ref{propSommeConj}, l'équation précédente devient $\sum_{k=0}^n\overline{a_kw^n}=0.$ En utilisant la propriété \ref{prop:conjugue} \ref{propProdConj}, elle devient $\sum_{k=0}^n\overline{a_k}\overline{w^n}=0$. Puisque les $a_k$ sont des nombres réels, $\overline{a_k}=a_k$. Finalement, d'après la propriété \ref{prop:conjugue} \ref{propPuissanceConj}, $\overline{w^n}=\overline{w}^n$. On obtient donc que $\sum_{k=0}^na_k\overline{w}^n=0$. Or, cela signifie précisément que $p(\overline{w})=0$, d'où la conclusion que $\overline{w}$ est une racine de $p$.
+\end{proof}
+Puisque $\overline{\overline{w}}=w$, la réciproque du résultat précédent est vraie : Si $p(\overline{w})=0$, alors $p(w)=0$. La proposition \ref{prop:polreel} est particulièrement utile pour factoriser un polynôme si on parvient à trouver une de ses racines imaginaires.
+
+::: {#def-multiplicite}
+Soit $p$ un polynôme pouvant s'écrire comme $$p(z)=(z-w)^nq(z),$$ où $n\in\N^{\star}$ et $q(w)\neq 0$. On dira alors que $w$ est une **racine de multiplicité $n$**.
+:::
+
+::: {.callout-note icon=false}
+## Exemple
+
+Considérons un polynôme, dont la factorisation, comme produit de polynômes linéaires et quadratiques, est donné par
+	$$p(z)=(z-2)^3(z^2+4)^2(z^2-2z+2).$$
+	
+Ce polynôme possède les racines $r_1=2,r_2=2\iu,r_3=-2\iu,r_4=1+\iu$ et $r_5=1-\iu$. En effet, Il est clair que $(z-2)^3$ s'annule en $z=2$, alors que $z^2+4=(z-2\iu)(z+2\iu)$ et $z^2-2z+2=(z-(1+\iu))(z-(1-\iu))$. En posant $q_1(z)=(z^2+4)^2(z^2-2z+2)$, on constate que
+	$p(z)=(z-r_1)^3q_1(z)$ et que $q(r_1)\neq 0$. De là on conclut que $r_1$ est une racine de multiplicité $3$. Aussi, on peut voir que $p(z)=(z-r_2)^2q_2(z)$, où le polynôme $q_2(z)$ correspond à $(z-r_3)^2(z^2-2z+2)$. Comme $q(r_2)\neq 0$, il suit que $r_2$ est une racine de multiplicité $2$. En continuant ainsi, on montre que $r_3$ est aussi une racine double, alors que $r_4$ et $r_5$ sont des racines simples.
+:::

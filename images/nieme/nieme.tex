@@ -1,0 +1,21 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tikz}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}[scale=5.5/4]
+		\draw[->,color=black] (0,0) -- (4,0);
+		\foreach \x in {1.75}
+		\draw[shift={(\x,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below] {$\sqrt[n]{r}$};
+		\draw[->,color=black] (0,0) -- (0,4);
+		\foreach \y in {3.0625}
+		\draw[shift={(0,\y)},color=black] (-1pt,0pt) -- (1pt,0pt) node[left] {$r$};
+			\draw[color=black] node[below] (A) at (4,0) {\small $x$};
+		\draw[color=black] node[left] (B) at (0,4) {\small $y$};
+		\draw[color=black] node[right] (C) at (2,3.2) {$y=x^n$};
+		\draw[color=black,dashed] (1.75,0) -- (1.75,3.0625) -- (0,3.0625);
+		\begin{scope}
+		\clip (0,0) rectangle (4,4);
+			\draw[domain=0:4,samples=100,smooth,variable=\x,black,thick] plot (\x,{\x*\x});
+		\end{scope} 
+		\end{tikzpicture}
+\end{document}

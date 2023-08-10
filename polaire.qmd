@@ -1,0 +1,81 @@
+{{< include _macros.qmd >}}
+
+# Forme polaire
+
+Bien que la plupart du temps le système de coordonnées cartésiennes soit le plus commode pour décrire la position des points dans le plan, il arrive qu'une autre manière, où la notion d'angle est exploitée, soit à privilégier. On parler alors d'une représentation polaire, ou trigonométrique du point dans le plan.
+
+::: Def
+# Argument principal {#dargprinc}
+Soit $z\in\C^{\star}$, un nombre complexe de module $r$. L'**argument principal** de $z,$ noté $\Arg(z),$ est l'unique nombre $\theta$ qui satisfait les deux conditions suivantes&nbsp;:
+\begin{align*}
+  z=&\, r(\cos\theta+\iu\sin\theta),\\
+  -\pi<\,& \theta\leq \pi.
+\end{align*}
+:::
+
+::: {.column-margin}
+![En coordonnées polaires, deux nombres réels sont nécessaires pour identifier la position d'un point $P$ à partir d'un point $O$ dans un plan. Le nombre $r$ correspond à son module et $\theta$ à son argument.](images/polaire/polaire.svg){#fig-polaire width=300px}
+:::
+
+::: Def
+# Forme polaire {#formepolaire}
+Soit $z\in\C^{\star}$, un nombre complexe de module $r$ et d'argument principal $\theta$. Le nombre $z$ est exprimé sous sa **forme polaire** lorsqu'on écrit
+$$z=\, r(\cos\theta+\iu\sin\theta).$$
+:::
+
+::: {.column-margin}
+![La forme polaire du nombre $2+2\iu$. Nous avons que $2+2\iu=2\sqrt{2}\left(\cos\frac{\pi}{4}+\iu\sin\frac{\pi}{4}\right)$.](images/polaire1/polaire1.svg){#fig-polaire1 width=300px}
+:::
+
+::: Rems
+1. L'argument principal de 0 n'est pas défini&nbsp;;
+2. On écrit $\arg(z)$ pour désigner un angle $\theta$, pas nécessairement dans l'intervalle $]-\pi,\,\pi]$, qui satisfait $z=r(\cos\theta+\iu\sin\theta)$&nbsp;;
+3. Pour avoir la forme polaire d'un nombre $z$, il est important que $\theta$ soit l'argument principal de $z$&nbsp;;
+4. Parfois on retrouve la notation $r\,\textrm{cis}\,\theta$ à la place de $r(\cos\theta+\iu\sin\theta)$.
+:::
+
+::: {.column-margin}
+
+::: {.callout-note}
+Le nombre $0$ n'a pas de forme polaire, puisque son argument principal n'est pas défini. On peut cependant le caractériser comme étant l'unique nombre ayant un module de $0$.
+:::
+:::
+
+::: Prop
+# Argument principal {#argprincprop}
+Soit $z\in\C^{\star}$ un nombre complexe de forme cartésienne $x+\iu\,y$. Son argument principal, noté $\theta$, est donné par la formule
+$$
+\theta =
+\begin{cases}
+\frac{\pi}{2}&{\mbox{si }}x=0{\mbox{ et }}y>0,\\
+-\frac{\pi}{2}&{\mbox{si }}x=0{\mbox{ et }}y<0,\\
+\arctan(\frac{y}{x})&{\mbox{si }}x>0,\\
+\arctan(\frac {y}{x})-\pi &{\mbox{si }}x<0{\mbox{ et }}y<0,\\
+\arctan(\frac {y}{x})+\pi &{\mbox{si }}x<0{\mbox{ et }}y>0.
+\end{cases}
+$$
+:::
+
+La démonstration de la proposition précédente ne pose aucune difficulté si on prend la peine de représenter convenablement un nombre complexe $z$ dans chacun des scénarios énumérés.
+<!--
+%\begin{proof}
+%	D'abord, dans le cas où $x=0$ et $y<0$, il est clair que $\theta=-\frac{\pi}{2}$. De même, si $x=0$ et $y>0$, on constate que $\theta=\frac{\pi}{2}$. Dans les autres cas, on observe que $x\neq 0$. Le rapport $\frac{y}{x}$ est bien définie. En formant un triangle 
+%\end{proof}
+-->
+
+::: {.column-margin}
+
+::: {.callout-important}
+Pour qu'on puisse dire que $r(\cos\theta+\iu\sin\theta)$ correspond à la forme polaire d'un nombre complexe, il est important que $\theta$ soit l'argument principal de $z$, c'est-à-dire qu'il appartient à l'intervalle $]-\pi,\,\pi].$
+:::
+:::
+
+::: Ex
+# Exemple d'un calcul de la forme polaire {#expolaire}
+
+Trouvez la forme polaire du nombre $2+2\iu$.
+
+***
+
+Le module du nombre $2+2\iu$ est $\sqrt{2^2+2^2}=2\sqrt{2}$. L'argument principal est la mesure de l'angle illustré à la figure @fig-polaire1. Ainsi, la forme polaire de $2+2\iu$ est $$2\sqrt{2}\left(\cos\frac{\pi}{4}+\iu\sin\frac{\pi}{4}\right).$$
+:::

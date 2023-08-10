@@ -1,0 +1,33 @@
+::: {.content-hidden unless-format="html"}
+$$
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\textrm{Re}\,}
+\newcommand{\IM}{\textrm{Im}\,}
+\newcommand{\Arg}{\textrm{Arg}\,}
+\newcommand{\iu}{\textrm{i}}
+\newcommand{\eu}{\textrm{e}}
+\newcommand{\boitevide}{\square}
+$$
+:::
+
+::: {.content-hidden unless-format="pdf"}
+```{=latex}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\textrm{Re}\,}
+\newcommand{\IM}{\textrm{Im}\,}
+\newcommand{\Arg}{\textrm{Arg}\,}
+\newcommand{\iu}{\textrm{i}}
+\newcommand{\boitevide}{\square}
+```
+:::
+

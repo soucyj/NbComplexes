@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction aux nombres complexes et polynômes - 3&nbsp; Définition des nombres complexes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ModuleConjugue.html" rel="next">
+<link href="./Arithmetique.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<style>
+.Rem {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
+.Def {
+  --color1: #e1f1fd;
+  --color2: #4663ac;
+}
+.Rems {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
+.Props {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Ex {
+  --color1: #b8cace;
+  --color2: #134f5c;
+}
+.Conjecture {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Corollary {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Prop {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Thm {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Operations.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Définition des nombres complexes</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction aux nombres complexes et polynômes</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Recherche"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Arithmetique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Operations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Définition des nombres complexes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ModuleConjugue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module et conjugué</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lieux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lieux géométriques dans le plan complexe</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercices01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Série 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./polaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forme polaire</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exponentielle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La fonction exponentielle complexe</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demoivre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Les formules d’Euler et celle de De Moivre</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./racinesnieme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Racines <span class="math inline">\(n\)</span>-ièmes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exercices02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Série 2</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#somme-de-deux-nombres-complexes" id="toc-somme-de-deux-nombres-complexes" class="nav-link active" data-scroll-target="#somme-de-deux-nombres-complexes"><span class="header-section-number">3.1</span> Somme de deux nombres complexes</a></li>
+  <li><a href="#parties-réelle-et-imaginaire" id="toc-parties-réelle-et-imaginaire" class="nav-link" data-scroll-target="#parties-réelle-et-imaginaire"><span class="header-section-number">3.2</span> Parties réelle et imaginaire</a>
+  <ul class="collapse">
+  <li><a href="#produit-de-deux-nombres-complexes" id="toc-produit-de-deux-nombres-complexes" class="nav-link" data-scroll-target="#produit-de-deux-nombres-complexes"><span class="header-section-number">3.2.1</span> Produit de deux nombres complexes</a></li>
+  <li><a href="#inverse" id="toc-inverse" class="nav-link" data-scroll-target="#inverse"><span class="header-section-number">3.2.2</span> Inverse</a></li>
+  <li><a href="#quotient" id="toc-quotient" class="nav-link" data-scroll-target="#quotient"><span class="header-section-number">3.2.3</span> Quotient</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Définition des nombres complexes</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><span class="math display">\[
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\textrm{Re}\,}
+\newcommand{\IM}{\textrm{Im}\,}
+\newcommand{\Arg}{\textrm{Arg}\,}
+\newcommand{\iu}{\textrm{i}}
+\newcommand{\eu}{\textrm{e}}
+\newcommand{\boitevide}{\square}
+\]</span></p>
+<div id="unite" class="Def" title="Unité imaginaire">
+<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 3.1: </strong>Unité imaginaire</summary><div>On appelle <strong>unité imaginaire</strong> un nombre qui, multiplié par lui-même, vaut <span class="math inline">\(-1\)</span>. On le notera <span class="math inline">\(\iu\)</span>.<p></p>
+</div></details>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En sciences physiques, plus particulièrement dans le domaine du génie électrique, le symbole <span class="math inline">\(\textrm{j}\)</span> est utilisé pour représenter l’unité imaginaire. Cela est pour éviter toute confusion possible avec l’intensité d’un courant électrique, qui est souvent représentée par la lettre <span class="math inline">\(\iu\)</span>.</p>
+</div>
+</div>
+</div></div><p>Plusieurs commentaires s’imposent après une telle définition. D’abord, elle se place en opposition avec un fait relayé depuis le secondaire : un nombre, multiplié par lui-même, ne peut donner une quantité strictement inférieure à <span class="math inline">\(0\)</span>. Cela s’observe notamment en regardant le graphe de la fonction <span class="math inline">\(f(x)=x^2\)</span>. Votre étonnement face à cette nouvelle définition est légitime ; on pourrait le comparer à celui vécu par les Grecs lorsqu’ils ont été obligés d’admettre que la longueur de l’hypoténuse d’un triangle rectangle dont les deux cathètes mesurent une unité n’était pas un nombre, en vertu du sens attribué à ce concept.</p>
+<p>L’arrivée de cet objet mathématique dans le cercle des nombres ne doit pas perturber les lois de l’arithmétique ; sommes et produits faisant intervenir ce nouvel arrivant doivent être bien définis. Si <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des nombres réels, alors <span class="math inline">\(b\iu\)</span> doit être un nombre (le produit de deux nombres est un nombre), tout comme <span class="math inline">\(a+b\iu\)</span> (la somme de deux nombres est un nombre). Cela nous conduit à la définition <a href="Operations.html#nbcomplexe">3.2</a>.</p>
+<div id="nbcomplexe" class="Def" title="Nombre complexe">
+<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 3.2: </strong>Nombre complexe</summary><div>On appelle <strong>nombre complexe</strong> un nombre de la forme <span class="math inline">\(a+b\,\iu\)</span>, où <span class="math inline">\(a,b\in\R,\)</span> et <span class="math inline">\(\iu^2=-1\)</span>. On notera <span class="math inline">\(\C\)</span> l’ensemble des nombres complexes.<p></p>
+</div></details>
+</div>
+<p>Il n’y a plus de place sur la droite numérique pour ces nombres, contrairement aux éléments des ensembles <span class="math inline">\(\N,\Z,\Q\)</span> et <span class="math inline">\(\R\)</span>. Puisque deux nombres réels sont nécessaires pour définir un nombre complexe, il est naturel d’associer à chaque nombre complexe un couple de nombres réels, et de les représenter dans un plan. Il convient alors de définir l’égalité de deux nombres complexes de la manière suivante :</p>
+<div id="defegalite" class="Def" title="Égalité de deux nombres complexe">
+<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 3.3: </strong>Égalité de deux nombres complexe</summary><div>Deux nombres complexes <span class="math inline">\(z=a+b\,\iu\)</span> et <span class="math inline">\(w=c+d\,\iu\)</span> (où <span class="math inline">\(a,b,c,d\in\R\)</span>) <strong>sont égaux</strong> si <span class="math inline">\(a=c\)</span> et <span class="math inline">\(b=d\)</span>.<p></p>
+</div></details>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-PlanComplexe" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/plancomplexe/plancomplexe.svg" class="img-fluid figure-img" width="300"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.1: Plan complexe, aussi appelé plan de Gauss ou encore plan d’Argand. Quelques points du plan complexe ont été identifiés, et on a précisé pour chacun de ces points le nombre complexe qui lui est associé.</figcaption>
+</figure>
+</div>
+</div></div><section id="somme-de-deux-nombres-complexes" class="level2 page-columns page-full" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="somme-de-deux-nombres-complexes"><span class="header-section-number">3.1</span> Somme de deux nombres complexes</h2>
+<p>Un nombre complexe est défini à partir de deux nombres réels et de l’unité imaginaire. Lorsqu’on veut faire référence à un nombre complexe, il n’est pas nécessaire de le nommer à partir des éléments qui le définissent. Par exemple, on peut dire: <em>Soit <span class="math inline">\(z\)</span> un nombre complexe</em>. De cela il faut comprendre qu’on peut trouver deux nombres réels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> tels que <span class="math inline">\(z=a+b\,\iu\)</span>. Cela étant dit, étant donné deux nombres complexes, comment la somme de ceux-ci peut-elle être définie afin que les lois de l’arithmétique soient valides? En s’inspirant de l’opération d’addition des vecteurs, nous pouvons <em>définir</em> l’addition de nombres complexes.</p>
+<div id="sommecomplexe" class="Def" title="Somme de deux nombres complexes">
+<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 3.4: </strong>Somme de deux nombres complexes</summary><div>Soient <span class="math inline">\(z_1\)</span> et <span class="math inline">\(z_2\)</span> deux nombres complexes tels que <span class="math inline">\(z_1=x_1+\iu\,y_1\)</span> et <span class="math inline">\(z_2=x_2+\iu\,y_2\)</span>, où <span class="math inline">\(x_1,x_2,y_1\)</span> et <span class="math inline">\(y_2\)</span> sont des nombres réels. La <strong>somme</strong> de <span class="math inline">\(z_1\)</span> et <span class="math inline">\(z_2\)</span>, notée <span class="math inline">\(z_1+z_2\)</span>, est le nombre complexe défini par <span class="math display">\[z_1+z_2=x_1+x_2+(y_1+y_2)\iu.\]</span><p></p>
+</div></details>
+</div>
+<div id="Ex-3.1" class="Ex">
+<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 3.1</strong></summary><div>La somme des nombres <span class="math inline">\(1+5\iu\)</span> et <span class="math inline">\(2-3\iu\)</span> est <span class="math inline">\(3+2\iu\)</span>.<p></p>
+</div></details>
+</div>
+<p>De la même manière, la <strong>différence</strong> entre <span class="math inline">\(z_1\)</span> et <span class="math inline">\(z_2\)</span>, notée <span class="math inline">\(z_1-z_2\)</span>, est le nombre complexe défini par <span class="math display">\[z_1-z_2=x_1-x_2+(y_1-y_2)\iu.\]</span></p>
+<div id="Ex-3.2" class="Ex">
+<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 3.2</strong></summary><div>Si <span class="math inline">\(z_1=1+5\iu\)</span> et <span class="math inline">\(z_2=2-3\iu\)</span>, alors <span class="math inline">\(z_1-z_2=-1+8\iu\)</span>.<p></p>
+</div></details>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-timbre" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/timbre.jpg" class="img-fluid figure-img" width="200"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.2: Timbre allemand émis en 1977 pour souligner le 200ᵉ anniversaire de naissance de Carl F. Gauss.</figcaption>
+</figure>
+</div>
+</div></div><p>On constate que l’opération d’addition est commutative. En effet, cela est une conséquence de la commutativité de l’opération d’addition définie sur les nombres réels&nbsp;: on a bien que <span class="math inline">\(x_1+x_2=x_2+x_1\)</span>, quels que soient les nombres réels <span class="math inline">\(x_1\)</span> et <span class="math inline">\(x_2\)</span>. De la même manière, l’associativité de l’addition des nombres réels implique l’associativité de l’addition des nombres complexes. Ainsi, <span class="math display">\[z_1+(z_2+z_3)=(z_1+z_2)+z_3\quad\forall z_1,z_2,z_3\in\C.\]</span> On peut donc parler de la somme de trois nombres complexes en toute impunité et la noter <span class="math inline">\(z_1+z_2+z_3\)</span>. Comme c’est aussi le cas dans l’ensemble des nombres réels, l’opération de soustraction n’est ni associative ni commutative. On ne doit pas s’étonner de ça&nbsp; l’ensemble des nombres complexes contient l’ensemble des nombres réels.</p>
+</section>
+<section id="parties-réelle-et-imaginaire" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="parties-réelle-et-imaginaire"><span class="header-section-number">3.2</span> Parties réelle et imaginaire</h2>
+<p>Un nombre complexe est entièrement déterminé par un couple de nombres réels. Réciproquement, un couple de nombre réels détermine un unique nombre complexe. Il y a donc une bijection entre les éléments de <span class="math inline">\(\R^2\)</span> et ceux de <span class="math inline">\(\C\)</span>.</p>
+<div id="partiereelle" class="Def" title="Partie réelle">
+<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 3.5: </strong>Partie réelle</summary><div>Soit <span class="math inline">\(a,b\in\R\)</span> et soit <span class="math inline">\(z=a+b\,\iu\)</span> un nombre complexe. On dit alors que <span class="math inline">\(a+b\,\iu\)</span> est la forme cartésienne de <span class="math inline">\(z\)</span>. De plus, le nombre réel <span class="math inline">\(a\)</span> s’appelle la <strong>partie réelle</strong> de <span class="math inline">\(z\)</span>, et le nombre réel <span class="math inline">\(b\)</span> s’appelle la <strong>partie imaginaire</strong> de <span class="math inline">\(z\)</span>. On les note <span class="math inline">\(\RE(z)\)</span> et <span class="math inline">\(\IM(z)\)</span> respectivement.<p></p>
+</div></details>
+</div>
+<div id="Rems-3.1" class="Rems">
+<details class="Rems fbx-simplebox fbx-default" open=""><summary><strong>Remarques 3.1</strong></summary><div>
+<ul>
+<li>Étant donné un point <span class="math inline">\((x,y)\)</span> dans le plan, le nombre complexe <span class="math inline">\(x+y\,\iu\)</span> s’appelle <strong>l’affixe</strong> du point <span class="math inline">\((x,y)\)</span>.</li>
+<li>Si un nombre complexe peut s’écrire comme <span class="math inline">\(b\iu\)</span>, où <span class="math inline">\(b\in\R\)</span>, on dit qu’il est un nombre complexe <strong>imaginaire pur</strong>, ou encore <strong>purement imaginaire</strong>.</li>
+<li>Lorsqu’on dit d’un nombre qu’il est <strong>imaginaire</strong>, cela sous-entend que l’on considère un nombre complexe dont la partie imaginaire est non nulle.</li>
+<li>Au lieu d’écrire <span class="math inline">\(1\iu\)</span> et <span class="math inline">\(-1\iu\)</span>, on écrit <span class="math inline">\(\iu\)</span> et <span class="math inline">\(-\iu\)</span> respectivement.</li>
+</ul>
+</div></details>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La partie imaginaire d’un nombre complexe est toujours un nombre réel.</p>
+</div>
+</div>
+</div></div><section id="produit-de-deux-nombres-complexes" class="level3 page-columns page-full" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="produit-de-deux-nombres-complexes"><span class="header-section-number">3.2.1</span> Produit de deux nombres complexes</h3>
+<p>Considérons deux nombres complexes <span class="math inline">\(a+b\iu\)</span> et <span class="math inline">\(c+d\iu\)</span>. Le produit de ces deux nombres reste à définir. Contrairement à l’addition de vecteurs, qui permet de définir la somme de nombres complexes de manière analogue, l’algèbre linéaire élémentaire ne nous fournie pas de multiplication vectorielle qui associe un vecteur du plan à deux vecteurs du plan. En effet, le produit scalaire de deux vecteurs a pour résultat un nombre réel, alors que le produit vectoriel de deux vecteurs donne un vecteur qui est perpendiculaire au plan engendré par les deux vecteurs dont on calcule le produit. Pour définir l’opération de multiplication de deux nombres complexes, nous allons appliquer certaines propriétés que nous aimerions voir vérifiées lorsqu’une multiplication est effectuée,: <span class="math display">\[\begin{align*}
+(a+b\iu)(c+d\iu)&amp;=(a+b\iu)c+(a+b\iu)d\iu&amp;\text{(Distributivité)}\\
+&amp;=ac+(b\iu)c+a(d\iu)+b\iu(d\iu)&amp;\text{(Distributivité)}\\
+&amp;=ac+(b\iu)c+(ad)\iu+b(\iu d)\iu&amp;\text{(Associativité de la $\times$)}\\
+&amp;=ac+c(b\iu)+ad\iu+b(d\iu)\iu&amp;\text{(Commutativité de la $\times$)}\\
+  &amp;=ac+(cb)\iu+ad\iu+(bd)\iu\iu&amp;\text{(Associativité de la $\times$)}\\
+&amp;=ac+(bc)\iu+ad\iu+(bd)\iu\iu&amp;\text{(Commutativité de la $\times$)}\\
+&amp;=ac+bc\iu+ad\iu+bd\iu^2&amp;\text{(Convention d'écriture)}\\
+&amp;=ac+bc\iu+ad\iu+bd(-1)&amp;\text{(Définition de $\iu^2$)}\\
+&amp;=ac+bc\iu+ad\iu+(-1)bd&amp;\text{(Commutativité de la $\times$)}\\
+&amp;=ac+(-1)bd+bc\iu+ad\iu&amp;\text{(Commutativité de l'$+$)}\\
+&amp;=ac-bd+(bc+ad)\iu&amp;\text{(Distributivité)}\\
+&amp;=ac-bd+(ad+bc)\iu.&amp;\text{(Commutativité de l'$+$)}
+\end{align*}\]</span></p>
+<div id="produit" class="Def" title="Produit">
+<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 3.6: </strong>Produit</summary><div>Soit <span class="math inline">\(a,b,c\)</span> et <span class="math inline">\(d\)</span> des nombres réels. Le <strong>produit des nombres complexes</strong> <span class="math inline">\(a+b\,\iu\)</span> et <span class="math inline">\(c+d\,\iu\)</span> est défini comme étant le nombre <span class="math inline">\(ac-bd +(ad+bc)\iu\)</span>.<p></p>
+</div></details>
+</div>
+<p>Si on avait fait cette définition <em>a priori</em>, elle aurait pu sembler artificielle. Cependant, le travail effectué précédemment nous suggère que c’est la manière la plus convenable de définir le produit, si on souhaite que les lois de l’arithmétique soient vérifiées. On peut bien sûr le faire <em>a posteriori</em> : on montre que l’opération définie à la définition <a href="Operations.html#produit">3.6</a> est commutative, associative et distributive par rapport à l’addition.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Astuce
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour multiplier deux nombres complexes, disons <span class="math inline">\(a+b\iu\)</span> et <span class="math inline">\(c+d\iu\)</span>, il suffit de retenir que les propriétés d’associativité, de commutativité et de distributivité sont applicables. En utilisant bien sûr le fait que <span class="math inline">\(\iu^2=-1\)</span>, on peut facilement calculer leur produit.</p>
+</div>
+</div>
+</div></div><p>On peut interpréter géométriquement le produit de deux nombres complexes, mais cela sera grandement facilité par l’introduction de l’argument d’un nombre complexe que nous aborderons sous peu.</p>
+<p>Pour effectuer des calculs faisant intervenir les nombres complexes, il n’est pas nécessaire de retenir cette définition, mais seulement de savoir qu’on peut appliquer les propriétés d’associativité, de commutativité et de distributivité telles que présentées précédemment. Bien sûr, tôt ou tard, il faudra utiliser le fait que <span class="math inline">\(\iu^2=-1\)</span> pour ramener notre expression sous la forme <span class="math inline">\(a+b\,\iu\)</span>, avec <span class="math inline">\(a,b\in\R\)</span>.</p>
+<div id="Ex-3.3" class="Ex">
+<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 3.3</strong></summary><div>Trouvez la forme cartésienne du nombre <span class="math inline">\((1-2\iu)\cdot(-3+4\iu)\)</span>.<p></p>
+<p>Nous avons que <span class="math display">\[\begin{align*}
+  (1-2\iu)\cdot(-3+4\iu)&amp;=1\cdot(-3+4\iu)-2\iu\cdot(-3+4\iu)\\
+  &amp;=-3+4\iu-2\iu\cdot(-3)-2\iu\cdot 4\iu\\
+  &amp;=-3+4\iu+6\iu-8\iu^2\\
+  &amp;=-3+10\iu-8(-1)\\
+  &amp;=-3+10\iu+8\\
+  &amp;=5+10\iu.
+\end{align*}\]</span></p>
+</div></details>
+</div>
+<div id="Prop-3.1" class="Prop">
+<p></p><details class="Prop fbx-simplebox fbx-default" open=""><summary><strong>Proposition 3.1</strong></summary><div>Soit <span class="math inline">\(z,w\in\C\)</span>, et soient <span class="math inline">\(\lambda,\mu\in\R\)</span>. Alors <span class="math display">\[\begin{align*}
+\RE(\lambda z+\mu w)&amp;=\lambda\RE(z)+\mu\RE(w)\quad\text{et}\\
+\IM(\lambda z+\mu w)&amp;=\lambda\IM(z)+\mu\IM(w).
+\end{align*}\]</span><p></p>
+</div></details>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons que <span class="math inline">\(z=a+b\iu\)</span> et <span class="math inline">\(w=c+d\iu\)</span>, où <span class="math inline">\(a,b,c\)</span> et <span class="math inline">\(d\in\R\)</span>. Nous avons que <span class="math display">\[\lambda z+\mu w=\lambda(a+b\iu)+\mu(c+d\iu)=\lambda a+\mu c+(\lambda b+\mu d)\iu.\]</span> Ainsi, <span class="math display">\[\begin{align*}
+    \RE(\lambda z+\mu w)&amp;=\lambda a+\mu c=\lambda\RE(z)+\mu\RE(w),\\
+    \IM(\lambda z+\mu w)&amp;=\lambda b+\mu d=\lambda\IM(z)+\mu\IM(w).
+    \end{align*}\]</span></p>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La partie réelle d’une somme de nombres complexes et la somme des parties réelles des nombres complexes additionnés.</p>
+</div>
+</div>
+</div></div><p>Un cas particulier de la proposition précédente est que la partie réelle d’une somme de nombres complexes est la somme des parties réelles des nombres complexes additionnés. On peut tirer le même constat dans le cas de la partie imaginaire. Cependant, la partie réelle du produit de deux nombres complexes n’est pas le produit des parties réelles des nombres complexes multipliés.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il est faux de dire que que la partie réelle du produit de deux nombres complexes est égale au produit des parties réelles des deux nombres multipliés. De même, <span class="math display">\[\IM(zw)\neq\IM(z)\IM(w)\]</span> en général.</p>
+</div>
+</div>
+</div></div></section>
+<section id="inverse" class="level3 page-columns page-full" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="inverse"><span class="header-section-number">3.2.2</span> Inverse</h3>
+<p>La définition du produit de deux nombres complexes nous permet de se questionner sur l’existence de l’inverse (multiplicatif) d’un nombre complexe. D’abord, l’inverse d’un nombre complexe <span class="math inline">\(z\)</span> est un nombre complexe <span class="math inline">\(w\)</span> tel que <span class="math inline">\(z\times w=1\)</span>. L’inverse de <span class="math inline">\(z\)</span> est noté <span class="math inline">\(\frac{1}{z}\)</span> ou <span class="math inline">\(z^{-1}\)</span>. Cette définition n’a de sens que si <span class="math inline">\(z\neq 0\)</span>, car dans le cas contraire, il nous faudrait trouver un <span class="math inline">\(w\in\C\)</span> tel que <span class="math inline">\(0\times w=1\)</span>, ce qui est bien sûr impossible. On peut donc supposer que <span class="math inline">\(z=a+b\,\iu\)</span>, avec <span class="math inline">\(a,b\in\R\)</span>, pas tous les deux nuls, puis partir à la recherche d’un nombre complexe <span class="math inline">\(w\)</span> de la forme <span class="math inline">\(x+y\,\iu\)</span>, où <span class="math inline">\(x,y\in\R\)</span>. En utilisant la formule donnant le produit de deux nombres complexes, on doit avoir que <span class="math display">\[\underbrace{ax-by +(ay+bx)\iu}_{zw}=1.\]</span> En égalant parties réelles et imaginaires (c’est ce qu’on doit faire en vertu de la définition d’égalité de deux nombres complexes présentée à la définition <a href="Operations.html#defegalite">3.3</a>), nous obtenons les équations <span class="math display">\[\begin{align}
+ax-by&amp;=1,\\
+ay+bx&amp;=0.
+\end{align}\]</span></p>
+<p>En multipliant la première équation par <span class="math inline">\(a\)</span> et la seconde par <span class="math inline">\(b\)</span>, nous obtenons les équations <span class="math display">\[\begin{align}
+a^2x-aby&amp;=a,\label{eqn:reelle2}\\
+aby+b^2x&amp;=0.\label{eqn:imaginaire2}
+\end{align}\]</span> En additionnant ces équations, on obtient l’équation <span class="math inline">\(a^2x+b^2x=a\)</span>. Puisque <span class="math inline">\(a^2+b^2\neq 0,\)</span> (conséquence du fait que <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> ne sont pas tous les deux nuls, qui à son tour découle de l’observation que <span class="math inline">\(z\neq 0\)</span>), on est en droit de diviser par <span class="math inline">\(a^2+b^2\)</span>, et on trouve que <span class="math inline">\(x=\frac{a}{a^2+b^2}\)</span>. En procédant d’une manière semblable, on trouve que <span class="math inline">\(y=-\frac{b}{a^2+b^2}\)</span>. Ainsi, l’inverse multiplicatif du nombre complexe <span class="math inline">\(z=a+b\iu\)</span> est le nombre complexe <span class="math display">\[\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\iu.\]</span> Il n’est pas nécessaire de mémoriser cette formule pour obtenir l’inverse d’un nombre complexe. Il suffit de multiplier le numérateur et le dénominateur par une quantité bien choisie. Avant de dévoiler cette quantité, rappelons d’abord ce qu’on peut faire pour rationaliser le dénominateur du nombre <span class="math inline">\(\frac{1}{3+\sqrt{2}}\)</span>. On voit au secondaire qu’il suffit de multiplier le numérateur et le dénominateur par <span class="math inline">\(3-\sqrt{2}\)</span>. Cela a pour conséquence de «&nbsp;faire disparaître&nbsp;» la racine du dénominateur. En effet, <span class="math display">\[\frac{1}{3+\sqrt{2}}=\frac{1}{3+\sqrt{2}}\times\underbrace{\frac{3-\sqrt{2}}{3-\sqrt{2}}}_{=1}=\frac{3-\sqrt{2}}{9-3\sqrt{2}+3\sqrt{2}-2}=\frac{3}{5}-\frac{\sqrt{2}}{5}.\]</span> De la même manière, on peut faire disparaître le <span class="math inline">\(\iu\)</span> au dénominateur dans l’expression <span class="math inline">\(\frac{1}{a+b\iu}\)</span> en multipliant le numérateur et le dénominateur par l’expression <span class="math inline">\(a-b\iu\)</span>. Cela est illustré à l’exemple <a href="Operations.html#exinverse">3.4</a>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Astuce
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour trouver l’inverse du nombre complexe <span class="math inline">\(\frac{1}{a+b\,\iu}\)</span>, il suffit de multiplier le numérateur et le dénominateur par <span class="math inline">\(a-b\,\iu\)</span>.</p>
+</div>
+</div>
+</div></div><div id="exinverse" class="Ex" title="Inverse d’un nombre complexe">
+<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 3.4: </strong>Inverse d’un nombre complexe</summary><div>Trouvez l’inverse de <span class="math inline">\(3-2\iu\)</span> sous forme cartésienne.<p></p>
+<p>Nous avons que <span class="math display">\[\frac{1}{3-2\iu}=\frac{1}{3-2\iu}\cdot\frac{3+2\iu}{3+2\iu}=\frac{3+2\iu}{9+6\iu-6\iu-4\iu^2}=\frac{3+2\iu}{13}=\frac{3}{13}-\frac{2}{13}\iu.\]</span></p>
+</div></details>
+</div>
+</section>
+<section id="quotient" class="level3 page-columns page-full" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="quotient"><span class="header-section-number">3.2.3</span> Quotient</h3>
+<p>Qu’est-ce que le nombre <span class="math inline">\(\frac{2}{3}\)</span>? On peut voir ce dernier comme étant un nombre, qui, lorsque multiplié par <span class="math inline">\(3\)</span>, donne <span class="math inline">\(2\)</span>. On peut aussi le définir comme étant deux fois l’inverse multiplicatif de trois, c’est-à-dire le nombre <span class="math inline">\(2\times \frac{1}{3}\)</span>. En utilisant les propriétés régissant la structure des nombres, on peut constater que ces définitions sont équivalentes. Regardons ce qui se passe lorsqu’on s’intéresse à un quotient de nombres complexes.<br>
+Soient <span class="math inline">\(z\)</span> et <span class="math inline">\(w\)</span> deux nombres complexes tels que <span class="math inline">\(w\neq 0\)</span>. Regardons le quotient <span class="math inline">\(\frac{z}{w}\)</span> comme étant le nombre complexe, qui, lorsque multiplié par <span class="math inline">\(w\)</span>, donne <span class="math inline">\(z\)</span>. Nous avons alors que <span class="math inline">\(\frac{z}{w}\times w=z\)</span>. En multipliant chaque membre par l’inverse de <span class="math inline">\(w\)</span> (ce nombre existe puisque <span class="math inline">\(w\neq 0\)</span>), on obtient que <span class="math display">\[\begin{align*}
+\left(\frac{z}{w}\times w\right)&amp;\times \frac{1}{w}=z\times\frac{1}{w}&amp;\\
+&amp;\Rightarrow\frac{z}{w}\times \left(w\times \frac{1}{w}\right)=z\times\frac{1}{w}&amp;\text{(Associativité de la $\times$)}\\
+&amp;\Rightarrow\frac{z}{w}\times 1=z\times\frac{1}{w}&amp;\text{(Définition de l'inverse de $w$)}\\
+&amp;\Rightarrow\frac{z}{w}=z\times\frac{1}{w}.&amp;\text{(élément neutre multiplicatif)}
+\end{align*}\]</span></p>
+<p>Comme nous savons comment obtenir la forme cartésienne de <span class="math inline">\(\frac{1}{w}\)</span>, il nous suffit de la trouver et de la multiplier par <span class="math inline">\(z\)</span> pour obtenir le résultat. Si la forme cartésienne de <span class="math inline">\(w\)</span> est <span class="math inline">\(a+b\,\iu\)</span>, cela revient à multiplier le numérateur et le dénominateur par <span class="math inline">\(a-b\,\iu\)</span>. L’exemple suivant illustre un tel calcul.</p>
+<div id="Ex-3.5" class="Ex">
+<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 3.5</strong></summary><div>Trouvez la forme cartésienne du nombre complexe <span class="math inline">\(\frac{1+\iu}{3-2\iu}\)</span>.<p></p>
+<p>Nous avons que <span class="math display">\[\frac{1+\iu}{3-2\iu}=\frac{1+\iu}{3-2\iu}\cdot\frac{3+2\iu}{3+2\iu}=\frac{1+5\iu}{13}=\frac{1}{13}+\frac{5}{13}\iu.\]</span></p>
+</div></details>
+</div>
+
+
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Astuce
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour trouver la forme cartésienne de <span class="math inline">\(\frac{a+b\iu}{c+d\iu}\)</span>, il suffit de le multiplier par <span class="math inline">\(\frac{c-d\iu}{c-d\iu}\)</span>.</p>
+</div>
+</div>
+</div></div></section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Arithmetique.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ModuleConjugue.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module et conjugué</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

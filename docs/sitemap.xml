@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/exercices01.html</loc>
-    <lastmod>2023-07-01T19:36:50.268Z</lastmod>
+    <lastmod>2023-07-04T15:15:11.295Z</lastmod>
   </url>
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/exercices02.html</loc>
-    <lastmod>2023-07-01T19:36:30.598Z</lastmod>
+    <lastmod>2023-07-04T18:37:03.016Z</lastmod>
   </url>
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/index.html</loc>
-    <lastmod>2023-07-01T19:36:18.016Z</lastmod>
+    <lastmod>2023-07-07T13:34:58.765Z</lastmod>
   </url>
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/index_old.html</loc>
@@ -18,6 +18,14 @@
   </url>
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/intro.html</loc>
-    <lastmod>2023-07-01T19:36:48.502Z</lastmod>
+    <lastmod>2023-07-07T03:10:14.351Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/polaire.html</loc>
+    <lastmod>2023-07-07T03:16:46.461Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/cartesienne.html</loc>
+    <lastmod>2023-07-07T14:32:23.932Z</lastmod>
   </url>
 </urlset>

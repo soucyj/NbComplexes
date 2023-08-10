@@ -9,6 +9,9 @@
 \newcommand{\piu}{\pi}
 # Série 2
 
+
+
+
 ::: {#exr-calculs2}
 \n
 Écrivez les nombres complexes ci-dessous sous forme polaire. Identifiez par la suite leur module, leur argument principal et représentez-les dans le plan complexe.
@@ -25,7 +28,7 @@ h. $z_8=-3+3\iu\sqrt{3}$
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-Pour trouver le module d'un nombre complexe $z=a+b\iu$, où $a,b\in\R$, nous utilisons la définition, c'est-à-dire que $|z|=\sqrt{a^2+b^2}$. Pour trouver l'argument principal, on trouve d'abord un de ses arguments, puis, au besoin, on ajoute à ce nombre un multiple de $2\pi$ approprié pour avoir un nombre dans l'intervalle $]-\pi,\pi]$. Lorsque ces nombres sont déterminés, on obtient la forme polaire. C'est ainsi qu'on obtient:\n
+Pour trouver le module d'un nombre complexe $z=a+b\iu$, où $a,b\in\R$, nous utilisons la définition, c'est-à-dire que $|z|=\sqrt{a^2+b^2}$. Pour trouver l'argument principal, on trouve d'abord un de ses arguments, puis, au besoin, on ajoute (ou soustrait) à ce nombre un multiple de $2\pi$ approprié pour avoir un nombre dans l'intervalle $]-\pi,\pi]$. Lorsque ces nombres sont déterminés, on est en mesure d'écrire la forme polaire. C'est ainsi qu'on obtient:\n
 
 a. Forme cartésienne: $1+\iu$,\n
 
@@ -114,9 +117,12 @@ b. À partir de la forme polaire de $1-\iu$ et $1+\iu$, on trouve que $(1+\iu)^{
 			$$\frac{(1+\iu)^{12}}{(1-\iu)^8}=\frac{-2^6}{2^4}=\underbrace{-4}_{\text{forme cartsienne}}=\underbrace{4(\cos\piu+\iu\sin\piu)}_{\text{forme~polaire}}.$$
 c. Remarquons d'abord que $|4+5\iu|=\sqrt{41}$. Le nombre est donc situé sur la partie de l'axe réel où les nombres sont positifs, de telle sorte que son argument est $0$. Aussi, comme la notion de module pour les nombres complexes se confond avec celle de valeur absolue dans le cas des nombres réels, on en déduit que le module du nombre considéré est $\sqrt{41}$. Ainsi, la forme cartésienne est $\sqrt{41}$, et la forme polaire $\sqrt{41}(\cos 0+\iu\sin 0)$.
 
-d. Le nombre $1-\iu\sqrt{3}$ a pour module 2 et pour argument principal $-\frac{\piu}{3}$. Ainsi, $(1-\iu\sqrt{3})^{10}$ a pour module $2^{10}$ et $\frac{2\piu}{3}$ comme argument principal. De même, le nombre $9i$ a pour module 9 et pour argument principal $\frac{\piu}{2}$. Le produit de ces deux nombres est donc le nombre complexe ayant pour module $2^{10}\cdot 9 = 9216$, et pour argument $\frac{\piu}{2}+\frac{2\piu}{3}=\frac{7\piu}{6}\equiv -\frac{5\piu}{6}~\pmod{2\piu}$.
+d. Le nombre $1-\iu\sqrt{3}$ a pour module $2$ et pour argument principal $-\frac{\piu}{3}$. Ainsi, $(1-\iu\sqrt{3})^{10}$ a pour module $2^{10}$ et $\frac{2\piu}{3}$ comme argument principal. De même, le nombre $9\iu$ a pour module $9$ et pour argument principal $\frac{\piu}{2}$. Le produit de ces deux nombres est donc le nombre complexe ayant pour module $2^{10}\cdot 9 = 9216$, et pour argument $\frac{\piu}{2}+\frac{2\piu}{3}=\frac{7\piu}{6}\equiv -\frac{5\piu}{6}~\pmod{2\piu}$.
 Ainsi,
-$$(1-\iu\sqrt{3})^{10}\cdot 9i=\underbrace{9216\left(\cos\left(-\frac{5\piu}{6}\right)+\iu\sin\left(-\frac{5\piu}{6}\right)\right)}_{\text{forme~polaire}}=\underbrace{-4608\sqrt{3}-4608\iu~.}_{\text{forme cartsienne}}$$
+\begin{align*}
+(1-\iu\sqrt{3})^{10}\cdot 9i&=\underbrace{9216\left(\cos\left(-\frac{5\piu}{6}\right)+\iu\sin\left(-\frac{5\piu}{6}\right)\right)}_{\text{forme~polaire}}\\
+&=\underbrace{-4608\sqrt{3}-4608\iu~.}_{\text{forme cartsienne}}
+\end{align*}
 :::
 
 ::: {#exr-DeMoivre}
@@ -154,7 +160,7 @@ Chuck et Norris ne s'entendent pas sur une identité trigonométrique. Chuck pr�
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-Chuck et Norris ont tous les deux raison. En effet, en considérant l'identité $$\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)$$ qui a été démontrée à l'exercice @exr-DeMoivre, de même que l'identité fondamentale $$\cos^2(\theta)+\sin^2(\theta)=1,$$ on obtient que $\cos^2(\theta)=1-\sin^2(\theta)$ et $\sin^2(\theta)=1-\cos^2(\theta)$. En substituant l'expression pour $\cos^2(\theta)$ dans l'équation $\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)$ on obtient la version de Norris. En substituant l'expression pour $\sin^2(\theta),$ on obtient celle de Chuck.
+Chuck et Norris ont tous les deux raison. En effet, en considérant l'identité $$\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)$$ qui a été démontrée à l'@exr-DeMoivre, de même que l'identité fondamentale $$\cos^2(\theta)+\sin^2(\theta)=1,$$ on obtient que $\cos^2(\theta)=1-\sin^2(\theta)$ et $\sin^2(\theta)=1-\cos^2(\theta)$. En substituant l'expression pour $\cos^2(\theta)$ dans l'équation $\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)$ on obtient la version de Norris. En substituant l'expression pour $\sin^2(\theta),$ on obtient celle de Chuck.
 :::
 
 ::: {#exr-aligne}
@@ -206,14 +212,14 @@ $$\cos\left(\frac{\piu}{12}\right)=\frac{1}{2}\sqrt{2+\sqrt{3}}.$$
 
 ::: {#exr-sin13pisur12}
 \n
-En vous servant de ce qui a été fait au numéro à l'@exr-cospisur12, déterminez la valeur exacte de $\sin\left(\frac{13\piu}{12}\right)$
+En vous servant de ce qui a été fait à l'@exr-cospisur12, déterminez la valeur exacte de $\sin\left(\frac{13\piu}{12}\right)$
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Solution
 Remarquons dans un premier temps que $\sin\frac{13\piu}{12}=-\sin\frac{\piu}{12}$. Pour s'en convaincre il suffit
 de se référer au cercle trigonométrique. Ensuite, en se basant sur l'identité fondamentale $\cos^2\theta+\sin^2\theta=1$, nous avons que
-$$\sin^2\left(\frac{\piu}{12}\right)=1-\cos^2\left(\frac{\piu}{12}\right)=\frac{\sqrt{2-\sqrt{3}}}{4}.$$
+$$\sin^2\left(\frac{\piu}{12}\right)=1-\cos^2\left(\frac{\piu}{12}\right)=1-\frac{1}{4}\left(2+\sqrt{3}\right)=\frac{2-\sqrt{3}}{4}.$$
 Comme $\sin\left(\frac{\piu}{12}\right)>0$, il suit que $\sin\left(\frac{\piu}{12}\right)=\frac{\sqrt{2-\sqrt{3}}}{4}.$ De cela nous pouvons conclure que
 $\sin\left(\frac{13\piu}{12}\right)=-\frac{\sqrt{2-\sqrt{3}}}{4}$.
 :::
@@ -256,12 +262,12 @@ c. On veut trouver $z=x+\iu y$, avec $x,y\in\R$, tel que $z^2=\iu$. Ainsi, on do
 	z_1=\frac{\sqrt{2}}{2}+\iu \frac{\sqrt{2}}{2},\\
 	z_2=-\frac{\sqrt{2}}{2}-\iu \frac{\sqrt{2}}{2}.
 \end{eqnarray*}
-d. Le nombre $0$ n'a qu'une seule racine carrée, à savoir $0$.\
+d. Rappelons d'abord que le produit de deux termes est nul si et seulement si au moins un des termes est nul. Ainsi, affirmer que $z$ est un racine carrée de $0$ signifie que $z\cdot z=0$, ce qui n'est le cas que lorsque $z=0$. Par conséquent, le nombre $0$ n'a qu'une seule racine carrée, à savoir $0$.\
 e. On veut trouver $z=x+\iu\,y$, avec $x,y\in\R$, tel que $z^2=-24-10\iu$. Ainsi, on doit avoir que $x^2-y^2+2xy\,\iu =-24-10\iu$. En égalant parties réelle et imaginaire, on obtient les deux équations $x^2-y^2=-24$ et $2xy=-10$. Puisque le carré d'un nombre réel donne un nombre réel, il suit que $y\neq 0$. Cela nous permet de diviser par $y$ et d'écrire $x=-\frac{5}{y}$. En remplaçant dans l'équation $x^2-y^2=-24$, nous obtenons que
 $$\frac{25}{y^2}-y^2=-24.$$
 Cela nous amène à résoudre l'équation $y^4-24y^2-25=0$. On peut y arriver en posant $u=y^2$. On obtient ainsi l'équation quadratique $u^2-24u-25=0$, dont les solutions sont $25$ et $-1$. Comme $u$ est le carré de $y$, un nombre réel, on doit rejeter la solution $u=-1$. Par conséquent, $y^2=25$, d'où $y=\pm 5$. Si $y=5$, alors $x=-1$ et si $y=-5$, $x=1$. Par conséquent, les deux racines sont $z_1=-1+5\iu$ et $z_2=1-5\iu$.
 
-f. Soit $\theta$ l'argument principal du nombre $\sqrt{3}+\iu$. On observe que $\sqrt{3}+\iu$ est situé dans le premier quadrant, et que $\tan\theta=\frac{1}{\sqrt{3}}=\frac{\sqrt{3}}{3}$. Par conséquent, $\theta=\frac{\piu}{6}$. Comme le module de $\sqrt{3}+\iu$ est $2$, sa forme polaire est donnée par $2\left(\cos\frac{\piu}{6}+\iu \sin\frac{\piu}{6}\right).$ Ainsi, Les 2 racines carrées de $\sqrt{3}+\iu$ sont
+f. Soit $\theta$ l'argument principal du nombre $\sqrt{3}+\iu$. On observe que $\sqrt{3}+\iu$ est situé dans le premier quadrant, et que $\tan\theta=\frac{1}{\sqrt{3}}=\frac{\sqrt{3}}{3}$. Par conséquent, $\theta=\frac{\piu}{6}$. Comme le module de $\sqrt{3}+\iu$ est $2$, sa forme polaire est donnée par $2\left(\cos\frac{\piu}{6}+\iu \sin\frac{\piu}{6}\right).$ Ainsi, Les deux racines carrées de $\sqrt{3}+\iu$ sont
 $$z_k=2^{1/2}\left(\cos\left(\frac{\frac{\piu}{6}+2k\piu}{n}\right)+i\sin\left(\frac{\frac{\piu}{6}+2k\piu}{n}\right)\right),$$
 où $k\in\{0,1\}$. Cela donne lieu aux racines
 \begin{align*}
@@ -283,26 +289,29 @@ Pour les valeurs de $n$ appartenant à l'ensemble $\{1,2,3,4,5,6\}$, trouvez, so
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-\textbf{Cas $n=1$}
+**Cas où $n=1$**
+
 Il faut résoudre $z^1=1$, ce qui implique que $z_0=1$ est l'unique racine $1^{\textrm{ième}}$ de l'unité.
 	
-\textbf{Cas $n=2$}
+**Cas où $n=2$**
+
 Il faut résoudre $z^2=1$, ce qui implique que $z^2-1=0$, ou encore $(z-1)(z+1)=0$. Les deux solutions sont donc $z_0=1$ et $z_1=-1$.
 
-\textbf{Cas $n\geq 3$}
+**Cas où $n\geq 3$**
+
 Il est plus simple de passer par la forme polaire ou exponentielle. En effet, si $w=r(\cos\theta+\iu \sin\theta)$, alors les $n$ racines $n^{\textrm{ième}}$ de $w$ sont données par
 $$z_k=r^{1/n}\left(\cos\left(\frac{\theta+2k\piu}{n}\right)+\iu \sin\left(\frac{\theta+2k\piu}{n}\right)\right),$$
 où $k\in\{0,1,\ldots,n-1\}$.
 Dans cet exercice, on s'intéresse aux racine de l'unité, c'est-à-dire aux solutions de l'équation $z^n=1$ pour différentes valeurs de $n$. Sous forme polaire, le nombre $1$ s'écrit comme étant $1\cdot(\cos 0 +\iu \sin 0)$. Le module des racines $n^{\textrm{ième}}$ sera donc $1$, quelle que soit la valeur de $n$. Ce qui va changer, en fonction de $n$, ce sont les arguments des racines.
 
-Pour $n=3$, les trois arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2\}$, ce qui nous donne les arguments $0, \frac{2\piu}{3}$ et $\frac{4\piu}{3}$. Ainsi,
+Pour $n=3$, les trois arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2\}$, ce qui nous donne les arguments (pas nécessairement principaux) $0, \frac{2\piu}{3}$ et $\frac{4\piu}{3}$. Ainsi,
 \begin{align*}
 	z_0&=1\cdot(\cos 0 +\iu \sin 0)=1,\\
 	z_1&=1\cdot\left(\cos \frac{2\piu}{3} +\iu \sin \frac{2\piu}{3}\right) = -\frac{1}{2}+\iu \frac{\sqrt{3}}{2},\\
 	z_2&=1\cdot\left(\cos \frac{4\piu}{3} +\iu \sin \frac{4\piu}{3}\right) = -\frac{1}{2}-\iu \frac{\sqrt{3}}{2}.
 \end{align*}
 	
-Pour $n=4$, les quatre arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3\}$, ce qui nous donne les arguments $0, \frac{\piu}{2},\piu$ et $\frac{3\piu}{2}$. Ainsi,
+Pour $n=4$, les quatre arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3\}$, ce qui nous donne les arguments (pas nécessairement principaux) $0, \frac{\piu}{2},\piu$ et $\frac{3\piu}{2}$. Ainsi,
 \begin{align*}
 	z_0&=1\cdot(\cos 0 +\iu \sin 0)=1,\\
 	z_1&=1\cdot\left(\cos \frac{\piu}{2} +\iu \sin \frac{\piu}{2}\right) = \iu,\\
@@ -310,7 +319,7 @@ Pour $n=4$, les quatre arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3\}$
 	z_3&=1\cdot\left(\cos \frac{3\piu}{2} +\iu \sin \frac{3\piu}{2}\right) = -\iu.
 \end{align*}
 	
-Pour $n=5$, les cinq arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3,4\}$, ce qui nous donne les arguments $0, \frac{2\piu}{5},\frac{4\piu}{5},\frac{6\piu}{5}$, et $\frac{8\piu}{5}$. Ainsi,
+Pour $n=5$, les cinq arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3,4\}$, ce qui nous donne les arguments (pas nécessairement principaux) $0, \frac{2\piu}{5},\frac{4\piu}{5},\frac{6\piu}{5}$, et $\frac{8\piu}{5}$. Ainsi,
 \begin{align*}
 	z_0&=1\cdot(\cos 0 +\iu \sin 0)=1,\\
 	z_1&=1\cdot\left(\cos \frac{2\piu}{5} +\iu \sin \frac{2\piu}{5}\right) = \frac{1}{4}(-1+\sqrt{5})+\iu \sqrt{\frac{5}{8}+\frac{\sqrt{5}}{8}},\\
@@ -321,7 +330,7 @@ Pour $n=5$, les cinq arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3,4\}$
 
 Ici, il n'est pas simple de déterminer la valeur exacte du sinus et du cosinus de la plupart des arguments. On peut facilement y parvenir à l'aide de Maple, ou encore de WolframAlpha. \href{http://www.wolframalpha.com/input/?i=sin\%284pi\%2F5\%29}{Voici comment} on peut déterminer ces quantités avec WolframAlpha.
 
-Pour $n=6$, les six arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3,4,5\}$, ce qui nous donne les arguments $0,\frac{\piu}{3},\frac{2\piu}{3},\piu,\frac{4\piu}{3}$, et $\frac{5\piu}{3}$. Ainsi,
+Pour $n=6$, les six arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3,4,5\}$, ce qui nous donne les arguments (pas nécessairement principaux) $0,\frac{\piu}{3},\frac{2\piu}{3},\piu,\frac{4\piu}{3}$, et $\frac{5\piu}{3}$. Ainsi,
 \begin{align*}
 	z_0&=1\cdot(\cos 0 +\iu \sin 0)=1,\\
 	z_1&=1\cdot\left(\cos \frac{\piu}{3} +\iu \sin \frac{\piu}{3}\right) = \frac{1}{2}+\iu \frac{\sqrt{3}}{2},\\
@@ -332,6 +341,7 @@ Pour $n=6$, les six arguments sont $\frac{0+2k\piu}{n}$ où $k\in\{0,1,2,3,4,5\}
 \end{align*}
 :::
 
+<!--
 ::: {#exr-trouverz}
 \n
 Soit $O$ l'origine et soit $z_1, z_2\in\C$ tels que le triangle de sommets $O, z_1, z_2$ soit équilatéral. Montrez que
@@ -342,4 +352,5 @@ $$z_1^2+z_2^2=z_1z_2.$$
 ## Solution
 bla bla
 :::
+-->
 

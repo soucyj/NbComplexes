@@ -1,0 +1,18 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tikz}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}[scale=5.5/7]
+		\draw[->,color=black] (-1.5,0) -- (5.5,0);
+		\foreach \x in {-1,1,2,3,4,5}
+		\draw[shift={(\x,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below] {\footnotesize $\x$};
+		\draw[->,color=black] (0,-1) -- (0,3.5);
+		\foreach \y in {-1,1,2,3}
+		\draw[shift={(0,\y)},color=black] (-1pt,0pt) -- (1pt,0pt) node[left] {\footnotesize $\y$};
+		\draw[domain=0:1,samples=100,smooth,variable=\x,black,thick] plot (\x,{sqrt(\x)});
+		\draw[domain=1:5,samples=100,smooth,variable=\x,black,thick] plot (\x,{sqrt(\x)});
+		\draw[color=black] node[below] (A) at (5.5,0) {\small $x$};
+		\draw[color=black] node[left] (B) at (0,3.5) {\small $y$};
+		\draw[color=black] node[above] (B) at (2,2) {\small $y=\sqrt{x}$};
+		\end{tikzpicture}
+\end{document}

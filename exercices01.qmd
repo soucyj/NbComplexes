@@ -234,7 +234,10 @@ Trouvez les nombres complexes $z$ qui satisfont simultanément les deux conditio
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-bla bla
+{{< video https://youtu.be/jKG5ZMWFK0o
+    title="Nombres complexes : un lieu et deux équations"
+    start="0"
+    aspect-ratio="16x9">}}
 :::
 
 ::: {#exr-autreslieux}
@@ -248,7 +251,7 @@ d. $|z-1|+|z+1|=2$
 e. $|z-1-\iu|+|z+1+\iu|=10$
 f. $|z-3|-|z+5|=\pm 2$
 g. $|z-3|-|z+5|=2$
-h. $|z-3|-|z+5|= 8$
+h. $|z-3|-|z+5|= \pm 8$
 i. $|z-2|-|z+2|=0$
 j. $|z-2|z\overline{z}=0$
 k. $z+3\overline{z}+8-4\iu=7+12\iu$
@@ -259,32 +262,27 @@ l. $4\left(z-\overline{z}\right)=2\iu\left(z^2+2|z|^2+\overline{z}^2\right)$
 ## Solution
 a. On pose $z=x+\iu\,y$. En égalant les parties réelle et imaginaire pour chacun des deux membres de l'équation, on trouve que $y=10-2x$.
 b. Il s'agit des nombres réels positifs.
-c. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
-    title="Ellipse dans le plan complexe"
-    start="116"
-    aspect-ratio="16x9" 
->}}
-d. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
-    title="Ellipse dans le plan complexe"
-    start="116"
-    aspect-ratio="16x9" 
->}}
+c. {{< video https://youtu.be/uBvoTGKXmjU
+    title="Ellipse dans le plan complexe : cas habituel"
+    start="0"
+    aspect-ratio="16x9">}}
+d. {{< video https://youtu.be/TXJLDIuuebM
+    title="Ellipse dans le plan complexe : cas limite"
+    start="0"
+    aspect-ratio="16x9">}}
 e. Une ellipse de foyers $1+\iu$ et $-1-\iu$ centrée à l'origine de grand axe $10$ et de petit axe $\sqrt{23}$.
-f. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
-    title="Ellipse dans le plan complexe"
-    start="116"
-    aspect-ratio="16x9" 
->}}
-g. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
-    title="Ellipse dans le plan complexe"
-    start="116"
-    aspect-ratio="16x9" 
->}}
-h. {{< video https://www.youtube.com/watch?v=ipoVuMYvOLM
-    title="Ellipse dans le plan complexe"
-    start="116"
-    aspect-ratio="16x9" 
->}}
+f. {{< video https://youtu.be/Cu0PG-x2UvI
+    title="Hyperbole dans le plan complexe : cas habituel"
+    start="0"
+    aspect-ratio="16x9">}}
+g. {{< video https://youtu.be/xssUMKCSvB4
+    title="Hyperbole dans le plan complexe : une seule branche"
+    start="0"
+    aspect-ratio="16x9">}}
+h. {{< video https://youtu.be/t0RrHFNA2yU
+    title="Hyperbole dans le plan complexe : cas limite"
+    start="0"
+    aspect-ratio="16x9">}}
 i. L'équation est équivalente à $|z-2|=|z+2|$. Les points doivent être à une même distance de $2$ et de $-2$. Ce sont les points situés sur la droite perpendiculaire au segment qui les joint et qui passe par le milieu de celui-ci (la médiatrice du segment). Dans ce cas particulier, cela correspond à l'axe imaginaire.
 j. Pour que le produit $|z-2|z\overline{z}$ soit nul, il faut qu'au moins un des facteurs soit nul. Le facteur $|z-2|$ s'annule si et seulement si $z=2$. De même, $\overline{z}=0\iff z=0$. Ainsi, les seules solutions sont $0$ et $2$.
 k. En posant $z=x+\iu\,y, x,y\in\R$, on trouve que $z=-\frac{1}{4}-8\iu$.

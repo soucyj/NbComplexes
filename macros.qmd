@@ -1,0 +1,11 @@
+::: {.content-hidden unless-format="html"}
+$$
+\newcommand{\boitevide}{X}
+$$
+:::
+
+::: {.content-hidden unless-format="pdf"}
+```{=latex}
+\newcommand{\boitevide}{X}
+```
+:::

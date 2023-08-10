@@ -1,0 +1,19 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tikz}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}[scale=5.5/5]
+		\draw[->,color=black] (-2,0) -- (3,0);
+		%\foreach \x in {-2,-1,1,2}
+		%\draw[shift={(\x,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below] {\footnotesize $\x$};
+		%\foreach \y in {-2,-1,1,2}
+		%\draw[shift={(0,\y)},color=black] (-1pt,0pt) -- (1pt,0pt) node[left] {\footnotesize $\y$};
+		\draw[->,color=black] (0,-2) -- (0,2);
+		\draw[color=black, fill=black] (2,1) circle (1.5pt) node[right] {$z$};
+		\draw[color=black, fill=black] (2,-1) circle (1.5pt) node[right] {$\zbar$};
+		\draw[color=black, dashed] (2,1) -- (2,-1);
+		\draw[color=black, fill=black] (-1,0) circle (1.5pt) node[below] {$w=\overline{w}$};
+		\draw[color=black] node[below] (A) at (3,0) {\small $\RE$};
+		\draw[color=black] node[left] (B) at (0,2) {\small $\IM$};
+		\end{tikzpicture}
+\end{document}

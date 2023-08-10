@@ -1,66 +1,93 @@
-project: 
-  type: website
-  output-dir: docs
-  
-website: 
-  page-navigation: true
-  title: "Nombres complexes et polynômes" 
-  site-url: "https://openscapes.github.io/quarto-website-tutorial" 
-  repo-url: https://github.com/openscapes/quarto-website-tutorial 
-  
-  page-footer:
-    right: ""
-    left: "&copy; CC BY-NC-SA Jérôme Soucy, 2023"
-    
-  sidebar:
-    logo: "images/logo.svg"
-    pinned: true
-    align: center
-    tools: 
-      - icon: globe
-        href: https://openscapes.org
-        text: "Openscapes.org"
-      - icon: youtube
-        href: https://github.com/openscapes/quarto-website-tutorial
-        text: "Quarto website tutorial"
-      - icon: twitter
-        href: https://twitter.com/openscapes
-        text: "Openscapes Twitter"         
+project:
+  type: book
 
-    style: "docked"
-    search: true
-    collapse-level: 0
-    contents:
-      - section: "Introduction aux nombres complexes"
-        contents:
-          - intro.qmd
-          - exercices01.qmd
-      - section: "Formes polaire et exponentielle"
-        contents:
-          - formepolaireexpo.qmd
-          - exercices02.qmd
-          - exercices02-sol.qmd
-      - section: "Polynômes"
-        contents:
-          - polynomes.qmd
-          - exercices03.qmd
-          - exercices03-sol.qmd
+book:
+  title: "Introduction aux nombres complexes et polynômes"
+  author: "Jérôme Soucy"
+  date: "2023-07-07"
+  chapters:
+    - index.md
+    - Arithmetique.qmd
+    - Operations.qmd
+    - ModuleConjugue.qmd
+    - Lieux.qmd
+    - exercices01.qmd
+    - polaire.qmd
+    - exponentielle.qmd
+    - demoivre.qmd
+    - racinesnieme.qmd
+    - exercices02.qmd
 
-
+number-sections: true
+filters:
+  - custom-numbered-blocks
 format:
   html:
     theme: zephyr
-    mainfont: Georgia
-    fontsize: 12pt
+    mainfont: Stix
+    fontsize: 16pt
     toc: true
-    number-sections: false
+    number-sections: true
     reference-location: margin
     citation-location: margin
     bibliography: references.bib
     lang: fr
+    css: "style.css"
     code-tools:
       source: false
       toggle: false
       caption: none
 
-  
+custom-numbered-blocks:
+  groups:
+    thmlike:
+      colors: [AFE1AF, 228B22]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    definition:
+      colors: [e1f1fd, 4663ac]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    exemple:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+    remarque:
+      colors: [948bde, 584eab]
+      boxstyle: foldbox.simple
+      collapse: false
+      listin: [mathstuff]
+  classes:
+    Thm:
+      label: "Théorème"
+      group: thmlike
+    Prop:
+      color: green
+      group: thmlike
+      label: "Proposition"
+    Props:
+      group: thmlike
+      label: "Propositions"
+    Corollary:
+      group: thmlike
+    Conjecture:
+      group: thmlike
+      collapse: true  
+    Def:
+      label: "Définition"
+      group: definition
+    Ex:
+      label: "Exemple"
+      group: exemple
+      colors: [b8cace, 134f5c]
+    Rem:
+      label: "Remarque"
+      group: remarque
+      colors: [f4cccc, cc0000]
+    Rems:
+      label: "Remarques"
+      group: remarque
+      colors: [f4cccc, cc0000]

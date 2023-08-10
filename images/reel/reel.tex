@@ -1,0 +1,15 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tikz}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}[scale=5.5/4]
+		\draw (-2,0) -> (2,0);
+		\draw[fill=black] (0,0) circle (1.25pt) node[below]{$0$};
+		\draw[fill=black] (1.25,0) circle (1.25pt) node[below]{$x$};
+		\draw[fill=black] (-1.5,0) circle (1.25pt) node[below]{$y$};
+		\draw[|-|, dashed] (0,0.5) -- (1.25,0.5);
+		\draw[|-|, dashed,red] (0,0.75) -- (-1.5,0.75);
+		\draw (0.625,0.5) node[above]{$|x|$};
+		\draw[red] (-0.75,0.75) node[below]{$|y|$};
+		\end{tikzpicture}
+\end{document}

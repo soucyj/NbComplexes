@@ -1,0 +1,25 @@
+\documentclass{standalone}% remove the border=12pt key if you want a tight output without any border.
+\usepackage{tikz}
+\usepackage{commandesJS2017}
+\begin{document}
+	\begin{tikzpicture}[scale=5.5/8]
+	\draw[->,color=black] (-4,0) -- (4,0);
+	\foreach \x in {-3,-2,2,3}
+	\draw[shift={(\x,0)},color=black] (0pt,1pt) -- (0pt,-1pt) node[below,scale=0.8] {$\x$};
+	\draw[color=black] (-1,1pt) -- (-1,-1pt) node[below,scale=0.8] {$-1$};
+	\draw[color=black] (1,1pt) -- (1,-1pt) node[below,scale=0.8] {$1$};
+	\draw[color=black] (-1pt,1) -- (1pt,1) node[left,scale=0.8] {$\iu$};
+	\draw[color=black] (-1pt,3) -- (1pt,3) node[left,scale=0.8] {$3\iu$};
+	\draw[color=black] (-1pt,-1) -- (1pt,-1) node[left,scale=0.8] {$-\iu$};
+	\foreach \y in {-3,-2,2}
+	\draw[shift={(0,\y)},color=black] (-1pt,0pt) -- (1pt,0pt) node[left,scale=0.8] {$\y\iu$};
+	\draw[->,color=black] (0,-4) -- (0,4);
+	\draw[color=black] node[below] (A) at (4,0) {\small $\RE$};
+	\draw[color=black] node[left] (B) at (0,4) {\small $\IM$};
+	\draw[color=black, fill=black] (2,1) circle (1.5pt) node[above] {$2+\iu$};
+	\draw[color=black, fill=black] (2,-1) circle (1.5pt) node[below] {$2-\iu$};
+	%\draw[color=black, fill=black] (0,3) circle (1.5pt) node[below] {};
+	\draw[color=black, fill=black] (-3,2) circle (1.5pt) node[below] {$-3+2\iu$};
+	\draw[color=black, fill=black] (-3,-3) circle (1.5pt) node[below] {$-3-3\iu$};
+	\end{tikzpicture}
+\end{document}
