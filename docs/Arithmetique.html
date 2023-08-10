@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction aux nombres complexes et polynômes - 7&nbsp; Forme polaire</title>
+<title>Introduction aux nombres complexes et polynômes - 2&nbsp; Arithmétique élémentaire</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./exponentielle.html" rel="next">
-<link href="./exercices01.html" rel="prev">
+<link href="./Operations.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,19 +82,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>
-.Prop {
+.Conjecture {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
-.Def {
-  --color1: #e1f1fd;
-  --color2: #4663ac;
-}
-.Corollary {
-  --color1: #AFE1AF;
-  --color2: #228B22;
-}
-.Rems {
+.Rem {
   --color1: #f4cccc;
   --color2: #cc0000;
 }
@@ -83,21 +94,29 @@ ul.task-list li input[type="checkbox"] {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
+.Corollary {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
 .Props {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
-.Conjecture {
-  --color1: #AFE1AF;
-  --color2: #228B22;
+.Def {
+  --color1: #e1f1fd;
+  --color2: #4663ac;
 }
 .Ex {
   --color1: #b8cace;
   --color2: #134f5c;
 }
-.Rem {
+.Rems {
   --color1: #f4cccc;
   --color2: #cc0000;
+}
+.Prop {
+  --color1: #AFE1AF;
+  --color2: #228B22;
 }
 </style>
 
@@ -116,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./polaire.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forme polaire</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Arithmetique.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Arithmetique.html" class="sidebar-item-text sidebar-link">
+  <a href="./Arithmetique.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></span></a>
   </div>
 </li>
@@ -179,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./polaire.html" class="sidebar-item-text sidebar-link active">
+  <a href="./polaire.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forme polaire</span></span></a>
   </div>
 </li>
@@ -213,14 +232,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#les-nombres-en-général" id="toc-les-nombres-en-général" class="nav-link active" data-scroll-target="#les-nombres-en-général"><span class="header-section-number">2.1</span> Les nombres en général</a></li>
+  <li><a href="#deux-opérations-fondamentales" id="toc-deux-opérations-fondamentales" class="nav-link" data-scroll-target="#deux-opérations-fondamentales"><span class="header-section-number">2.2</span> Deux opérations fondamentales</a></li>
+  <li><a href="#associativité" id="toc-associativité" class="nav-link" data-scroll-target="#associativité"><span class="header-section-number">2.3</span> Associativité</a></li>
+  <li><a href="#commutativité" id="toc-commutativité" class="nav-link" data-scroll-target="#commutativité"><span class="header-section-number">2.4</span> Commutativité</a></li>
+  <li><a href="#distributivité-de-la-multiplication-par-rapport-à-laddition" id="toc-distributivité-de-la-multiplication-par-rapport-à-laddition" class="nav-link" data-scroll-target="#distributivité-de-la-multiplication-par-rapport-à-laddition"><span class="header-section-number">2.5</span> Distributivité de la multiplication par rapport à l’addition</a></li>
+  <li><a href="#stabilité-dun-ensemble-par-rapport-à-une-opération" id="toc-stabilité-dun-ensemble-par-rapport-à-une-opération" class="nav-link" data-scroll-target="#stabilité-dun-ensemble-par-rapport-à-une-opération"><span class="header-section-number">2.6</span> Stabilité d’un ensemble par rapport à une opération</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forme polaire</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></h1>
 </div>
 
 
@@ -249,44 +279,40 @@ ul.task-list li input[type="checkbox"] {
 \newcommand{\eu}{\textrm{e}}
 \newcommand{\boitevide}{\square}
 \]</span></p>
-<p>Bien que la plupart du temps le système de coordonnées cartésiennes soit le plus commode pour décrire la position des points dans le plan, il arrive qu’une autre manière, où la notion d’angle est exploitée, soit à privilégier. On parler alors d’une représentation polaire, ou trigonométrique du point dans le plan.</p>
-<div id="dargprinc" class="Def" title="Argument principal">
-<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 7.1: </strong>Argument principal</summary><div>Soit <span class="math inline">\(z\in\C^{\star}\)</span>, un nombre complexe de module <span class="math inline">\(r\)</span>. L’<strong>argument principal</strong> de <span class="math inline">\(z,\)</span> noté <span class="math inline">\(\Arg(z),\)</span> est l’unique nombre <span class="math inline">\(\theta\)</span> qui satisfait les deux conditions suivantes&nbsp;: <span class="math display">\[\begin{align*}
-  z=&amp;\, r(\cos\theta+\iu\sin\theta),\\
-  -\pi&lt;\,&amp; \theta\leq \pi.
-\end{align*}\]</span><p></p>
-</div></details>
-</div>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div id="fig-polaire" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/polaire/polaire.svg" class="img-fluid figure-img" width="300"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.1: En coordonnées polaires, deux nombres réels sont nécessaires pour identifier la position d’un point <span class="math inline">\(P\)</span> à partir d’un point <span class="math inline">\(O\)</span> dans un plan. Le nombre <span class="math inline">\(r\)</span> correspond à son module et <span class="math inline">\(\theta\)</span> à son argument.</figcaption>
-</figure>
-</div>
-</div></div><div id="formepolaire" class="Def" title="Forme polaire">
-<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 7.2: </strong>Forme polaire</summary><div>Soit <span class="math inline">\(z\in\C^{\star}\)</span>, un nombre complexe de module <span class="math inline">\(r\)</span> et d’argument principal <span class="math inline">\(\theta\)</span>. Le nombre <span class="math inline">\(z\)</span> est exprimé sous sa <strong>forme polaire</strong> lorsqu’on écrit <span class="math display">\[z=\, r(\cos\theta+\iu\sin\theta).\]</span><p></p>
-</div></details>
-</div>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div id="fig-polaire1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/polaire1/polaire1.svg" class="img-fluid figure-img" width="300"></p>
-<figcaption class="figure-caption">Figure&nbsp;7.2: La forme polaire du nombre <span class="math inline">\(2+2\iu\)</span>. Nous avons que <span class="math inline">\(2+2\iu=2\sqrt{2}\left(\cos\frac{\pi}{4}+\iu\sin\frac{\pi}{4}\right)\)</span>.</figcaption>
-</figure>
-</div>
-</div></div><div id="Rems-7.1" class="Rems">
-<details class="Rems fbx-simplebox fbx-default" open=""><summary><strong>Remarques 7.1</strong></summary><div>
+<p>Avant d’introduire les nombres complexes, il serait pertinent de revoir quelques propriétés de ce que nous avons coutume d’appeler nombre, et de faire l’inventaire des objets mathématiques qui appartiennent à cette catégorie.</p>
+<section id="les-nombres-en-général" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="les-nombres-en-général"><span class="header-section-number">2.1</span> Les nombres en général</h2>
+<p>Les nombres — qu’on les qualifie de naturels, entiers, rationnels, réels ou complexes — sont des objets mathématiques qui une fois déshabillés des attributs que nous leur prêtons, se réduisent à n’être que des ensembles. Au moyen d’efforts considérables dans certains cas, tout nombre <span class="math inline">\(x\)</span> peut s’écrire de manière à ce que <span class="math inline">\(x=\{\ldots\}\)</span>, où les trois points sont eux-mêmes des ensembles, des ensembles d’ensembles, etc. Si ces définitions — qu’on pourrait qualifier d’ensemblistes — des nombres sont d’une importance capitale, tous conviendront que nos raisonnements quotidiens qui les font intervenir portent davantage sur leurs caractéristiques que sur leur définition. Ainsi, en pensant au nombre <span class="math inline">\(2\)</span>, l’image de deux points, semblables à ceux qu’on retrouve sur un dé à 6 faces, se présentera à notre esprit plus rapidement que la définition du nombre <span class="math inline">\(2\)</span> donnée par John von Neumann (voir <span class="citation" data-cites="art:Neumann1923">Neumann (<a href="#ref-art:Neumann1923" role="doc-biblioref">1923</a>)</span>) voulant que <span class="math inline">\(2=\{\emptyset,\{\emptyset\}\}\)</span>, où <span class="math inline">\(\emptyset\)</span> désigne l’ensemble ne comportant aucun élément (l’ensemble vide).</p>
+<div class="no-row-height column-margin column-container"><div id="ref-art:Neumann1923" class="csl-entry" role="listitem">
+Neumann, John von. 1923. <span>«&nbsp;<span>Zur Einführung der transfiniten Zahlen</span>&nbsp;»</span>. <em>Acta Scientiarum Mathematicarum (Szeged)</em> 1 (4): 199‑208.
+</div></div></section>
+<section id="deux-opérations-fondamentales" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="deux-opérations-fondamentales"><span class="header-section-number">2.2</span> Deux opérations fondamentales</h2>
+<div class="page-columns page-full"><p>Dès le début du primaire, on apprend à additionner et à multiplier des nombres. Ils sont d’abord naturels, puis lorsque l’élève termine ses études primaires, il est réputé en mesure d’effectuer ces opérations avec des nombres appartenant à des ensembles plus vastes, comme le sont les entiers et les nombres fractionnaires<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Dans tous les cas, certaines propriétés, qu’on pourrait qualifier de «&nbsp;lois de l’arithmétique&nbsp;», sont vérifiées. En voici quelques-unes :</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Éventuellement appelés nombres rationnels.</p></li></div></div>
 <ol type="1">
-<li>L’argument principal de 0 n’est pas défini&nbsp;;</li>
-<li>On écrit <span class="math inline">\(\arg(z)\)</span> pour désigner un angle <span class="math inline">\(\theta\)</span>, pas nécessairement dans l’intervalle <span class="math inline">\(]-\pi,\,\pi]\)</span>, qui satisfait <span class="math inline">\(z=r(\cos\theta+\iu\sin\theta)\)</span>&nbsp;;</li>
-<li>Pour avoir la forme polaire d’un nombre <span class="math inline">\(z\)</span>, il est important que <span class="math inline">\(\theta\)</span> soit l’argument principal de <span class="math inline">\(z\)</span>&nbsp;;</li>
-<li>Parfois on retrouve la notation <span class="math inline">\(r\,\textrm{cis}\,\theta\)</span> à la place de <span class="math inline">\(r(\cos\theta+\iu\sin\theta)\)</span>.</li>
+<li>L’addition et la multiplication sont des opérations associatives&nbsp;;</li>
+<li>L’addition et la multiplication sont des opérations commutatives&nbsp;;</li>
+<li>La multiplication est distributive sur l’addition&nbsp;;</li>
+<li>Un ensemble de nombres <span class="math inline">\(E\)</span> est stable pour l’addition et la multiplication.</li>
 </ol>
-</div></details>
-</div>
+<p>Voici ce qu’on entend par ces lois.</p>
+</section>
+<section id="associativité" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="associativité"><span class="header-section-number">2.3</span> Associativité</h2>
+<p>Le fait qu’écrire <span class="math inline">\(1+2+5\)</span> ne pose aucune ambiguïté découle du fait que l’opération d’addition soit associative. Qu’on calcule <span class="math inline">\((1+2)+5\)</span> ou <span class="math inline">\(1+(2+5)\)</span>, le résultat sera le même. De la même manière, <span class="math display">\[3\times 4\times 5=3\times (4\times 5)=(3\times 4)\times 5.\]</span> L’associativité c’est la possibilité de déplacer une paire de parenthèses sans modifier le résultat. Bien que l’addition et la multiplication soient des opérations associatives, le déplacement de parenthèses n’est pas forcément valable si ces deux opérations sont présentes dans un même calcul. Par exemple, pour calculer <span class="math inline">\(1+2\times 5\)</span>, on ne peut pas calculer n’importe quelle des deux expressions <span class="math inline">\((1+2)\times 5\)</span> et <span class="math inline">\(1+(2\times 5)\)</span>. On <em>convient</em> que l’expression <span class="math inline">\(1+2\times 5\)</span> correspond à <span class="math inline">\(1+(2\times 5)\)</span>. Il s’agit ainsi d’une convention d’écriture plutôt que d’un résultat mathématique. On réfère souvent à cette convention en invoquant la priorité des opérations. Encore une fois, ce sont des expressions qui ne font que traduire l’économie de parenthèses qu’il nous est possible de réaliser ; plutôt que d’écrire <span class="math display">\[1+((2\times 7)+(3\times 3-(8\times 2))),\]</span> on convient d’écrire simplement <span class="math inline">\(1+2\times 7+3\times 3-8\times 2\)</span>. Notons que ce ne sont pas toutes les opérations qui sont associatives. Par exemple, <span class="math display">\[(3\div 4)\div 5\neq 3\div(4\div 5).\]</span> Le membre de gauche correspond à la fraction <span class="math inline">\(\frac{3}{20}\)</span> alors que le membre de droite à <span class="math inline">\(\frac{15}{4}\)</span>. Il s’agit là de deux fractions qui ne sont pas équivalentes.</p>
+<p>L’idée d’associativité s’étend au-delà des opérations sur les nombres. Par exemple, si <span class="math inline">\(f,g\)</span> et <span class="math inline">\(h\)</span> sont des fonctions, alors <span class="math inline">\((f\circ g)\circ h=f\circ (g\circ h)\)</span>. À titre d’exemple, posons <span class="math inline">\(f(x)=x^2, g(x)=\sin(x)\)</span> et <span class="math inline">\(h(x)=x+1\)</span>. Nous avons que <span class="math inline">\((f\circ g)(x)=\sin^2(x)\)</span>, d’où <span class="math display">\[\left((f\circ g)\circ h\right)(x)=\sin^2(h(x))=\sin^2(x+1).\]</span> De même, <span class="math inline">\((g\circ h)(x)=\sin(x+1)\)</span>, d’où <span class="math display">\[\left(f\circ (g\circ h)\right)(x)=f(\sin(x+1))=(\sin(x+1))^2=\sin^2(x+1).\]</span> Encore une fois, l’égalité <span class="math inline">\((\sin (x+1))^2=\sin^2(x+1)\)</span> est vraie puisqu’il s’agit d’une convention d’écriture.</p>
+</section>
+<section id="commutativité" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="commutativité"><span class="header-section-number">2.4</span> Commutativité</h2>
+<div class="page-columns page-full"><p>Si l’associativité est la possibilité de déplacer des parenthèses, la commutativité est, pour sa part, la possibilité d’inverser l’ordre des deux arguments intervenant dans l’opération. Par exemple, l’équation <span class="math display">\[1+3=3+1\]</span> est vraie, puisque l’addition est une opération commutative. La multiplication de nombres est aussi une opération commutative<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Il en va autrement de la multiplication matricielle. Par exemple, si <span class="math display">\[A=\begin{pmatrix} 0 &amp;1 \\ 2 &amp; 3\\ \end{pmatrix}\qquad\text{et}\qquad B=\begin{pmatrix} 1 &amp;-1 \\ 0 &amp; 2\\\end{pmatrix},\]</span> alors <span class="math display">\[AB=\begin{pmatrix} 0 &amp;2 \\ 2 &amp; 4\\ \end{pmatrix}\qquad\text{et}\qquad BA=\begin{pmatrix} -2 &amp;-2 \\ 4 &amp; 6\\\end{pmatrix}.\]</span></p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Il est possible de définir une opération de multiplication sur certains ensembles de nombres, de telle sorte que la multiplication ne soit pas commutative. C’est notamment le cas avec l’ensemble des quaternions. Comme ces nombres sont l’apanage des mathématiques avancées et de la physique théorique, nous ne nous étendrons pas plus loin sur le sujet.</p></li></div></div>
+<p>Un énoncé du type «&nbsp;la multiplication est commutative&nbsp;» doit donc être mis en contexte&nbsp;; il faut bien comprendre de quelle multiplication il s’agit. En principe, on doit toujours préciser l’ensemble sur lequel l’opération est définie. Il serait plus juste de dire que «&nbsp;la multiplication définie sur l’ensemble des nombres réels est une opération commutative&nbsp;» alors que «&nbsp;la multiplication définie sur l’ensemble des matrices <span class="math inline">\(2\times 2\)</span> n’est pas une opération commutative&nbsp;». L’algèbre moderne s’efforce de clarifier ces notions en introduisant ce qu’on appelle des <em>structures algébriques</em>.</p>
+</section>
+<section id="distributivité-de-la-multiplication-par-rapport-à-laddition" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="distributivité-de-la-multiplication-par-rapport-à-laddition"><span class="header-section-number">2.5</span> Distributivité de la multiplication par rapport à l’addition</h2>
+<p>On l’a vu, dans une même expression, il est possible d’y voir deux opérations de nature différente. Un cas important est celui d’une expression où sont présentes l’addition et la multiplication. C’est ce qu’on constate dans l’expression <span class="math inline">\(5\times(1+3)\)</span>. Pour l’évaluer, on peut bien sûr évaluer la somme entre parenthèses, puis multiplier <span class="math inline">\(5\)</span> par <span class="math inline">\(4\)</span>. Une autre avenue possible est de «&nbsp;distribuer&nbsp;» la multiplication par rapport à l’addition, ce qui signifie calculer <span class="math inline">\((5\times 1)+(5\times 3)\)</span>. Lorsqu’on affirme que la multiplication est distributive par rapport à l’addition, cela signifie que pour tous nombres <span class="math inline">\(a,b\)</span> et <span class="math inline">\(c\)</span>, on a <span class="math display">\[a\times (b+c)=a\times b+a\times c.\]</span></p>
+</section>
+<section id="stabilité-dun-ensemble-par-rapport-à-une-opération" class="level2 page-columns page-full" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="stabilité-dun-ensemble-par-rapport-à-une-opération"><span class="header-section-number">2.6</span> Stabilité d’un ensemble par rapport à une opération</h2>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="callout callout-style-default callout-note callout-titled">
@@ -299,49 +325,35 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le nombre <span class="math inline">\(0\)</span> n’a pas de forme polaire, puisque son argument principal n’est pas défini. On peut cependant le caractériser comme étant l’unique nombre ayant un module de <span class="math inline">\(0\)</span>.</p>
+<p>Le symbole <span class="math inline">\(\Z\)</span>, utilisé pour représenter l’ensemble des entiers, est la première lettre du mot allemand zahl qui signifie «&nbsp;nombre&nbsp;».</p>
 </div>
 </div>
-</div></div><div id="argprincprop" class="Prop" title="Argument principal">
-<p></p><details class="Prop fbx-simplebox fbx-default" open=""><summary><strong>Proposition 7.1: </strong>Argument principal</summary><div>Soit <span class="math inline">\(z\in\C^{\star}\)</span> un nombre complexe de forme cartésienne <span class="math inline">\(x+\iu\,y\)</span>. Son argument principal, noté <span class="math inline">\(\theta\)</span>, est donné par la formule <span class="math display">\[
-\theta =
-\begin{cases}
-\frac{\pi}{2}&amp;{\mbox{si }}x=0{\mbox{ et }}y&gt;0,\\
--\frac{\pi}{2}&amp;{\mbox{si }}x=0{\mbox{ et }}y&lt;0,\\
-\arctan(\frac{y}{x})&amp;{\mbox{si }}x&gt;0,\\
-\arctan(\frac {y}{x})-\pi &amp;{\mbox{si }}x&lt;0{\mbox{ et }}y&lt;0,\\
-\arctan(\frac {y}{x})+\pi &amp;{\mbox{si }}x&lt;0{\mbox{ et }}y&gt;0.
-\end{cases}
-\]</span><p></p>
-</div></details>
-</div>
-<p>La démonstration de la proposition précédente ne pose aucune difficulté si on prend la peine de représenter convenablement un nombre complexe <span class="math inline">\(z\)</span> dans chacun des scénarios énumérés. <!--
-%\begin{proof}
-%   D'abord, dans le cas où $x=0$ et $y<0$, il est clair que $\theta=-\frac{\pi}{2}$. De même, si $x=0$ et $y>0$, on constate que $\theta=\frac{\pi}{2}$. Dans les autres cas, on observe que $x\neq 0$. Le rapport $\frac{y}{x}$ est bien définie. En formant un triangle 
-%\end{proof}
---></p>
+</div></div><div class="page-columns page-full"><p>Étant donnés des nombres <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> appartenant à un ensemble de nombres <span class="math inline">\(E\)</span>, leur somme et leur produit appartiennent toujours à l’ensemble <span class="math inline">\(E\)</span>. Ce n’est pas toujours le cas pour le résultat d’une opération. À titre d’exemple, l’ensemble des nombres naturels n’est pas stable pour la soustraction. En effet, ce ne sont pas tous les problèmes de soustraction<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> qui admettent une solution; c’est notamment le cas du problème <span class="math inline">\(5+\boitevide=3\)</span>. L’ensemble des entiers règle le problème de la stabilité pour l’opération de la soustraction de nombres naturels, mais cela n’améliore guère les choses pour les problèmes de division.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Un problème de soustraction consiste à trouver une solution à une équation de type <span class="math inline">\(a+\boitevide=b\)</span>.</p></li></div></div>
+<p>Prenons deux nombres naturels <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>, tels que <span class="math inline">\(b\)</span> soit non nul, et considérons l’équation <span class="math inline">\(b\times \boitevide = a\)</span>. Il arrive que cette équation possède une solution qui est dans <span class="math inline">\(\N\)</span>, mais ce n’est généralement pas le cas. Par exemple, <span class="math inline">\(3\times \boitevide = 12\)</span> possède une solution —&nbsp;le nombre <span class="math inline">\(4\)</span>&nbsp;—, mais l’équation <span class="math inline">\(3\times \boitevide = 13\)</span> n’en possède pas.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pour qu’on puisse dire que <span class="math inline">\(r(\cos\theta+\iu\sin\theta)\)</span> correspond à la forme polaire d’un nombre complexe, il est important que <span class="math inline">\(\theta\)</span> soit l’argument principal de <span class="math inline">\(z\)</span>, c’est-à-dire qu’il appartient à l’intervalle <span class="math inline">\(]-\pi,\,\pi].\)</span></p>
+<p>L’ensemble des fractions, aussi appelé ensemble des nombres rationnels, est représenté par le symbole <span class="math inline">\(\mathbb{Q}\)</span>.</p>
+<p>L’ensemble des nombres réels est représenté par le symbole <span class="math inline">\(\R\)</span>.</p>
 </div>
 </div>
-</div></div><div id="expolaire" class="Ex" title="Exemple d’un calcul de la forme polaire">
-<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 7.1: </strong>Exemple d’un calcul de la forme polaire</summary><div>Trouvez la forme polaire du nombre <span class="math inline">\(2+2\iu\)</span>.<p></p>
-<hr>
-<p>Le module du nombre <span class="math inline">\(2+2\iu\)</span> est <span class="math inline">\(\sqrt{2^2+2^2}=2\sqrt{2}\)</span>. L’argument principal est la mesure de l’angle illustré à la figure <a href="#fig-polaire1">Figure&nbsp;<span>7.2</span></a>. Ainsi, la forme polaire de <span class="math inline">\(2+2\iu\)</span> est <span class="math display">\[2\sqrt{2}\left(\cos\frac{\pi}{4}+\iu\sin\frac{\pi}{4}\right).\]</span></p>
-</div></details>
-</div>
+</div></div><p>L’ajout des nombres fractionnaires permet non seulement de résoudre ce problème dans le cas où <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des nombres naturels, <em>mais aussi de le faire dans le cas où <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> sont des nombres fractionnaires</em>. C’est cette propriété qu’on évoque lorsqu’on mentionne que les nombres fractionnaires sont stables pour l’opération de division.</p>
+<p>Vers le 5ᵉ siècle avant notre ère, les mathématiciens grecs ont tenté de mesurer la longueur de l’hypoténuse d’un triangle rectangle dont les côtés adjacents à l’angle droit sont de longueur <span class="math inline">\(1\)</span>. En utilisant le théorème de Pythagore, ils ont ramené le problème à celui de trouver un nombre <span class="math inline">\(x\)</span> tel que <span class="math inline">\(2=x^2\)</span>. Ils en sont venus à la conclusion que <span class="math inline">\(x\)</span> ne pouvait être le quotient de deux nombres entiers. Bien sûr, le langage utilisé pour exprimer cette constatation était fort différent. On parlait plutôt d’une quantité <em>incommensurable</em>, ou encore <em>inexprimable</em>. Le tout rédigé en grec ancien! On ignore toujours si le problème du calcul de la mesure de l’hypoténuse d’un triangle rectangle est le premier qui a amené les Grecs à considérer des nombres irrationnels. Cette découverte suggère néanmoins de définir un ensemble de nombres plus vaste, comprenant le nombre <span class="math inline">\(\sqrt{2}\)</span>, mais aussi tous les «&nbsp;trous&nbsp;» sur la droite numérique entre les nombres rationnels. Pour plus d’information sur le nombre <span class="math inline">\(\sqrt{2}\)</span> et l’extraction des racines carrées, voir <span class="citation" data-cites="book:Rittaud2006">Rittaud (<a href="#ref-book:Rittaud2006" role="doc-biblioref">2006</a>)</span>. L’existence de tels nombres signifiait que les fractions ne remplissaient pas complètement la droite numérique, qu’on associe à l’ensemble des nombres réels.</p>
 
+
+<div class="no-row-height column-margin column-container"><div id="ref-book:Rittaud2006" class="csl-entry" role="listitem">
+Rittaud, Benoît. 2006. <em>Le fabuleux destin de racine de <span class="math inline">\(\sqrt{2}\)</span></em>. Éditions le Pommier.
+</div></div>
+</section>
 
 
 </main> <!-- /main -->
@@ -631,13 +643,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./exercices01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Série 1</span></span>
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./exponentielle.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La fonction exponentielle complexe</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Operations.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Définition des nombres complexes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

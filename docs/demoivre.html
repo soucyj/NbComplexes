@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jérôme Soucy">
 
-<title>Introduction aux nombres complexes et polynômes</title>
+<title>Introduction aux nombres complexes et polynômes - 9&nbsp; Les formules d’Euler et celle de De Moivre</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Arithmetique.html" rel="next">
+<link href="./racinesnieme.html" rel="next">
+<link href="./exponentielle.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,27 +67,23 @@ ul.task-list li input[type="checkbox"] {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
-.Def {
-  --color1: #e1f1fd;
-  --color2: #4663ac;
-}
 .Prop {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
-.Rems {
-  --color1: #f4cccc;
-  --color2: #cc0000;
+.Conjecture {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Def {
+  --color1: #e1f1fd;
+  --color2: #4663ac;
 }
 .Rem {
   --color1: #f4cccc;
   --color2: #cc0000;
 }
 .Props {
-  --color1: #AFE1AF;
-  --color2: #228B22;
-}
-.Conjecture {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
@@ -99,6 +95,10 @@ ul.task-list li input[type="checkbox"] {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
+.Rems {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
 </style>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./demoivre.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Les formules d'Euler et celle de De Moivre</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></span></a>
   </div>
 </li>
@@ -191,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./demoivre.html" class="sidebar-item-text sidebar-link">
+  <a href="./demoivre.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Les formules d’Euler et celle de De Moivre</span></span></a>
   </div>
 </li>
@@ -213,39 +213,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
-   
-  <ul>
-  <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation"><span class="header-section-number">1</span> Présentation</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction aux nombres complexes et polynômes</h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Les formules d’Euler et celle de De Moivre</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jérôme Soucy </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Date de publication</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">9 août 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -253,12 +235,70 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="présentation" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Présentation</h1>
-<p>Ce livre numérique présente les notions de base concernant les nombres complexes et les polynômes. Il est destiné aux étudiants des cours <strong>MAT-1900 : Mathématiques de l’ingénieur 1</strong> ainsi que <strong>MAT-1110 : Calcul des fonctions de plusieurs variables</strong>. Pour signaler les coquilles, veuillez écrire à <a href="mailto:jerome.soucy@mat.ulaval.ca">jerome.soucy@mat.ulaval.ca</a>.</p>
+<p><span class="math display">\[
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\textrm{Re}\,}
+\newcommand{\IM}{\textrm{Im}\,}
+\newcommand{\Arg}{\textrm{Arg}\,}
+\newcommand{\iu}{\textrm{i}}
+\newcommand{\eu}{\textrm{e}}
+\newcommand{\boitevide}{\square}
+\]</span></p>
+<p>Tenons-nous-le pour dit : Euler a démontré une pléiade de formules durant sa vie. Dans cette section, nous faisons allusion à certaines formules qu’il a établies entre la fonction exponentielle et les fonctions trigonométriques. Ces dernières apparaissent dans son ouvrage <em>Introductio in analysin infinitorum</em>, publié en 1748.</p>
+<div id="eulerf" class="Prop" title="Formules d’Euler">
+<p></p><details class="Prop fbx-simplebox fbx-default" open=""><summary><strong>Proposition 9.1: </strong>Formules d’Euler</summary><div>Soit <span class="math inline">\(\theta\in\R\)</span>. Alors <span class="math display">\[\cos\theta = \frac{\eu^{\iu\theta }+\eu^{-\iu\theta}}{2}\qquad\text{et}\qquad \sin\theta = \frac{\eu^{\iu\theta}-\eu^{-\iu\theta}}{2\iu}.\]</span><p></p>
+<hr>
+<p><strong>Preuve.</strong> Nous avons précédemment établi (voir le théorème <a href="exponentielle.html#thmEuler">8.1</a>) que <span class="math display">\[\eu^{\iu x}=\cos x+\iu\sin x\]</span> pour tout <span class="math inline">\(x\in\R\)</span>. En remplaçant <span class="math inline">\(x\)</span> par <span class="math inline">\(\theta\)</span> dans cette équation, nous obtenons que <span class="math display">\[\begin{equation}
+\eu^{\iu\theta}=\cos \theta+\iu\sin \theta.~(\star)
+\end{equation}\]</span> Aussi, en remplaçant <span class="math inline">\(x\)</span> par <span class="math inline">\(-\theta\)</span> dans l’équation du théorème <a href="exponentielle.html#thmEuler">8.1</a> nous obtenons que</p>
+<p><span class="math display">\[\begin{equation}\eu^{-\iu\theta}=\cos (-\theta)+\iu\sin (-\theta).
+\end{equation}\]</span></p>
+<p>En observant que la fonction <span class="math inline">\(\cos\)</span> est paire et que la fonction <span class="math inline">\(\sin\)</span> est impaire, on en déduit que <span class="math display">\[\begin{equation}
+\eu^{-\iu\theta}=\cos \theta-\iu\sin \theta.~(\star\star)
+\end{equation}\]</span></p>
+<p>Ainsi, en observant que la somme des membres de gauche des équations <span class="math inline">\((\star)\)</span> et <span class="math inline">\((\star\star)\)</span> est égale à la somme des membres de droites de ces mêmes équations, on obtient que <span class="math display">\[\eu^{\iu\theta}+\eu^{-\iu\theta}=2\cos\theta.\]</span> En divisant par <span class="math inline">\(2\)</span> chaque membre de la dernière équation, nous avons montré la première identité. Pour obtenir la seconde identité, on doit plutôt soustraire les équations <span class="math inline">\((\star)\)</span> et <span class="math inline">\((\star\star)\)</span>. On obtient ainsi que <span class="math display">\[\eu^{\iu\theta}-\eu^{-\iu\theta}=2\iu\sin\theta.\]</span> En divisant par <span class="math inline">\(2\iu\)</span>, nous obtenons la deuxième identité de la proposition <a href="demoivre.html#eulerf">9.1</a>.</p>
+</div></details>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une fonction <span class="math inline">\(f\)</span> est dite <strong>paire</strong> si elle vérifie <span class="math inline">\(f(-x)=f(x)\)</span> partout sur domaine de définition, et <strong>impaire</strong> si elle vérifie plutôt <span class="math inline">\(f(-x)=-f(x)\)</span>. La composition des fonctions paires et impaires se comporte comme la parité habituelle pour l’addition et la multiplication des nombres entiers.</p>
+</div>
+</div>
+</div></div><div id="DeMoivre" class="Prop" title="Formule de De Moivre">
+<p></p><details class="Prop fbx-simplebox fbx-default" open=""><summary><strong>Proposition 9.2: </strong>Formule de De Moivre</summary><div>Soit <span class="math inline">\(\theta\in\R\)</span>, et soit <span class="math inline">\(n\in\N\)</span>. Alors <span class="math display">\[(\cos\theta+\iu\sin\theta)^n=\cos (n\theta)+\iu\sin (n\theta).\]</span><p></p>
+<hr>
+<p><strong>Preuve.</strong> Puisque l’exponentielle d’une somme est égale au produit des exponentielles, nous avons que <span class="math display">\[\eu^{\underbrace{\iu\theta+\iu\theta+\ldots+\iu\theta}_{n \text{~fois}}}=\underbrace{\eu^{\iu\theta}\cdot\eu^{\iu\theta}\cdot\ldots\cdot\eu^{\iu\theta}}_{n\text{~fois}}.\]</span> C’est donc dire que <span class="math display">\[\eu^{n\theta\iu}=\left(\eu^{\iu\theta}\right)^n.\]</span> En utilisant le théorème <a href="exponentielle.html#thmEuler">8.1</a> pour exprimer les deux membres de cette équation à l’aide des fonctions <span class="math inline">\(\sin\)</span> et <span class="math inline">\(\cos\)</span>, nous obtenons que <span class="math display">\[\cos (n\theta)+\iu\sin (n\theta)=(\cos\theta+\iu\sin\theta)^n,\]</span> ce qui est précisément ce que nous voulions montrer.</p>
+</div></details>
+</div>
+<p>La formule de De Moivre est particulièrement utile pour exprimer les fonctions <span class="math inline">\(\cos n\theta\)</span> et <span class="math inline">\(\sin n\theta\)</span> en fonction des puissances des fonctions <span class="math inline">\(\sin \theta\)</span> et <span class="math inline">\(\cos\theta\)</span>.</p>
+<div id="exDeMoivre" class="Ex" title="Applications de la formule de De Moivre">
+<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 9.1: </strong>Applications de la formule de De Moivre</summary><div>En appliquant la proposition <a href="demoivre.html#DeMoivre">9.2</a> avec <span class="math inline">\(n=2\)</span>, nous avons que <span class="math display">\[(\cos\theta+\iu\sin\theta)^2=\cos (2\theta)+\iu\sin (2\theta).\]</span><p></p>
+<p>En développant le membre de gauche, nous obtenons que <span class="math display">\[\cos^2\theta-\sin^2\theta+2\iu\sin\theta\cos\theta=\cos (2\theta)+\iu\sin (2\theta).\]</span> Puis, en égalant parties réelle et imaginaire, on déduit que <span class="math display">\[\begin{align*}
+    \cos^2\theta-\sin^2\theta&amp;=\cos(2\theta),\\
+    2\sin\theta\cos\theta&amp;=\sin (2\theta).
+\end{align*}\]</span> Ces équations sont vraies quelle que soit la valeur de <span class="math inline">\(\theta\)</span>. Ce sont des identités trigonométriques utiles dans différents contextes. Finalement, en utilisant l’identité trigonométrique <span class="math inline">\(\sin^2\theta+\cos^2\theta=1,\)</span> il est possible de réécrire certaines identités obtenues avec la formule de De Moivre. Par exemple, l’identité <span class="math inline">\(\cos(2\theta)=\cos^2\theta-\sin^2\theta\)</span> entraîne les deux identités ci-dessous: <span class="math display">\[\begin{align*}
+    \cos(2\theta)&amp;=1-2\sin^2\theta,\\
+    \cos(2\theta)&amp;=2\cos^2\theta-1.
+\end{align*}\]</span></p>
+</div></details>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -547,10 +587,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./exponentielle.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La fonction exponentielle complexe</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Arithmetique.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./racinesnieme.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Racines <span class="math inline">\(n\)</span>-ièmes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

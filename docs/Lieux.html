@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jérôme Soucy">
 
-<title>Introduction aux nombres complexes et polynômes</title>
+<title>Introduction aux nombres complexes et polynômes - 5&nbsp; Lieux géométriques dans le plan complexe</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Arithmetique.html" rel="next">
+<link href="./exercices01.html" rel="next">
+<link href="./ModuleConjugue.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,6 +67,14 @@ ul.task-list li input[type="checkbox"] {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
+.Props {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Thm {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
 .Def {
   --color1: #e1f1fd;
   --color2: #4663ac;
@@ -75,27 +83,19 @@ ul.task-list li input[type="checkbox"] {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
-.Rems {
-  --color1: #f4cccc;
-  --color2: #cc0000;
-}
 .Rem {
   --color1: #f4cccc;
   --color2: #cc0000;
 }
-.Props {
-  --color1: #AFE1AF;
-  --color2: #228B22;
-}
-.Conjecture {
-  --color1: #AFE1AF;
-  --color2: #228B22;
+.Rems {
+  --color1: #f4cccc;
+  --color2: #cc0000;
 }
 .Ex {
   --color1: #b8cace;
   --color2: #134f5c;
 }
-.Thm {
+.Conjecture {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lieux.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lieux géométriques dans le plan complexe</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></span></a>
   </div>
 </li>
@@ -167,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lieux.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lieux.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lieux géométriques dans le plan complexe</span></span></a>
   </div>
 </li>
@@ -213,39 +213,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
-   
-  <ul>
-  <li><a href="#présentation" id="toc-présentation" class="nav-link active" data-scroll-target="#présentation"><span class="header-section-number">1</span> Présentation</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction aux nombres complexes et polynômes</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lieux géométriques dans le plan complexe</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jérôme Soucy </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Date de publication</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">9 août 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -253,12 +235,102 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="présentation" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Présentation</h1>
-<p>Ce livre numérique présente les notions de base concernant les nombres complexes et les polynômes. Il est destiné aux étudiants des cours <strong>MAT-1900 : Mathématiques de l’ingénieur 1</strong> ainsi que <strong>MAT-1110 : Calcul des fonctions de plusieurs variables</strong>. Pour signaler les coquilles, veuillez écrire à <a href="mailto:jerome.soucy@mat.ulaval.ca">jerome.soucy@mat.ulaval.ca</a>.</p>
+<p><span class="math display">\[
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\textrm{Re}\,}
+\newcommand{\IM}{\textrm{Im}\,}
+\newcommand{\Arg}{\textrm{Arg}\,}
+\newcommand{\iu}{\textrm{i}}
+\newcommand{\eu}{\textrm{e}}
+\newcommand{\boitevide}{\square}
+\]</span></p>
+<div id="lieu-géométrique" class="Def" title="Lieu géométrique">
+<p></p><details class="Def fbx-simplebox fbx-default" open=""><summary><strong>Définition 5.1: </strong>Lieu géométrique</summary><div>Un <strong>lieu géométrique</strong> dans le plan complexe est un sous-ensemble de <span class="math inline">\(\C\)</span>.<p></p>
+</div></details>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(z\)</span> et <span class="math inline">\(w\)</span> sont des nombres complexes, alors <span class="math inline">\(|z-w|\)</span> correspond à la distance entre les points associés à ces nombres.</p>
+</div>
+</div>
+</div></div><p>Généralement, on veut connaître l’ensemble des éléments de <span class="math inline">\(\C\)</span> qui vérifient une équation donnée. Parfois, il faut aussi interpréter le lieu qui est décrit sous forme d’équation au moyen d’objets géométriques (points, droites, paraboles, etc).</p>
+<div id="cerclecomplexe" class="Prop" title="Caractérisation d’un cercle">
+<p></p><details class="Prop fbx-simplebox fbx-default" open=""><summary><strong>Proposition 5.1: </strong>Caractérisation d’un cercle</summary><div>Soit <span class="math inline">\(w\in\C\)</span>, et soit <span class="math inline">\(r&gt;0\)</span>. Le lieu des nombres complexes <span class="math inline">\(z\)</span> satisfaisant <span class="math inline">\(|z-w|=r\)</span> est un cercle de rayon <span class="math inline">\(r\)</span> centré en <span class="math inline">\(w\)</span>.<p></p>
+<hr>
+<p>Soit <span class="math inline">\(a,b\in\R\)</span> tels que <span class="math inline">\(w=a+b\,\iu\)</span>, et soit <span class="math inline">\(z\)</span> un nombre complexe de forme cartésienne <span class="math inline">\(x+y\,\iu\)</span>. Nous avons que <span class="math display">\[\begin{align*}
+    |z-w|=r&amp;\iff |x+y\iu-(a+b\,\iu)|=r\\
+    &amp;\iff |(x-a)+(y-b)\iu|=r\\
+    &amp;\iff \sqrt{(x-a)^2+(y-b)^2}=r\\
+    &amp;\iff (x-a)^2+(y-b)^2=r^2.
+\end{align*}\]</span></p>
+<p>On reconnaît que la dernière équation est celle d’un cercle de rayon <span class="math inline">\(r\)</span> centré en <span class="math inline">\((a,b)\)</span>.</p>
+</div></details>
+</div>
+<div class="page-columns page-full"><p>Traduit dans le langage des nombres complexes, cela signifie deux choses,: d’une part les nombres complexes <span class="math inline">\(z\)</span> satisfaisant <span class="math inline">\(|z-w|=r\)</span> sont sur le cercle de rayon <span class="math inline">\(r\)</span> centré en <span class="math inline">\(w\)</span>, d’autre part les nombres complexes sur le cercle de rayon <span class="math inline">\(r\)</span> centré en <span class="math inline">\(w\)</span> satisfont <span class="math inline">\(|z-w|=r\)</span>. L’équation <span class="math inline">\(|z-w|=r\)</span> est une <em>caractérisation</em> du lieu géométrique correspondant au cercle de rayon <span class="math inline">\(r\)</span> centré en <span class="math inline">\(w\)</span>. La valeur de <span class="math inline">\(|z-w|\)</span> correspond ainsi à la distance (euclidienne<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>) entre les points du plan complexe associé aux nombres <span class="math inline">\(z\)</span> et <span class="math inline">\(w\)</span>.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;En mathématiques, il existe plusieurs manières de mesurer la distance entre des objets. La distance usuelle entre deux points, appelée aussi distance euclidienne, est celle du segment qui relie les points. On pourrait procéder autrement. Par exemple, pour mesurer la distance entre Québec et Paris (qu’on pourrait modéliser comme étant deux points dans l’espace), il pourrait être approprié de mesurer la longueur de l’arc du grand cercle centré au centre de la Terre reliant ces deux villes plutôt que d’utiliser la longueur du segment qui les relie.</p></li></div></div>
+<p>On pourrait distinguer deux approches pour déterminer la nature d’un lieu géométrique caractérisé au moyen d’une équation. D’une part, dans la mesure où les concepts relatifs aux nombres complexes sont connus, de même que certains résultats élémentaires, ces derniers peuvent servir à représenter le lieu associé à une équation donnée. Par exemple, l’équation <span class="math inline">\(|2z-4\iu|=2\)</span> caractérise les nombres complexes situés sur le cercle de rayon <span class="math inline">\(1\)</span> centré en <span class="math inline">\(2\iu\)</span>. Cela s’explique au moyen de la proposition <a href="Lieux.html#cerclecomplexe">5.1</a> et des propriétés du module. Nous avons que <span class="math display">\[\begin{align*}
+  |2z-4\iu|=2\iff&amp;|2(z-2\iu)|=2\\
+    \iff&amp; 2|z-2\iu|=2\\
+    \iff&amp; |z-2\iu|=1.
+\end{align*}\]</span> D’autre part, on peut aussi choisir d’exprimer <span class="math inline">\(z\)</span> comme étant un nombre de la forme <span class="math inline">\(x+\iu\,y,\)</span> où <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> sont des nombres réels. Ensuite, en utilisant nos connaissances des concepts relatifs aux nombres complexes, et celles que nous avons des lieux géométriques formés de couples <span class="math inline">\((x,y)\in\R^2\)</span>, l’interprétation est souvent possible. Si on reprend le même exemple, nous avons que <span class="math display">\[\begin{align*}
+    |2z-4\iu|=2\iff&amp;|2(x+\iu y)-4\iu|=2\\
+    \iff&amp; |2x+(2y-4)\iu|=2\\
+    \iff&amp; \sqrt{4x^2+(2y-4)^2}=2\\
+    \iff&amp; 4x^2+4(y-2)^2=4\\
+    \iff&amp; x^2+(y-2)^2=1.
+\end{align*}\]</span> Dans la mesure où on sait qu’un cercle de rayon <span class="math inline">\(r\)</span> centré au point <span class="math inline">\((h,k)\)</span> a pour équation <span class="math inline">\((x-h)^2+(y-k)^2=r^2\)</span>, il devient facile de se représenter le lieu. À l’exemple <a href="Lieux.html#exlieu">5.1</a>, on présente deux approches pour déterminer la nature d’un lieu géométrique caractérisé au moyen des nombres complexes.</p>
+<div id="exlieu" class="Ex" title="Un exemple de lieu géométrique">
+<p></p><details class="Ex fbx-simplebox fbx-default" open=""><summary><strong>Exemple 5.1: </strong>Un exemple de lieu géométrique</summary><div>Représentez dans le plan complexe l’ensemble des nombres <span class="math inline">\(z\)</span> tels que <span class="math display">\[z^2+2|z|^2+{\overline{z}}^2=16.\]</span> En posant <span class="math inline">\(z=x+\iu y\)</span>, puis en remplaçant dans l’équation, on obtient : <span class="math display">\[\begin{align*}
+    z^2+2|z|^2&amp;+{\overline{z}}^2=16\iff(x+\iu y)^2+2(x^2+y^2)+(x-\iu y)^2=16\\
+    \iff&amp; \small x^2+2xy\iu -y^2+2x^2+2y^2+x^2-2xy\iu -y^2=16\\
+    \iff&amp; 4x^2=16\\
+    \iff&amp; x=\pm 2.
+\end{align*}\]</span><p></p>
+<p>Il est aussi possible de raisonner uniquement avec le vocabulaire des nombres complexes. En observant que <span class="math inline">\(|z|^2=z\overline{z}\)</span>, nous avons que <span class="math display">\[\begin{align*}
+    z^2+2|z|^2+{\overline{z}}^2=16\iff&amp;z^2+2z\overline{z}+{\overline{z}}^2=16\\
+    \iff&amp; (z+\overline{z})^2=16\\
+    \iff&amp; z+\overline{z}=\pm 4\\
+    \iff&amp; \frac{z+\overline{z}}{2}=\pm 2\\
+    \iff&amp;\RE(z)=\pm 2.
+\end{align*}\]</span></p>
+<p>Ce lieu géométrique est représenté à la <a href="#fig-reelle2">Figure&nbsp;<span>5.1</span></a>.</p>
+</div></details>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div id="fig-reelle2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/reelle2/reelle2.svg" class="img-fluid figure-img" width="300"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.1: L’ensemble des nombres complexes satisfaisant l’équation <span class="math inline">\(z^2+2|z|^2+{\overline{z}}^2=16\)</span> est formé de deux droites verticales dans le plan complexe. Les points appartenant à ce lieu sont ceux dont la partie réelle vaut <span class="math inline">\(2\)</span> ou <span class="math inline">\(-2\)</span>.</figcaption>
+</figure>
+</div>
+</div></div><div id="ellipse" class="Prop" title="Caractérisation d’une ellipse">
+<p></p><details class="Prop fbx-simplebox fbx-default" open=""><summary><strong>Proposition 5.2: </strong>Caractérisation d’une ellipse</summary><div>Soit <span class="math inline">\(a&gt;0\)</span> et soit <span class="math inline">\(w_1,w_2\in\C\)</span> tels que <span class="math inline">\(|w_1-w_2|&lt;2a\)</span>. Le lieu des nombres complexes <span class="math inline">\(z\)</span> satisfaisant <span class="math display">\[|z-w_1|+|z-w_2|=2a\]</span> est une ellipse de foyers <span class="math inline">\(w_1, w_2\)</span> et de grand axe <span class="math inline">\(2a\)</span>.<p></p>
+</div></details>
+</div>
+<p>La condition <span class="math inline">\(|w_1-w_2|&gt;2a\)</span> est présente pour éviter d’appeler ellipse l’ensemble vide. En effet, dans le cas où les points <span class="math inline">\(w_1\)</span> et <span class="math inline">\(w_2\)</span> sont éloignés d’un distance supérieure à <span class="math inline">\(2a\)</span>, l’inégalité triangulaire exclue la possibilité que <span class="math display">\[|z-w_1|+|z-w_2|=2a \text{~pour un certain} z\in \C.\]</span> Pour une raison similaire, la condition <span class="math inline">\(|w_1-w_2|&gt;2a\)</span> est nécessaire pour que le lieu défini à la proposition <a href="Lieux.html#hyperbole">5.3</a> soit non vide.</p>
+<div id="hyperbole" class="Prop" title="Caractérisation d’une hyperbole">
+<p></p><details class="Prop fbx-simplebox fbx-default" open=""><summary><strong>Proposition 5.3: </strong>Caractérisation d’une hyperbole</summary><div>Soit <span class="math inline">\(a&gt;0\)</span> et soit <span class="math inline">\(w_1,w_2\in\C\)</span> tels que <span class="math inline">\(|w_1-w_2|&gt;2a\)</span>. Le lieu des nombres complexes <span class="math inline">\(z\)</span> satisfaisant <span class="math display">\[|z-w_1|-|z-w_2|=\pm 2a\]</span> est une hyperbole de foyers <span class="math inline">\(w_1, w_2\)</span> et de grand axe <span class="math inline">\(2a\)</span>.<p></p>
+</div></details>
+</div>
+<p>Les propositions <a href="Lieux.html#ellipse">5.2</a> et <a href="Lieux.html#hyperbole">5.3</a> sont des conséquences immédiates des définitions de l’ellipse et de l’hyperbole. En effet, l’ellipse de foyers <span class="math inline">\(F_1\)</span> et <span class="math inline">\(F_2\)</span> et de grand axe <span class="math inline">\(2a\)</span> est le lieu des points <span class="math inline">\(P\)</span> tels que <span class="math inline">\(PF_1+PF_2=2a\)</span>, tandis que l’hyperbole de foyers <span class="math inline">\(F_1\)</span> et <span class="math inline">\(F_2\)</span> et de grand axe <span class="math inline">\(2a\)</span> est le lieu des points <span class="math inline">\(P\)</span> tels que <span class="math inline">\(|PF_1-PF_2|=2a\)</span>.</p>
 
 
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -547,10 +619,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./ModuleConjugue.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module et conjugué</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Arithmetique.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./exercices01.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Série 1</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

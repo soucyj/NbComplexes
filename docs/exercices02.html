@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.310">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Nombres complexes et polynômes – exercices02</title>
+<title>Introduction aux nombres complexes et polynômes - 11&nbsp; Série 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,12 +24,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./exercices01.html" rel="prev">
+<link href="./racinesnieme.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -39,6 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/foldbox/foldbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -55,16 +57,56 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "correspondances de plus dans ce document",
     "search-clear-button-title": "Effacer",
     "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer"
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
+<style>
+.Corollary {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Props {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Ex {
+  --color1: #b8cace;
+  --color2: #134f5c;
+}
+.Conjecture {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Thm {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Def {
+  --color1: #e1f1fd;
+  --color2: #4663ac;
+}
+.Prop {
+  --color1: #AFE1AF;
+  --color2: #228B22;
+}
+.Rem {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
+.Rems {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
+</style>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -73,10 +115,10 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Formes polaire et exponentielle</li><li class="breadcrumb-item"><a href="./exercices02.html">Série 2</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./exercices02.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Série 2</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -85,16 +127,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      <div class="sidebar-tools-main tools-wide">
-    <a href="https://openscapes.org" title="Openscapes.org" class="quarto-navigation-tool px-1" aria-label="Openscapes.org"><i class="bi bi-globe"></i></a>
-    <a href="https://github.com/openscapes/quarto-website-tutorial" title="Quarto website tutorial" class="quarto-navigation-tool px-1" aria-label="Quarto website tutorial"><i class="bi bi-youtube"></i></a>
-    <a href="https://twitter.com/openscapes" title="Openscapes Twitter" class="quarto-navigation-tool px-1" aria-label="Openscapes Twitter"><i class="bi bi-twitter"></i></a>
-</div>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction aux nombres complexes et polynômes</a> 
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -103,95 +140,102 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Introduction aux nombres complexes</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Présentation</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Présentation</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Arithmetique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Arithmétique élémentaire</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Définition des nombres complexes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ModuleConjugue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module et conjugué</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lieux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lieux géométriques dans le plan complexe</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exercices01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Série 1</span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Série 1</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Formes polaire et exponentielle</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
- <span class="menu-text">formepolaireexpo.qmd</span>
-  </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./polaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Forme polaire</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exponentielle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La fonction exponentielle complexe</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demoivre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Les formules d’Euler et celle de De Moivre</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./racinesnieme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Racines <span class="math inline">\(n\)</span>-ièmes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./exercices02.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Série 2</span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Série 2</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
- <span class="menu-text">exercices02-sol.qmd</span>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Polynômes</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
- <span class="menu-text">polynomes.qmd</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">exercices03.qmd</span>
-  </li>
-          <li class="sidebar-item">
- <span class="menu-text">exercices03-sol.qmd</span>
-  </li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#série-2" id="toc-série-2" class="nav-link active" data-scroll-target="#série-2">Série 2</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Série 2</span></h1>
+</div>
 
 
-<section id="série-2" class="level1">
-<h1>Série 2</h1>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
 <div id="exr-calculs2" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 1 </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Exercice 11.1 </strong></span>&nbsp;</p>
 <p>Écrivez les nombres complexes ci-dessous sous forme polaire. Identifiez par la suite leur module, leur argument principal et représentez-les dans le plan complexe.</p>
 <ol type="a">
 <li><span class="math inline">\(z_1=1+\textrm{i}\)</span></li>
@@ -256,7 +300,7 @@ Solution
 </div>
 </div>
 <div id="exr-trouverz" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 2 </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Exercice 11.2 </strong></span>&nbsp;</p>
 <p>Donnez la forme cartésienne et la forme polaire des nombres complexes ci-dessous.</p>
 <ol type="a">
 <li><span class="math inline">\((1-\textrm{i})^{12}\)</span></li>
@@ -281,13 +325,16 @@ Solution
 <li><p>Nous avons que <span class="math inline">\(1-\textrm{i}=\sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right)+\textrm{i}\cos\left(-\frac{\pi}{4}\right)\right)\)</span>. Ainsi, le module du nombre <span class="math inline">\((1-\textrm{i})^{12}\)</span> sera <span class="math inline">\((\sqrt{2})^{12}=2^6\)</span>, et un de ses arguments est <span class="math inline">\(-\frac{\pi}{4}\cdot 12=-3\pi\)</span>. L’argument principal est donc <span class="math inline">\(\pi\)</span>. Cela nous permet finalement d’écrire <span class="math display">\[(1-\textrm{i})^{12}=\underbrace{2^6(\cos\pi+\textrm{i}\sin\pi)}_{\text{forme~polaire}}=\underbrace{-2^6}_{\text{forme cartsienne}}~.\]</span></p></li>
 <li><p>À partir de la forme polaire de <span class="math inline">\(1-\textrm{i}\)</span> et <span class="math inline">\(1+\textrm{i}\)</span>, on trouve que <span class="math inline">\((1+\textrm{i})^{12}=-2^6\)</span> et <span class="math inline">\((1-\textrm{i})^8=2^4.\)</span> Ainsi, <span class="math display">\[\frac{(1+\textrm{i})^{12}}{(1-\textrm{i})^8}=\frac{-2^6}{2^4}=\underbrace{-4}_{\text{forme cartsienne}}=\underbrace{4(\cos\pi+\textrm{i}\sin\pi)}_{\text{forme~polaire}}.\]</span></p></li>
 <li><p>Remarquons d’abord que <span class="math inline">\(|4+5\textrm{i}|=\sqrt{41}\)</span>. Le nombre est donc situé sur la partie de l’axe réel où les nombres sont positifs, de telle sorte que son argument est <span class="math inline">\(0\)</span>. Aussi, comme la notion de module pour les nombres complexes se confond avec celle de valeur absolue dans le cas des nombres réels, on en déduit que le module du nombre considéré est <span class="math inline">\(\sqrt{41}\)</span>. Ainsi, la forme cartésienne est <span class="math inline">\(\sqrt{41}\)</span>, et la forme polaire <span class="math inline">\(\sqrt{41}(\cos 0+\textrm{i}\sin 0)\)</span>.</p></li>
-<li><p>Le nombre <span class="math inline">\(1-\textrm{i}\sqrt{3}\)</span> a pour module <span class="math inline">\(2\)</span> et pour argument principal <span class="math inline">\(-\frac{\pi}{3}\)</span>. Ainsi, <span class="math inline">\((1-\textrm{i}\sqrt{3})^{10}\)</span> a pour module <span class="math inline">\(2^{10}\)</span> et <span class="math inline">\(\frac{2\pi}{3}\)</span> comme argument principal. De même, le nombre <span class="math inline">\(9\textrm{i}\)</span> a pour module <span class="math inline">\(9\)</span> et pour argument principal <span class="math inline">\(\frac{\pi}{2}\)</span>. Le produit de ces deux nombres est donc le nombre complexe ayant pour module <span class="math inline">\(2^{10}\cdot 9 = 9216\)</span>, et pour argument <span class="math inline">\(\frac{\pi}{2}+\frac{2\pi}{3}=\frac{7\pi}{6}\equiv -\frac{5\pi}{6}~\pmod{2\pi}\)</span>. Ainsi, <span class="math display">\[(1-\textrm{i}\sqrt{3})^{10}\cdot 9i=\underbrace{9216\left(\cos\left(-\frac{5\pi}{6}\right)+\textrm{i}\sin\left(-\frac{5\pi}{6}\right)\right)}_{\text{forme~polaire}}=\underbrace{-4608\sqrt{3}-4608\textrm{i}~.}_{\text{forme cartsienne}}\]</span></p></li>
+<li><p>Le nombre <span class="math inline">\(1-\textrm{i}\sqrt{3}\)</span> a pour module <span class="math inline">\(2\)</span> et pour argument principal <span class="math inline">\(-\frac{\pi}{3}\)</span>. Ainsi, <span class="math inline">\((1-\textrm{i}\sqrt{3})^{10}\)</span> a pour module <span class="math inline">\(2^{10}\)</span> et <span class="math inline">\(\frac{2\pi}{3}\)</span> comme argument principal. De même, le nombre <span class="math inline">\(9\textrm{i}\)</span> a pour module <span class="math inline">\(9\)</span> et pour argument principal <span class="math inline">\(\frac{\pi}{2}\)</span>. Le produit de ces deux nombres est donc le nombre complexe ayant pour module <span class="math inline">\(2^{10}\cdot 9 = 9216\)</span>, et pour argument <span class="math inline">\(\frac{\pi}{2}+\frac{2\pi}{3}=\frac{7\pi}{6}\equiv -\frac{5\pi}{6}~\pmod{2\pi}\)</span>. Ainsi, <span class="math display">\[\begin{align*}
+(1-\textrm{i}\sqrt{3})^{10}\cdot 9i&amp;=\underbrace{9216\left(\cos\left(-\frac{5\pi}{6}\right)+\textrm{i}\sin\left(-\frac{5\pi}{6}\right)\right)}_{\text{forme~polaire}}\\
+&amp;=\underbrace{-4608\sqrt{3}-4608\textrm{i}~.}_{\text{forme cartsienne}}
+\end{align*}\]</span></p></li>
 </ol>
 </div>
 </div>
 </div>
 <div id="exr-DeMoivre" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 3 </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Exercice 11.3 </strong></span>&nbsp;</p>
 <p>Utilisez la formule de De Moivre pour démontrer les identités trigonométriques ci-dessous.</p>
 <ol type="a">
 <li><span class="math inline">\(\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)\)</span></li>
@@ -315,7 +362,7 @@ Solution
 </div>
 </div>
 <div id="exr-chucknorris" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 4 </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Exercice 11.4 </strong></span>&nbsp;</p>
 <p>Chuck et Norris ne s’entendent pas sur une identité trigonométrique. Chuck prétend que <span class="math display">\[\cos(2\theta)=2\cos^2(\theta)-1,\]</span> alors que Norris affirme que <span class="math display">\[\cos(2\theta)=1-2\sin^2(\theta).\]</span> Qui a raison? Justifiez.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -330,12 +377,12 @@ Solution
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Chuck et Norris ont tous les deux raison. En effet, en considérant l’identité <span class="math display">\[\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)\]</span> qui a été démontrée à l’<a href="#exr-DeMoivre">Exercice&nbsp;3</a>, de même que l’identité fondamentale <span class="math display">\[\cos^2(\theta)+\sin^2(\theta)=1,\]</span> on obtient que <span class="math inline">\(\cos^2(\theta)=1-\sin^2(\theta)\)</span> et <span class="math inline">\(\sin^2(\theta)=1-\cos^2(\theta)\)</span>. En substituant l’expression pour <span class="math inline">\(\cos^2(\theta)\)</span> dans l’équation <span class="math inline">\(\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)\)</span> on obtient la version de Norris. En substituant l’expression pour <span class="math inline">\(\sin^2(\theta),\)</span> on obtient celle de Chuck.</p>
+<p>Chuck et Norris ont tous les deux raison. En effet, en considérant l’identité <span class="math display">\[\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)\]</span> qui a été démontrée à l’<a href="#exr-DeMoivre">Exercice&nbsp;<span>11.3</span></a>, de même que l’identité fondamentale <span class="math display">\[\cos^2(\theta)+\sin^2(\theta)=1,\]</span> on obtient que <span class="math inline">\(\cos^2(\theta)=1-\sin^2(\theta)\)</span> et <span class="math inline">\(\sin^2(\theta)=1-\cos^2(\theta)\)</span>. En substituant l’expression pour <span class="math inline">\(\cos^2(\theta)\)</span> dans l’équation <span class="math inline">\(\cos(2\theta)=\cos^2(\theta)-\sin^2(\theta)\)</span> on obtient la version de Norris. En substituant l’expression pour <span class="math inline">\(\sin^2(\theta),\)</span> on obtient celle de Chuck.</p>
 </div>
 </div>
 </div>
 <div id="exr-aligne" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 5 </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Exercice 11.5 </strong></span>&nbsp;</p>
 <p>En vous reportant au cercle trigonométrique, déterminez la valeur exacte des quantités ci-dessous.</p>
 <ol type="a">
 <li><span class="math inline">\(\sin(8\pi)\)</span></li>
@@ -387,8 +434,8 @@ Solution
 </div>
 </div>
 <div id="exr-cospisur12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 6 </strong></span>&nbsp;</p>
-<p>À partir de l’identité trigonométrique de Chuck de l’<a href="#exr-chucknorris">Exercice&nbsp;4</a>, on montre facilement l’identité trigonométrique <span class="math display">\[\cos^2(\theta)=\frac{1+\cos(2\theta)}{2}.\]</span> En utilisant cette dernière, déterminez la valeur exacte de <span class="math inline">\(\cos\left(\frac{\pi}{12}\right)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercice 11.6 </strong></span>&nbsp;</p>
+<p>À partir de l’identité trigonométrique de Chuck de l’<a href="#exr-chucknorris">Exercice&nbsp;<span>11.4</span></a>, on montre facilement l’identité trigonométrique <span class="math display">\[\cos^2(\theta)=\frac{1+\cos(2\theta)}{2}.\]</span> En utilisant cette dernière, déterminez la valeur exacte de <span class="math inline">\(\cos\left(\frac{\pi}{12}\right)\)</span>.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -407,8 +454,8 @@ Solution
 </div>
 </div>
 <div id="exr-sin13pisur12" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 7 </strong></span>&nbsp;</p>
-<p>En vous servant de ce qui a été fait à l’<a href="#exr-cospisur12">Exercice&nbsp;6</a>, déterminez la valeur exacte de <span class="math inline">\(\sin\left(\frac{13\pi}{12}\right)\)</span></p>
+<p><span class="theorem-title"><strong>Exercice 11.7 </strong></span>&nbsp;</p>
+<p>En vous servant de ce qui a été fait à l’<a href="#exr-cospisur12">Exercice&nbsp;<span>11.6</span></a>, déterminez la valeur exacte de <span class="math inline">\(\sin\left(\frac{13\pi}{12}\right)\)</span></p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -427,8 +474,8 @@ Solution
 </div>
 </div>
 <div id="exr-autreslieux" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 8 </strong></span>&nbsp;</p>
-<p>Si vous demandez à <a href="http://www.wolframalpha.com">WolframAlpha</a> de calculer la valeur exacte de <span class="math inline">\(\cos\left(\frac{\pi}{12}\right)\)</span>, il vous retourne <span class="math display">\[\frac{1+\sqrt{3}}{2\sqrt{2}}.\]</span> Or, ce n’est pas la réponse que nous avons obtenue à l’<a href="#exr-cospisur12">Exercice&nbsp;6</a>. Que se passe-t-il?</p>
+<p><span class="theorem-title"><strong>Exercice 11.8 </strong></span>&nbsp;</p>
+<p>Si vous demandez à <a href="http://www.wolframalpha.com">WolframAlpha</a> de calculer la valeur exacte de <span class="math inline">\(\cos\left(\frac{\pi}{12}\right)\)</span>, il vous retourne <span class="math display">\[\frac{1+\sqrt{3}}{2\sqrt{2}}.\]</span> Or, ce n’est pas la réponse que nous avons obtenue à l’<a href="#exr-cospisur12">Exercice&nbsp;<span>11.6</span></a>. Que se passe-t-il?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -447,7 +494,7 @@ Solution
 </div>
 </div>
 <div id="exr-racinecarree" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 9 </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Exercice 11.9 </strong></span>&nbsp;</p>
 <p>Exprimez les racines carrées des nombres complexes ci-dessous sous forme cartésienne.</p>
 <ol type="a">
 <li><span class="math inline">\(16\)</span></li>
@@ -496,7 +543,7 @@ z_2&amp;=-\sqrt{\sqrt{3}}=-\sqrt[4]{3}.
 </div>
 </div>
 <div id="exr-niemeunite" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 10 </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Exercice 11.10 </strong></span>&nbsp;</p>
 <p>Pour les valeurs de <span class="math inline">\(n\)</span> appartenant à l’ensemble <span class="math inline">\(\{1,2,3,4,5,6\}\)</span>, trouvez, sous forme cartésienne, les racines <span class="math inline">\(n^{\textrm{ième}}\)</span> de l’unité et représentez-les dans le plan complexe. Pour le cas <span class="math inline">\(n=5\)</span>, utilisez <a href="wolframalpha.com">WolframAlpha</a> pour évaluer les fonctions sinus et cosinus.</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -547,29 +594,20 @@ Solution
 </div>
 </div>
 </div>
-<div id="exr-trouverz" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercice 11 </strong></span>&nbsp;</p>
-<p>Soit <span class="math inline">\(O\)</span> l’origine et soit <span class="math inline">\(z_1, z_2\in\mathbb{C}\)</span> tels que le triangle de sommets <span class="math inline">\(O, z_1, z_2\)</span> soit équilatéral. Montrez que <span class="math display">\[z_1^2+z_2^2=z_1z_2.\]</span></p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>bla bla</p>
-</div>
-</div>
-</div>
+<!--
+::: {#exr-trouverz}
+\n
+Soit $O$ l'origine et soit $z_1, z_2\in\C$ tels que le triangle de sommets $O, z_1, z_2$ soit équilatéral. Montrez que
+$$z_1^2+z_2^2=z_1z_2.$$
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution
+bla bla
+:::
+-->
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -858,25 +896,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./exercices01.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Série 1</span>
+      <a href="./racinesnieme.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Racines <span class="math inline">\(n\)</span>-ièmes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">© CC BY-NC-SA Jérôme Soucy, 2023</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
