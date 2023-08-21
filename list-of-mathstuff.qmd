@@ -114,3 +114,11 @@
  [**Théorème 10.2**](racinesnieme.qmd#thmniemes): Valeurs des racines $n$-ièmes\Pageref{thmniemes}
 
  [**Exemple 10.1**](racinesnieme.qmd#racines-quatrièmes-de-16): Racines quatrièmes de $16$\Pageref{racines-quatrièmes-de-16}
+
+ [**Proposition 10.1**](racinesnieme.qmd#racine2complexe): Racines carrées d’un nombre complexe\Pageref{racine2complexe}
+
+ [**Définition 10.1**](racinesnieme.qmd#nieme): Racines $n$-ièmes\Pageref{nieme}
+
+ [**Théorème 10.2**](racinesnieme.qmd#thmniemes): Valeurs des racines $n$-ièmes\Pageref{thmniemes}
+
+ [**Exemple 10.1**](racinesnieme.qmd#racines-quatrièmes-de-16): Racines quatrièmes de $16$\Pageref{racines-quatrièmes-de-16}
