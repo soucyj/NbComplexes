@@ -50,7 +50,7 @@ c. $(2z+3)(5z-5+5\iu)=0$
 d. $|z|=2\iu$
 e. $\frac{z}{2+\iu-z}=3+2\iu$
 f. $\overline{z}z=4$
-g. $1+\iu+\iu^2+\iu^3+\ldots+\iu^{999}$
+g. $z=1+\iu+\iu^2+\iu^3+\ldots+\iu^{999}$
 h. $-\frac{2\iu}{z}=\frac{z}{32\iu}$
 i. $\left|z^2-1\right|=z^2-1$
 j. $(3z+4\iu z)(z-5\iu)=0$
