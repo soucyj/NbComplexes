@@ -29,7 +29,7 @@ j. $\left|\frac{z_1^2+z_2^3}{2z_2+8z_1}\right|$
 ## Solution
 a. $5-3\iu$
 b. $\sqrt{34}$
-c. $10-5\iu$
+c. $\frac{2}{25}+\frac{11}{25}\iu$
 d. $\frac{3}{26}-\frac{11}{26}\iu$
 e. $-4-20\iu$
 f. $24$
@@ -270,7 +270,7 @@ d. {{< video https://youtu.be/TXJLDIuuebM
     title="Ellipse dans le plan complexe : cas limite"
     start="0"
     aspect-ratio="16x9">}}
-e. Une ellipse de foyers $1+\iu$ et $-1-\iu$ centrée à l'origine de grand axe $10$ et de petit axe $\sqrt{23}$.
+e. Une ellipse de foyers $1+\iu$ et $-1-\iu$ centrée à l'origine de grand axe $10$ et de petit axe $2\sqrt{23}$.
 f. {{< video https://youtu.be/Cu0PG-x2UvI
     title="Hyperbole dans le plan complexe : cas habituel"
     start="0"
