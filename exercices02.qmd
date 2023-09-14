@@ -59,7 +59,7 @@ d. Forme cartésienne: $4$,
    Module: $4$,
    Argument principal: $0$,
    
-   Forme polaire: $10\left(\cos\left(0\right)+\iu\sin\left(0\right)\right)$.
+   Forme polaire: $4\left(\cos\left(0\right)+\iu\sin\left(0\right)\right)$.
    
 e. Forme cartésienne: $0$,
 
@@ -75,7 +75,7 @@ f. Forme cartésienne: $-4$,
    
    Argument principal: $\piu$,
    
-   Forme polaire: $3\left(\cos\left(\piu\right)+\iu\sin\left(\piu\right)\right)$.
+   Forme polaire: $4\left(\cos\left(\piu\right)+\iu\sin\left(\piu\right)\right)$.
    
 g. Forme cartésienne: $1-\iu\sqrt{3}$,
 
@@ -85,13 +85,13 @@ g. Forme cartésienne: $1-\iu\sqrt{3}$,
    
    Forme polaire: $2\left(\cos\left(-\frac{\piu}{3}\right)+\iu\sin\left(-\frac{\piu}{3}\right)\right)$.
    
-h. Forme cartésienne: $-3+\iu\sqrt{3}$,
+h. Forme cartésienne: $-3+3\iu\sqrt{3}$,
 
-   Module: $2\sqrt{3}$,
+   Module: $6$,
    
    Argument principal: $\frac{5\piu}{6}$,
    
-   Forme polaire: $2\sqrt{3}\left(\cos\left(\frac{5\piu}{6}\right)+\iu\sin\left(\frac{5\piu}{6}\right)\right)$.
+   Forme polaire: $6\left(\cos\left(\frac{2\piu}{3}\right)+\iu\sin\left(\frac{2\piu}{3}\right)\right)$.
    
 Voici la représentation dans le plan complexe des nombres dont il est question dans cet exercice.
 

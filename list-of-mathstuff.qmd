@@ -114,29 +114,3 @@
  [**Théorème 10.2**](racinesnieme.qmd#thmniemes): Valeurs des racines $n$-ièmes\Pageref{thmniemes}
 
  [**Exemple 10.1**](racinesnieme.qmd#racines-quatrièmes-de-16): Racines quatrièmes de $16$\Pageref{racines-quatrièmes-de-16}
-
- [**Définition 3.1**](Operations.qmd#unite): Unité imaginaire\Pageref{unite}
-
- [**Définition 3.2**](Operations.qmd#nbcomplexe): Nombre complexe\Pageref{nbcomplexe}
-
- [**Définition 3.3**](Operations.qmd#defegalite): Égalité de deux nombres complexe\Pageref{defegalite}
-
- [**Définition 3.4**](Operations.qmd#sommecomplexe): Somme de deux nombres complexes\Pageref{sommecomplexe}
-
- [**Exemple 3.1**](Operations.qmd#Ex-3.1)\Pageref{Ex-3.1}
-
- [**Exemple 3.2**](Operations.qmd#Ex-3.2)\Pageref{Ex-3.2}
-
- [**Définition 3.5**](Operations.qmd#partiereelle): Partie réelle\Pageref{partiereelle}
-
- [**Remarques 3.1**](Operations.qmd#Rems-3.1)\Pageref{Rems-3.1}
-
- [**Définition 3.6**](Operations.qmd#produit): Produit\Pageref{produit}
-
- [**Exemple 3.3**](Operations.qmd#Ex-3.3)\Pageref{Ex-3.3}
-
- [**Proposition 3.1**](Operations.qmd#Prop-3.1)\Pageref{Prop-3.1}
-
- [**Exemple 3.4**](Operations.qmd#exinverse): Inverse d’un nombre complexe\Pageref{exinverse}
-
- [**Exemple 3.5**](Operations.qmd#Ex-3.5)\Pageref{Ex-3.5}
