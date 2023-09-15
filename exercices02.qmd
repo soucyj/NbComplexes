@@ -111,7 +111,7 @@ d. $(1-\iu\sqrt{3})^{10}\cdot 9\iu$
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-a. Nous avons que $1-\iu=\sqrt{2}\left(\cos\left(-\frac{\piu}{4}\right)+\iu\cos\left(-\frac{\piu}{4}\right)\right)$. Ainsi, le module du nombre $(1-\iu)^{12}$ sera $(\sqrt{2})^{12}=2^6$, et un de ses arguments est $-\frac{\piu}{4}\cdot 12=-3\piu$. L'argument principal est donc $\piu$. Cela nous permet finalement d'écrire
+a. Nous avons que $1-\iu=\sqrt{2}\left(\cos\left(-\frac{\piu}{4}\right)+\iu\sin\left(-\frac{\piu}{4}\right)\right)$. Ainsi, le module du nombre $(1-\iu)^{12}$ sera $(\sqrt{2})^{12}=2^6$, et un de ses arguments est $-\frac{\piu}{4}\cdot 12=-3\piu$. L'argument principal est donc $\piu$. Cela nous permet finalement d'écrire
 			$$(1-\iu)^{12}=\underbrace{2^6(\cos\piu+\iu\sin\piu)}_{\text{forme~polaire}}=\underbrace{-2^6}_{\text{forme cartsienne}}~.$$
 b. À partir de la forme polaire de $1-\iu$ et $1+\iu$, on trouve que $(1+\iu)^{12}=-2^6$ et  $(1-\iu)^8=2^4.$ Ainsi,
 			$$\frac{(1+\iu)^{12}}{(1-\iu)^8}=\frac{-2^6}{2^4}=\underbrace{-4}_{\text{forme cartsienne}}=\underbrace{4(\cos\piu+\iu\sin\piu)}_{\text{forme~polaire}}.$$
@@ -220,8 +220,8 @@ En vous servant de ce qui a été fait à l'@exr-cospisur12, déterminez la vale
 Remarquons dans un premier temps que $\sin\frac{13\piu}{12}=-\sin\frac{\piu}{12}$. Pour s'en convaincre il suffit
 de se référer au cercle trigonométrique. Ensuite, en se basant sur l'identité fondamentale $\cos^2\theta+\sin^2\theta=1$, nous avons que
 $$\sin^2\left(\frac{\piu}{12}\right)=1-\cos^2\left(\frac{\piu}{12}\right)=1-\frac{1}{4}\left(2+\sqrt{3}\right)=\frac{2-\sqrt{3}}{4}.$$
-Comme $\sin\left(\frac{\piu}{12}\right)>0$, il suit que $\sin\left(\frac{\piu}{12}\right)=\frac{\sqrt{2-\sqrt{3}}}{4}.$ De cela nous pouvons conclure que
-$\sin\left(\frac{13\piu}{12}\right)=-\frac{\sqrt{2-\sqrt{3}}}{4}$.
+Comme $\sin\left(\frac{\piu}{12}\right)>0$, il suit que $\sin\left(\frac{\piu}{12}\right)=\frac{\sqrt{2-\sqrt{3}}}{2}.$ De cela nous pouvons conclure que
+$\sin\left(\frac{13\piu}{12}\right)=-\frac{\sqrt{2-\sqrt{3}}}{2}$.
 :::
 
 ::: {#exr-autreslieux}

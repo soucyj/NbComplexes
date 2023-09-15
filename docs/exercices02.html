@@ -62,13 +62,17 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>
-.Corollary {
-  --color1: #AFE1AF;
-  --color2: #228B22;
+.Def {
+  --color1: #e1f1fd;
+  --color2: #4663ac;
 }
-.Prop {
-  --color1: #AFE1AF;
-  --color2: #228B22;
+.Rem {
+  --color1: #f4cccc;
+  --color2: #cc0000;
+}
+.Rems {
+  --color1: #f4cccc;
+  --color2: #cc0000;
 }
 .Conjecture {
   --color1: #AFE1AF;
@@ -78,21 +82,17 @@ ul.task-list li input[type="checkbox"] {
   --color1: #AFE1AF;
   --color2: #228B22;
 }
-.Def {
-  --color1: #e1f1fd;
-  --color2: #4663ac;
+.Prop {
+  --color1: #AFE1AF;
+  --color2: #228B22;
 }
 .Ex {
   --color1: #b8cace;
   --color2: #134f5c;
 }
-.Rem {
-  --color1: #f4cccc;
-  --color2: #cc0000;
-}
-.Rems {
-  --color1: #f4cccc;
-  --color2: #cc0000;
+.Corollary {
+  --color1: #AFE1AF;
+  --color2: #228B22;
 }
 .Thm {
   --color1: #AFE1AF;
@@ -322,7 +322,7 @@ Solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li><p>Nous avons que <span class="math inline">\(1-\textrm{i}=\sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right)+\textrm{i}\cos\left(-\frac{\pi}{4}\right)\right)\)</span>. Ainsi, le module du nombre <span class="math inline">\((1-\textrm{i})^{12}\)</span> sera <span class="math inline">\((\sqrt{2})^{12}=2^6\)</span>, et un de ses arguments est <span class="math inline">\(-\frac{\pi}{4}\cdot 12=-3\pi\)</span>. L’argument principal est donc <span class="math inline">\(\pi\)</span>. Cela nous permet finalement d’écrire <span class="math display">\[(1-\textrm{i})^{12}=\underbrace{2^6(\cos\pi+\textrm{i}\sin\pi)}_{\text{forme~polaire}}=\underbrace{-2^6}_{\text{forme cartsienne}}~.\]</span></p></li>
+<li><p>Nous avons que <span class="math inline">\(1-\textrm{i}=\sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right)+\textrm{i}\sin\left(-\frac{\pi}{4}\right)\right)\)</span>. Ainsi, le module du nombre <span class="math inline">\((1-\textrm{i})^{12}\)</span> sera <span class="math inline">\((\sqrt{2})^{12}=2^6\)</span>, et un de ses arguments est <span class="math inline">\(-\frac{\pi}{4}\cdot 12=-3\pi\)</span>. L’argument principal est donc <span class="math inline">\(\pi\)</span>. Cela nous permet finalement d’écrire <span class="math display">\[(1-\textrm{i})^{12}=\underbrace{2^6(\cos\pi+\textrm{i}\sin\pi)}_{\text{forme~polaire}}=\underbrace{-2^6}_{\text{forme cartsienne}}~.\]</span></p></li>
 <li><p>À partir de la forme polaire de <span class="math inline">\(1-\textrm{i}\)</span> et <span class="math inline">\(1+\textrm{i}\)</span>, on trouve que <span class="math inline">\((1+\textrm{i})^{12}=-2^6\)</span> et <span class="math inline">\((1-\textrm{i})^8=2^4.\)</span> Ainsi, <span class="math display">\[\frac{(1+\textrm{i})^{12}}{(1-\textrm{i})^8}=\frac{-2^6}{2^4}=\underbrace{-4}_{\text{forme cartsienne}}=\underbrace{4(\cos\pi+\textrm{i}\sin\pi)}_{\text{forme~polaire}}.\]</span></p></li>
 <li><p>Remarquons d’abord que <span class="math inline">\(|4+5\textrm{i}|=\sqrt{41}\)</span>. Le nombre est donc situé sur la partie de l’axe réel où les nombres sont positifs, de telle sorte que son argument est <span class="math inline">\(0\)</span>. Aussi, comme la notion de module pour les nombres complexes se confond avec celle de valeur absolue dans le cas des nombres réels, on en déduit que le module du nombre considéré est <span class="math inline">\(\sqrt{41}\)</span>. Ainsi, la forme cartésienne est <span class="math inline">\(\sqrt{41}\)</span>, et la forme polaire <span class="math inline">\(\sqrt{41}(\cos 0+\textrm{i}\sin 0)\)</span>.</p></li>
 <li><p>Le nombre <span class="math inline">\(1-\textrm{i}\sqrt{3}\)</span> a pour module <span class="math inline">\(2\)</span> et pour argument principal <span class="math inline">\(-\frac{\pi}{3}\)</span>. Ainsi, <span class="math inline">\((1-\textrm{i}\sqrt{3})^{10}\)</span> a pour module <span class="math inline">\(2^{10}\)</span> et <span class="math inline">\(\frac{2\pi}{3}\)</span> comme argument principal. De même, le nombre <span class="math inline">\(9\textrm{i}\)</span> a pour module <span class="math inline">\(9\)</span> et pour argument principal <span class="math inline">\(\frac{\pi}{2}\)</span>. Le produit de ces deux nombres est donc le nombre complexe ayant pour module <span class="math inline">\(2^{10}\cdot 9 = 9216\)</span>, et pour argument <span class="math inline">\(\frac{\pi}{2}+\frac{2\pi}{3}=\frac{7\pi}{6}\equiv -\frac{5\pi}{6}~\pmod{2\pi}\)</span>. Ainsi, <span class="math display">\[\begin{align*}
@@ -469,7 +469,7 @@ Solution
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Remarquons dans un premier temps que <span class="math inline">\(\sin\frac{13\pi}{12}=-\sin\frac{\pi}{12}\)</span>. Pour s’en convaincre il suffit de se référer au cercle trigonométrique. Ensuite, en se basant sur l’identité fondamentale <span class="math inline">\(\cos^2\theta+\sin^2\theta=1\)</span>, nous avons que <span class="math display">\[\sin^2\left(\frac{\pi}{12}\right)=1-\cos^2\left(\frac{\pi}{12}\right)=1-\frac{1}{4}\left(2+\sqrt{3}\right)=\frac{2-\sqrt{3}}{4}.\]</span> Comme <span class="math inline">\(\sin\left(\frac{\pi}{12}\right)&gt;0\)</span>, il suit que <span class="math inline">\(\sin\left(\frac{\pi}{12}\right)=\frac{\sqrt{2-\sqrt{3}}}{4}.\)</span> De cela nous pouvons conclure que <span class="math inline">\(\sin\left(\frac{13\pi}{12}\right)=-\frac{\sqrt{2-\sqrt{3}}}{4}\)</span>.</p>
+<p>Remarquons dans un premier temps que <span class="math inline">\(\sin\frac{13\pi}{12}=-\sin\frac{\pi}{12}\)</span>. Pour s’en convaincre il suffit de se référer au cercle trigonométrique. Ensuite, en se basant sur l’identité fondamentale <span class="math inline">\(\cos^2\theta+\sin^2\theta=1\)</span>, nous avons que <span class="math display">\[\sin^2\left(\frac{\pi}{12}\right)=1-\cos^2\left(\frac{\pi}{12}\right)=1-\frac{1}{4}\left(2+\sqrt{3}\right)=\frac{2-\sqrt{3}}{4}.\]</span> Comme <span class="math inline">\(\sin\left(\frac{\pi}{12}\right)&gt;0\)</span>, il suit que <span class="math inline">\(\sin\left(\frac{\pi}{12}\right)=\frac{\sqrt{2-\sqrt{3}}}{2}.\)</span> De cela nous pouvons conclure que <span class="math inline">\(\sin\left(\frac{13\pi}{12}\right)=-\frac{\sqrt{2-\sqrt{3}}}{2}\)</span>.</p>
 </div>
 </div>
 </div>
