@@ -1,0 +1,75 @@
+% ═══════════════════════════════════════════════════════════════════════
+%  Gabarit pandoc du livre (sortie PDF de Quarto)
+%
+%  Volontairement minimal : toute la mise en page vient de livrejs.cls,
+%  comme pour l'ancien Livre.tex. Le filtre _filtres/livrejs.lua traduit
+%  le Markdown en environnements de la classe (theorem, exercice...), et
+%  produit la couverture, la page « Au sujet de ces notes », la table des
+%  matières, l'annexe des solutions et la bibliographie.
+% ═══════════════════════════════════════════════════════════════════════
+\makeatletter
+\def\input@path{{latex/}}   % la classe et les paquets du livre
+\makeatother
+\documentclass{livrejs}
+\usepackage{ccicons}   % icônes Creative Commons (notice de licence)
+
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+
+\input{preambule-livre}
+
+% ── Commandes utilisées dans le LaTeX produit par pandoc ─────────────
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\pandocbounded}[1]{#1}
+\providecommand{\passthrough}[1]{#1}
+% Quarto insère \bookmarksetup{startatroot} avant chaque chapitre (paquet
+% bookmark, non utilisé ici) : sans effet.
+\providecommand{\bookmarksetup}[1]{}
+
+% ── Métadonnées ──────────────────────────────────────────────────────
+\etablissement{Université Laval}
+\departement{Département de mathématiques et de statistique}
+\title{Introduction aux nombres\\[2pt]
+       complexes et polynômes}
+\soustitre{Notes des cours MAT-1900 et MAT-1110}
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{\today}
+\hypersetup{pdftitle={$title$},
+            pdfauthor={$for(author)$$author$$sep$, $endfor$}}
+
+% Motif de la couverture : le plan complexe, le cercle de rayon r, les six
+% racines sixièmes de r^6 (hexagone) et un nombre z = r e^{iθ}, dans le
+% bandeau entre le sous-titre et le nom de l'auteur.
+\motifcouverture{%
+  \begin{scope}[shift={(0.5\paperwidth-1.1cm,2.8cm)}]
+    \draw[coveraccent!60, line width=0.7pt, -{Stealth[length=2.2mm]}]
+      (-4.4cm,0) -- (4.4cm,0);
+    \draw[coveraccent!60, line width=0.7pt, -{Stealth[length=2.2mm]}]
+      (0,-2.5cm) -- (0,2.5cm);
+    \node[coveraccent!80, font=\sffamily\small, anchor=north east]
+      at (4.4cm,-0.08cm) {Re};
+    \node[coveraccent!80, font=\sffamily\small, anchor=north east]
+      at (-0.1cm,2.5cm) {Im};
+    \fill[coveraccent, opacity=0.16]
+      (0:2cm) -- (60:2cm) -- (120:2cm) -- (180:2cm) -- (240:2cm)
+      -- (300:2cm) -- cycle;
+    \draw[coveraccent!85!white, line width=0.6pt]
+      (0:2cm) -- (60:2cm) -- (120:2cm) -- (180:2cm) -- (240:2cm)
+      -- (300:2cm) -- cycle;
+    \draw[coveraccent!85!white, line width=0.9pt] (0,0) circle (2cm);
+    \foreach \k in {0,...,5}{%
+      \fill[white!85!covernavy] (\k*60:2cm) circle (1.7pt);}
+    \draw[white!85!covernavy, line width=0.8pt] (0,0) -- (35:2cm);
+    \draw[white!85!covernavy, line width=0.6pt, -{Stealth[length=1.6mm]}]
+      (0.7cm,0) arc[start angle=0, end angle=35, radius=0.7cm];
+    \node[white!85!covernavy, font=\sffamily\small] at (17:1.05cm) {$$\theta$$};
+    \fill[white!85!covernavy] (35:2cm) circle (2pt);
+    \node[white!85!covernavy, font=\sffamily, anchor=south west]
+      at (35:2.05cm) {$$z = r\,\mathrm{e}^{\mathrm{i}\theta}$$};
+  \end{scope}}
+
+\begin{document}
+$body$
+\end{document}

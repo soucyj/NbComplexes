@@ -1,0 +1,18 @@
+% ═══════════════════════════════════════════════════════════════════════
+%  Macros et styles TikZ du volume — partagés par le livre (PDF) et
+%  les figures autonomes converties en SVG pour le web.
+%  Toute macro utilisée dans une formule doit aussi être déclarée dans
+%  macros-mathjax.tex (version web).
+% ═══════════════════════════════════════════════════════════════════════
+% ── Bibliothèques TikZ utilisées dans les figures ────────────────────
+\usetikzlibrary{calc, arrows.meta, angles, quotes, patterns, positioning,
+                decorations.pathreplacing, decorations.markings, fadings,
+                backgrounds, fit}
+% Angles, segments et points des figures en coordonnées polaires
+\usepackage{tkz-euclide}
+\tkzSetUpPoint[fill=black]
+\definecolor{fill1}{RGB}{183,183,183}   % remplissage des angles
+
+% ── Raccourcis du volume ─────────────────────────────────────────────
+\providecommand{\piup}{\uppi}           % pi droit (anciennes figures)
+\newcommand{\boitevide}{\mdlgwhtsquare} % case vide : 5 + □ = 3 (unicode-math)

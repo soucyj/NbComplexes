@@ -1,0 +1,65 @@
+% ═══════════════════════════════════════════════════════════════════════
+%  Macros mathématiques pour la version web (MathJax)
+%
+%  Équivalents MathJax des macros de commandesJS.sty et de macros-livre.tex.
+%  Le PDF n'utilise PAS ce fichier : il lit directement les originaux.
+%  Toute nouvelle macro utilisée dans une formule doit donc être ajoutée
+%  à la fois dans macros-livre.tex (PDF) et ici (web).
+%  \num, \SI et \ang (siunitx) sont traités par le filtre, pas par MathJax.
+% ═══════════════════════════════════════════════════════════════════════
+
+% ── Ensembles de nombres (commandesJS) ─────────────────────────────────
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Ns}{\mathbb{N}^{\star}}
+\newcommand{\Rs}{\mathbb{R}^{\star}}
+\newcommand{\Rp}{\left[0, \infty\right[}
+\newcommand{\Rps}{\left]0, \infty\right[}
+
+% ── Constantes, texte en exposant ──────────────────────────────────────
+\newcommand{\eu}{\mathrm{e}}
+\newcommand{\iu}{\mathrm{i}\mkern1mu}
+\newcommand{\uppi}{\mathrm{\pi}}
+\newcommand{\upgamma}{\mathrm{\gamma}}
+\newcommand{\ap}[1]{^{\mathrm{#1}}}
+\newcommand{\ped}[1]{_{\mathrm{#1}}}
+
+% ── Intervalles (paquet interval : crochets « à la française ») ────────
+\newcommand{\intff}[2]{\mathopen{[}#1, #2\mathclose{]}}
+\newcommand{\intoo}[2]{\mathopen{]}#1, #2\mathclose{[}}
+\newcommand{\intof}[2]{\mathopen{]}#1, #2\mathclose{]}}
+\newcommand{\intfo}[2]{\mathopen{[}#1, #2\mathclose{[}}
+
+% ── Analyse, probabilités, ensembles ───────────────────────────────────
+\newcommand{\evint}[3]{\left[#1\right]_{#2}^{#3}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\zbar}{\overline{z}}
+\newcommand{\RE}{\operatorname{Re}}
+\newcommand{\IM}{\operatorname{Im}}
+\newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\P}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\Es}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Var}[1]{\operatorname{var}\left(#1\right)}
+\newcommand{\Cov}[1]{\operatorname{cov}\left(#1\right)}
+\newcommand{\card}[1]{\operatorname{Card}\left(#1\right)}
+\newcommand{\comp}[1]{#1^{\mathsf{c}}}
+\newcommand{\pgcd}{\operatorname{pgcd}}
+\newcommand{\ppcm}{\operatorname{ppcm}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\egdef}{\overset{\scriptsize\text{déf}}{=}}
+\newcommand{\Dom}[1]{\mathcal{D}_{#1}}
+\newcommand{\Img}[1]{\mathcal{I}_{#1}}
+\newcommand{\survie}[1]{\overline{\mkern-2mu#1\mkern2mu}}
+
+% ── Algèbre linéaire (commandesJS) ─────────────────────────────────────
+\newcommand{\matdeux}[4]{\begin{pmatrix}#1&#2\\#3&#4\end{pmatrix}}
+\newcommand{\vdeux}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+\newcommand{\vtrois}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+% ── Raccourcis du volume (macros-livre.tex) ──────────────────────────
+\newcommand{\boitevide}{\square}
+\newcommand{\Cs}{\mathbb{C}^{\star}}
+\newcommand{\coloneqq}{\mathrel{:=}}

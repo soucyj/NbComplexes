@@ -1,0 +1,9 @@
+<!-- Formules en STIX Two Math, assorties au texte en STIX Two Text.
+     MathJax 4 coupe par défaut les formules en ligne en fin de ligne :
+     on garde chaque formule d'un seul tenant, comme dans le PDF. -->
+<script>
+window.MathJax = {
+  output: { font: "mathjax-stix2" },
+  chtml: { linebreaks: { inline: false } }
+};
+</script>

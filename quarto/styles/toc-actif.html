@@ -1,0 +1,27 @@
+<!-- Suivi de la section courante dans « Dans ce chapitre ».
+     1. Quarto échappe le deux-points des identifiants (#sec\:D-vecteurs) dans
+        data-scroll-target, puis passe cette valeur à getElementById : aucune
+        section n'est trouvée et le premier lien reste actif. On retire
+        l'échappement avant que quarto.js lise ces liens (DOMContentLoaded).
+     2. Quarto ne traite que le premier événement d'une rafale de défilement
+        (throttle sans appel final) : après un clic dans la table, la page
+        s'arrête parfois sans que la section active soit recalculée. On
+        relance le calcul une fois le défilement terminé. -->
+<script>
+document.querySelectorAll('a[data-scroll-target^="#"]').forEach(function (a) {
+  a.setAttribute('data-scroll-target', a.getAttribute('data-scroll-target').replace(/\\/g, ''));
+});
+(function () {
+  var minuterie = null;
+  var relancer = function () {
+    clearTimeout(minuterie);
+    minuterie = setTimeout(function () {
+      document.dispatchEvent(new Event('scroll'));
+    }, 120);
+  };
+  window.addEventListener('scroll', function (e) {
+    if (e.isTrusted) relancer();
+  }, { passive: true });
+  window.addEventListener('hashchange', relancer);
+})();
+</script>

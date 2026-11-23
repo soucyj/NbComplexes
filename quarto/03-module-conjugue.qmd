@@ -1,0 +1,416 @@
+# Module et conjugué {#chap:module-conjugue}
+
+## Le conjugué {#sec:conjugue}
+
+Au chapitre précédent, nous avons vu que le nombre $a-b\,\iu$ était utile
+pour calculer l'inverse de $a+b\,\iu$, ou encore un quotient de nombres
+complexes présentant le nombre $a+b\,\iu$ au dénominateur. Ce nombre
+apparaît dans d'autres contextes et mérite d'être nommé convenablement.
+
+::: {.definition #def:conjugue title="Conjugué d'un nombre complexe"}
+Soit $a$ et $b$ des nombres réels, et soit $z$ le nombre complexe
+$a+b\,\iu$. Le nombre complexe $a-b\,\iu$ s'appelle le
+[conjugué]{.defi} de $z$. On le note $\zbar$.
+:::
+
+Trouver la forme cartésienne d'un nombre complexe exprimé sous la forme
+d'un quotient $\frac{z}{w}$ revient donc à multiplier le numérateur et le
+dénominateur par le conjugué de $w$.
+
+Sur le plan géométrique, trouver le conjugué d'un nombre complexe consiste
+à en obtenir l'image par une réflexion selon l'axe réel (figure
+\ref{fig:conjugue}). Ainsi, les points appartenant à l'axe réel sont égaux
+à leur conjugué. Cette propriété est en fait une caractérisation des
+nombres réels : si un nombre complexe est égal à son conjugué, alors le
+nombre est réel. Cela peut aussi être obtenu facilement sur le plan
+algébrique au moyen de la suite d'équivalences ci-dessous :
+\begin{align*}
+\zbar=z&\iff a-b\,\iu=a+b\,\iu\\
+&\iff \begin{cases}
+a=a\\
+-b=b
+\end{cases}\\
+&\iff b=-b\\
+&\iff b=0\\
+&\iff \IM z=0\\
+&\iff z\in\R.
+\end{align*}
+
+::: {#fig:conjugue}
+![](figures/tikz/conjugue.tikz)
+
+Pour trouver le conjugué d'un nombre complexe, il suffit de trouver son
+image par la réflexion dont l'axe est l'axe réel dans le plan complexe.
+Les nombres réels sont caractérisés par le fait qu'ils sont égaux à leur
+conjugué.
+:::
+
+::: {.proposition #prop:re-im-conjugue title="Parties réelle et imaginaire"}
+Soit $z\in\C$. Alors $\RE(z)=\frac{z+\overline{z}}{2}$ et
+$\IM (z)=\frac{z-\overline{z}}{2\iu}$.
+:::
+
+::: proof
+Soit $x,y\in\R$ tels que $z=x+\iu\,y$. Un calcul direct nous montre que
+$$\frac{z+\overline{z}}{2}=x\qquad\text{et}\qquad\frac{z-\overline{z}}{2\iu}=y.$$
+Comme $x=\RE(z)$ et $y=\IM(z)$, cela démontre la proposition.
+:::
+
+### Fonctions valeur absolue et racine carrée {#sec:valeur-absolue}
+
+::: {.definition #def:valeur-absolue title="Fonction valeur absolue"}
+La [fonction valeur absolue]{.defi} est définie par
+$$|x|=\begin{cases}
+x&\text{si $x\geq 0$,}\\
+-x&\text{si $x< 0$.}
+\end{cases}$$
+:::
+
+D'un point de vue géométrique, la valeur absolue d'un nombre réel
+correspond à la distance qui le sépare du nombre $0$ (figures
+\ref{fig:valeur-absolue} et \ref{fig:valeur-absolue-distance}).
+
+::: {#fig:valeur-absolue}
+![](figures/tikz/valeur-absolue.tikz)
+
+La fonction valeur absolue prend la valeur $x$ si $x\geq 0$ et la valeur
+$-x$ si $x<0$.
+:::
+
+::: {#fig:valeur-absolue-distance}
+![](figures/tikz/valeur-absolue-distance.tikz)
+
+D'un point de vue géométrique, la valeur absolue d'un nombre réel
+correspond à la distance qui le sépare du nombre $0$.
+:::
+
+::: {.definition #def:racine-carree title="Fonction racine carrée"}
+La [fonction racine carrée]{.defi} associe à un nombre réel positif $x$
+l'unique nombre réel positif, noté $\sqrt{x}$, dont le carré vaut $x$
+(figure \ref{fig:racine-carree}). Ainsi,
+$$y=\sqrt{x}\iff y^2=x~\text{et}~y\geq 0.$$
+:::
+
+::: {#fig:racine-carree}
+![](figures/tikz/racine-carree.tikz)
+
+La fonction racine carrée associe à un nombre réel positif $x$ l'unique
+nombre réel positif, noté $\sqrt{x}$, dont le carré vaut $x$.
+:::
+
+::: {.proposition #prop:racine-abs title="Racine carrée et valeur absolue"}
+Pour tout $x\in\R$, nous avons que $|x|=\sqrt{x^2}$.
+:::
+
+::: proof
+Si $x\geq 0$, alors $\sqrt{x^2}$ est l'unique nombre positif dont le carré
+est $x^2$. Ce nombre est bien sûr $x$ lui-même. Par conséquent, dans le
+cas où $x\geq 0$, on a que $\sqrt{x^2}=x$. Dans le cas où $x<0$, il suffit
+d'observer que $-x>0$. Ainsi, comme $(-x)^2=x^2$, le nombre $-x$ est alors
+un nombre positif dont le carré est $x^2$. Par définition de
+$\sqrt{x^2}$, on conclut que $\sqrt{x^2}=-x$ si $x<0$. En résumant ce que
+nous venons de faire, on constate que
+$$\sqrt{x^2}=\begin{cases}
+x&\text{si $x\geq 0$,}\\
+-x&\text{si $x< 0$.}
+\end{cases}$$
+Comme la fonction valeur absolue de $x$ est définie de cette manière, on a
+forcément que $\sqrt{x^2}=|x|$ pour tout $x\in\R$.
+:::
+
+La fonction racine carrée est largement étudiée, que ce soit au
+secondaire, au collégial ou à l'université. Voici quelques remarques à son
+sujet.
+
+::: {.remark title="Propriétés de la racine carrée"}
+- Une convention d'écriture nous permet de l'écrire $x^{1/2}$ ;
+- elle est (strictement) croissante sur $\intfo{0}{\infty}$ ;
+- elle est (infiniment) dérivable sur l'intervalle $\intoo{0}{\infty}$ ;
+- $\sqrt{ab}=\sqrt{a}\sqrt{b}$ pour tout $a,b\in \intfo{0}{\infty}$ ;
+- $\sqrt{\frac{a}{b}}=\frac{\sqrt{a}}{\sqrt{b}}$ pour tout
+  $a\in \intfo{0}{\infty}$ et pour tout $b\in \intoo{0}{\infty}$ ;
+- $\sqrt{a+b}\neq\sqrt{a}+\sqrt{b}$, sauf dans le cas où $a$ ou $b$ est
+  égal à zéro ;
+- $\sqrt{x}$ tend vers l'infini lorsque $x$ tend vers l'infini.
+:::
+
+## Module {#sec:module}
+
+Il est possible de définir une fonction sur $\C$ qui
+prolonge[^prolonge] la fonction valeur absolue de manière continue. La
+notion de module d'un nombre complexe vient généraliser cette notion.
+
+[^prolonge]: Cela signifie qu'on peut trouver une fonction qui est
+    continue sur $\C$ et qui est égale à la fonction valeur absolue sur la
+    partie de $\C$ correspondant à $\R$.
+
+::: {.definition #def:module title="Module"}
+Soit $a$ et $b$ des nombres réels et soit $z$ le nombre complexe
+$a+b\,\iu$. Le [module]{.defi} de $z$, noté $|z|$, est défini par
+$$|z|=\sqrt{a^2+b^2}.$$
+:::
+
+Plus un nombre complexe est loin de l'origine, plus son module est grand
+(figure \ref{fig:module-cone}). Voici quelques propositions faciles à
+démontrer concernant le module d'un nombre complexe.
+
+::: {.proposition #prop:module-positif title="Le module est positif"}
+Pour tout $z\in\C$, $|z|\in \intfo{0}{\infty}$.
+:::
+
+::: proof
+Cette proposition est une conséquence immédiate de la propriété de la
+fonction racine carrée voulant que celle-ci soit toujours positive. Si
+$z=x+\iu\,y$ avec $x,y\in\R$, alors $|z|=\sqrt{x^2+y^2}\geq 0$.
+:::
+
+::: {.proposition #prop:module-nul title="Module nul"}
+Le seul nombre complexe $z$ vérifiant $|z|=0$ est $z=0$.
+:::
+
+::: proof
+Il est clair que si $z=0$, alors $|z|=0$. Maintenant, si $|z|=0$ où
+$z=x+\iu\,y$ avec $x,y\in\R$, alors $\sqrt{x^2+y^2}=0$. Cela implique que
+$x^2+y^2=0$, qui à son tour implique que $x=y=0$. On doit donc avoir que
+$z=0$.
+:::
+
+::: {.proposition #prop:module-conjugue title="Module du conjugué"}
+Nous avons que $|\zbar|=|z|$ pour tout $z\in\C$.
+:::
+
+::: proof
+Si $z=x+\iu\,y$ avec $x,y\in\R$, alors
+$|\overline{z}|=\sqrt{x^2+(-y)^2}=\sqrt{x^2+y^2}=|z|$.
+:::
+
+::: {.proposition #prop:module-carre title="Carré du module"}
+Pour tout $z\in\C$, on a que $|z|^2=z\overline{z}$.
+:::
+
+::: proof
+Si $z=x+\iu\,y$ avec $x,y\in\R$, alors
+$z\overline{z}=(x+\iu\,y)(x-\iu\,y)=x^2+y^2=|z|^2$.
+:::
+
+::: {#fig:module-cone}
+![](figures/tikz/module-cone.tikz)
+
+Module d'un nombre complexe. Plus un nombre complexe est loin de
+l'origine, plus son module est grand. Le graphe de la fonction associant
+un nombre complexe à son module prend la forme d'un cône. Ici, on peut
+voir son allure au-dessus du disque de rayon $3$ centré à l'origine.
+:::
+
+Les nombres complexes ne forment pas un ensemble totalement ordonné,
+c'est-à-dire qu'on ne peut pas définir une relation d'ordre compatible
+avec l'addition. Ainsi, si $w$ est un nombre complexe quelconque, on ne
+peut pas définir une relation $<$ telle que
+$z_1<z_2\Rightarrow z_1+w< z_2+w$ pour des nombres complexes $z_1$ et
+$z_2$ arbitraires. C'est une différence importante par rapport aux
+ensembles $\N$, $\Z$, $\Q$ et $\R$. Par contre, puisque le module d'un
+nombre complexe est toujours un nombre réel, on peut écrire que
+$|z_1|<|z_2|$, et interpréter cela en disant que $z_1$ est plus près de
+l'origine que $z_2$ dans le plan complexe.
+
+## Propriétés du conjugué et du module {#sec:proprietes}
+
+Voici une liste de propriétés relatives au conjugué d'un ou de plusieurs
+nombres complexes, ainsi que leur démonstration.
+
+::: {.proposition #prop:conj-conj title="Conjugué du conjugué"}
+Soit $z\in\C$. Alors $\overline{\overline{z}}=z$.
+:::
+
+::: proof
+Posons $z=x+\iu\,y$, où $x,y\in\R$. Alors
+\begin{align*}
+  \overline{\overline{z}}&=\overline{\overline{x+\iu\,y}}&&\text{par définition de $z$,}\\
+  &=\overline{x-\iu\,y}&&\text{par définition du conjugué,}\\
+  &=x+\iu\,y &&\text{par définition du conjugué,}\\
+  &=z &&\text{par définition de $z$.}
+\end{align*}
+:::
+
+::: {.proposition #prop:conj-somme title="Conjugué d'une somme"}
+Soit $z_1,z_2\in\C$. Alors $\overline{z_1+z_2}=\overline{z_1}+\overline{z_2}$.
+:::
+
+::: proof
+Posons $z_1=x_1+\iu\, y_1$ et $z_2=x_2+\iu\,y_2$, où
+$x_1,x_2,y_1,y_2\in\R$. Nous avons que
+\begin{align*}
+  \overline{z_1+ z_2}&=\overline{(x_1+\iu\,y_1)+ (x_2+\iu\,y_2)}&& \text{par définition de $z_1$ et $z_2$,}\\
+  &=\overline{x_1+x_2 +\iu(y_1+y_2)}&&\text{par définition de la somme,}\\
+  &=x_1+x_2 -\iu(y_1+y_2) &&\text{par définition du conjugué,}\\
+  &=x_1-\iu\,y_1 +x_2-\iu\,y_2 &&\\
+  &=\overline{z_1}+\overline{z_2} &&\text{par définition du conjugué.}
+\end{align*}
+:::
+
+::: {.proposition #prop:conj-produit title="Conjugué d'un produit"}
+Soit $z_1,z_2\in\C$. Alors $\overline{z_1\cdot z_2}=\overline{z_1}\cdot \overline{z_2}$.
+:::
+
+::: proof
+Soit $z_1=x_1+\iu\,y_1$ et $z_2=x_2+\iu\,y_2$, où $x_1,x_2,y_1,y_2\in\R$.
+Nous avons que
+\begin{align*}
+  \overline{z_1\cdot z_2}&=\overline{(x_1+\iu\,y_1)\cdot (x_2+\iu\,y_2)}&& \text{par définition de $z_1$ et $z_2$,}\\
+  &=\overline{x_1x_2-y_1y_2+\iu(x_1y_2+y_1x_2)}&&\text{par définition du produit,}\\
+  &=x_1x_2-y_1y_2-\iu(x_1y_2+y_1x_2)&&\text{par définition du conjugué.}\tag{$\star$}
+\end{align*}
+Aussi,
+\begin{align*}
+  \overline{z_1}\cdot \overline{z_2}&=\overline{x_1+\iu\,y_1}\cdot \overline{x_2+\iu\,y_2}&&\text{par définition de $z_1$ et $z_2$,}\\
+  &=(x_1-\iu\,y_1)\cdot (x_2-\iu\,y_2)&&\text{par définition du conjugué,}\\
+  &=x_1x_2-y_1y_2-\iu(x_1y_2+y_1x_2)&&\text{par définition du produit.}\tag{$\star\star$}
+\end{align*}
+Puisque le membre de droite de l'équation $(\star\star)$ correspond au
+membre de droite de l'équation $(\star)$, la proposition est établie.
+:::
+
+::: {.proposition #prop:conj-puissance title="Conjugué d'une puissance"}
+Soit $z\in\C$. Pour tout $n\in\N$, $\overline{z^n}=\overline{z}^{\,n}$.
+:::
+
+::: proof
+Il suffit d'appliquer la proposition \ref{prop:conj-produit}. En effet, en
+posant $z_1=z_2=z$, nous obtenons que
+$$\overline{z^2}=\overline{z\cdot z}=\overline{z}\cdot \overline{z}=\overline{z}^2.$$
+Il suffit ensuite de répéter l'application de cette propriété. Par
+exemple,
+$$\overline{z^3}=\overline{z\cdot z^2}=\overline{z}\cdot \overline{z^2}=\overline{z}\cdot \overline{z}^2=\overline{z}^3.$$
+On peut continuer ainsi pour toute valeur de $n\in\N$. Cette méthode de
+démonstration repose sur le principe d'induction.
+:::
+
+::: {.proposition #prop:conj-quotient title="Conjugué d'un quotient"}
+Soit $z_1,z_2\in\C$, où $z_2\neq 0$. Alors
+$$\overline{\left(\frac{z_1}{z_2}\right)}=\frac{\overline{z_1}}{\overline{z_2}}.$$
+:::
+
+::: proof
+Pour $z_2\neq 0$, nous avons que
+\begin{align*}
+  \overline{z_1}&=\overline{z_2\cdot\frac{z_1}{z_2}}&&\\
+  &=\overline{z_2}\cdot\overline{\left(\frac{z_1}{z_2}\right)}&&\text{d'après la proposition \ref{prop:conj-produit}}.
+\end{align*}
+En divisant chaque membre de l'équation par $\overline{z_2}$ (on a le
+droit de le faire, car $z_2\neq 0$, d'où $\overline{z_2}\neq 0$), on
+complète la démonstration.
+:::
+
+Voici une liste de propriétés relatives au module d'un ou de plusieurs
+nombres complexes, ainsi que leur démonstration. Dans ce qui suit, on
+pose $z=x+\iu\,y$, $z_1=x_1+\iu\,y_1$ et $z_2=x_2+\iu\,y_2$, où
+$x,y,x_1,x_2,y_1,y_2\in\R$.
+
+::: {.proposition #prop:re-module title="Partie réelle et module"}
+Soit $z\in\C$. Alors $\RE(z) \leq|z|$.
+:::
+
+::: proof
+Nous avons que
+\begin{align*}
+  |z|&=\sqrt{x^2+y^2}&&\text{par définition de $|z|$,}\\
+  &\geq \sqrt{x^2}&&\text{(croissance de la fonction racine carrée)}\\
+  &=|x|&& \text{d'après la proposition \ref{prop:racine-abs},}\\
+  &\geq x&&\text{(propriété de la valeur absolue)}\\
+  &=\RE(z)&&\text{par définition de $\RE(z)$.}
+\end{align*}
+:::
+
+::: {.proposition #prop:im-module title="Partie imaginaire et module"}
+Soit $z\in\C$. Alors $\IM(z) \leq|z|$.
+:::
+
+::: proof
+Nous avons que
+\begin{align*}
+  |z|&=\sqrt{x^2+y^2}&&\text{par définition de $|z|$,}\\
+  &\geq \sqrt{y^2}&&\text{(croissance de la fonction racine carrée)}\\
+  &=|y|&& \text{d'après la proposition \ref{prop:racine-abs},}\\
+  &\geq y&&\text{(propriété de la valeur absolue)}\\
+  &=\IM(z)&&\text{par définition de $\IM(z)$.}
+\end{align*}
+:::
+
+::: {.proposition #prop:module-produit title="Module d'un produit"}
+Soit $z_1,z_2\in\C$. Alors $|z_1\cdot z_2|=|z_1|\cdot |z_2|$.
+:::
+
+::: proof
+Nous avons que
+\begin{align*}
+  |z_1\cdot z_2|&=|(x_1+\iu\,y_1)\cdot (x_2+\iu\,y_2)|&& \text{(définition de $z_1$ et $z_2$)}\\
+  &=|x_1x_2-y_1y_2+\iu(x_1y_2+y_1x_2)|&&\\
+  &=\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2} &&\text{(définition du module).}\tag{$\star$}
+\end{align*}
+Aussi,
+\begin{align*}
+  |z_1|\cdot |z_2|&=\sqrt{x_1^2+y_1^2}\cdot\sqrt{x_2^2+y_2^2}&&\text{(définition du module)}\\
+  &=\sqrt{\left(x_1^2+y_1^2\right)\cdot\left(x_2^2+y_2^2\right)}&&\\
+  &=\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+y_1^2x_2^2}.&&\tag{$\star\star$}
+\end{align*}
+Puisque le membre de droite de l'équation $(\star)$ correspond au membre
+de droite de l'équation $(\star\star)$, les membres de gauche de ces
+équations doivent être égaux, ce qui établit la propriété.
+:::
+
+::: {.proposition #prop:module-puissance title="Module d'une puissance"}
+Soit $z\in\C$. Pour tout $n\in\N$, $|z^n|=|z|^n$.
+:::
+
+::: proof
+Il suffit d'appliquer la proposition \ref{prop:module-produit}. En effet,
+en posant $z_1=z_2=z$, nous obtenons que
+$$\left|z^2\right|=|z\cdot z|=|z|\cdot |z|=|z|^2.$$
+Il suffit ensuite de répéter l'application de cette proposition. Par
+exemple,
+$$\left|z^3\right|=\left|z\cdot z^2\right|=|z|\cdot \left|z^2\right|=|z|\cdot |z|^2=|z|^3.$$
+On peut continuer ainsi pour toute valeur de $n\in\N$. Comme c'était le
+cas dans la démonstration de la proposition \ref{prop:conj-puissance}, le
+principe d'induction est la méthode de démonstration utilisée ici.
+:::
+
+::: {.proposition #prop:module-quotient title="Module d'un quotient"}
+Soit $z_1,z_2\in\C$, où $z_2\neq 0$. Alors
+$\left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}$.
+:::
+
+::: proof
+Pour $z_2\neq 0$, nous avons que
+\begin{align*}
+  |z_1|&=\left|z_2\cdot\frac{z_1}{z_2}\right|\\
+  &=|z_2|\cdot\left|\frac{z_1}{z_2}\right|\qquad\text{d'après la proposition \ref{prop:module-produit}}.
+\end{align*}
+En divisant chaque membre de l'équation par $|z_2|$ (on a le droit de le
+faire, car $z_2\neq 0$, d'où $|z_2|\neq 0$), on complète la démonstration.
+:::
+
+::: {.proposition #prop:inegalite-triangulaire title="Inégalité triangulaire"}
+Soit $z_1,z_2\in\C$. Alors $|z_1+z_2|\leq |z_1|+|z_2|$.
+:::
+
+::: proof
+Dans un premier temps, on observe que si $a$ et $b$ sont des nombres réels
+positifs, alors $a^2\leq b^2\Rightarrow a\leq b$ (ce n'est pas forcément
+le cas si $a$ et $b$ peuvent être négatifs). Ainsi, puisque $|z_1+z_2|$ et
+$|z_1|+|z_2|$ sont des nombres réels positifs, il suffit de montrer que
+$$|z_1+z_2|^2\leq \left(|z_1|+|z_2|\right)^2.$$
+Nous avons que
+\begin{align*}
+  |z_1+z_2|^2&=(z_1+z_2)(\overline{z_1+z_2})&&\text{selon la prop. \ref{prop:module-carre},}\\
+  &=(z_1+z_2)(\overline{z_1}+\overline{z_2})&&\text{selon la prop. \ref{prop:conj-somme},}\\
+  &=z_1\overline{z_1}+z_2\overline{z_2}+z_1\overline{z_2}+z_2\overline{z_1}&&\\
+  &=|z_1|^2+|z_2|^2+\overline{\overline{z_1}}\cdot\overline{z_2}+z_2\overline{z_1}&&\text{selon les prop. \ref{prop:module-carre} et \ref{prop:conj-conj},}\\
+  &=|z_1|^2+|z_2|^2+\overline{\overline{z_1}z_2}+z_2\overline{z_1}&&\text{selon la prop. \ref{prop:conj-produit},}\\
+  &=|z_1|^2+|z_2|^2+2\cdot\frac{\overline{z_2\overline{z_1}}+z_2\overline{z_1}}{2}&&\\
+  &=|z_1|^2+|z_2|^2+2\RE(z_2\overline{z_1})&&\text{selon la prop. \ref{prop:re-im-conjugue},}\\
+  &\leq |z_1|^2+|z_2|^2+2|z_2\overline{z_1}|&&\text{selon la prop. \ref{prop:re-module},}\\
+  &=|z_1|^2+|z_2|^2+2|z_2|\cdot|\overline{z_1}|&&\text{selon la prop. \ref{prop:module-produit},}\\
+  &=|z_1|^2+|z_2|^2+2|z_2|\cdot|z_1|&&\text{selon la prop. \ref{prop:module-conjugue},}\\
+  &=\left(|z_1|+|z_2|\right)^2.&&
+\end{align*}
+:::

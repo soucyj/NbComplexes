@@ -1,0 +1,6 @@
+% axehorizontal (ancienne source : images/axehorizontal/axehorizontal.tex)
+\begin{tikzpicture}[scale=0.55]
+  \draw[->] (-4,0) -- (4,0) node[right] {$\RE$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$\IM$};
+  \draw[firebrick3,opacity=0.5,thick] (-4,0)--(4,0) node[below left]{L'axe r\'eel};
+\end{tikzpicture}

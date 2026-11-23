@@ -1,0 +1,7 @@
+% aucunpoint (ancienne source : images/aucunpoint/aucunpoint.tex)
+\begin{tikzpicture}[scale=0.55]
+  \draw[->] (-4,0) -- (4,0) node[right] {$\RE$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$\IM$};
+  \node (first) at (-1,3){};
+  \node [draw, right=of first, rotate=30, anchor=north,firebrick3]{Aucun point};
+\end{tikzpicture}

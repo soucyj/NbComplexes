@@ -1,0 +1,17 @@
+/_book/
+/.quarto/
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.toc
+*.out
+sol-ch*.tex
+Introduction-nombres-complexes.tex
+_etiquettes.json
+_bibliographie-web.json
+/site_libs/
+
+**/*.quarto_ipynb

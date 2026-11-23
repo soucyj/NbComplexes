@@ -1,0 +1,77 @@
+name: Publier le site Quarto
+
+# À chaque poussée sur main : rend le site et le PDF (dossier quarto/),
+# puis publie quarto/_book/ sur GitHub Pages.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: quarto
+    steps:
+      - name: Récupérer les sources
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Installer TinyTeX
+        run: quarto install tinytex --update-path
+
+      # Les figures TikZ sont compilées par _outils/pre-rendu.py avec lualatex
+      # lancé directement : contrairement au rendu du PDF par Quarto, il
+      # n'installe pas les paquets manquants. On les installe donc ici, avec
+      # biber et biblatex pour la bibliographie du PDF.
+      - name: Installer les paquets LaTeX
+        run: |
+          tlmgr update --self
+          tlmgr install standalone pgf pgfplots xkeyval xstring mathtools \
+            fontspec unicode-math luaotfload lualibs lua-uni-algos luatex85 \
+            babel-french hyphen-french siunitx translations tipa interval \
+            carlisle etoolbox epstopdf-pkg xcolor tools amsmath l3packages \
+            tex-gyre fira newcomputermodern biber biblatex ccicons \
+            tkz-euclide fontawesome5 answers
+
+      - name: Installer Poppler
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes poppler-utils
+
+      - name: Générer le site et le PDF
+        run: quarto render
+
+      - name: Préparer l'artefact Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quarto/_book
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Publier sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

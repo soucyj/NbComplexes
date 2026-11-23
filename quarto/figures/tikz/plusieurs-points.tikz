@@ -1,0 +1,15 @@
+% plusieurspoints (ancienne source : images/plusieurspoints/plusieurspoints.tex)
+\begin{tikzpicture}[scale=0.55]
+  \draw[->] (-4.5,0) -- (4.5,0) node[right] {$\RE$};
+  \draw[->] (0,-3) -- (0,5.5) node[above] {$\IM$};
+  \draw[firebrick3,fill=firebrick3] (1,1) circle (1pt) node[below]{$z_1$};
+  \draw[firebrick3,fill=firebrick3] (0,1) circle (1pt) node[left]{$z_2$};
+  \draw[firebrick3,fill=firebrick3] (0.707,-0.707) circle (1pt) node[below]{$z_3$};
+  \draw[firebrick3,fill=firebrick3] (4,0) circle (1pt) node[below]{$z_4$};
+  \draw[firebrick3,fill=firebrick3] (0,0) circle (1pt) node[below left]{$z_5$};
+  \draw[firebrick3,fill=firebrick3] (-4,0) circle (1pt) node[below]{$z_6$};
+  \draw[firebrick3,fill=firebrick3] (1,-1.73) circle (1pt) node[below]{$z_7$};
+  \draw[firebrick3,fill=firebrick3] (-3,5.2) circle (1pt) node[below]{$z_8$};
+  \draw (1,-0.05) -- (1,0.05) node[below]{$1$};
+  \draw (-0.05,-1) -- (0.05,-1) node[left]{$-\iu$};
+\end{tikzpicture}

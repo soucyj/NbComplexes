@@ -1,0 +1,97 @@
+# ═══════════════════════════════════════════════════════════════════════
+#  Introduction aux nombres complexes et polynômes (source Quarto)
+#  Une seule source, deux sorties :
+#    quarto render             → le site web ET le PDF dans _book/ (à utiliser
+#                                pour publier : la couverture du site renvoie
+#                                au PDF)
+#    quarto render --to pdf    → le livre seul, mis en page par latex/livrejs.cls
+#    quarto render --to html   → le site seul (attention : vide _book/, donc
+#                                efface le PDF)
+#    quarto preview            → aperçu web qui se met à jour en direct
+# ═══════════════════════════════════════════════════════════════════════
+project:
+  type: book
+  output-dir: _book
+  pre-render: _outils/pre-rendu.py
+  resources:
+    - styles/polices/STIXTwoText-*.otf
+    - images/couverture-web.jpg
+    - images/licence/*.svg
+    - CNAME
+
+lang: fr
+language:
+  title-block-author-single: "Auteur"
+  title-block-published: "Mise à jour"
+
+book:
+  title: "Introduction aux nombres complexes et polynômes"
+  author: "Jérôme Soucy"
+  date: today
+  date-format: "D MMMM YYYY"
+  output-file: "Introduction-nombres-complexes"
+  site-url: "https://complexe.mathematiques.art/"
+  repo-url: "https://github.com/soucyj/NbComplexes"
+  chapters:
+    - index.qmd
+    - 01-arithmetique.qmd
+    - 02-definition.qmd
+    - 03-module-conjugue.qmd
+    - 04-lieux.qmd
+    - 05-serie1.qmd
+    - 06-polaire.qmd
+    - 07-exponentielle.qmd
+    - 08-euler-de-moivre.qmd
+    - 09-racines.qmd
+    - 10-serie2.qmd
+  # Les solutions et la bibliographie suivent, sans numéro.
+  appendices:
+    - solutions.qmd
+    - references.qmd
+  downloads: [pdf]
+  page-footer:
+    center: |
+      <a class="licence-pied" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" rel="license" title="Licence Creative Commons Attribution – Pas d'utilisation commerciale – Partage dans les mêmes conditions 4.0 International"><img src="images/licence/cc.svg" alt="Creative Commons"><img src="images/licence/by.svg" alt="Attribution"><img src="images/licence/nc.svg" alt="Pas d'utilisation commerciale"><img src="images/licence/sa.svg" alt="Partage dans les mêmes conditions"></a>&nbsp; © 2026 Jérôme Soucy — ressource libre sous licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr" rel="license">CC BY-NC-SA 4.0</a>.
+  search: true
+  page-navigation: true
+
+bibliography: references.bib
+
+number-sections: true
+number-depth: 3
+
+# Le filtre passe avant Quarto (pre-ast) : il traduit lui-même les blocs
+# .remark, .proof, .solution... que Quarto interpréterait autrement.
+filters:
+  - path: _filtres/livrejs.lua
+    at: pre-ast
+
+format:
+  html:
+    theme: [cosmo, styles/livrejs.scss]
+    css: styles/polices.css
+    include-in-header: styles/mathjax-config.html
+    include-after-body: styles/toc-actif.html
+    # MathJax 4, version « nofont » : la police des formules (STIX Two Math,
+    # assortie au texte en STIX Two Text) est choisie dans mathjax-config.html.
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml-nofont.js"
+    toc: true
+    toc-title: "Dans ce chapitre"
+    toc-location: left
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github
+    reference-location: margin
+    citation-location: document
+    link-citations: true
+    csl: styles/alphabetique.csl
+    bibliography: _bibliographie-web.json
+  pdf:
+    template: latex/gabarit.tex
+    pdf-engine: lualatex
+    cite-method: biblatex
+    keep-tex: true
+    number-sections: true

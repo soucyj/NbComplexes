@@ -1,0 +1,81 @@
+# Forme polaire {#chap:polaire}
+
+Bien que, la plupart du temps, le système de coordonnées cartésiennes soit
+le plus commode pour décrire la position des points dans le plan, il
+arrive qu'une autre manière, où la notion d'angle est exploitée, soit à
+privilégier. On parle alors d'une représentation polaire, ou
+trigonométrique, du point dans le plan (figure \ref{fig:polaire}).
+
+::: {#fig:polaire}
+![](figures/tikz/polaire.tikz)
+
+En coordonnées polaires, deux nombres réels sont nécessaires pour
+identifier la position d'un point $P$ à partir d'un point $O$ dans un
+plan. Le nombre $r$ correspond à son module et $\theta$ à son argument.
+:::
+
+::: {.definition #def:arg-principal title="Argument principal"}
+Soit $z\in\Cs$, un nombre complexe de module $r$. L'[argument
+principal]{.defi} de $z$, noté $\Arg(z)$, est l'unique nombre $\theta$ qui
+satisfait les deux conditions suivantes :
+\begin{align*}
+  z&= r(\cos\theta+\iu\sin\theta),\\
+  -\pi&<\theta\leq \pi.
+\end{align*}
+:::
+
+::: {.definition #def:forme-polaire title="Forme polaire"}
+Soit $z\in\Cs$, un nombre complexe de module $r$ et d'argument principal
+$\theta$. Le nombre $z$ est exprimé sous sa [forme polaire]{.defi}
+lorsqu'on écrit
+$$z= r(\cos\theta+\iu\sin\theta).$$
+:::
+
+::: {.remark title="Argument et forme polaire"}
+1. L'argument principal de $0$ n'est pas défini. Le nombre $0$ n'a donc
+   pas de forme polaire ; on peut cependant le caractériser comme étant
+   l'unique nombre ayant un module de $0$.
+2. On écrit $\arg(z)$ pour désigner un angle $\theta$, pas nécessairement
+   dans l'intervalle $\intof{-\pi}{\pi}$, qui satisfait
+   $z=r(\cos\theta+\iu\sin\theta)$.
+3. Pour avoir la forme polaire d'un nombre $z$, il est important que
+   $\theta$ soit l'argument principal de $z$, c'est-à-dire qu'il
+   appartienne à l'intervalle $\intof{-\pi}{\pi}$.
+4. Parfois, on retrouve la notation $r\,\mathrm{cis}\,\theta$ à la place
+   de $r(\cos\theta+\iu\sin\theta)$.
+:::
+
+::: {.proposition #prop:arg-principal title="Calcul de l'argument principal"}
+Soit $z\in\Cs$ un nombre complexe de forme cartésienne $x+\iu\,y$. Son
+argument principal, noté $\theta$, est donné par la formule
+$$
+\theta =
+\begin{cases}
+\frac{\pi}{2}&\text{si } x=0 \text{ et } y>0,\\
+-\frac{\pi}{2}&\text{si } x=0 \text{ et } y<0,\\
+\arctan\left(\frac{y}{x}\right)&\text{si } x>0,\\
+\arctan\left(\frac{y}{x}\right)-\pi &\text{si } x<0 \text{ et } y<0,\\
+\arctan\left(\frac{y}{x}\right)+\pi &\text{si } x<0 \text{ et } y\geq 0.
+\end{cases}
+$$
+:::
+
+La démonstration de la proposition précédente ne pose aucune difficulté si
+on prend la peine de représenter convenablement un nombre complexe $z$
+dans chacun des scénarios énumérés.
+
+::: {.example #ex:forme-polaire title="Calcul d'une forme polaire"}
+Trouvez la forme polaire du nombre $2+2\iu$.
+
+Le module du nombre $2+2\iu$ est $\sqrt{2^2+2^2}=2\sqrt{2}$. L'argument
+principal est la mesure de l'angle illustré à la figure
+\ref{fig:polaire-2-2i}. Ainsi, la forme polaire de $2+2\iu$ est
+$$2\sqrt{2}\left(\cos\frac{\pi}{4}+\iu\sin\frac{\pi}{4}\right).$$
+:::
+
+::: {#fig:polaire-2-2i}
+![](figures/tikz/polaire-2-2i.tikz)
+
+La forme polaire du nombre $2+2\iu$. Nous avons que
+$2+2\iu=2\sqrt{2}\left(\cos\frac{\pi}{4}+\iu\sin\frac{\pi}{4}\right)$.
+:::

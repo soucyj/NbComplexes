@@ -1,0 +1,652 @@
+// ═══════════════════════════════════════════════════════════════════════
+//  livrejs.scss — thème web calqué sur la maquette de latex/livrejs.cls
+//  Mêmes couleurs (latex/livrejs-couleurs.sty), mêmes polices, mêmes
+//  boîtes ; les étiquettes que le PDF place dans la marge de gauche
+//  (« Définition 3.1 ») sont ici en tête de la boîte.
+// ═══════════════════════════════════════════════════════════════════════
+
+/*-- scss:defaults --*/
+
+// Couleurs d'accent : celles de livrejs-couleurs.sty
+$sectioncolor: rgb(28, 63, 110);
+$coveraccent:  rgb(196, 142, 58);
+$covernavy:    rgb(13, 27, 51);
+$infocolor:    rgb(46, 125, 50);
+$classecolor:  $coveraccent;
+
+// Fonds des boîtes : versions adoucies de ceux du PDF, accordées au fond
+// blanc cassé de la page (même clarté, un peu plus foncée que la page ;
+// teinte peu saturée).
+$thmboxbg:     rgb(226, 232, 240);
+$histboxbg:    rgb(238, 233, 218);
+$secboxbg:     rgb(242, 231, 210);
+$infoboxbg:    rgb(225, 234, 222);
+$citationbg:   rgb(236, 234, 227);
+// Listings : fond du PDF, inchangé
+$codebg:       rgb(248, 248, 248);
+// Figures interactives : un peu plus clair que la page
+$interactifbg: rgb(251, 250, 247);
+
+$primary: $sectioncolor;
+$link-color: $sectioncolor;
+$body-color: #1d1d1f;
+// Fond de page : blanc cassé
+$body-bg: rgb(246, 244, 238);
+
+$font-family-sans-serif: "Fira Sans", "Helvetica Neue", Arial, sans-serif;
+// STIX Two Text : assortie aux formules MathJax en STIX Two Math
+$font-family-serif: "STIX Two Text", "STIXGeneral", "Times New Roman", serif;
+$font-family-base: $font-family-serif;
+$font-family-monospace: "Fira Mono", Menlo, Consolas, monospace;
+// Menus et navigation : même sans-serif que les titres de section
+$font-family-menus: $font-family-sans-serif;
+$headings-font-family: $font-family-sans-serif;
+$headings-color: $sectioncolor;
+$headings-font-weight: 700;
+$font-size-root: 18px;
+$line-height-base: 1.55;
+$code-color: $sectioncolor;
+
+/*-- scss:rules --*/
+
+// ── Texte courant ────────────────────────────────────────────────────────
+body {
+  font-feature-settings: "kern", "liga";
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+// Fer à gauche (comme les classes Tufte) : le navigateur justifie mal,
+// surtout autour des formules MathJax insécables.
+main p, main li {
+  text-align: left;
+}
+
+.sidebar, .quarto-title-meta, nav, #TOC, .sidebar-title {
+  font-family: $font-family-menus;
+}
+
+// Terme défini : gras, couleur des titres (\defi)
+.defi {
+  font-weight: 700;
+  color: $sectioncolor;
+}
+
+// Petites capitales : les vraies, dessinées dans STIX Two Text (fonction
+// OpenType smcp), plutôt que des capitales réduites par le navigateur.
+@mixin petites-capitales {
+  font-family: $font-family-serif;
+  font-variant: normal;
+  font-variant-caps: small-caps;
+  font-synthesis: none;
+}
+.smallcaps { @include petites-capitales; }
+.nowrap { white-space: nowrap; }
+
+// Espaces insécables : le filtre les enveloppe dans un <span>. Dans STIX
+// Two Text, l'espace insécable a la largeur de l'espace ordinaire
+// (0,235 em) ; l'espace fine est ramenée à 1/8 em (celle de la police).
+// La police est fixée (romain maigre) pour que la largeur soit la même
+// dans les titres en Fira Sans, en gras ou en italique.
+.esp-ins, .esp-fine {
+  font-family: $font-family-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.esp-fine { letter-spacing: -0.11em; }
+
+// Renvois
+a.renvoi { text-decoration: none; }
+.renvoi-externe {
+  border-bottom: 1px dotted rgba($sectioncolor, 0.5);
+  cursor: help;
+}
+
+// ── Titres : numéro et filet comme dans le PDF ───────────────────────────
+h1.title, .quarto-title .title {
+  font-family: $font-family-sans-serif;
+  font-weight: 700;
+  color: $sectioncolor;
+  border-bottom: 1.5px solid $sectioncolor;
+  padding-bottom: 0.4rem;
+}
+
+.chapter-number { color: $sectioncolor; margin-right: 0.6em; }
+
+main h2 {
+  font-size: 1.45rem;
+  border-bottom: 1px solid $sectioncolor;
+  padding-bottom: 0.3rem;
+  margin-top: 2.6rem;
+}
+
+main h3 { font-size: 1.15rem; margin-top: 2rem; }
+
+.header-section-number {
+  color: $sectioncolor;
+  margin-right: 0.5em;
+}
+
+// \paragraph : titre en ligne
+.paragraphe-titre {
+  font-weight: 700;
+  margin-right: 0.35em;
+}
+
+// ── Environnements à boîte (theorem, definition, example, remark...) ─────
+.env {
+  margin: 1.6rem 0 1.4rem;
+}
+
+.env-entete {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  color: $sectioncolor;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.1em;
+  align-items: baseline;
+}
+
+.env-etiquette { white-space: nowrap; }
+
+.env-corps {
+  background: $thmboxbg;
+  padding: 0.75rem 1rem;
+
+  > :last-child { margin-bottom: 0; }
+  p:last-child { margin-bottom: 0; }
+}
+
+// Notes historiques : ivoire, filet bleu à gauche
+.env-historical .env-corps {
+  background: $histboxbg;
+  border-left: 3px solid $sectioncolor;
+}
+
+// Boîte contenant une note en marge : Quarto l'étend (page-full) sur toute
+// la largeur de l'écran. Le fond est alors redessiné sous la seule colonne
+// principale, et le retrait intérieur reporté sur les enfants.
+.env-corps.page-columns.page-full {
+  position: relative;
+  isolation: isolate;
+  background: none;
+  border-left: none;
+  padding-left: 0;
+  padding-right: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    grid-column: body-content-start / body-content-end;
+    inset: 0;
+    z-index: -1;
+    background: $thmboxbg;
+  }
+  &, .page-columns {
+    > :not(.column-margin):not(.page-columns) { margin-inline: 1rem; }
+  }
+}
+.env-historical .env-corps.page-columns::before {
+  background: $histboxbg;
+  border-left: 3px solid $sectioncolor;
+}
+.env-secondaire .env-corps.page-columns::before {
+  background: $secboxbg;
+  border-left: 3px solid $classecolor;
+}
+.env-outil .env-corps.page-columns::before {
+  background: $infoboxbg;
+  border-left: 3px solid $infocolor;
+}
+
+// « Pour la classe » : ocre, filet et étiquette jaune ocre
+.env-secondaire {
+  .env-entete { color: darken($classecolor, 8%); }
+  .env-corps {
+    background: $secboxbg;
+    border-left: 3px solid $classecolor;
+  }
+}
+
+// « Outil » : vert, comme les activités informatiques
+.env-outil {
+  .env-entete { color: $infocolor; }
+  .env-corps {
+    background: $infoboxbg;
+    border-left: 3px solid $infocolor;
+  }
+}
+
+.env-entete .bi { margin-right: 0.15em; }
+
+// ── Portraits des notes historiques ──────────────────────────────────────
+.portrait {
+  display: grid;
+  grid-template-columns: minmax(7rem, 24%) 1fr;
+  column-gap: 1.1rem;
+  align-items: start;
+  margin-bottom: 0.7rem;
+
+  .portrait-image p { margin: 0; }
+  .portrait-photo { width: 100%; height: auto; display: block; }
+  .portrait-legende {
+    font-size: 0.72rem;
+    line-height: 1.3;
+    text-align: center;
+    margin-top: 0.3rem;
+  }
+  .portrait-texte > :last-child { margin-bottom: 0; }
+}
+// Texte à gauche, figure à droite (bouteille de Klein)
+.portrait.portrait-droite { grid-template-columns: 1fr minmax(7rem, 25%); }
+
+// Note en marge dans le texte : Quarto ajoute page-columns/page-full au
+// portrait, dont la grille pleine page remplace la nôtre. On garde alors sa
+// grille (pour la note en marge) et on superpose image et texte sur la même
+// rangée de la colonne principale, le texte laissant la place à l'image.
+@media (min-width: 576px) {
+  .portrait.page-columns {
+    > .portrait-texte, > .portrait-image { grid-row: 1; }
+    > .portrait-image {
+      grid-column: body-content-start / body-content-end;
+      width: 24%;
+      min-width: 7rem;
+      justify-self: start;
+    }
+    > .portrait-texte > :not(.column-margin) { padding-left: calc(24% + 1.1rem); }
+  }
+  .portrait.portrait-droite.page-columns {
+    > .portrait-image { width: 25%; justify-self: end; }
+    > .portrait-texte > :not(.column-margin) {
+      padding-left: 0;
+      padding-right: calc(25% + 1.1rem);
+    }
+  }
+}
+
+// ── Tables numérotées (légende au-dessus, comme dans le PDF) ─────────────
+.table-livre {
+  margin: 1.6rem 0;
+  .tableau-legende { margin: 0 0 0.6rem; max-width: 100%; }
+  table { margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 575.98px) {
+  .portrait, .portrait.portrait-droite { grid-template-columns: 1fr; }
+  .portrait .portrait-image { max-width: 12rem; margin: 0 auto 0.8rem; }
+}
+
+// ── Citations (extrait) : guillemets décoratifs ──────────────────────────
+.extrait-citation {
+  position: relative;
+  background: $citationbg;
+  border-left: 2.5px solid $sectioncolor;
+  padding: 0.9rem 1.4rem 0.9rem 2rem;
+  margin: 2rem 0 1.2rem;
+
+  &::before, &::after {
+    position: absolute;
+    font-family: $font-family-serif;
+    font-style: italic;
+    font-size: 3.4rem;
+    line-height: 1;
+    color: rgba($sectioncolor, 0.3);
+  }
+  &::before { content: "«"; left: 0.25rem; top: -0.8rem; }
+  &::after  { content: "»"; right: 0.2rem; bottom: -1.3rem; }
+  p:last-child { margin-bottom: 0; }
+}
+
+// ── Démonstrations ───────────────────────────────────────────────────────
+.preuve {
+  margin: 0.6rem 0 1.2rem;
+  .qed { float: right; margin-left: 1em; }
+  &::after { content: ""; display: table; clear: both; }
+}
+
+// ── Figures ───────────────────────────────────────────────────────────────
+.figure-livre {
+  margin: 1.6rem 0;
+  text-align: center;
+
+  p { text-align: center; margin-bottom: 0.4rem; }
+  // multiply : le fond blanc des figures prend la couleur de la page
+  img { max-width: 100%; height: auto; mix-blend-mode: multiply; }
+}
+
+.figure-legende {
+  font-size: 0.9rem;
+  text-align: left;
+  line-height: 1.45;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.figure-etiquette { @include petites-capitales; }
+
+// ── Tableaux (booktabs) ──────────────────────────────────────────────────
+table.tableau-livre, main table {
+  width: auto;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  border-top: 1.5px solid $body-color;
+  border-bottom: 1.5px solid $body-color;
+
+  thead th, thead td {
+    border-bottom: 0.8px solid $body-color !important;
+    font-weight: 400;
+  }
+  th, td {
+    border: none;
+    padding: 0.25rem 0.8rem;
+  }
+  tbody tr { border: none; }
+}
+
+// ── Listes : étiquettes a), (a), (i) ─────────────────────────────────────
+.liste-parenthese ol, .liste-parentheses ol { list-style: none; counter-reset: item; }
+.liste-parenthese > ol > li, .liste-parentheses > ol > li {
+  counter-increment: item;
+  position: relative;
+}
+.liste-parenthese > ol > li::before {
+  position: absolute;
+  left: -1.8em;
+  content: counter(item, lower-alpha) ")";
+}
+.liste-parenthese > ol[type="i"] > li::before { content: counter(item, lower-roman) ")"; }
+.liste-parentheses > ol > li::before {
+  position: absolute;
+  left: -2em;
+  content: "(" counter(item, lower-alpha) ")";
+}
+.liste-parentheses > ol[type="i"] > li::before { content: "(" counter(item, lower-roman) ")"; }
+.liste-parentheses > ol[type="1"] > li::before { content: "(" counter(item) ")"; }
+// Liste reprise après une interruption (« d) » plutôt que « a) »)
+.liste-debut > ol { counter-reset: item var(--debut); }
+
+// ── Exercices et solutions ───────────────────────────────────────────────
+.exercice {
+  margin: 1.4rem 0;
+  padding-top: 0.2rem;
+}
+
+.exo-etiquette {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  color: $sectioncolor;
+  margin-right: 0.3em;
+}
+
+.exercice-python .exo-etiquette { color: $infocolor; }
+.exercice-classe .exo-etiquette { color: darken($classecolor, 8%); }
+
+.solution-details {
+  margin: 0.4rem 0 0.8rem;
+  border-left: 3px solid rgba($sectioncolor, 0.35);
+  background: rgba($thmboxbg, 0.45);
+
+  > summary {
+    font-family: $font-family-sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $sectioncolor;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+    &::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 0.45em;
+      transition: transform 0.15s;
+    }
+  }
+  &[open] > summary::before { transform: rotate(90deg); }
+  &[open] { padding-bottom: 0.6rem; }
+  > :not(summary) { padding: 0 1rem; }
+}
+
+// ── Code (lstlisting) ────────────────────────────────────────────────────
+.listing { margin: 1.2rem 0; }
+
+.listing-legende {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+.listing-etiquette { @include petites-capitales; }
+
+div.sourceCode {
+  background: $codebg;
+  border: 0.5px solid rgba(#000, 0.25);
+  border-radius: 0;
+}
+.listing-python div.sourceCode { border-color: rgba($infocolor, 0.7); }
+
+// ── Chapitres pas encore convertis ───────────────────────────────────────
+.a-convertir {
+  font-family: $font-family-sans-serif;
+  font-size: 0.95rem;
+  background: $histboxbg;
+  border-left: 3px solid $coveraccent;
+  padding: 0.8rem 1rem;
+}
+
+// ── Bibliographie ────────────────────────────────────────────────────────
+#refs .csl-entry { margin-bottom: 0.35rem; }
+#refs .csl-left-margin { min-width: 4.5rem; color: $sectioncolor; }
+
+// ── Couverture (page d'accueil) : lien de téléchargement du PDF ──────────
+figure.couverture {
+  float: right;
+  width: 240px;
+  margin: 0 0 1.2rem 1.8rem;
+  text-align: center;
+
+  a { display: block; }
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 6px 24px rgba($covernavy, 0.28);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  a:hover img, a:focus-visible img {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba($covernavy, 0.38);
+  }
+  figcaption {
+    font-family: $font-family-menus;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    color: rgba($body-color, 0.65);
+    margin-top: 0.6rem;
+  }
+}
+@media (max-width: 767.98px) {
+  figure.couverture { float: none; width: 200px; margin: 0 auto 1.5rem; }
+}
+
+// ── Barre latérale, table des matières et navigation ────────────────────
+// Sans-serif des titres, élément actif marqué d’un filet doré (couverture).
+.sidebar-title {
+  font-family: $font-family-menus;
+  font-variation-settings: "opsz" 40;
+  color: $sectioncolor;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+.sidebar-navigation .sidebar-item {
+  font-size: 0.98rem;
+  line-height: 1.35;
+
+  .sidebar-item-container { padding: 0.15rem 0; }
+
+  a.sidebar-link,
+  .sidebar-item-text { font-family: $font-family-menus; color: $sectioncolor; }
+
+  a.sidebar-link {
+    border-left: 2px solid transparent;
+    padding-left: 0.6rem;
+    transition: border-color 0.15s;
+
+    &:hover { font-weight: 700; border-left-color: rgba($coveraccent, 0.5); }
+    &:hover .sidebar-item-text, &.active .sidebar-item-text { font-weight: 700; }
+    &.active {
+      font-weight: 700;
+      border-left-color: $coveraccent;
+    }
+  }
+}
+
+// « Dans ce chapitre »
+#TOC, nav[role="doc-toc"] {
+  font-size: 0.92rem;
+
+  h2, #toc-title {
+    font-family: $font-family-menus;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba($body-color, 0.55);
+    border: none;
+    margin-top: 0;
+  }
+
+  ul > li > a {
+    font-family: $font-family-menus;
+    color: $sectioncolor;
+    &:hover, &.active { color: $sectioncolor; font-weight: 700; }
+    &.active { border-left-color: $coveraccent; }
+  }
+
+  // Dans la barre de gauche, sous la liste des chapitres
+  .sidebar & { margin-top: 1.6rem; }
+}
+
+// Grand écran : la barre de gauche part du bord de la fenêtre et prend
+// l'essentiel de l'espace horizontal libre (2 parts sur 3), sur un fond en
+// dégradé radial lime → turquoise pâle. Même grille pour les .page-columns
+// imbriquées (boîtes et portraits avec note en marge).
+$menu-degrade: radial-gradient(ellipse 130% 75% at 50% 45%,
+  rgb(240, 251, 112) 0%, rgb(228, 246, 150) 35%,
+  rgb(206, 235, 190) 70%, rgb(190, 226, 230) 100%);
+
+@media (min-width: 992px) {
+  body.nav-sidebar.floating:not(.docked) .page-columns {
+    grid-template-columns:
+      [screen-start screen-start-inset page-start] 2.5rem
+      [page-start-inset] minmax(240px, 2fr)
+      [body-start-outset] 2.5rem
+      [body-start] 1.5em
+      [body-content-start] minmax(450px, calc(750px - 3em))
+      [body-content-end] 1.5em
+      [body-end] 40px
+      [body-end-outset] minmax(50px, 170px)
+      [page-end-inset] 40px
+      [page-end] 1fr
+      [screen-end-inset] 1.5em [screen-end];
+  }
+
+  body.nav-sidebar.floating #quarto-sidebar {
+    grid-column: screen-start / body-start-outset;
+    top: 0;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 1.5rem 1.5rem 2rem;
+    background: $menu-degrade;
+
+    > * {
+      width: 100%;
+      max-width: 22rem;
+      margin-inline: auto;
+      padding-right: 0;
+    }
+    .sidebar-search .aa-DetachedSearchButton,
+    .sidebar-search input { background: rgba(255, 255, 255, 0.7); }
+    // Filet de l'élément actif : bleu (le doré se perd sur le lime)
+    a.sidebar-link.active, #TOC a.active { border-left-color: $sectioncolor; }
+    a.sidebar-link:hover { border-left-color: rgba($sectioncolor, 0.4); }
+  }
+}
+
+// Chapitre précédent / suivant
+.page-navigation {
+  font-family: $font-family-menus;
+  .nav-page a { color: $sectioncolor; }
+}
+
+// ── Figures interactives (version web seulement) ─────────────────────────
+.figure-interactive {
+  margin: 1.6rem 0;
+  padding: 0.9rem 1.1rem 1rem;
+  border: 1px solid rgba($sectioncolor, 0.25);
+  border-top: 3px solid $sectioncolor;
+  background: $interactifbg;
+
+  > p:first-child { font-size: 0.95rem; }
+  canvas { display: block; margin: 0.4rem auto 0; max-width: 100%; }
+  form, .observablehq--inspect { font-family: $font-family-sans-serif; font-size: 0.85rem; }
+  form { --label-width: 11rem; }
+  label { font-family: $font-family-sans-serif; }
+}
+
+// ── Petits écrans : formules et tableaux larges défilent horizontalement ─
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 0.1rem 0;
+}
+@media (max-width: 767.98px) {
+  main table { display: block; overflow-x: auto; max-width: 100%; }
+  .env-corps { padding: 0.6rem 0.75rem; }
+  .nowrap { white-space: normal; }
+  mjx-container:not([display="true"]) {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: middle;
+  }
+  .portrait { grid-template-columns: 1fr; }
+}
+
+// ── Notice de licence (page « Au sujet de ces notes » et pied de page) ──
+.licence {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 1.6rem 0 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba($sectioncolor, 0.25);
+}
+.licence-icones {
+  display: flex;
+  gap: 0.3rem;
+  flex: none;
+  border-bottom: none !important;
+  img { height: 2.2rem; width: auto; opacity: 0.85; transition: opacity 0.15s; }
+  &:hover img { opacity: 1; }
+}
+.licence-titre {
+  font-family: $font-family-sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba($body-color, 0.6);
+}
+.licence-nom { font-weight: 600; color: $sectioncolor; }
+.nav-footer .licence-pied {
+  border-bottom: none;
+  img { height: 1.15em; vertical-align: -0.2em; opacity: 0.75; margin-right: 0.1em; }
+}

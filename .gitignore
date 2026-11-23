@@ -1,6 +1,60 @@
+# Ignorer les fichiers générés par LaTeX et autres fichiers temporaires
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.toc
+*.bak
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.gz
+*.tmp
+
+# Ne pas ignorer les fichiers PDF
+!*.pdf
+
+# Ignorer les dossiers de solutions temporaires
+**/Solutions/*.aux
+**/Solutions/*.bcf
+**/Solutions/*.run.xml
+**/Solutions/*.bak
+**/Solutions/*.log
+**/Solutions/*.out
+**/Solutions/*.synctex.gz
+**/Solutions/*.fls
+**/Solutions/*.fdb_latexmk
+**/Solutions/*.nav
+**/Solutions/*.snm
+**/Solutions/*.vrb
+**/Solutions/*.lof
+**/Solutions/*.lot
+**/Solutions/*.gz
+**/Solutions/*.tmp
+
+# Ignorer les fichiers de sauvegarde
+*.bak
+
+# Ne pas ignorer les fichiers sources
+!*.tex
+!*.sty
+!*.cls
+!*.bib
+
+/.quarto/
+**/*.quarto_ipynb
+
+# Ancien projet RStudio
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-
-/.quarto/
+.DS_Store

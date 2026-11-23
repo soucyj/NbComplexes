@@ -1,0 +1,6 @@
+% plancomplet (ancienne source : images/plancomplet/plancomplet.tex)
+\begin{tikzpicture}[scale=0.55]
+  \draw[->] (-4,0) -- (4,0) node[right] {$\RE$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$\IM$};
+  \draw[firebrick3,fill=firebrick3,fill opacity=0.2,opacity=0.2] (-4,-4)--(4,-4) -- (4,4) -- (-4,4) -- cycle;
+\end{tikzpicture}

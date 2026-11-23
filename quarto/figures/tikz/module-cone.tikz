@@ -1,0 +1,14 @@
+% moduleDisque (ancienne source : images/moduleDisque/moduleDisque.tex)
+\begin{tikzpicture}
+  \begin{axis}[
+    title={$\left|z\right|$},
+    xlabel=$\RE(z)$, ylabel=$\IM(z)$,
+    small,
+    ]
+    \addplot3[
+    surf,
+    domain=0:3,y domain=0:2*pi
+    ]
+    ({x*cos(deg(y))},{x*sin(deg(y))}, {x});
+  \end{axis}
+\end{tikzpicture}

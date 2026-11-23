@@ -1,0 +1,20 @@
+% livrejs-couleurs.sty — palette de la maquette livrejs.
+% Chargée par livrejs.cls et par le préambule des figures TikZ autonomes
+% (conversion en SVG pour la version web) : une seule source pour les couleurs.
+\ProvidesPackage{livrejs-couleurs}[2026/10/02 v1.0 Palette livrejs]
+\RequirePackage{xcolor}
+\definecolor{sectioncolor}{RGB}{28, 63, 110}   % bleu foncé pour titres
+\definecolor{thmboxbg}{RGB}{228, 238, 252}     % bleu pâle pour boîtes
+\definecolor{histboxbg}{RGB}{252, 246, 232}    % ivoire chaud pour notes historiques
+\definecolor{coveraccent}{RGB}{196, 142, 58}   % or chaud, accent de couverture
+\definecolor{covernavy}{RGB}{13, 27, 51}       % bleu très foncé, fond de couverture
+\definecolor{citationbg}{RGB}{242, 242, 242}   % gris pâle pour les citations
+\definecolor{secboxbg}{RGB}{253, 240, 219}     % ocre pâle pour « Pour la classe »
+% Code de couleurs des activités : vert pour l'informatique (Python),
+% jaune ocre pour la classe (même teinte que les encadrés « Pour la classe »).
+\definecolor{infocolor}{RGB}{46, 125, 50}      % vert : activités informatiques
+\colorlet{classecolor}{coveraccent}            % jaune ocre : activités en classe
+\definecolor{infoboxbg}{RGB}{233, 245, 234}    % vert pâle pour les encadrés « Outil »
+\definecolor{steelblue4}{HTML}{36648B}
+\definecolor{firebrick3}{HTML}{CD3333}
+\endinput

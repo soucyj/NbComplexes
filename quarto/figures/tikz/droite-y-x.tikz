@@ -1,0 +1,6 @@
+% droiteyegalx (ancienne source : images/droiteyegalx/droiteyegalx.tex)
+\begin{tikzpicture}[scale=0.55]
+  \draw[->] (-4,0) -- (4,0) node[right] {$\RE$};
+  \draw[->] (0,-4) -- (0,4) node[above] {$\IM$};
+  \draw[firebrick3] (-3.5,-3.5) -- (3.5,3.5) node[right] {$y = x$};
+\end{tikzpicture}

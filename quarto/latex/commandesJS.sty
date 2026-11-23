@@ -1,0 +1,275 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = fr_FR
+
+\ProvidesPackage{commandesJS}[2026/09/08 v1.0 Raccourcis mathematiques de JS]
+
+\RequirePackage{interval}		% Pour les intervalles de nombres réels
+\RequirePackage{graphicx,tipa}	% Pour les arcs de cercle
+\RequirePackage{textcomp}
+
+%----------------------------------------------------------------
+% Pour les ensembles de nombres
+%----------------------------------------------------------------
+\DeclareMathOperator\C{\mathbb{C}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Rp}{\interval[open right]{0}{\infty}}
+\DeclareMathOperator{\Rps}{\interval[open]{0}{\infty}}
+\DeclareMathOperator{\Rneg}{\interval[open left]{-\infty}{0}}
+\DeclareMathOperator{\Rns}{\interval[open]{-\infty}{0}}
+\DeclareMathOperator{\Rs}{\mathbb{R}^{\star}}
+\DeclareMathOperator{\Cs}{\mathbb{C}^{\star}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Zn}{\mathbb{Z}_{\leq 0}}
+\DeclareMathOperator{\Zs}{\mathbb{Z}^{\star}}
+\DeclareMathOperator{\Zns}{\mathbb{Z}_{< 0}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\Qs}{\mathbb{Q}^{\star}}
+\DeclareMathOperator{\Qp}{\mathbb{Q}_{\geq 0}}
+\DeclareMathOperator{\Qps}{\mathbb{Q}_{> 0}}
+\DeclareMathOperator{\Qn}{\mathbb{Q}_{\leq 0}}
+\DeclareMathOperator{\Qns}{\mathbb{Q}_{< 0}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Ns}{\mathbb{N}^{\star}}
+
+%----------------------------------------------------------------
+% Pour les constantes universelles
+%----------------------------------------------------------------
+\DeclareMathOperator{\eu}{e}
+\DeclareMathOperator{\iu}{i\mkern1mu}
+% Pour un pi ou un gamma droits, utiliser \uppi et \upgamma (unicode-math).
+
+% Intégrales
+\newcommand{\evint}[3]{\mathopen{}\left[#1\right]\mathclose{}_{#2}^{#3}}
+
+
+%----------------------------------------------------------------
+% Pour les arcs, segments, droites et demi-droites
+% La commande \arc nécessite le package graphicx et le package tipa
+%----------------------------------------------------------------
+\newcommand{\arc}[1]{{%
+  \setbox9=\hbox{#1}%
+  \ooalign{\resizebox{\wd9}{\height}{\texttoptiebar{\phantom{A}}}\cr#1}}}
+
+
+%----------------------------------------------------------------
+% Pour les intervalles, segments, droites et demi-droites
+%----------------------------------------------------------------
+\newcommand{\intff}[2]{\interval{#1}{#2}}
+\newcommand{\intoo}[2]{\interval[open]{#1}{#2}}
+\newcommand{\intof}[2]{\interval[open left]{#1}{#2}}
+\newcommand{\intfo}[2]{\interval[open right]{#1}{#2}}
+
+% Pour un intervalle d'entiers, unicode-math fournit \lBrack et \rBrack :
+%   $\lBrack 1, n \rBrack$
+
+%----------------------------------------------------------------
+% Fonctions hyperboliques
+%----------------------------------------------------------------
+
+
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\artanh}{artanh}
+
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arcoth}{arcoth}
+
+%----------------------------------------------------------------
+% Fonctions spéciales
+%----------------------------------------------------------------
+
+%----------------------------------------------------------------
+% Analyse complexe
+%----------------------------------------------------------------
+
+
+\let\arg\relax
+\let\Re\relax
+\let\Im\relax
+\DeclareMathOperator{\RE}{Re}
+\DeclareMathOperator{\IM}{Im}
+\DeclareMathOperator{\arg}{arg}
+\DeclareMathOperator{\Arg}{Arg}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\zbar}{\overline{z}}
+
+%----------------------------------------------------------------
+% Analyse vectorielle
+%----------------------------------------------------------------
+\DeclareMathOperator{\rotation}{rot}
+\makeatletter
+\providecommand*\psc{\mathpalette\psc@{.5}}
+\providecommand*\psc@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+%----------------------------------------------------------------
+% Pour mettre du texte en exposant où en indice etc.
+%----------------------------------------------------------------
+\providecommand*{\ped}[1]{			% Indice
+	\ensuremath{_\mathrm{#1}}}
+\providecommand*{\ap}[1]{			% Exposant
+	\ensuremath{^\mathrm{#1}}}
+
+\def\siecle#1{\textsc{\romannumeral #1}\textsuperscript{e}~siècle}
+
+
+%----------------------------------------------------------------
+% Varia
+%----------------------------------------------------------------
+\newcommand{\egdef}{\overset{\scriptsize\textrm{d\'ef}}{=}}
+%\newcommand{\defi}[1]{\textbf{#1}}
+
+
+\newcommand{\similitude}{\mathcal{S}}
+\newcommand{\isometrie}{\mathcal{I}}
+
+\newcommand{\vrai}{\textsc{vrai}}
+\newcommand{\faux}{\textsc{faux}}
+
+
+\newcommand{\Dom}[1]{\mathcal{D}_{#1}} %
+\newcommand{\Img}[1]{\mathcal{I}_{#1}} %
+\DeclareMathOperator{\Codom}{Codom}
+
+\newcommand{\preuve}{\textsc{Preuve.~}}
+\newcommand{\fin}{\textcolor{black}{\textsquare}}
+
+%----------------------------------------------------------------
+% Pour les probabilités
+%----------------------------------------------------------------
+
+
+\DeclareMathOperator{\variance}{var}
+\DeclareMathOperator{\covariance}{cov}
+
+\DeclareMathOperator{\uniforme}{uniforme}
+\DeclareMathOperator{\exponentielle}{exponentielle}
+\DeclareMathOperator{\Poisson}{Poisson}
+\DeclareMathOperator{\binomiale}{binomiale}
+\DeclareMathOperator{\binomialenegative}{binomiale~n\acute{e}gative}
+\DeclareMathOperator{\hypergeometrique}{hyperg\acute{e}om\acute{e}trique}
+\DeclareMathOperator{\geometrique}{g\acute{e}om\acute{e}trique}
+\DeclareMathOperator{\motgamma}{gamma}
+\DeclareMathOperator{\Bernoulli}{Bernoulli}
+\DeclareMathOperator{\motbeta}{b\hat{e}ta}
+\DeclareMathOperator{\Cauchy}{Cauchy}
+
+
+\RequirePackage{xstring}
+
+\newcommand{\loiuniforme}[3][]{%
+    \IfStrEq{#1}{num}{%
+        \uniforme\left({#2}\,;{#3}\right)%
+    }{%
+        \uniforme\left({#2},{#3}\right)%
+    }%
+}
+\newcommand{\loiexponentielle}[1]{
+    \exponentielle\left({#1}\right)%
+}
+\newcommand{\loigeometrique}[1]{
+    \geometrique\left({#1}\right)%
+}
+\newcommand{\loiPoisson}[1]{
+    \Poisson\left({#1}\right)%
+}
+\newcommand{\loiBernoulli}[1]{
+    \Bernoulli\left({#1}\right)%
+}
+\newcommand{\loibinomiale}[3][]{%
+    \IfStrEq{#1}{num}{%
+        \binomiale\left({#2}\,;{#3}\right)%
+    }{%
+        \binomiale\left({#2},{#3}\right)%
+    }%
+}
+\newcommand{\loibinomialenegative}[3][]{%
+    \IfStrEq{#1}{num}{%
+        \binomialenegative\left({#2}\,;{#3}\right)%
+    }{%
+        \binomialenegative\left({#2},{#3}\right)%
+    }%
+}
+\newcommand{\loigamma}[3][]{%
+    \IfStrEq{#1}{num}{%
+        \motgamma\left({#2}\,;{#3}\right)%
+    }{%
+        \motgamma\left({#2},{#3}\right)%
+    }%
+}
+\newcommand{\loibeta}[3][]{%
+    \IfStrEq{#1}{num}{%
+        \motbeta\left({#2}\,;{#3}\right)%
+    }{%
+        \motbeta\left({#2},{#3}\right)%
+    }%
+}
+\newcommand{\loiCauchy}[3][]{%
+    \IfStrEq{#1}{num}{%
+        \Cauchy\left({#2}\,;{#3}\right)%
+    }{%
+        \Cauchy\left({#2},{#3}\right)%
+    }%
+}
+\newcommand{\loihypergeometrique}[4][]{%
+    \IfStrEq{#1}{num}{%
+        \hypergeometrique\left({#2}\,;{#3}\,{#4}\right)%
+    }{%
+    \hypergeometrique\left({#2},{#3},{#4}\right)%
+    }%
+}
+\newcommand{\loinormale}[3][]{%
+    \IfStrEq{#1}{num}{%
+        \mathcal{N}\left({#2}\,;{#3}\right)%
+    }{%
+    \mathcal{N}\left({#2},{#3}\right)%
+    }%
+}
+\renewcommand{\P}[1]{\mathbb{P}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\Es}[1]{\mathbb{E}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\Cov}[1]{\covariance\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\Var}[1]{\variance\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\cov}[1]{\covariance\mathopen{}\left(#1\right)\mathclose{}}
+
+
+%----------------------------------------------------------------
+% Pour les ensembles
+%----------------------------------------------------------------
+\DeclareMathOperator{\dimension}{dim}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\cardinalite}{Card}
+\newcommand{\card}[1]{\cardinalite\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\comp}[1]{\mathopen{}#1\mathclose{}^{\mathsf{c}}}
+
+%----------------------------------------------------------------
+% Théorie des nombres
+%----------------------------------------------------------------
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+\newcommand{\Mod}[3]{#1\equiv #2 \text{~mod} \,{#3}}
+
+%----------------------------------------------------------------
+% Algèbre linéaire
+%----------------------------------------------------------------
+\newcommand{\matdeux}[4]{
+	\left(\begin{array}{cc}
+		#1&#2\\
+		#3&#4\\
+	\end{array}\right)
+}
+\newcommand{\mattrois}[9]{
+	\left(\begin{array}{ccc}
+		#1&#2&#3\\
+		#4&#5&#6\\
+		#7&#8&#9\\
+	\end{array}\right)
+}
+% La commande \vv{}{} affiche un vecteur colonne avec x et y comme composantes.
+\newcommand{\vdeux}[2]{
+	\left(\begin{matrix}#1\\#2\end{matrix}\right)
+}
+% La commande \vh{}{} affiche un vecteur colonne avec x et y comme composantes.
+\newcommand{\vtrois}[3]{
+	\left(\begin{matrix}#1\\#2\\#3\end{matrix}\right)
+}

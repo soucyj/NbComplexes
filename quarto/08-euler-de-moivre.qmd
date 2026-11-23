@@ -1,0 +1,91 @@
+# Les formules d'Euler et celle de De Moivre {#chap:euler-de-moivre}
+
+Tenons-nous-le pour dit : Euler a démontré une pléiade de formules durant
+sa vie. Dans ce chapitre, nous faisons allusion à certaines formules qu'il
+a établies entre la fonction exponentielle et les fonctions
+trigonométriques. Ces dernières apparaissent dans son ouvrage
+*Introductio in analysin infinitorum*, publié en 1748.
+
+::: {.proposition #prop:formules-euler title="Formules d'Euler"}
+Soit $\theta\in\R$. Alors
+$$\cos\theta = \frac{\eu^{\iu\theta }+\eu^{-\iu\theta}}{2}\qquad\text{et}\qquad \sin\theta = \frac{\eu^{\iu\theta}-\eu^{-\iu\theta}}{2\iu}.$$
+:::
+
+::: proof
+Nous avons précédemment établi (voir le théorème \ref{thm:euler}) que
+$$\eu^{\iu x}=\cos x+\iu\sin x$$
+pour tout $x\in\R$. En remplaçant $x$ par $\theta$ dans cette équation,
+nous obtenons que
+$$\eu^{\iu\theta}=\cos \theta+\iu\sin \theta.\tag{$\star$}$$
+Aussi, en remplaçant $x$ par $-\theta$ dans l'équation du théorème
+\ref{thm:euler}, nous obtenons que
+$$\eu^{-\iu\theta}=\cos (-\theta)+\iu\sin (-\theta).$$
+En observant que la fonction $\cos$ est paire et que la fonction $\sin$ est
+impaire, on en déduit que
+$$\eu^{-\iu\theta}=\cos \theta-\iu\sin \theta.\tag{$\star\star$}$$
+Ainsi, en observant que la somme des membres de gauche des équations
+$(\star)$ et $(\star\star)$ est égale à la somme des membres de droite de
+ces mêmes équations, on obtient que
+$$\eu^{\iu\theta}+\eu^{-\iu\theta}=2\cos\theta.$$
+En divisant par $2$ chaque membre de la dernière équation, nous avons
+montré la première identité. Pour obtenir la seconde identité, on doit
+plutôt soustraire les équations $(\star)$ et $(\star\star)$. On obtient
+ainsi que
+$$\eu^{\iu\theta}-\eu^{-\iu\theta}=2\iu\sin\theta.$$
+En divisant par $2\iu$, nous obtenons la deuxième identité de la
+proposition \ref{prop:formules-euler}.
+:::
+
+::: {.remark title="Fonctions paires et impaires"}
+Une fonction $f$ est dite [paire]{.defi} si elle vérifie $f(-x)=f(x)$
+partout sur son domaine de définition, et [impaire]{.defi} si elle vérifie
+plutôt $f(-x)=-f(x)$. Le produit de deux fonctions paires, ou de deux
+fonctions impaires, est une fonction paire ; le produit d'une fonction
+paire et d'une fonction impaire est une fonction impaire. On retrouve
+ainsi la règle qui régit la parité de la somme de deux nombres entiers.
+:::
+
+::: {.proposition #prop:de-moivre title="Formule de De Moivre"}
+Soit $\theta\in\R$, et soit $n\in\N$. Alors
+$$(\cos\theta+\iu\sin\theta)^n=\cos (n\theta)+\iu\sin (n\theta).$$
+:::
+
+::: proof
+Puisque l'exponentielle d'une somme est égale au produit des
+exponentielles, nous avons que
+$$\eu^{\overbrace{\scriptstyle\iu\theta+\iu\theta+\cdots+\iu\theta}^{n \text{ fois}}}=\underbrace{\eu^{\iu\theta}\cdot\eu^{\iu\theta}\cdots\eu^{\iu\theta}}_{n\text{ fois}}.$$
+C'est donc dire que
+$$\eu^{\iu n\theta}=\left(\eu^{\iu\theta}\right)^n.$$
+En utilisant le théorème \ref{thm:euler} pour exprimer les deux membres de
+cette équation à l'aide des fonctions $\sin$ et $\cos$, nous obtenons que
+$$\cos (n\theta)+\iu\sin (n\theta)=(\cos\theta+\iu\sin\theta)^n,$$
+ce qui est précisément ce que nous voulions montrer.
+:::
+
+La formule de De Moivre est particulièrement utile pour exprimer les
+fonctions $\cos n\theta$ et $\sin n\theta$ en fonction des puissances des
+fonctions $\sin \theta$ et $\cos\theta$.
+
+::: {.example #ex:de-moivre title="Applications de la formule de De Moivre"}
+En appliquant la proposition \ref{prop:de-moivre} avec $n=2$, nous avons
+que
+$$(\cos\theta+\iu\sin\theta)^2=\cos (2\theta)+\iu\sin (2\theta).$$
+En développant le membre de gauche, nous obtenons que
+$$\cos^2\theta-\sin^2\theta+2\iu\sin\theta\cos\theta=\cos (2\theta)+\iu\sin (2\theta).$$
+Puis, en égalant parties réelle et imaginaire, on déduit que
+\begin{align*}
+  \cos^2\theta-\sin^2\theta&=\cos(2\theta),\\
+  2\sin\theta\cos\theta&=\sin (2\theta).
+\end{align*}
+Ces équations sont vraies quelle que soit la valeur de $\theta$. Ce sont
+des identités trigonométriques utiles dans différents contextes.
+Finalement, en utilisant l'identité trigonométrique
+$\sin^2\theta+\cos^2\theta=1$, il est possible de réécrire certaines
+identités obtenues avec la formule de De Moivre. Par exemple, l'identité
+$\cos(2\theta)=\cos^2\theta-\sin^2\theta$ entraîne les deux identités
+ci-dessous :
+\begin{align*}
+  \cos(2\theta)&=1-2\sin^2\theta,\\
+  \cos(2\theta)&=2\cos^2\theta-1.
+\end{align*}
+:::

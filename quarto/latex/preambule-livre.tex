@@ -1,0 +1,25 @@
+% ═══════════════════════════════════════════════════════════════════════
+%  Préambule propre au livre (PDF seulement)
+% ═══════════════════════════════════════════════════════════════════════
+% ── Coupure des URL ──────────────────────────────────────────────────
+% Sans réglage, les longues adresses des notes de bas de page débordent
+% dans la marge. xurl (chargé après hyperref, que la classe appelle en
+% dernier) rend chaque caractère d'une URL sécable ; les trois lignes
+% suivantes rétablissent une hiérarchie : couper de préférence après un
+% « / », un « - », un « . » ou un « : », et à l'intérieur d'un mot
+% seulement en dernier recours.
+\usepackage{xurl}
+\def\UrlBigBreaks{\do\:\do\/\do\-\do\.}
+\mathchardef\UrlBigBreakPenalty=100
+\mathchardef\UrlBreakPenalty=5000
+
+\input{macros-livre}
+
+% ── Chapitres d'exercices (séries 1 et 2) ─────────────────────────────
+% Un chapitre entièrement consacré aux exercices (# Titre {.exercices}) :
+% comme \sectionExercices, sans le titre « Exercices », puisque le
+% chapitre en porte déjà un. Le filtre referme le fichier de solutions
+% (\finExercices) avant le chapitre suivant.
+\newcommand{\debutExercices}{%
+  \Opensolutionfile{solutions}[sol-ch\thechapter]%
+}
